@@ -4,10 +4,10 @@
 using namespace std;
 
 Jogo::Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
-    : jogadorA(jogador1), jogadorB(jogador2), jogadorAtual(jogador1), numLinhas(linhas), numColunas(colunas) {
-    // Inicializar o tabuleiro conforme o tamanho passado
-    tabuleiro.resize(numLinhas, vector<char>(numColunas, 'O')); // Inicializa com peças vazias 'O'
-}
+        : jogadorA(jogador1), jogadorB(jogador2), jogadorAtual(jogador1), numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
+        // Inicializar o tabuleiro conforme o tamanho passado
+        tabuleiro.resize(numLinhas, vector<char>(numColunas, 'O')); // Inicializa com peças vazias 'O'
+    }
 
 Jogo::~Jogo() {
     delete jogadorA;
@@ -16,9 +16,10 @@ Jogo::~Jogo() {
 
 void Jogo::iniciarJogo() {
     jogadorAtual = jogadorA;
-    while (!testarVitoria()) {
+    while (jogoAtivo) {
         receberJogada();
-        trocarJogador(); // Troca para o próximo jogador após jogada finalizar
+        if (!jogoAtivo) break;
+        trocarJogador();
     }
     encerrarJogo();
 }
@@ -45,29 +46,23 @@ void Jogo::receberJogada() {
     int linha, coluna;
     cin >> linha >> coluna;
 
-    if (!testarJogada(linha, coluna)) {
-        cout << "Jogada inválida, tente novamente." << endl;
-        receberJogada();
-    }
+    testarJogada(linha, coluna);
 }
 
-bool Jogo::testarJogada(int linha, int coluna) {
+void Jogo::testarJogada(int linha, int coluna) {
     vector<pair<int, int>> posicoesPossiveis = calcularPosicoesPossiveis();
     for (const auto& pos : posicoesPossiveis) {
         if (pos.first == linha && pos.second == coluna) {
             fazerJogada(linha, coluna);
-            return true;
+            return;
         }
     }
-    return false;
+    cout << "Jogada inválida, tente novamente." << endl;
+    receberJogada();
 }
 
 void Jogo::trocarJogador() {
-    if (jogadorAtual == jogadorA) {
-        jogadorAtual = jogadorB;
-    } else {
-        jogadorAtual = jogadorA;
-    }
+    jogadorAtual = (jogadorAtual == jogadorA) ? jogadorB : jogadorA;
     cout << "Vez do jogador " << jogadorAtual->getNome() << endl;
 }
 
