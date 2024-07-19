@@ -8,12 +8,15 @@ using namespace std;
 
 class Lig4 : public Jogo {
 public:
-    Lig4(Jogador* jogador1, Jogador* jogador2);
+    Lig4(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas);
 
     void inicializarTabuleiro() override;
-    vector<pair<int, int>> calcularPosicoesPossiveis() override;
     void fazerJogada(int linha, int coluna) override;
     bool testarVitoria() override;
+
+protected:
+    vector<pair<int, int>> calcularPosicoesPossiveis() override;
+
 };
 
 #endif /* LIG4_HPP */
