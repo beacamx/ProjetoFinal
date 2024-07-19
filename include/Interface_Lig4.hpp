@@ -2,6 +2,7 @@
 #define INTERFACE_LIG4_HPP
 
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <memory>
 #include <array>
 
@@ -12,8 +13,8 @@ class Lig4 {
     sf::Texture texture;
 
     int largura, num_quadrados, x, y, direcionador_x, direcionador_y;
-    std::array<std::array<int, 7>, 6> grid;
-    sf::Sprite sprite;
+    std::array<std::array<int, 8>, 7> grid;
+    std::array<sf::Sprite, 42> sprite;
 
     protected:
         void events();
