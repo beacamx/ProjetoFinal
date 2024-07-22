@@ -6,7 +6,7 @@
 #include <memory>
 #include <array>
 
-class Lig4 {
+class Interface_Lig4 {
     std::shared_ptr<sf::RenderWindow> window;
     std::shared_ptr<sf::Event> event;
 
@@ -21,7 +21,7 @@ class Lig4 {
         void draw();
 
     public:
-        Lig4();
+        Interface_Lig4();
         void run();
 };
 

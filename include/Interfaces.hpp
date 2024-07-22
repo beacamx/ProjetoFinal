@@ -4,7 +4,7 @@
 #include "Interface_Lig4.hpp"
 
 int inicia_Lig4(int argc, char **argv) {
-    auto p = std::make_unique<Lig4>();
+    auto p = std::make_unique<Interface_Lig4>();
     p->run();
     return 0;
 }

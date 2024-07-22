@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Lig4::Lig4() {
+Interface_Lig4::Interface_Lig4() {
     window = std::make_shared<sf::RenderWindow>(
         sf::VideoMode(546, 468),
         "Lig4",
@@ -31,7 +31,7 @@ Lig4::Lig4() {
     }
 }
 
-void Lig4::events() {
+void Interface_Lig4::events() {
     while (window->pollEvent(*event)) {
         if (event->type == sf::Event::Closed) {
             window->close();
@@ -43,7 +43,7 @@ void Lig4::events() {
     }
 }
 
-void Lig4::draw() {
+void Interface_Lig4::draw() {
     window->clear(sf::Color::Black);
     for(size_t i {}; i < 6; ++i) {
         for(size_t j {}; j < 7; ++j) {
@@ -55,7 +55,7 @@ void Lig4::draw() {
     window->display();
 }
 
-void Lig4::run() {
+void Interface_Lig4::run() {
     while (window->isOpen()) {
         this->events();
         this->draw();
