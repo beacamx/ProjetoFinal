@@ -1,29 +1,21 @@
 #ifndef INTERFACE_LIG4_HPP
 #define INTERFACE_LIG4_HPP
 
+#include "Interface_Jogo.hpp"
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <memory>
 #include <array>
 
-class Interface_Lig4 {
-    std::shared_ptr<sf::RenderWindow> window;
-    std::shared_ptr<sf::Event> event;
-
-    sf::Texture texture;
-
-    int largura, num_quadrados, x, y, direcionador_x, direcionador_y;
-    std::array<std::array<int, 8>, 7> grid;
-    std::array<sf::Sprite, 42> sprite;
-
-    protected:
-        void events();
-        void draw();
-        void logic();
-
+class Interface_Lig4 : public Interface_Jogo {
     public:
-        Interface_Lig4();
-        void run();
+    Interface_Lig4() : Interface_Jogo("Lig4") {}
+
+    void logic() override;
+    int Inicia_Jogo(int argc, char **argv) override; 
+    void set_Sprites() override;
+    void set_Image() override;
 };
 
 #endif

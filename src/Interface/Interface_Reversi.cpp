@@ -3,83 +3,84 @@
 
 using namespace std;
 
-Interface_Reversi::Interface_Reversi() {
+
+void Interface_Reversi::logic() {
+    
+}
+
+int Interface_Reversi::Inicia_Jogo(int argc, char **argv){
+    int dimensao;
+
+    cout << "Escolha uma dimensão:" << endl << "1- 7x6" << endl << "2- 8x7" << endl << "3- 9x7" << endl;
+    cin >> dimensao;
+
+    switch(dimensao) {
+        case 1:
+            linhas = 8;
+            colunas = 8;
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        default:
+            cout << "Dimensão inválida. Usando padrão 7x6." << endl;
+            linhas = 8;
+            colunas = 8;
+            break;
+    }
+
+    this->largura_quadrado = 74;
+    this->num_quadrados = linhas * colunas;
+
+    int largura_janela = colunas * largura_quadrado;
+    int altura_janela = linhas * largura_quadrado;
+
+    cout << "Criando Interface_Lig4..." << endl;
     window = std::make_shared<sf::RenderWindow>(
-        sf::VideoMode(592, 592),
-        "Reversi",
+        sf::VideoMode(largura_janela, altura_janela),
+        nome_do_jogo,
         sf::Style::Titlebar | sf::Style::Close
     );
 
     window->setPosition(sf::Vector2i(50, 50));
     window->setFramerateLimit(60);
-    event = std::make_shared<sf::Event>();
 
-    texture.loadFromFile("./assets/Reversi/Reversi_8x8.png");
+    grid.resize(linhas, std::vector<int>(colunas, 0));
 
-    largura = 74; 
-    num_quadrados = x = y = direcionador_x = direcionador_y = 0;
+    set_Sprites();
+    set_Image();
+    run();
 
-    grid.fill({0});
+    return 0;
+}
 
-    for(size_t i {}; i < 8; ++i) {
-        for(size_t j {}; j < 8; ++j) {
-            ++num_quadrados;
-            sprite[num_quadrados - 1].setTexture(texture);
-            sprite[num_quadrados - 1].setTextureRect(sf::IntRect(j * largura, i * largura, largura, largura));
-            grid[i + 1][j + 1] = num_quadrados;
-        }
+void Interface_Reversi::set_Image(){
+    if(num_quadrados == 64) {
+        texture.loadFromFile("./assets/Reversi/Reversi_8x8.png");
     }
 }
 
-void Interface_Reversi::events() {
-    static bool mousePressed = false;
+void Interface_Reversi::set_Sprites() {
+    sprites.resize(linhas * colunas);
+    grid.resize(linhas, std::vector<int>(colunas, 0));
+    for(int i = 0; i < linhas; ++i) {
+        for(int j = 0; j < colunas; ++j) {
+            int index = i * colunas + j; 
+            int tam_sprites = sprites.size();
 
-    while (window->pollEvent(*event)) {
-        if (event->type == sf::Event::Closed) {
-            window->close();
-        }
-
-        if (event->type == sf::Event::MouseButtonPressed) {
-            if (event->mouseButton.button == sf::Mouse::Left && !mousePressed) {
-                mousePressed = true;
-
-                sf::Vector2i pos = sf::Mouse::getPosition(*window);
-                this->x = pos.x / largura + 1;
-                this->y = pos.y / largura + 1;
-
-                if (x > 0 && x <= 8 && y > 0 && y <= 8) { // para testar se cada sprite está sendo lido corretamente
-                    cout << "Você clicou no número: " << grid[y][x] << endl;
-                }
+            if (index >= tam_sprites) {
+                std::cerr << "Índice fora dos limites: " << index << std::endl;
+                continue;
             }
-        }
 
-        if (event->type == sf::Event::MouseButtonReleased) {
-            if (event->mouseButton.button == sf::Mouse::Left) {
-                mousePressed = false;
-            }
-        }
-    }
-}
+            sf::Sprite& sprite = sprites[index];
+            sprite.setTexture(texture);
+            sprite.setTextureRect(sf::IntRect(j * largura_quadrado, i * largura_quadrado, largura_quadrado, largura_quadrado)); // Definir a área da textura
+            sprite.setPosition(j * largura_quadrado, i * largura_quadrado); 
 
-void Interface_Reversi::draw() {
-    window->clear(sf::Color::Black);
-    for(size_t i {}; i < 8; ++i) {
-        for(size_t j {}; j < 8; ++j) {
-            num_quadrados = grid[i + 1][j + 1];
-            sprite[num_quadrados - 1].setPosition(j * largura, i * largura);
-            window->draw(sprite[num_quadrados - 1]);
+            grid[i][j] = index + 1; 
         }
     }
-    window->display();
 }
 
-void Interface_Reversi::run() {
-    while (window->isOpen()) {
-        this->events();
-        this->draw();
-    }
-}
-
-void Interface_Reversi::logic() {
-
-}
