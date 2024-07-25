@@ -7,6 +7,6 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-    // inicia_Lig4(argc, argv);
-    inicia_Reversi(argc, argv);
+    inicia_Lig4(argc, argv);
+    // inicia_Reversi(argc, argv);
 }

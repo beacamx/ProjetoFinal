@@ -19,6 +19,7 @@ class Interface_Lig4 {
     protected:
         void events();
         void draw();
+        void logic();
 
     public:
         Interface_Lig4();

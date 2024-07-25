@@ -16,7 +16,8 @@ Interface_Lig4::Interface_Lig4() {
 
     texture.loadFromFile("./assets/Lig4/Lig4_7x6.png");
 
-    largura = 78; 
+    largura = texture.getSize().x / 7;
+    int altura = texture.getSize().y / 6;
     num_quadrados = x = y = direcionador_x = direcionador_y = 0;
 
     grid.fill({0});
@@ -25,20 +26,38 @@ Interface_Lig4::Interface_Lig4() {
         for(size_t j {}; j < 7; ++j) {
             ++num_quadrados;
             sprite[num_quadrados - 1].setTexture(texture);
-            sprite[num_quadrados - 1].setTextureRect(sf::IntRect(j * largura, i * largura, largura, largura));
+            sprite[num_quadrados - 1].setTextureRect(sf::IntRect(j * largura, i * altura, largura, altura));
             grid[i + 1][j + 1] = num_quadrados;
         }
     }
 }
 
 void Interface_Lig4::events() {
+    static bool mousePressed = false;
+
     while (window->pollEvent(*event)) {
         if (event->type == sf::Event::Closed) {
             window->close();
         }
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            cout << "Teste";
+        if (event->type == sf::Event::MouseButtonPressed) {
+            if (event->mouseButton.button == sf::Mouse::Left && !mousePressed) {
+                mousePressed = true;
+
+                sf::Vector2i pos = sf::Mouse::getPosition(*window);
+                this->x = pos.x / largura + 1;
+                this->y = pos.y / largura + 1;
+
+                if (x > 0 && x <= 7 && y > 0 && y <= 6) { // para testar se cada sprite está sendo lido corretamente
+                    cout << "Você clicou no número: " << grid[y][x] << endl;
+                }
+            }
+        }
+
+        if (event->type == sf::Event::MouseButtonReleased) {
+            if (event->mouseButton.button == sf::Mouse::Left) {
+                mousePressed = false;
+            }
         }
     }
 }
@@ -59,5 +78,9 @@ void Interface_Lig4::run() {
     while (window->isOpen()) {
         this->events();
         this->draw();
+        // this->logic();
     }
+}
+
+void Interface_Lig4::logic() {
 }
