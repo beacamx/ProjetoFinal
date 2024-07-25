@@ -11,7 +11,7 @@ void Interface_Reversi::logic() {
 int Interface_Reversi::Inicia_Jogo(int argc, char **argv){
     int dimensao;
 
-    cout << "Escolha uma dimensão:" << endl << "1- 7x6" << endl << "2- 8x7" << endl << "3- 9x7" << endl;
+    cout << "Escolha uma dimensão:" << endl << "1- 8x8" << endl << "2- " << endl << "3- " << endl;
     cin >> dimensao;
 
     switch(dimensao) {
@@ -24,7 +24,7 @@ int Interface_Reversi::Inicia_Jogo(int argc, char **argv){
         case 3:
             break;
         default:
-            cout << "Dimensão inválida. Usando padrão 7x6." << endl;
+            cout << "Dimensão inválida. Usando padrão 8x8." << endl;
             linhas = 8;
             colunas = 8;
             break;
