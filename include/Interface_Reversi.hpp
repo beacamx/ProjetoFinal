@@ -1,4 +1,0 @@
-#ifndef INTERFACE_REVERSI_HPP
-#define INTERFACE_REVERSI_HPP
-
-#endif

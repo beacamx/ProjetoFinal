@@ -14,7 +14,7 @@ Interface_Lig4::Interface_Lig4() {
     window->setFramerateLimit(60);
     event = std::make_shared<sf::Event>();
 
-    texture.loadFromFile("./assets/Lig4_7x6.png");
+    texture.loadFromFile("./assets/Lig4/Lig4_7x6.png");
 
     largura = 78; 
     num_quadrados = x = y = direcionador_x = direcionador_y = 0;
@@ -25,7 +25,7 @@ Interface_Lig4::Interface_Lig4() {
         for(size_t j {}; j < 7; ++j) {
             ++num_quadrados;
             sprite[num_quadrados - 1].setTexture(texture);
-            sprite[num_quadrados - 1].setTextureRect(sf::IntRect(j * largura, i * largura, largura, largura)); // Corrigido para j e i
+            sprite[num_quadrados - 1].setTextureRect(sf::IntRect(j * largura, i * largura, largura, largura));
             grid[i + 1][j + 1] = num_quadrados;
         }
     }
