@@ -16,7 +16,7 @@ Interface_Reversi::Interface_Reversi() {
 
     texture.loadFromFile("./assets/Reversi/Reversi_8x8.png");
 
-    largura = 78; 
+    largura = 74; 
     num_quadrados = x = y = direcionador_x = direcionador_y = 0;
 
     grid.fill({0});
@@ -32,13 +32,31 @@ Interface_Reversi::Interface_Reversi() {
 }
 
 void Interface_Reversi::events() {
+    static bool mousePressed = false;
+
     while (window->pollEvent(*event)) {
         if (event->type == sf::Event::Closed) {
             window->close();
         }
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            cout << "Teste";
+        if (event->type == sf::Event::MouseButtonPressed) {
+            if (event->mouseButton.button == sf::Mouse::Left && !mousePressed) {
+                mousePressed = true;
+
+                sf::Vector2i pos = sf::Mouse::getPosition(*window);
+                this->x = pos.x / largura + 1;
+                this->y = pos.y / largura + 1;
+
+                if (x > 0 && x <= 8 && y > 0 && y <= 8) { // para testar se cada sprite está sendo lido corretamente
+                    cout << "Você clicou no número: " << grid[y][x] << endl;
+                }
+            }
+        }
+
+        if (event->type == sf::Event::MouseButtonReleased) {
+            if (event->mouseButton.button == sf::Mouse::Left) {
+                mousePressed = false;
+            }
         }
     }
 }
@@ -60,4 +78,8 @@ void Interface_Reversi::run() {
         this->events();
         this->draw();
     }
+}
+
+void Interface_Reversi::logic() {
+
 }

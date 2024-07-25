@@ -19,6 +19,7 @@ class Interface_Reversi {
     protected:
         void events();
         void draw();
+        void logic();
 
     public:
         Interface_Reversi();

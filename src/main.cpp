@@ -7,6 +7,11 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-    inicia_Lig4(argc, argv);
-    // inicia_Reversi(argc, argv);
+    int operador;
+    cout << "Escolha um jogo: " << endl << "1 - Lig4" << endl << "2 - Reversi" << endl;
+    cin >> operador;
+    if(operador == 1)
+        inicia_Lig4(argc, argv);
+    else if(operador == 2)
+        inicia_Reversi(argc, argv);
 }
