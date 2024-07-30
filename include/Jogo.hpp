@@ -24,7 +24,7 @@ class Jogador {
 
 class Jogo {
     public:
-    Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas);
+    // Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas); inicializador utilizado sem parâmetros na main
     virtual ~Jogo();
 
     int iniciarJogo(); //a main usa como retorno inteiro, salvo engano, é obrigatório em c++
