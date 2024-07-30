@@ -5,7 +5,8 @@ using namespace std;
 class cadastro{
   public:
   cadastro();
-  void cadastrar(jogador * player_1, jogador * player_2);
+  void cadastrar(jogador * player_1);
+  jogador* find(string);
   private:
   vector jogadores<jogador*>;
 }
