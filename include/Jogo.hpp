@@ -14,6 +14,10 @@ class Jogador {
     char getPeca() const { return peca; }
     
     private:
+    /*
+    proposta de dados rankeáveis
+    unsigned int _loses, _wins;
+    */
     string nome;
     char peca;
 };
@@ -23,7 +27,7 @@ class Jogo {
     Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas);
     virtual ~Jogo();
 
-    void iniciarJogo();
+    int iniciarJogo(); //a main usa como retorno inteiro, salvo engano, é obrigatório em c++
     void imprimirTabuleiro() const;
     void receberJogada();
     void testarJogada(int linha, int coluna);
@@ -36,6 +40,10 @@ class Jogo {
     virtual vector<pair<int, int>> calcularPosicoesPossiveis() = 0;
     
     protected:
+    /*
+    proposta de implementação de 
+    vector jogadores<jogador*>;
+    */
     Jogador* jogadorA;
     Jogador* jogadorB;
     Jogador* jogadorAtual;
