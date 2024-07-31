@@ -44,5 +44,5 @@ int main(int argc, char **argv) {
         return 1;
     }
 
-    return jogo->iniciarJogo();
+    return jogo->Inicia_Jogo(argc, argv);
 }
