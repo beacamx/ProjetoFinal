@@ -8,7 +8,7 @@ void Interface_Reversi::logic() {
     
 }
 
-int Interface_Reversi::Inicia_Jogo(int argc, char **argv){
+int Interface_Reversi::Start_Game_Interface(int argc, char **argv){
     int dimensao;
 
     cout << "Escolha uma dimensão:" << endl << "1- 8x8" << endl << "2- " << endl << "3- " << endl;

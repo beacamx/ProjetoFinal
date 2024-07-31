@@ -8,7 +8,7 @@ public:
     Interface_Reversi() : Interface_Jogo("Reversi") {}
 
     void logic() override; 
-    int Inicia_Jogo(int argc, char **argv) override; 
+    int Start_Game_Interface(int argc, char **argv) override; 
     void set_Sprites() override;
     void set_Image() override;
 };
