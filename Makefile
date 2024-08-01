@@ -8,10 +8,11 @@ LD=g++
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
-OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o
+
+OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o $(OBJDIR)/Interface_Menu.o
 
 all: $(OBJDIR) $(OBJS)
-	$(LD) -o $(TARGET) $(OBJS) $(CXXFLAGS)
+	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
 	@rm -f $(OBJS)
 	@./$(TARGET)
 
@@ -24,6 +25,9 @@ $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 $(OBJDIR)/Interface_Lig4.o: $(SRCDIR)/Interface/Interface_Lig4.cpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Jogo.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Lig4.cpp -o $(OBJDIR)/Interface_Lig4.o
 
+$(OBJDIR)/Interface_Menu.o: $(SRCDIR)/Interface/Interface_Menu.cpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Reversi.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Menu.cpp -o $(OBJDIR)/Interface_Menu.o
+
 $(OBJDIR)/Interface_Reversi.o: $(SRCDIR)/Interface/Interface_Reversi.cpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Interface_Jogo.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Reversi.cpp -o $(OBJDIR)/Interface_Reversi.o
 
@@ -31,4 +35,7 @@ $(OBJDIR)/Interface_Jogo.o: $(SRCDIR)/Interface/Interface_Jogo.cpp $(INCDIR)/Int
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Jogo.cpp -o $(OBJDIR)/Interface_Jogo.o
 
 clean:
-	@rm -f $(OBJS) $(TARGET)
+	@rm -f $(OBJS) $(TARGET) 
+
+.PHONY: all test clean
+

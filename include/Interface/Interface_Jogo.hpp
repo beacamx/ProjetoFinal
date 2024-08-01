@@ -20,7 +20,7 @@ public:
     virtual void set_Sprites() = 0;
     virtual void set_Image() = 0;
     virtual void logic() = 0;
-    virtual int Start_Game_Interface(int argc, char **argv) = 0;
+    virtual int Start_Game_Interface() = 0;
 
 protected:
     int linhas;

@@ -5,17 +5,18 @@
 #include "Interface/Interface_Jogo.hpp"
 #include "Interface/Interface_Lig4.hpp"
 #include "Interface/Interface_Reversi.hpp"
+#include "Interface/Interface_Define_Jogo.hpp"
 
 using namespace std;
 
-int main(int argc, char **argv) {
-    unsigned int operador;
+int main() {
+    Interface_Define_Jogo * menu = new Interface_Define_Jogo();
+    menu->Run_Menu();
+    delete menu;
+    menu = nullptr;
 
-    cout << "Escolha um jogo: " << endl << "1 - Lig4" << endl << "2 - Reversi" << endl;
-    cin >> operador;
-
-    unique_ptr<Interface_Jogo> jogo;
-    /* proposta de looping que admite nova tentativa ante erro de entrada do usuário a partir da linha 12
+    /*
+    proposta de looping que admite nova tentativa ante erro de entrada do usuário a partir da linha 12
     while(1){
         cout << "Escolha um jogo: " << endl << "1 - Lig4" << endl << "2 - Reversi" << endl << "0 - Sair" << endl;
         cin >> operador;
@@ -35,14 +36,4 @@ int main(int argc, char **argv) {
         }
     }
     */
-    if (operador == 1) {
-        jogo = make_unique<Interface_Lig4>();
-    } else if (operador == 2) {
-        jogo = make_unique<Interface_Reversi>();
-    } else {
-        cerr << "Opção inválida" << endl;
-        return 1;
-    }
-
-    return jogo->Start_Game_Interface(argc, argv);
 }

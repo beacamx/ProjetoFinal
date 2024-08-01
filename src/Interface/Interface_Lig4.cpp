@@ -40,7 +40,7 @@ void Interface_Lig4::set_Sprites() {
     }
 }
 
-int Interface_Lig4::Start_Game_Interface(int argc, char **argv){
+int Interface_Lig4::Start_Game_Interface(){
     int dimensao;
 
     cout << "Escolha uma dimensão:" << endl << "1- 7x6" << endl << "2- 8x7" << endl << "3- 9x7" << endl;
