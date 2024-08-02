@@ -29,3 +29,5 @@ void data_manager::save(cadastro& player_ref){
     }
     archive.close();
 }
+data_manager::open_file_erro::open_file_erro(std::string input_type) : type(input_type) {}
+std::string data_manager::open_file_erro::get_type(){ return type };
