@@ -7,28 +7,10 @@ void Interface_Reversi::logic() {
     
 }
 
-int Interface_Reversi::Start_Game_Interface(){
-    int dimensao;
-
-    cout << "Escolha uma dimensão:" << endl << "1- 8x8" << endl << "2- " << endl << "3- " << endl;
-    cin >> dimensao;
-
-    switch(dimensao) {
-        case 1:
-            linhas = 8;
-            colunas = 8;
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        default:
-            cout << "Dimensão inválida. Usando padrão 8x8." << endl;
-            linhas = 8;
-            colunas = 8;
-            break;
-    }
-
+int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
+    this->linhas = num_linhas;
+    this->colunas = num_colunas;
+    
     this->largura_quadrado = 74;
     this->num_quadrados = linhas * colunas;
 

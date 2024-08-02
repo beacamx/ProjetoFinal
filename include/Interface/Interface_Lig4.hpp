@@ -13,7 +13,7 @@ class Interface_Lig4 : public Interface_Jogo {
     Interface_Lig4() : Interface_Jogo("Lig4") {}
 
     void logic() override;
-    int Start_Game_Interface() override; 
+    int Start_Game_Interface(int num_linhas, int num_colunas) override; 
     void set_Sprites() override;
     void set_Image() override;
 };

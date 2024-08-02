@@ -32,13 +32,17 @@ void Interface_Jogo::events() {
             window->close();
         }
 
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+            window->close();
+        }
+
         if (event->type == sf::Event::MouseButtonPressed) {
             if (event->mouseButton.button == sf::Mouse::Left && !mousePressed) {
                 mousePressed = true;
 
-                sf::Vector2i pos = sf::Mouse::getPosition(*window);
-                this->x = pos.x / largura_quadrado;
-                this->y = pos.y / largura_quadrado;
+                sf::Vector2i posicao = sf::Mouse::getPosition(*window);
+                this->x = posicao.x / largura_quadrado;
+                this->y = posicao.y / largura_quadrado;
 
                 if (x >= 0 && x < colunas && y >= 0 && y < linhas) { // para testar se cada sprite está sendo lido corretamente
                     cout << "Você clicou no número: " << grid[y][x] << endl;

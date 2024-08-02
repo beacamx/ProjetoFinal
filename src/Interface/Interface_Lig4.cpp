@@ -20,7 +20,7 @@ void Interface_Lig4::set_Image(){
 
 void Interface_Lig4::set_Sprites() {
     sprites.resize(linhas * colunas);
-    grid.resize(linhas, std::vector<int>(colunas, 0));
+    grid.resize(linhas, vector<int>(colunas, 0));
     for(int i = 0; i < linhas; ++i) {
         for(int j = 0; j < colunas; ++j) {
             int index = i * colunas + j; 
@@ -40,39 +40,15 @@ void Interface_Lig4::set_Sprites() {
     }
 }
 
-int Interface_Lig4::Start_Game_Interface(){
-    int dimensao;
+int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
+    this->linhas = num_linhas;
+    this->colunas = num_colunas;
 
-    cout << "Escolha uma dimensão:" << endl << "1- 7x6" << endl << "2- 8x7" << endl << "3- 9x7" << endl;
-    cin >> dimensao;
-
-    switch(dimensao) {
-        case 1:
-            this->linhas = 6;
-            this->colunas = 7;
-            break;
-        case 2:
-            this->linhas = 7;
-            this->colunas = 8;
-            break;
-        case 3:
-            this->linhas = 8;
-            this->colunas = 9;
-            break;
-        default:
-            cout << "Dimensão inválida. Usando padrão 7x6." << endl;
-            this->linhas = 6;
-            this->colunas = 7;
-            break;
-    }
-    
     this->largura_quadrado = 78,
     this->num_quadrados = linhas * colunas;
 
     int largura_janela = colunas * largura_quadrado;
     int altura_janela = linhas * largura_quadrado;
-
-    cout << "Criando Interface_Lig4..." << endl;
 
     window = std::make_shared<sf::RenderWindow>(
         sf::VideoMode(largura_janela, altura_janela),

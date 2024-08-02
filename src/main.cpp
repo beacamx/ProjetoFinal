@@ -5,15 +5,14 @@
 #include "Interface/Interface_Jogo.hpp"
 #include "Interface/Interface_Lig4.hpp"
 #include "Interface/Interface_Reversi.hpp"
-#include "Interface/Interface_Define_Jogo.hpp"
+#include "Interface/Interface_Definicoes_Jogo.hpp"
 
 using namespace std;
 
 int main() {
-    Interface_Define_Jogo * menu = new Interface_Define_Jogo();
+    unique_ptr<Interface_Menu> menu = make_unique<Interface_Definicoes_Jogo>();
+    
     menu->Run_Menu();
-    delete menu;
-    menu = nullptr;
 
     /*
     proposta de looping que admite nova tentativa ante erro de entrada do usuário a partir da linha 12
