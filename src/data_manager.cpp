@@ -16,7 +16,7 @@ void data_manager::load(cadastro& player_ref)
     }
     archive.close();
 }
-void data_manager::save(cadastro& player_ref){
+void data_manager::save(cadastro& players_ref){
     try
     {
         std::ofstream archive(data_manager::default_name, std::ios::binary);
@@ -24,7 +24,8 @@ void data_manager::save(cadastro& player_ref){
             throw data_manager::open_file_erro("save");
         }
     }
-    for (auto _aux : player_ref.get_vector()){
+        std::vector<jogadores*>& vector_reference = players_ref.get_vector();  
+    for (auto _aux : vector_reference){
         archive.write(reinterpret_cast<const char*>(&_aux), sizeof(_aux));
     }
     archive.close();
