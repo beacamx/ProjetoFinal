@@ -40,7 +40,7 @@ void Botao::update(const sf::Vector2f posicao_mouse) {
     if (this->caixa.getGlobalBounds().contains(posicao_mouse)) {
         this->estado_botao = BOTAO_HOVER;
 
-        if(this->pos == 0){
+        if(this->posicao == 0){
             this->estado_botao = BOTAO_ATIVO;
         }
     }

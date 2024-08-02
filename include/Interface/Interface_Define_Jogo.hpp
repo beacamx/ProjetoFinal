@@ -14,15 +14,15 @@
 
 using namespace std;
 
-class Interface_Definicoes_Jogo: public Interface_Menu {
+class Interface_Define_Jogo: public Interface_Menu {
     protected:
     void Set_Values() override;
     void Loop_Events() override;
     unique_ptr<Interface_Define_Dimensao> dimensao;
  
     public:
-    Interface_Definicoes_Jogo();
-    ~Interface_Definicoes_Jogo() override;
+    Interface_Define_Jogo();
+    ~Interface_Define_Jogo() override;
 };
 
 #endif

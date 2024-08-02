@@ -5,12 +5,12 @@
 #include "Interface/Interface_Jogo.hpp"
 #include "Interface/Interface_Lig4.hpp"
 #include "Interface/Interface_Reversi.hpp"
-#include "Interface/Interface_Definicoes_Jogo.hpp"
+#include "Interface/Interface_Define_Jogo.hpp"
 
 using namespace std;
 
 int main() {
-    unique_ptr<Interface_Menu> menu = make_unique<Interface_Definicoes_Jogo>();
+    unique_ptr<Interface_Menu> menu = make_unique<Interface_Define_Jogo>();
     
     menu->Run_Menu();
 

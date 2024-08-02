@@ -1,12 +1,12 @@
-#include "Interface_Definicoes_Jogo.hpp"
+#include "Interface_Define_Jogo.hpp"
 
-Interface_Definicoes_Jogo::Interface_Definicoes_Jogo(){
+Interface_Define_Jogo::Interface_Define_Jogo(){
     Set_Values();
 }
 
-Interface_Definicoes_Jogo::~Interface_Definicoes_Jogo(){}
+Interface_Define_Jogo::~Interface_Define_Jogo(){}
 
-void Interface_Definicoes_Jogo::Set_Values(){
+void Interface_Define_Jogo::Set_Values(){
     window->create(sf::VideoMode(624,546), "Jogos", sf::Style::Titlebar | sf::Style::Close);
     window->setPosition(sf::Vector2i(0,0));
 
@@ -42,7 +42,7 @@ void Interface_Definicoes_Jogo::Set_Values(){
     texts[0].setOutlineColor(sf::Color(255,255,255));
 }
 
-void Interface_Definicoes_Jogo::Loop_Events(){
+void Interface_Define_Jogo::Loop_Events(){
     sf::Event event;
     while(window->pollEvent(event)) {
         if(event.type == sf::Event::Closed) {

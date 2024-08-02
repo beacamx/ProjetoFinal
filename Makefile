@@ -8,7 +8,7 @@ OBJDIR=obj
 SRCDIR=src
 INCDIR=include
 
-OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o $(OBJDIR)/Interface_Definicoes_Jogo.o $(OBJDIR)/Botao.o $(OBJDIR)/Interface_Menu.o $(OBJDIR)/Interface_Define_Dimensao.o
+OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o $(OBJDIR)/Interface_Define_Jogo.o $(OBJDIR)/Botao.o $(OBJDIR)/Interface_Menu.o $(OBJDIR)/Interface_Define_Dimensao.o
 
 all: $(OBJDIR) $(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
@@ -24,8 +24,8 @@ $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 $(OBJDIR)/Interface_Lig4.o: $(SRCDIR)/Interface/Interface_Lig4.cpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Jogo.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Lig4.cpp -o $(OBJDIR)/Interface_Lig4.o
 
-$(OBJDIR)/Interface_Definicoes_Jogo.o: $(SRCDIR)/Interface/Interface_Definicoes_Jogo.cpp $(INCDIR)/Interface/Interface_Definicoes_Jogo.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Botao.hpp $(INCDIR)/Interface/Interface_Menu.hpp
-	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Definicoes_Jogo.cpp -o $(OBJDIR)/Interface_Definicoes_Jogo.o
+$(OBJDIR)/Interface_Define_Jogo.o: $(SRCDIR)/Interface/Interface_Define_Jogo.cpp $(INCDIR)/Interface/Interface_Define_Jogo.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Botao.hpp $(INCDIR)/Interface/Interface_Menu.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Define_Jogo.cpp -o $(OBJDIR)/Interface_Define_Jogo.o
 
 $(OBJDIR)/Interface_Reversi.o: $(SRCDIR)/Interface/Interface_Reversi.cpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Interface_Jogo.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Reversi.cpp -o $(OBJDIR)/Interface_Reversi.o

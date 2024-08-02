@@ -1,6 +1,5 @@
 #include "Interface_Define_Dimensao.hpp"
-
-#include <string>
+#include "Botao.hpp"
 
 using namespace std;
 
@@ -26,8 +25,6 @@ void Interface_Define_Dimensao::Set_Values(){
     
     background->setTexture(*image);
 
-       std::cout << "Nome do jogo: " << nome_jogo << std::endl;
-
     pos_mouse = {0,0};
     mouse_coord = {0,0};
 
@@ -43,8 +40,6 @@ void Interface_Define_Dimensao::Set_Values(){
     coords.clear();
     sizes.clear();
     
-    std::cout << "Número de opções: " << options.size() << std::endl;
-
     float espaco_vertical = 61.0f;
 
     for (size_t i = 0; i < options.size(); ++i) {
