@@ -7,7 +7,7 @@ void data_manager::load(cadastro& player_ref)
     {
         std::ifstream archive(data_manager::default_name, std::ios::binary);
         if (!archive)
-            throw open_file_erro("load");
+            throw data_manager::open_file_erro("load");
     }
     jogador _aux;
     while (archive.read(reinterpret_cast<char *>(&_aux)), sizeof(_aux))
@@ -21,7 +21,7 @@ void data_manager::save(cadastro& player_ref){
     {
         std::ofstream archive(data_manager::default_name, std::ios::binary);
         if (!archive){
-            throw open_file_erro("save");
+            throw data_manager::open_file_erro("save");
         }
     }
     for (auto _aux : player_ref.get_vector()){
