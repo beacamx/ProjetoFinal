@@ -7,7 +7,7 @@ void load(cadastro&);
 void save(cadastro&);
 class open_file_erro{
   public:
-    open_file_erro(std::string input_type);
+    open_file_erro(std::string);
     std::string get_type();
   protected:
     std::string type;
