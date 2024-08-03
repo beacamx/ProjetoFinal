@@ -1,5 +1,7 @@
 #include "Interface_Define_Jogo.hpp"
 
+using namespace std;
+
 Interface_Define_Jogo::Interface_Define_Jogo(){
     Set_Values();
 }
@@ -7,8 +9,21 @@ Interface_Define_Jogo::Interface_Define_Jogo(){
 Interface_Define_Jogo::~Interface_Define_Jogo(){}
 
 void Interface_Define_Jogo::Set_Values(){
-    window->create(sf::VideoMode(624,546), "Jogos", sf::Style::Titlebar | sf::Style::Close);
-    window->setPosition(sf::Vector2i(0,0));
+    if (!janela || !font || !image || !background) {
+        cerr << "Erro: recursos não inicializados corretamente." << endl;
+        return;
+    }
+
+    if (!buffer_selecao.loadFromFile("./assets/audio/c.wav")) {
+        cerr << "Erro ao carregar efeito sonoro" << std::endl;
+        exit(1);
+    }
+
+    som_selecao.setBuffer(buffer_selecao);
+    som_selecao.setVolume(50);
+
+    janela->create(sf::VideoMode(624,546), "Jogos", sf::Style::Titlebar | sf::Style::Close);
+    janela->setPosition(sf::Vector2i(0,0));
 
     posicao = 0;
     pressed = theselect = false;
@@ -21,45 +36,65 @@ void Interface_Define_Jogo::Set_Values(){
 
     background->setTexture(*image);
 
-    pos_mouse = {0,0};
+    posicao_mouse = {0,0};
     mouse_coord = {0,0};
 
-    options = {"Lig4", "Reversi"};
-    coords = {{288,283}, {268,344}};
-    sizes = {18, 18};
+    opcoes_de_escolha = {"Lig4", "Reversi"};
+    
+    coords.clear();
+    tamanho_fonte.clear();
 
-    texts.resize(2);
+    float espaco_vertical = 61.0f;
+    float largura_janela = 624.0f;
+    float altura_titulo = 271.0f; 
+    float altura_inferior_titulo = altura_titulo + 20.0f; 
 
-    for(size_t i{}; i < texts.size(); ++i) {
-        texts[i].setFont(*font);
-        texts[i].setString(options[i]);
-        texts[i].setCharacterSize(sizes[i]);
-        texts[i].setOutlineColor(sf::Color::Black);
-        texts[i].setPosition(coords[i]);
+    for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
+        float pos_y = altura_inferior_titulo + (i * espaco_vertical);
+        coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
+        tamanho_fonte.push_back(18); 
     }
 
-    texts[0].setOutlineThickness(0.5);
-    texts[0].setOutlineColor(sf::Color(255,255,255));
+    texto.resize(opcoes_de_escolha.size());
+
+    for(size_t i{}; i < texto.size(); ++i) {
+        texto[i].setFont(*font);
+        texto[i].setString(opcoes_de_escolha[i]);
+        texto[i].setCharacterSize(tamanho_fonte[i]);
+        texto[i].setOutlineColor(sf::Color::Black);
+        texto[i].setPosition(coords[i]);
+
+        sf::FloatRect text_bounds = texto[i].getLocalBounds();
+        float largura_texto = text_bounds.width;
+        float altura_texto = text_bounds.height;
+
+        texto[i].setOrigin(largura_texto / 2.0f, altura_texto / 2.0f);
+        texto[i].setPosition(coords[i].x, coords[i].y);
+    }
+
+    texto[0].setOutlineThickness(0.6);
+    texto[0].setOutlineColor(sf::Color(255,255,255));
 }
 
 void Interface_Define_Jogo::Loop_Events(){
-    sf::Event event;
-    while(window->pollEvent(event)) {
-        if(event.type == sf::Event::Closed) {
-            window->close();
+    sf::Event evento;
+    while(janela->pollEvent(evento)) {
+        if(evento.type == sf::Event::Closed) {
+            janela->close();
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
-            window->close();
+            janela->close();
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
             if(posicao < 1){
+                som_selecao.play();
                 ++posicao;
                 pressed = true;
-                texts[posicao].setOutlineThickness(0.5);
-                texts[posicao].setOutlineColor(sf::Color(255,255,255));
-                texts[posicao - 1].setOutlineThickness(0);
+                texto[posicao].setOutlineThickness(0.6);
+                texto[posicao].setOutlineColor(sf::Color(255,255,255));
+                texto[posicao - 1].setOutlineThickness(0);
                 pressed = false;
                 theselect = false;
             }
@@ -67,11 +102,12 @@ void Interface_Define_Jogo::Loop_Events(){
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
             if(posicao > 0){
+                som_selecao.play();
                 --posicao;
                 pressed = true;
-                texts[posicao].setOutlineThickness(0.5);
-                texts[posicao].setOutlineColor(sf::Color(255,255,255));
-                texts[posicao + 1].setOutlineThickness(0);
+                texto[posicao].setOutlineThickness(0.6);
+                texto[posicao].setOutlineColor(sf::Color(255,255,255));
+                texto[posicao + 1].setOutlineThickness(0);
                 pressed = false;
                 theselect = false;
             }
@@ -79,12 +115,13 @@ void Interface_Define_Jogo::Loop_Events(){
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
             theselect = true;
+
             if(posicao == 0) {
-                window->close();
+                janela->close();
                 dimensao = make_unique<Interface_Define_Dimensao>("Lig4");
                 dimensao->Run_Menu();
             } else if(posicao == 1) {
-                window->close();
+                janela->close();
                 dimensao = make_unique<Interface_Define_Dimensao>("Reversi");
                 dimensao->Run_Menu();
             }

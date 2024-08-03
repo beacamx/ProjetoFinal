@@ -16,7 +16,7 @@ void Interface_Jogo::draw() {
                 sprite.setPosition(j * largura_quadrado, i * largura_quadrado);
                 window->draw(sprite);
             } else {
-                std::cerr << "Índice de sprite fora dos limites: " << index << std::endl;
+                cerr << "Índice de sprite fora dos limites: " << index << std::endl;
             }
         }
     }
@@ -59,7 +59,7 @@ void Interface_Jogo::events() {
 }
 
 void Interface_Jogo::run(){
-    std::cout << "Iniciando a execução do jogo..." << std::endl;
+    cout << "Iniciando a execução do jogo..." << endl;
     while (window->isOpen()) {
         this->events();
         this->draw();

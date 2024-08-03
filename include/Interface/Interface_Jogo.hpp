@@ -2,6 +2,7 @@
 #define INTERFACE_JOGO_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <memory>
 #include <array>
@@ -9,33 +10,35 @@
 using namespace std;
 
 class Interface_Jogo {
-public:
-    Interface_Jogo(const std::string& nome_do_jogo);
-    virtual ~Interface_Jogo() = default;
-    
-    void events();
-    void run();
-    void draw();
+    public:
+        Interface_Jogo(const std::string& nome_do_jogo);
+        virtual ~Interface_Jogo() = default;
 
-    virtual void set_Sprites() = 0;
-    virtual void set_Image() = 0;
-    virtual void logic() = 0;
-    virtual int Start_Game_Interface(int linhas, int colunas) = 0;
+        void events();
+        void run();
+        void draw();
 
-protected:
-    int linhas;
-    int colunas;
-    int largura_quadrado;
-    int num_quadrados;
-    string nome_do_jogo;
+        virtual void set_Sprites() = 0;
+        virtual void set_Image() = 0;
+        virtual void logic() = 0;
+        virtual int Start_Game_Interface(int linhas, int colunas) = 0;
 
-    shared_ptr<sf::RenderWindow> window;
-    sf::Texture texture;
-    vector<sf::Sprite> sprites;
-    vector<std::vector<int>> grid;
+    protected:
+        int linhas;
+        int colunas;
+        int largura_quadrado;
+        int num_quadrados;
+        string nome_do_jogo;
 
-    shared_ptr<sf::Event> event; 
-    int x, y, direcionador_x, direcionador_y;
+        sf::Music som_jogo;
+
+        shared_ptr<sf::RenderWindow> window;
+        sf::Texture texture;
+        vector<sf::Sprite> sprites;
+        vector<std::vector<int>> grid;
+
+        shared_ptr<sf::Event> event; 
+        int x, y, direcionador_x, direcionador_y;
 };
 
 #endif

@@ -1,18 +1,25 @@
 #include "Interface_Define_Dimensao.hpp"
-#include "Botao.hpp"
 
 using namespace std;
 
 Interface_Define_Dimensao::~Interface_Define_Dimensao(){}
 
 void Interface_Define_Dimensao::Set_Values(){
-    if (!window || !font || !image || !background) {
+    if (!janela || !font || !image || !background) {
         cerr << "Erro: recursos não inicializados corretamente." << endl;
         return;
     }
 
-    window->create(sf::VideoMode(624,546), "Dimensoes", sf::Style::Titlebar | sf::Style::Close);
-    window->setPosition(sf::Vector2i(0,0));
+    if (!buffer_selecao.loadFromFile("./assets/audio/a.wav")) {
+        cerr << "Erro ao carregar efeito sonoro" << std::endl;
+        exit(1);
+    }
+
+    som_selecao.setBuffer(buffer_selecao);
+    som_selecao.setVolume(50);
+
+    janela->create(sf::VideoMode(624,546), "", sf::Style::Titlebar | sf::Style::Close);
+    janela->setPosition(sf::Vector2i(0,0));
 
     posicao = 0;
     pressed = theselect = false;
@@ -25,74 +32,84 @@ void Interface_Define_Dimensao::Set_Values(){
     
     background->setTexture(*image);
 
-    pos_mouse = {0,0};
+    posicao_mouse = {0,0};
     mouse_coord = {0,0};
 
     if (nome_jogo == "Lig4") {
-        options = {"7x6", "8x7", "9x7"};
+        opcoes_de_escolha = {"6x7", "7x8", "8x9"};
     } else if (nome_jogo == "Reversi") {
-        options = {"8x8", "9x9", "10x10"};
-    } else {
-        std::cerr << "Nome do jogo desconhecido: " << nome_jogo << std::endl;
-        return;
-    }
+        opcoes_de_escolha = {"8x8", "9x9", "10x10"};
+    } 
 
     coords.clear();
-    sizes.clear();
+    tamanho_fonte.clear();
     
     float espaco_vertical = 61.0f;
+    float largura_janela = 624.0f;
+    float altura_titulo = 271.0f; 
+    float altura_inferior_titulo = altura_titulo + 20.0f; 
 
-    for (size_t i = 0; i < options.size(); ++i) {
-        coords.push_back(sf::Vector2f(288, 283 + i * espaco_vertical));
-        sizes.push_back(18); 
+    for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
+        float pos_y = altura_inferior_titulo + (i * espaco_vertical);
+        coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
+        tamanho_fonte.push_back(18); 
     }
 
-    texts.resize(options.size());
+    texto.resize(opcoes_de_escolha.size());
 
-    for(size_t i{}; i < texts.size(); ++i) {
-        texts[i].setFont(*font);
-        texts[i].setString(options[i]);
-        texts[i].setCharacterSize(sizes[i]);
-        texts[i].setOutlineColor(sf::Color::Black);
-        texts[i].setPosition(coords[i]);
+    for(size_t i{}; i < texto.size(); ++i) {
+        texto[i].setFont(*font);
+        texto[i].setString(opcoes_de_escolha[i]);
+        texto[i].setCharacterSize(tamanho_fonte[i]);
+        texto[i].setOutlineColor(sf::Color::Black);
+        texto[i].setPosition(coords[i]);
+
+        sf::FloatRect text_bounds = texto[i].getLocalBounds();
+        float largura_texto = text_bounds.width;
+        float altura_texto = text_bounds.height;
+
+        texto[i].setOrigin(largura_texto / 2.0f, altura_texto / 2.0f);
+        texto[i].setPosition(coords[i].x, coords[i].y);
     }
 
-    texts[0].setOutlineThickness(0.5);
-    texts[0].setOutlineColor(sf::Color(255,255,255));
+    texto[0].setOutlineThickness(0.6);
+    texto[0].setOutlineColor(sf::Color(255,255,255));
 }
 
 void Interface_Define_Dimensao::Loop_Events(){
-    sf::Event event;
+    sf::Event evento;
 
-    int tam_vetor_texto = texts.size();
-    while(window->pollEvent(event)) {
-        if(event.type == sf::Event::Closed) {
-            window->close();
+    int tam_vetor_texto = texto.size();
+    while(janela->pollEvent(evento)) {
+        if(evento.type == sf::Event::Closed) {
+            janela->close();
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
-            window->close();
+            janela->close();
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
+            som_selecao.play();
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
-                texts[posicao].setOutlineThickness(0.5);
-                texts[posicao].setOutlineColor(sf::Color(255,255,255));
-                texts[posicao - 1].setOutlineThickness(0);
+                texto[posicao].setOutlineThickness(0.6);
+                texto[posicao].setOutlineColor(sf::Color(255,255,255));
+                texto[posicao - 1].setOutlineThickness(0);
                 pressed = false;
                 theselect = false;
             }
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
+            som_selecao.play();
             if(posicao > 0){
                 --posicao;
                 pressed = true;
-                texts[posicao].setOutlineThickness(0.5);
-                texts[posicao].setOutlineColor(sf::Color(255,255,255));
-                texts[posicao + 1].setOutlineThickness(0);
+                texto[posicao].setOutlineThickness(0.6);
+                texto[posicao].setOutlineColor(sf::Color(255,255,255));
+                texto[posicao + 1].setOutlineThickness(0);
                 pressed = false;
                 theselect = false;
             }
@@ -103,19 +120,19 @@ void Interface_Define_Dimensao::Loop_Events(){
 
             if (nome_jogo == "Lig4") {
                 if (posicao == 0) {
-                    window->close();
+                    janela->close();
                     num_linhas = 6;
                     num_colunas = 7;
                     jogo = make_unique<Interface_Lig4>();
                     jogo->Start_Game_Interface(num_linhas, num_colunas);
                 } else if (posicao == 1) {
-                    window->close();
+                    janela->close();
                     num_linhas = 7;
                     num_colunas = 8;
                     jogo = make_unique<Interface_Lig4>();
                     jogo->Start_Game_Interface(num_linhas, num_colunas);
                 } else if (posicao == 2) {
-                    window->close();
+                    janela->close();
                     num_linhas = 8;
                     num_colunas = 9;
                     jogo = make_unique<Interface_Lig4>();
@@ -123,19 +140,19 @@ void Interface_Define_Dimensao::Loop_Events(){
                 }
             } else if (nome_jogo == "Reversi") {
                 if (posicao == 0) {
-                    window->close();
+                    janela->close();
                     num_linhas = 8;
                     num_colunas = 8;
                     jogo = make_unique<Interface_Reversi>();
                     jogo->Start_Game_Interface(num_linhas, num_colunas);
                 } else if (posicao == 1) {
-                    window->close();
+                    janela->close();
                     num_linhas = 9;
                     num_colunas = 9;
                     jogo = make_unique<Interface_Reversi>();
                     jogo->Start_Game_Interface(num_linhas, num_colunas);
                 } else if (posicao == 2) {
-                    window->close();
+                    janela->close();
                     num_linhas = 10;
                     num_colunas = 10;
                     jogo = make_unique<Interface_Reversi>();

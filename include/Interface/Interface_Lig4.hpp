@@ -10,12 +10,16 @@
 
 class Interface_Lig4 : public Interface_Jogo {
     public:
-    Interface_Lig4() : Interface_Jogo("Lig4") {}
+        Interface_Lig4() : Interface_Jogo("Lig4") {}
+        ~Interface_Lig4() { cleanup(); }
 
-    void logic() override;
-    int Start_Game_Interface(int num_linhas, int num_colunas) override; 
-    void set_Sprites() override;
-    void set_Image() override;
+        void logic() override;
+        int Start_Game_Interface(int num_linhas, int num_colunas) override; 
+        void set_Sprites() override;
+        void set_Image() override;
+
+    private:
+        void cleanup();
 };
 
 #endif

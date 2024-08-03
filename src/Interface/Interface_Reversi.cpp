@@ -7,7 +7,21 @@ void Interface_Reversi::logic() {
     
 }
 
+void Interface_Reversi::cleanup() {
+    window.reset();
+    sprites.clear();
+    grid.clear();
+}
+
 int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
+    if (!som_jogo.openFromFile("./assets/audio/4.wav")) {
+        cerr << "Erro ao carregar música" << std::endl;
+        exit(1);
+    }
+
+    som_jogo.setVolume(2);
+    som_jogo.play();
+
     this->linhas = num_linhas;
     this->colunas = num_colunas;
     
@@ -38,7 +52,10 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
 
 void Interface_Reversi::set_Image(){
     if(num_quadrados == 64) {
-        texture.loadFromFile("./assets/Reversi/Reversi_8x8.png");
+        if (!texture.loadFromFile("./assets/Reversi/Reversi_8x8.png")) {
+            cerr << "Erro ao carregar textura 8x8" << endl;
+            exit(1);
+        }
     }
 }
 

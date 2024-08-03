@@ -1,10 +1,7 @@
-#ifndef INTERFACE_DEFINICOES_JOGO_HPP
-#define INTERFACE_DEFINICOES_JOGO_HPP
+#ifndef INTERFACE_DEFINE_JOGO_HPP
+#define INTERFACE_DEFINE_JOGO_HPP
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
-#include <memory>
+c
 
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Dimensao.hpp"
@@ -16,13 +13,13 @@ using namespace std;
 
 class Interface_Define_Jogo: public Interface_Menu {
     protected:
-    void Set_Values() override;
-    void Loop_Events() override;
-    unique_ptr<Interface_Define_Dimensao> dimensao;
+        void Set_Values() override;
+        void Loop_Events() override;
+        unique_ptr<Interface_Define_Dimensao> dimensao;
  
     public:
-    Interface_Define_Jogo();
-    ~Interface_Define_Jogo() override;
+        Interface_Define_Jogo();
+        ~Interface_Define_Jogo() override;
 };
 
 #endif

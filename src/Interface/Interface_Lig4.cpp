@@ -8,13 +8,28 @@ void Interface_Lig4::logic() {
 
 }
 
+void Interface_Lig4::cleanup() {
+    window.reset();
+    sprites.clear();
+    grid.clear();
+}
+
 void Interface_Lig4::set_Image(){
     if(num_quadrados == 42) {
-        texture.loadFromFile("./assets/Lig4/Lig4_7x6.png");
+        if (!texture.loadFromFile("./assets/Lig4/Lig4_7x6.png")) {
+            cerr << "Erro ao carregar textura 7x6" << endl;
+            exit(1);
+        }
     } else if(num_quadrados == 56){
-        texture.loadFromFile("./assets/Lig4/Lig4_8x7.png");
+        if (!texture.loadFromFile("./assets/Lig4/Lig4_8x7.png")) {
+            cerr << "Erro ao carregar textura 8x7" << endl;
+            exit(1);
+        }
     } else if(num_quadrados == 72) {
-        texture.loadFromFile("./assets/Lig4/Lig4_9x8.png");
+        if (!texture.loadFromFile("./assets/Lig4/Lig4_9x8.png")) {
+            cerr << "Erro ao carregar textura 9x8" << endl;
+            exit(1);
+        }
     }
 }
 
@@ -27,7 +42,7 @@ void Interface_Lig4::set_Sprites() {
             int tam_sprites = sprites.size();
             
             if (index >= tam_sprites) {
-                std::cerr << "Índice fora dos limites: " << index << std::endl;
+                cerr << "Índice fora dos limites: " << index << std::endl;
                 continue;
             }
 
@@ -41,6 +56,14 @@ void Interface_Lig4::set_Sprites() {
 }
 
 int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
+    if (!som_jogo.openFromFile("./assets/audio/3.wav")) {
+        cerr << "Erro ao carregar música" << std::endl;
+        exit(1);
+    }
+
+    som_jogo.setVolume(2);
+    som_jogo.play();
+    
     this->linhas = num_linhas;
     this->colunas = num_colunas;
 
