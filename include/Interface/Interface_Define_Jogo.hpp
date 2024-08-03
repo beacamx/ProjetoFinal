@@ -1,7 +1,6 @@
 #ifndef INTERFACE_DEFINE_JOGO_HPP
 #define INTERFACE_DEFINE_JOGO_HPP
 
-c
 
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Dimensao.hpp"
