@@ -32,13 +32,15 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
     int altura_janela = linhas * largura_quadrado;
 
     cout << "Criando Interface_Lig4..." << endl;
+
+    sf::Vector2i janela_centralizada((sf::VideoMode::getDesktopMode().width /2) - 445, (sf::VideoMode::getDesktopMode().height / 2) - 480);
     window = std::make_shared<sf::RenderWindow>(
         sf::VideoMode(largura_janela, altura_janela),
         nome_do_jogo,
         sf::Style::Titlebar | sf::Style::Close
     );
 
-    window->setPosition(sf::Vector2i(50, 50));
+    window->setPosition(janela_centralizada);
     window->setFramerateLimit(60);
 
     grid.resize(linhas, std::vector<int>(colunas, 0));

@@ -14,16 +14,9 @@ void Interface_Define_Jogo::Set_Values(){
         return;
     }
 
-    if (!buffer_selecao.loadFromFile("./assets/audio/c.wav")) {
-        cerr << "Erro ao carregar efeito sonoro" << std::endl;
-        exit(1);
-    }
+    Set_Efeito_Sonoro_Selecao_Botao();
 
-    som_selecao.setBuffer(buffer_selecao);
-    som_selecao.setVolume(50);
-
-    janela->create(sf::VideoMode(624,546), "Jogos", sf::Style::Titlebar | sf::Style::Close);
-    janela->setPosition(sf::Vector2i(0,0));
+    Centralizar_Janela();
 
     posicao = 0;
     pressed = theselect = false;
@@ -79,11 +72,7 @@ void Interface_Define_Jogo::Set_Values(){
 void Interface_Define_Jogo::Loop_Events(){
     sf::Event evento;
     while(janela->pollEvent(evento)) {
-        if(evento.type == sf::Event::Closed) {
-            janela->close();
-        }
-
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+        if ((evento.type == sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) {
             janela->close();
         }
 

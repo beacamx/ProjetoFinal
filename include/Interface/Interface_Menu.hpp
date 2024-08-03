@@ -32,12 +32,14 @@ class Interface_Menu {
 
         virtual void Set_Values() = 0;
         virtual void Loop_Events() = 0;
-        void Draw_All();
+        virtual void Draw_All();
 
     public:
         Interface_Menu();
         virtual ~Interface_Menu();
         void Run_Menu();
+        virtual void Set_Efeito_Sonoro_Selecao_Botao();
+        virtual void Centralizar_Janela();
 };
 
 #endif
