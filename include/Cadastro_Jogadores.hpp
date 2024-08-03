@@ -7,6 +7,7 @@ class cadastro{
   cadastro();
   void cadastrar(jogador * player_1);
   jogador* find(string);
+  vector<jogador*>& get_vector();
   private:
-  vector jogadores<jogador*>;
+  vector<jogador*> jogadores;
 }

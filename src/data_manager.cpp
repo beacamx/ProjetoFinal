@@ -7,7 +7,7 @@ void data_manager::load(cadastro& player_ref)
     {
         std::ifstream archive(data_manager::default_name, std::ios::binary);
         if (!archive)
-            throw open_file_erro("load");
+            throw data_manager::open_file_erro("load");
     }
     jogador _aux;
     while (archive.read(reinterpret_cast<char *>(&_aux)), sizeof(_aux))
@@ -16,16 +16,19 @@ void data_manager::load(cadastro& player_ref)
     }
     archive.close();
 }
-void data_manager::save(cadastro& player_ref){
+void data_manager::save(cadastro& players_ref){
     try
     {
         std::ofstream archive(data_manager::default_name, std::ios::binary);
         if (!archive){
-            throw open_file_erro("save");
+            throw data_manager::open_file_erro("save");
         }
     }
-    for (auto _aux : player_ref.get_vector()){
+        std::vector<jogadores*>& vector_reference = players_ref.get_vector();  
+    for (auto _aux : vector_reference){
         archive.write(reinterpret_cast<const char*>(&_aux), sizeof(_aux));
     }
     archive.close();
 }
+data_manager::open_file_erro::open_file_erro(std::string input_type) : type(input_type) {}
+std::string data_manager::open_file_erro::get_type(){ return type };
