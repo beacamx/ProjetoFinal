@@ -15,12 +15,18 @@ class Interface_Login: public Interface_Menu {
         void Set_Values() override;
         void Loop_Events() override;
         void Draw_All() override;
+        void Set_Opcoes() override; 
+        void Set_Image() override;  
+        void Set_Textos() override;
         unique_ptr<Interface_Define_Jogo> define_jogo;
     public:
         Interface_Login();
         ~Interface_Login() override;
+
+        void Definicoes_Espacamento_Janela() override;
     private:
         Caixa_de_texto caixa_de_texto1;
+        float altura_texto;
 };
 
 #endif

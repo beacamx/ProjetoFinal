@@ -18,6 +18,10 @@ class Interface_Define_Jogo: public Interface_Menu {
     public:
         Interface_Define_Jogo();
         ~Interface_Define_Jogo() override;
+
+        void Set_Image() override;  
+        void Set_Opcoes() override;
+        void Definicoes_Espacamento_Janela() override;
 };
 
 #endif

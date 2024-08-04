@@ -8,12 +8,12 @@ void Interface_Reversi::logic() {
 }
 
 void Interface_Reversi::cleanup() {
-    window.reset();
+    janela.reset();
     sprites.clear();
     grid.clear();
 }
 
-int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
+void Interface_Reversi::Set_Music() {
     if (!som_jogo.openFromFile("./assets/audio/4.wav")) {
         cerr << "Erro ao carregar música" << std::endl;
         exit(1);
@@ -21,27 +21,19 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
 
     som_jogo.setVolume(2);
     som_jogo.play();
+}
+
+int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
+    Set_Music();
 
     this->linhas = num_linhas;
     this->colunas = num_colunas;
-    
-    this->largura_quadrado = 74;
-    this->num_quadrados = linhas * colunas;
-
-    int largura_janela = colunas * largura_quadrado;
-    int altura_janela = linhas * largura_quadrado;
 
     cout << "Criando Interface_Lig4..." << endl;
 
-    sf::Vector2i janela_centralizada((sf::VideoMode::getDesktopMode().width /2) - 445, (sf::VideoMode::getDesktopMode().height / 2) - 480);
-    window = std::make_shared<sf::RenderWindow>(
-        sf::VideoMode(largura_janela, altura_janela),
-        nome_do_jogo,
-        sf::Style::Titlebar | sf::Style::Close
-    );
-
-    window->setPosition(janela_centralizada);
-    window->setFramerateLimit(60);
+    Define_Dimensoes_Janela();
+    Set_Janela();
+    Centralizar_Janela();
 
     grid.resize(linhas, std::vector<int>(colunas, 0));
 

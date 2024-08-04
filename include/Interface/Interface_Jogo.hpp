@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <array>
+#include <cstdlib>
 
 using namespace std;
 
@@ -22,17 +23,19 @@ class Interface_Jogo {
         virtual void set_Image() = 0;
         virtual void logic() = 0;
         virtual int Start_Game_Interface(int linhas, int colunas) = 0;
+        void Set_Janela();
+        void Define_Dimensoes_Janela();
+        void Centralizar_Janela();
+        virtual void Set_Music() = 0;
 
     protected:
-        int linhas;
-        int colunas;
-        int largura_quadrado;
-        int num_quadrados;
+        int linhas, colunas, largura_quadrado, num_quadrados;
+        int largura_janela, altura_janela;
         string nome_do_jogo;
 
         sf::Music som_jogo;
 
-        shared_ptr<sf::RenderWindow> window;
+        unique_ptr<sf::RenderWindow> janela;
         sf::Texture texture;
         vector<sf::Sprite> sprites;
         vector<std::vector<int>> grid;

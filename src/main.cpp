@@ -16,10 +16,6 @@
 using namespace std;
 
 int main() {
-    //unique_ptr<Interface_Menu> menu = make_unique<Interface_Define_Jogo>();
-    
-    //menu->Run_Menu();
-
     unique_ptr<Interface_Login> login = make_unique<Interface_Login>();
     login->Run_Menu();
 }

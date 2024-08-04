@@ -7,35 +7,12 @@ Interface_Login::Interface_Login()
 
 Interface_Login::~Interface_Login(){}
 
-void Interface_Login::Set_Values(){
-    if (!janela || !font || !image || !background) {
-        cerr << "Erro: recursos não inicializados corretamente." << endl;
-        return;
-    }
-
-    Set_Efeito_Sonoro_Selecao_Botao();
-
-    if (!font->loadFromFile("./assets/fontes/pixelmix.ttf")) 
-        cerr << "Erro ao carregar fonte" << endl;
-
-    Centralizar_Janela();
-
-    posicao = 0;
-    pressed = theselect = false;
-    
-    if (!image->loadFromFile("./assets/Menu/Login.png")) 
-        cerr << "Erro ao carregar imagem de fundo" << endl;
-
-    background->setTexture(*image);
-
+void Interface_Login::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Login"};
-    tamanho_fonte = {22, 17};
-    
-    float espaco_vertical = 95.0f;
-    float largura_janela = 624.0f;
-    float altura_texto = 244.0f; 
+}
 
-    coords.clear();
+void Interface_Login::Set_Textos() {
+    tamanho_fonte = {22, 17};
 
     for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
         float pos_y = altura_texto + (i * espaco_vertical);
@@ -59,8 +36,38 @@ void Interface_Login::Set_Values(){
         texto[i].setPosition(coords[i].x, coords[i].y);
     }
 
-    texto[0].setOutlineThickness(0.6);
-    texto[0].setOutlineColor(sf::Color(255,255,255));
+}
+
+void Interface_Login::Set_Image() {
+    if (!image->loadFromFile("./assets/Menu/Login.png")) 
+        cerr << "Erro ao carregar imagem de fundo" << endl;
+
+    background->setTexture(*image);
+} 
+
+void Interface_Login::Definicoes_Espacamento_Janela() {
+    espaco_vertical = 95.0f;
+    largura_janela = 624.0f;
+    altura_texto = 244.0f; 
+}
+
+void Interface_Login::Set_Values(){
+    Set_Efeito_Sonoro_Selecao_Botao();
+    Set_Font();
+    Set_Janela();
+    Centralizar_Janela();
+    Set_Image();
+    Set_Opcoes();
+
+    posicao = 0;
+    pressed = theselect = false;
+    
+    Definicoes_Espacamento_Janela();
+
+    coords.clear();
+
+    Set_Textos();
+    Set_Contorno_Inicial();
 
     float largura_caixa = 120.0f;
     float espaco_adicional_entre_caixa_apelido = 16.0f;
@@ -89,11 +96,7 @@ void Interface_Login::Loop_Events(){
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
-                if(posicao != 0) {
-                    texto[posicao].setOutlineThickness(0.6);
-                    texto[posicao].setOutlineColor(sf::Color(255,255,255));
-                    texto[posicao - 1].setOutlineThickness(0);
-                }
+                Set_Contorno_Avancar(posicao);
                 pressed = false;
                 theselect = false;
             }
@@ -104,9 +107,7 @@ void Interface_Login::Loop_Events(){
             if(posicao > 0){
                 --posicao;
                 pressed = true;
-                texto[posicao].setOutlineThickness(0.6);
-                texto[posicao].setOutlineColor(sf::Color(255,255,255));
-                texto[posicao + 1].setOutlineThickness(0);
+                Set_Contorno_Voltar(posicao);
                 pressed = false;
                 theselect = false;
             }
@@ -146,7 +147,6 @@ void Interface_Login::Draw_All() {
         }
     }
     caixa_de_texto1.Draw_To(*janela);
-
     this->janela->display();
 }
 

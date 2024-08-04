@@ -9,7 +9,7 @@ void Interface_Lig4::logic() {
 }
 
 void Interface_Lig4::cleanup() {
-    window.reset();
+    janela.reset();
     sprites.clear();
     grid.clear();
 }
@@ -31,6 +31,16 @@ void Interface_Lig4::set_Image(){
             exit(1);
         }
     }
+}
+
+void Interface_Lig4::Set_Music() {
+    if (!som_jogo.openFromFile("./assets/audio/3.wav")) {
+        cerr << "Erro ao carregar música" << std::endl;
+        exit(1);
+    }
+
+    som_jogo.setVolume(2);
+    som_jogo.play();
 }
 
 void Interface_Lig4::set_Sprites() {
@@ -56,32 +66,14 @@ void Interface_Lig4::set_Sprites() {
 }
 
 int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
-    if (!som_jogo.openFromFile("./assets/audio/3.wav")) {
-        cerr << "Erro ao carregar música" << std::endl;
-        exit(1);
-    }
-
-    som_jogo.setVolume(2);
-    som_jogo.play();
+    Set_Music();
     
     this->linhas = num_linhas;
     this->colunas = num_colunas;
 
-    this->largura_quadrado = 78,
-    this->num_quadrados = linhas * colunas;
-
-    int largura_janela = colunas * largura_quadrado;
-    int altura_janela = linhas * largura_quadrado;
-
-    sf::Vector2i janela_centralizada((sf::VideoMode::getDesktopMode().width /2) - 445, (sf::VideoMode::getDesktopMode().height / 2) - 480);
-    window = std::make_shared<sf::RenderWindow>(
-        sf::VideoMode(largura_janela, altura_janela),
-        nome_do_jogo,
-        sf::Style::Titlebar | sf::Style::Close
-    );
-
-    window->setPosition(janela_centralizada);
-    window->setFramerateLimit(60);
+    Define_Dimensoes_Janela();
+    Set_Janela();
+    Centralizar_Janela();
 
     grid.resize(linhas, std::vector<int>(colunas, 0));
 
