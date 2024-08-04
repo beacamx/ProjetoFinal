@@ -10,15 +10,22 @@ Interface_Cadastro::Interface_Cadastro()
 Interface_Cadastro::~Interface_Cadastro(){}
 
 void Interface_Cadastro::Set_Opcoes() {
-    opcoes_de_escolha = {"Digitar apelido", "Digitar nome", "Cadastrar"};
+    opcoes_de_escolha = {"Digitar apelido", "Digitar nome", "Play"};
 }
 
 void Interface_Cadastro::Set_Textos() {
-    tamanho_fonte = {22, 22, 17};
+    tamanho_fonte = {19, 19, 17};
+    int indice = 0;
 
     for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
+        if(indice == 2) {
+            float pos_y = altura_texto + (i * espaco_vertical_botao_play);
+            coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
+            break;
+        }
         float pos_y = altura_texto + (i * espaco_vertical);
         coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
+        ++indice;
     }
 
     texto.resize(opcoes_de_escolha.size());
@@ -48,9 +55,10 @@ void Interface_Cadastro::Set_Image() {
 } 
 
 void Interface_Cadastro::Definicoes_Espacamento_Janela() {
-    espaco_vertical = 95.0f;
+    espaco_vertical = 77.0f;
+    espaco_vertical_botao_play = 83.0f;
     largura_janela = 624.0f;
-    altura_texto = 244.0f; 
+    altura_texto = 206.0f; 
 }
 
 void Interface_Cadastro::Set_Values(){
@@ -72,11 +80,11 @@ void Interface_Cadastro::Set_Values(){
     Set_Contorno_Inicial();
 
     float largura_caixa = 120.0f;
-    float espaco_adicional_entre_caixa_apelido = 16.0f;
+    float espaco_adicional_entre_caixa_apelido = 7.0f;
 
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
     float posicao_y_caixa_texto1 = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
-    float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 50.0f;
+    float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 79.0f;
 
     caixa_de_texto1.Set_Font(*font);
     caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto1});
@@ -124,13 +132,17 @@ void Interface_Cadastro::Loop_Events(){
             if (posicao == 0) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
                     caixa_de_texto1.Set_Selected(true);
+                    caixa_de_texto2.Set_Selected(false);
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     caixa_de_texto1.Set_Selected(false);
+                    caixa_de_texto2.Set_Selected(false);
                 }
             } else if (posicao == 1) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                    caixa_de_texto1.Set_Selected(false);
                     caixa_de_texto2.Set_Selected(true);
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                    caixa_de_texto1.Set_Selected(false);
                     caixa_de_texto2.Set_Selected(false);
                 }
             } else if (posicao == 2) {
@@ -143,11 +155,8 @@ void Interface_Cadastro::Loop_Events(){
         }
 
         if (evento.type == sf::Event::TextEntered) {
-            if (caixa_de_texto1.caixa_esta_selecionado()) {
-                caixa_de_texto1.Typed_On(evento);
-            } else if (caixa_de_texto2.caixa_esta_selecionado()) {
-                caixa_de_texto2.Typed_On(evento);
-            }
+            caixa_de_texto1.Typed_On(evento);
+            caixa_de_texto2.Typed_On(evento);
         }
     }
 }
@@ -165,6 +174,3 @@ void Interface_Cadastro::Draw_All() {
     caixa_de_texto2.Draw_To(*janela);
     this->janela->display();
 }
-
-
-

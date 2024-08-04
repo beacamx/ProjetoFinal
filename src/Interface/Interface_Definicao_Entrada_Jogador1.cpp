@@ -82,7 +82,7 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
                 num_linhas = 7;
                 num_colunas = 8;
                 cadastro = make_unique<Interface_Cadastro>();
-                login->Run_Menu();
+                cadastro->Run_Menu();
             } 
         }
     }

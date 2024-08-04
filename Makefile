@@ -12,7 +12,6 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $
 
 all: $(OBJDIR) $(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
-	@rm -f $(OBJS)
 	@./$(TARGET)
 
 $(OBJDIR):

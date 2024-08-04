@@ -37,7 +37,6 @@ void Interface_Login::Set_Textos() {
         texto[i].setOrigin(largura_texto / 2.0f, altura_texto / 2.0f);
         texto[i].setPosition(coords[i].x, coords[i].y);
     }
-
 }
 
 void Interface_Login::Set_Image() {

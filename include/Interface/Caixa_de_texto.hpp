@@ -39,7 +39,9 @@ class Caixa_de_texto {
             limite = lim - 1;
         }
 
-        bool caixa_esta_selecionado() const { return caixa_selecionada; }
+        bool caixa_esta_selecionado() const { 
+            return caixa_selecionada; 
+        }
 
         void Set_Selected(bool sel) {
             esta_selecionado = sel;

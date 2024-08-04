@@ -41,6 +41,7 @@ class Interface_Menu {
         virtual void Set_Efeito_Sonoro_Selecao_Botao();
 
         float espaco_vertical;
+        float espaco_vertical_botao_play;
         float largura_janela;
         float altura_titulo; 
         float altura_inferior_titulo; 
