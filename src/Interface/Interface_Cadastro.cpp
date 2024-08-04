@@ -3,7 +3,7 @@
 using namespace std;
 
 Interface_Cadastro::Interface_Cadastro()
-    : caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
+    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
     Set_Values();
 }
 
@@ -41,7 +41,7 @@ void Interface_Cadastro::Set_Textos() {
 }
 
 void Interface_Cadastro::Set_Image() {
-    if (!image->loadFromFile("./assets/Menu/Login.png")) 
+    if (!image->loadFromFile("./assets/Menu/Cadastro.png")) 
         cerr << "Erro ao carregar imagem de fundo" << endl;
 
     background->setTexture(*image);

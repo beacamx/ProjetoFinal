@@ -3,16 +3,18 @@
 using namespace std;
 
 Interface_Login::Interface_Login()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { Set_Values();}
+    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
+        Set_Values();
+    }
 
 Interface_Login::~Interface_Login(){}
 
 void Interface_Login::Set_Opcoes() {
-    opcoes_de_escolha = {"Digitar apelido", "Login"};
+    opcoes_de_escolha = {"Digitar apelido", "Play"};
 }
 
 void Interface_Login::Set_Textos() {
-    tamanho_fonte = {22, 17};
+    tamanho_fonte = {19, 17};
 
     for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
         float pos_y = altura_texto + (i * espaco_vertical);
@@ -46,7 +48,7 @@ void Interface_Login::Set_Image() {
 } 
 
 void Interface_Login::Definicoes_Espacamento_Janela() {
-    espaco_vertical = 95.0f;
+    espaco_vertical = 90.0f;
     largura_janela = 624.0f;
     altura_texto = 244.0f; 
 }
@@ -70,7 +72,7 @@ void Interface_Login::Set_Values(){
     Set_Contorno_Inicial();
 
     float largura_caixa = 120.0f;
-    float espaco_adicional_entre_caixa_apelido = 16.0f;
+    float espaco_adicional_entre_caixa_apelido = 7.0f;
 
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
     float posicao_y_caixa_texto = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
