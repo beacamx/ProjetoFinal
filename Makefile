@@ -8,7 +8,7 @@ OBJDIR=obj
 SRCDIR=src
 INCDIR=include
 
-OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o $(OBJDIR)/Interface_Define_Jogo.o $(OBJDIR)/Interface_Menu.o $(OBJDIR)/Interface_Define_Dimensao.o $(OBJDIR)/Caixa_de_texto.o $(OBJDIR)/Interface_Login.o $(OBJDIR)/Interface_Cadastro.o
+OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o $(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o $(OBJDIR)/Interface_Define_Jogo.o $(OBJDIR)/Interface_Menu.o $(OBJDIR)/Interface_Define_Dimensao.o $(OBJDIR)/Caixa_de_texto.o $(OBJDIR)/Interface_Login.o $(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o $(OBJDIR)/Interface_Cadastro.o
 
 all: $(OBJDIR) $(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
@@ -26,6 +26,9 @@ $(OBJDIR)/Interface_Login.o: $(SRCDIR)/Interface/Interface_Login.cpp $(INCDIR)/I
 
 $(OBJDIR)/Interface_Cadastro.o: $(SRCDIR)/Interface/Interface_Cadastro.cpp $(INCDIR)/Interface/Interface_Cadastro.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Cadastro.cpp -o $(OBJDIR)/Interface_Cadastro.o
+
+$(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o: $(SRCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.cpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Login.hpp $(INCDIR)/Interface/Interface_Cadastro.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.cpp -o $(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o
 
 $(OBJDIR)/Caixa_de_texto.o: $(SRCDIR)/Interface/Caixa_de_texto.cpp $(INCDIR)/Interface/Caixa_de_texto.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Caixa_de_texto.cpp -o $(OBJDIR)/Caixa_de_texto.o
@@ -49,6 +52,6 @@ $(OBJDIR)/Interface_Menu.o: $(SRCDIR)/Interface/Interface_Menu.cpp $(INCDIR)/Int
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Menu.cpp -o $(OBJDIR)/Interface_Menu.o
 
 clean:
-	@rm -f $(OBJS) $(TARGET)
+	@rm -f $(OBJDIR)/*.o $(TARGET)
 
 .PHONY: all test clean

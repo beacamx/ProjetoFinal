@@ -1,5 +1,5 @@
-#ifndef INTERFACE_DEFINE_DIMENSAO_HPP
-#define INTERFACE_DEFINE_DIMENSAO_HPP
+#ifndef INTERFACE_DEFINICAO_ENTRADA_JOGADOR1_HPP
+#define INTERFACE_DEFINICAO_ENTRADA_JOGADOR1_HPP
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -7,21 +7,21 @@
 #include <memory>
 
 #include "Interface_Menu.hpp"
-#include "Interface_Jogo.hpp"
-#include "Interface_Lig4.hpp"
-#include "Interface_Reversi.hpp"
+#include "Interface_Login.hpp"
+#include "Interface_Cadastro.hpp"
 
 using namespace std;
 
-class Interface_Define_Dimensao: public Interface_Menu {
+class Interface_Definicao_Entrada_Jogador1: public Interface_Menu {
     protected:
         void Set_Values() override;
         void Loop_Events() override;
-        unique_ptr<Interface_Jogo> jogo;
+        unique_ptr<Interface_Login> login;
+        unique_ptr<Interface_Cadastro> cadastro;
  
     public:
-        Interface_Define_Dimensao(const std::string& jogo) : nome_jogo(jogo) { Set_Values(); }
-        ~Interface_Define_Dimensao();
+        Interface_Definicao_Entrada_Jogador1() { Set_Values(); }
+        ~Interface_Definicao_Entrada_Jogador1();
 
         void Set_Image() override;
         void Set_Opcoes() override;

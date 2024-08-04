@@ -3,7 +3,9 @@
 using namespace std;
 
 Interface_Cadastro::Interface_Cadastro()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { Set_Values();}
+    : caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
+    Set_Values();
+}
 
 Interface_Cadastro::~Interface_Cadastro(){}
 
@@ -73,11 +75,16 @@ void Interface_Cadastro::Set_Values(){
     float espaco_adicional_entre_caixa_apelido = 16.0f;
 
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
-    float posicao_y_caixa_texto = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+    float posicao_y_caixa_texto1 = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+    float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 50.0f;
 
     caixa_de_texto1.Set_Font(*font);
-    caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto});
+    caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto1});
     caixa_de_texto1.Set_Limit(true, 10);
+
+    caixa_de_texto2.Set_Font(*font);
+    caixa_de_texto2.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto2});
+    caixa_de_texto2.Set_Limit(true, 10);
 
     janela->setKeyRepeatEnabled(true);
 }
@@ -121,18 +128,26 @@ void Interface_Cadastro::Loop_Events(){
                     caixa_de_texto1.Set_Selected(false);
                 }
             } else if (posicao == 1) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                    caixa_de_texto2.Set_Selected(true);
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                    caixa_de_texto2.Set_Selected(false);
+                }
+            } else if (posicao == 2) {
                 theselect = true;
-                /*chama funcao para verificar se o jogador existe
-                se nao existir, mostra um aviso
-                se existir, define o jogador que vai jogar*/
+                /*chama funcao r*/
                 janela->close();
                 define_jogo = make_unique<Interface_Define_Jogo>();
                 define_jogo->Run_Menu();
-            } 
+            }
         }
 
         if (evento.type == sf::Event::TextEntered) {
-            caixa_de_texto1.Typed_On(evento);
+            if (caixa_de_texto1.caixa_esta_selecionado()) {
+                caixa_de_texto1.Typed_On(evento);
+            } else if (caixa_de_texto2.caixa_esta_selecionado()) {
+                caixa_de_texto2.Typed_On(evento);
+            }
         }
     }
 }
@@ -147,6 +162,7 @@ void Interface_Cadastro::Draw_All() {
         }
     }
     caixa_de_texto1.Draw_To(*janela);
+    caixa_de_texto2.Draw_To(*janela);
     this->janela->display();
 }
 

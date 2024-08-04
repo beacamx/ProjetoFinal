@@ -39,6 +39,8 @@ class Caixa_de_texto {
             limite = lim - 1;
         }
 
+        bool caixa_esta_selecionado() const { return caixa_selecionada; }
+
         void Set_Selected(bool sel) {
             esta_selecionado = sel;
             if (!sel) {
@@ -81,6 +83,7 @@ class Caixa_de_texto {
         sf::Text caixa_de_texto;
         ostringstream texto_login;
         bool esta_selecionado = false;
+        bool caixa_selecionada = false;
         bool tem_limite = false;
         int limite;
 

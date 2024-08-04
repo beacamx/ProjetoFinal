@@ -26,6 +26,7 @@ class Interface_Cadastro: public Interface_Menu {
         void Definicoes_Espacamento_Janela() override;
     private:
         Caixa_de_texto caixa_de_texto1;
+        Caixa_de_texto caixa_de_texto2;
         float altura_texto;
 };
 
