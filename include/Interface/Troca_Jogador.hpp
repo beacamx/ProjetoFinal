@@ -3,16 +3,17 @@
 
 #include <memory>
 #include "Interface_Definicao_Entrada_Jogador2.hpp"
-#include "Interface_Menu.hpp"
 
-class Troca_Jogador : public Interface_Menu {
-public:
-    void Troca_Definicao_Jogador();
-    Troca_Jogador();
-    ~Troca_Jogador();
+using namespace std;
 
-private:
-    static std::unique_ptr<Interface_Definicao_Entrada_Jogador2> jogador2;
+class Troca_Jogador {
+    public:
+        void Troca_Definicao_Jogador();
+        Troca_Jogador();
+        ~Troca_Jogador();
+        int numero_jogador;
+        unique_ptr<Interface_Definicao_Entrada_Jogador2> jogador2;
+
 };
 
 #endif

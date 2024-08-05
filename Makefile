@@ -13,9 +13,9 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Define_Jogo.o $(OBJDIR)/Interface_Menu.o \
 	$(OBJDIR)/Interface_Define_Dimensao.o $(OBJDIR)/Caixa_de_texto.o \
 	$(OBJDIR)/Interface_Login_Jogador1.o $(OBJDIR)/Interface_Login_Jogador2.o \
-	$(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o $(OBJDIR)/Interface_Cadastro_Jogador1.o \
-	$(OBJDIR)/Interface_Cadastro_Jogador2.o $(OBJDIR)/Interface_Tela_Inicial.o \
-	$(OBJDIR)/Troca_Jogador.o
+	$(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o $(OBJDIR)/Interface_Definicao_Entrada_Jogador2.o \
+	$(OBJDIR)/Interface_Cadastro_Jogador1.o $(OBJDIR)/Interface_Cadastro_Jogador2.o \
+	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Jogador.o
 
 all: $(OBJDIR) $(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
@@ -33,7 +33,7 @@ $(OBJDIR)/Interface_Login_Jogador1.o: $(SRCDIR)/Interface/Interface_Login_Jogado
 $(OBJDIR)/Interface_Login_Jogador2.o: $(SRCDIR)/Interface/Interface_Login_Jogador2.cpp $(INCDIR)/Interface/Interface_Login_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp 
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Login_Jogador2.cpp -o $(OBJDIR)/Interface_Login_Jogador2.o	
 
-$(OBJDIR)/Interface_Cadastro_Jogador1.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador1.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador1.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp
+$(OBJDIR)/Interface_Cadastro_Jogador1.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador1.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador1.hpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Cadastro_Jogador1.cpp -o $(OBJDIR)/Interface_Cadastro_Jogador1.o
 
 $(OBJDIR)/Interface_Cadastro_Jogador2.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador2.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp
@@ -48,7 +48,7 @@ $(OBJDIR)/Interface_Definicao_Entrada_Jogador2.o: $(SRCDIR)/Interface/Interface_
 $(OBJDIR)/Interface_Tela_Inicial.o: $(SRCDIR)/Interface/Interface_Tela_Inicial.cpp $(INCDIR)/Interface/Interface_Tela_Inicial.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Tela_Inicial.cpp -o $(OBJDIR)/Interface_Tela_Inicial.o
 
-$(OBJDIR)/Troca_Jogador.o: $(SRCDIR)/Interface/Troca_Jogador.cpp $(INCDIR)/Interface/Troca_Jogador.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador2.hpp
+$(OBJDIR)/Troca_Jogador.o: $(SRCDIR)/Interface/Troca_Jogador.cpp $(INCDIR)/Interface/Troca_Jogador.hpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador2.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Troca_Jogador.cpp -o $(OBJDIR)/Troca_Jogador.o
 
 $(OBJDIR)/Caixa_de_texto.o: $(SRCDIR)/Interface/Caixa_de_texto.cpp $(INCDIR)/Interface/Caixa_de_texto.hpp

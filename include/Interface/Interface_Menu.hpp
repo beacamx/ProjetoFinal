@@ -45,7 +45,6 @@ class Interface_Menu {
         float largura_janela;
         float altura_titulo; 
         float altura_inferior_titulo; 
-        int num_jogador;
 
     public:
         Interface_Menu();

@@ -11,9 +11,13 @@
 #include "Interface/Interface_Define_Jogo.hpp"
 #include "Interface/Interface_Define_Dimensao.hpp"
 
-#include "Interface/Interface_Login.hpp"
-#include "Interface/Interface_Cadastro.hpp"
+#include "Interface/Interface_Login_Jogador1.hpp"
+#include "Interface/Interface_Cadastro_Jogador1.hpp"
+#include "Interface/Interface_Login_Jogador2.hpp"
+#include "Interface/Interface_Cadastro_Jogador2.hpp"
+
 #include "Interface/Interface_Definicao_Entrada_Jogador1.hpp"
+#include "Interface/Interface_Definicao_Entrada_Jogador2.hpp"
 #include "Interface/Caixa_de_texto.hpp"
 
 using namespace std;

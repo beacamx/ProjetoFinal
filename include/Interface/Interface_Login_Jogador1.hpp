@@ -1,5 +1,5 @@
 #ifndef INTERFACE_LOGIN_JOGADOR1_HPP
-#define INTERFACE_LOGIN__JOGADOR1_HPP
+#define INTERFACE_LOGIN_JOGADOR1_HPP
 
 #include <SFML/Graphics.hpp>
 #include <iostream>

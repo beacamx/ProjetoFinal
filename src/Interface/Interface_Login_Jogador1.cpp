@@ -1,4 +1,5 @@
 #include "Interface_Login_Jogador1.hpp"
+#include "Troca_Jogador.hpp"
 
 using namespace std;
 
@@ -123,12 +124,17 @@ void Interface_Login_Jogador1::Loop_Events(){
                 }
             } else if (posicao == 1) {
                 theselect = true;
-                /*chama funcao para verificar se o jogador existe
-                se nao existir, mostra um aviso
-                se existir, define o jogador que vai jogar*/
-                janela->close();
-                define_jogo = make_unique<Interface_Define_Jogo>();
-                define_jogo->Run_Menu();
+                Troca_Jogador troca_jogador;
+                if (troca_jogador.numero_jogador == 1) {
+                    janela->close();
+                    troca_jogador.Troca_Definicao_Jogador();
+                } else if (troca_jogador.numero_jogador == 2) {
+                    janela->close();
+                    define_jogo = make_unique<Interface_Define_Jogo>();
+                    define_jogo->Run_Menu();
+                } else {
+                    cerr << "Erro ao definir jogador" << endl;
+                }
             } 
         }
 
