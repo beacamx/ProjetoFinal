@@ -72,18 +72,27 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
             theselect = true;
             if (posicao == 0) {
-                janela->close();
-                num_linhas = 6;
-                num_colunas = 7;
-                login = make_unique<Interface_Login>();
-                login->Run_Menu();
+                if(num_jogador == 1) {
+                    janela->close();
+                    jogador2 = make_unique<Interface_Definicao_Entrada_Jogador2>();
+                    jogador2->Run_Menu();
+                } else if (num_jogador == 2) {
+                    janela->close();
+                    cadastro = make_unique<Interface_Cadastro_Jogador1>();
+                    cadastro->Run_Menu();
+                }
             } else if (posicao == 1) {
-                janela->close();
-                num_linhas = 7;
-                num_colunas = 8;
-                cadastro = make_unique<Interface_Cadastro>();
-                cadastro->Run_Menu();
+                if(num_jogador == 1) {
+                    janela->close();
+                    jogador2 = make_unique<Interface_Definicao_Entrada_Jogador2>();
+                    jogador2->Run_Menu();
+                } else if (num_jogador == 2) {
+                    janela->close();
+                    cadastro = make_unique<Interface_Cadastro_Jogador1>();
+                    cadastro->Run_Menu();
+                }
             } 
         }
     }
 }
+

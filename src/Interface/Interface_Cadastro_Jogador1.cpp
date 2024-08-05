@@ -1,24 +1,31 @@
-#include "Interface_Login.hpp"
+#include "Interface_Cadastro_Jogador1.hpp"
 
 using namespace std;
 
-Interface_Login::Interface_Login()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
-        Set_Values();
-    }
-
-Interface_Login::~Interface_Login(){}
-
-void Interface_Login::Set_Opcoes() {
-    opcoes_de_escolha = {"Digitar apelido", "Play"};
+Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1()
+    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
+    Set_Values();
 }
 
-void Interface_Login::Set_Textos() {
-    tamanho_fonte = {19, 17};
+Interface_Cadastro_Jogador1::~Interface_Cadastro_Jogador1(){}
+
+void Interface_Cadastro_Jogador1::Set_Opcoes() {
+    opcoes_de_escolha = {"Digitar apelido", "Digitar nome", "Play"};
+}
+
+void Interface_Cadastro_Jogador1::Set_Textos() {
+    tamanho_fonte = {19, 19, 17};
+    int indice = 0;
 
     for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
+        if(indice == 2) {
+            float pos_y = altura_texto + (i * espaco_vertical_botao_play);
+            coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
+            break;
+        }
         float pos_y = altura_texto + (i * espaco_vertical);
         coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
+        ++indice;
     }
 
     texto.resize(opcoes_de_escolha.size());
@@ -37,22 +44,24 @@ void Interface_Login::Set_Textos() {
         texto[i].setOrigin(largura_texto / 2.0f, altura_texto / 2.0f);
         texto[i].setPosition(coords[i].x, coords[i].y);
     }
+
 }
 
-void Interface_Login::Set_Image() {
-    if (!image->loadFromFile("./assets/Menu/Login.png")) 
+void Interface_Cadastro_Jogador1::Set_Image() {
+    if (!image->loadFromFile("./assets/Menu/Cadastro.png")) 
         cerr << "Erro ao carregar imagem de fundo" << endl;
 
     background->setTexture(*image);
 } 
 
-void Interface_Login::Definicoes_Espacamento_Janela() {
-    espaco_vertical = 90.0f;
+void Interface_Cadastro_Jogador1::Definicoes_Espacamento_Janela() {
+    espaco_vertical = 77.0f;
+    espaco_vertical_botao_play = 83.0f;
     largura_janela = 624.0f;
-    altura_texto = 244.0f; 
+    altura_texto = 206.0f; 
 }
 
-void Interface_Login::Set_Values(){
+void Interface_Cadastro_Jogador1::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Font();
     Set_Janela();
@@ -74,16 +83,21 @@ void Interface_Login::Set_Values(){
     float espaco_adicional_entre_caixa_apelido = 7.0f;
 
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
-    float posicao_y_caixa_texto = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+    float posicao_y_caixa_texto1 = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+    float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 79.0f;
 
     caixa_de_texto1.Set_Font(*font);
-    caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto});
+    caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto1});
     caixa_de_texto1.Set_Limit(true, 10);
+
+    caixa_de_texto2.Set_Font(*font);
+    caixa_de_texto2.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto2});
+    caixa_de_texto2.Set_Limit(true, 10);
 
     janela->setKeyRepeatEnabled(true);
 }
 
-void Interface_Login::Loop_Events(){
+void Interface_Cadastro_Jogador1::Loop_Events(){
     sf::Event evento;
     int tam_vetor_texto = texto.size();
 
@@ -118,27 +132,36 @@ void Interface_Login::Loop_Events(){
             if (posicao == 0) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
                     caixa_de_texto1.Set_Selected(true);
+                    caixa_de_texto2.Set_Selected(false);
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
                     caixa_de_texto1.Set_Selected(false);
+                    caixa_de_texto2.Set_Selected(false);
                 }
             } else if (posicao == 1) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                    caixa_de_texto1.Set_Selected(false);
+                    caixa_de_texto2.Set_Selected(true);
+                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                    caixa_de_texto1.Set_Selected(false);
+                    caixa_de_texto2.Set_Selected(false);
+                }
+            } else if (posicao == 2) {
                 theselect = true;
-                /*chama funcao para verificar se o jogador existe
-                se nao existir, mostra um aviso
-                se existir, define o jogador que vai jogar*/
+                /*chama funcao r*/
                 janela->close();
                 define_jogo = make_unique<Interface_Define_Jogo>();
                 define_jogo->Run_Menu();
-            } 
+            }
         }
 
         if (evento.type == sf::Event::TextEntered) {
             caixa_de_texto1.Typed_On(evento);
+            caixa_de_texto2.Typed_On(evento);
         }
     }
 }
 
-void Interface_Login::Draw_All() {
+void Interface_Cadastro_Jogador1::Draw_All() {
     this->janela->clear();
     this->janela->draw(*background);
     int tamanho_texto = texto.size();
@@ -148,8 +171,6 @@ void Interface_Login::Draw_All() {
         }
     }
     caixa_de_texto1.Draw_To(*janela);
+    caixa_de_texto2.Draw_To(*janela);
     this->janela->display();
 }
-
-
-

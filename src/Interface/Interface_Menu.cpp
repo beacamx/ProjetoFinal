@@ -13,7 +13,7 @@ Interface_Menu::Interface_Menu()
 Interface_Menu::~Interface_Menu() {}
 
 void Interface_Menu::Set_Efeito_Sonoro_Selecao_Botao() {
-    if (!buffer_selecao.loadFromFile("./assets/audio/a.wav")) {
+    if (!buffer_selecao.loadFromFile("./assets/audio/c.wav")) {
         cerr << "Erro ao carregar efeito sonoro" << endl;
         exit(1);
     }

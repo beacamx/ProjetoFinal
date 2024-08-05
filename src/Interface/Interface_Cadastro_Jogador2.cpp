@@ -1,19 +1,19 @@
-#include "Interface_Cadastro.hpp"
+#include "Interface_Cadastro_Jogador2.hpp"
 
 using namespace std;
 
-Interface_Cadastro::Interface_Cadastro()
+Interface_Cadastro_Jogador2::Interface_Cadastro_Jogador2()
     : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
     Set_Values();
 }
 
-Interface_Cadastro::~Interface_Cadastro(){}
+Interface_Cadastro_Jogador2::~Interface_Cadastro_Jogador2(){}
 
-void Interface_Cadastro::Set_Opcoes() {
+void Interface_Cadastro_Jogador2::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Digitar nome", "Play"};
 }
 
-void Interface_Cadastro::Set_Textos() {
+void Interface_Cadastro_Jogador2::Set_Textos() {
     tamanho_fonte = {19, 19, 17};
     int indice = 0;
 
@@ -47,21 +47,21 @@ void Interface_Cadastro::Set_Textos() {
 
 }
 
-void Interface_Cadastro::Set_Image() {
+void Interface_Cadastro_Jogador2::Set_Image() {
     if (!image->loadFromFile("./assets/Menu/Cadastro.png")) 
         cerr << "Erro ao carregar imagem de fundo" << endl;
 
     background->setTexture(*image);
 } 
 
-void Interface_Cadastro::Definicoes_Espacamento_Janela() {
+void Interface_Cadastro_Jogador2::Definicoes_Espacamento_Janela() {
     espaco_vertical = 77.0f;
     espaco_vertical_botao_play = 83.0f;
     largura_janela = 624.0f;
     altura_texto = 206.0f; 
 }
 
-void Interface_Cadastro::Set_Values(){
+void Interface_Cadastro_Jogador2::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Font();
     Set_Janela();
@@ -97,7 +97,7 @@ void Interface_Cadastro::Set_Values(){
     janela->setKeyRepeatEnabled(true);
 }
 
-void Interface_Cadastro::Loop_Events(){
+void Interface_Cadastro_Jogador2::Loop_Events(){
     sf::Event evento;
     int tam_vetor_texto = texto.size();
 
@@ -161,7 +161,7 @@ void Interface_Cadastro::Loop_Events(){
     }
 }
 
-void Interface_Cadastro::Draw_All() {
+void Interface_Cadastro_Jogador2::Draw_All() {
     this->janela->clear();
     this->janela->draw(*background);
     int tamanho_texto = texto.size();

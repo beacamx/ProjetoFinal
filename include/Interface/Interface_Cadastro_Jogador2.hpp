@@ -1,5 +1,5 @@
-#ifndef INTERFACE_CADASTRO_HPP
-#define INTERFACE_CADASTRO_HPP
+#ifndef INTERFACE_CADASTRO_JOGADOR2_HPP
+#define INTERFACE_CADASTRO_JOGADOR2_HPP
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -10,7 +10,7 @@
 
 using namespace std;
 
-class Interface_Cadastro: public Interface_Menu {
+class Interface_Cadastro_Jogador2: public Interface_Menu {
     protected:
         void Set_Values() override;
         void Loop_Events() override;
@@ -20,8 +20,8 @@ class Interface_Cadastro: public Interface_Menu {
         void Set_Textos() override;
         unique_ptr<Interface_Define_Jogo> define_jogo;
     public:
-        Interface_Cadastro();
-        ~Interface_Cadastro() override;
+        Interface_Cadastro_Jogador2();
+        ~Interface_Cadastro_Jogador2() override;
 
         void Definicoes_Espacamento_Janela() override;
     private:
