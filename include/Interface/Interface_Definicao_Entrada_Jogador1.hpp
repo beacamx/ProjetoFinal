@@ -19,7 +19,6 @@ class Interface_Definicao_Entrada_Jogador1: public Interface_Menu {
         void Loop_Events() override;
         unique_ptr<Interface_Login_Jogador1> login;
         unique_ptr<Interface_Cadastro_Jogador1> cadastro;
-        unique_ptr<Interface_Definicao_Entrada_Jogador2> jogador2;
  
     public:
         Interface_Definicao_Entrada_Jogador1() { Set_Values(); }

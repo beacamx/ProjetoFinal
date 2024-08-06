@@ -73,12 +73,12 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
             theselect = true;
             if (posicao == 0) {
                 janela->close();
-                cadastro = make_unique<Interface_Cadastro_Jogador1>();
-                cadastro->Run_Menu();
+                login = make_unique<Interface_Login_Jogador1>();
+                login->Run_Menu();
             } else if (posicao == 1) {
                 janela->close();
-                jogador2 = make_unique<Interface_Definicao_Entrada_Jogador2>();
-                jogador2->Run_Menu();          
+                cadastro = make_unique<Interface_Cadastro_Jogador1>();
+                cadastro->Run_Menu();          
             }
         }
     }
