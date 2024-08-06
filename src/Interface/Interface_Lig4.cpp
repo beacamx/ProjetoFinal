@@ -31,7 +31,7 @@ void Interface_Lig4::Limpeza() {
 
 void Interface_Lig4::Set_Textura_Sem_Peca(){
     if (!textura.loadFromFile("./assets/Lig4/Sem_peca.png")) {
-        cerr << "Erro ao carregar textura 7x6" << endl;
+        cerr << "Erro ao carregar textura de uma casa sem peça" << endl;
         exit(1);
     }
 }
