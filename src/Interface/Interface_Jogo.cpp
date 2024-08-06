@@ -35,6 +35,8 @@ void Interface_Jogo::Atualizar_Janela_Jogo() {
                 continue;
             }
 
+            // a funcao troca jogador pode fazer com que as casas recebam 2 ao inves de 1
+
             sprite.setPosition(j * largura_quadrado, i * largura_quadrado);
             janela->draw(sprite); // Desenha o sprite na janela
         }

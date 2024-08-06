@@ -1,5 +1,5 @@
 #include "Interface_Cadastro_Jogador1.hpp"
-#include "Troca_Jogador.hpp"
+#include "Troca_Definicao_Entrada_Jogador.hpp"
 
 using namespace std;
 
@@ -148,11 +148,11 @@ void Interface_Cadastro_Jogador1::Loop_Events(){
                 }
             } else if (posicao == 2) {
                 theselect = true;
-                Troca_Jogador troca_jogador;
-                if (troca_jogador.numero_jogador == 1) {
+                Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
+                if (troca_Definicao_Entrada_Jogador.numero_jogador == 1) {
                     janela->close();
-                    troca_jogador.Troca_Definicao_Jogador();
-                } else if (troca_jogador.numero_jogador == 2) {
+                    troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
+                } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
                     janela->close();
                     define_jogo = make_unique<Interface_Define_Jogo>();
                     define_jogo->Run_Menu();
