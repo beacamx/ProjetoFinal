@@ -34,6 +34,7 @@ class Interface_Jogo {
     protected:
         int linhas, colunas, largura_quadrado;
         int largura_janela, altura_janela;
+        int jogador_atual;
         string nome_do_jogo;
 
         sf::Music som_jogo;

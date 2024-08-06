@@ -13,13 +13,15 @@ void Interface_Lig4::logic() {
     // Calcula a coluna clicada e, a partir da parte inferior da coluna, encontra a primeira casa vazia e a preenche com o valor 1
     if (col >= 0 && col < colunas) {
         for (int row = linhas - 1; row >= 0; --row) {
-            if (tabuleiro[row][col] == 0) {
+            if (tabuleiro[row][col] == 0 && jogador_atual == 1) {
                 tabuleiro[row][col] = 1; 
                 break;
             }
+            // chama a funcao de testar vitoria
         }
     }
 }
+
 
 void Interface_Lig4::Limpeza() {
     janela.reset();
