@@ -5,7 +5,7 @@
 using namespace std;
 
 void Interface_Lig4::logic() {
-    /*sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
+    sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
     this->x = posicao.x / largura_quadrado;
     this->y = posicao.y / largura_quadrado;
     int col = posicao.x / largura_quadrado;
@@ -19,10 +19,8 @@ void Interface_Lig4::logic() {
             }
         }
     }
-    */
 }
 
-// 
 void Interface_Lig4::Limpeza() {
     janela.reset();
     sprites.clear();

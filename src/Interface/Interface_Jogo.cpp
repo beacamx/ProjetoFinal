@@ -64,9 +64,7 @@ void Interface_Jogo::Eventos_Jogo() {
                 this->x = posicao.x / largura_quadrado;
                 this->y = posicao.y / largura_quadrado;
 
-                //if (x >= 0 && x < colunas && y >= 0 && y < linhas) { // para testar se cada sprite está sendo lido corretamente
-                //    cout << "Você clicou no número: " << tabuleiro[x][y] << endl;
-                //}
+                this->logic();
             }
         }
 
@@ -106,7 +104,6 @@ void Interface_Jogo::Run_Interface_Jogo(){
     cout << "Iniciando a execução do jogo..." << endl;
     while (janela->isOpen()) {
         this->Eventos_Jogo();
-        // this->logic();
         this->Atualizar_Janela_Jogo();
     }
 }
