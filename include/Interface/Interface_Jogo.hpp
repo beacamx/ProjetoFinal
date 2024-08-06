@@ -37,6 +37,8 @@ class Interface_Jogo {
 
         unique_ptr<sf::RenderWindow> janela;
         sf::Texture texture;
+        sf::Texture pieceTexture1;
+        sf::Texture pieceTexture2;
         vector<sf::Sprite> sprites;
         vector<std::vector<int>> grid;
 

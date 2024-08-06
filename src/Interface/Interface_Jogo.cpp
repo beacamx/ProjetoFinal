@@ -9,6 +9,7 @@ Interface_Jogo::Interface_Jogo(const std::string& nome_do_jogo)
 
 void Interface_Jogo::draw() {
     janela->clear(sf::Color::Black);
+
     for(int i = 0; i < linhas; ++i) {
         for(int j = 0; j < colunas; ++j) {
             int index = grid[i][j] - 1; 
@@ -48,6 +49,17 @@ void Interface_Jogo::events() {
 
                 if (x >= 0 && x < colunas && y >= 0 && y < linhas) { // para testar se cada sprite está sendo lido corretamente
                     cout << "Você clicou no número: " << grid[x][y] << endl;
+                }
+
+                int col = posicao.x / largura_quadrado;
+
+                 if (col >= 0 && col < colunas) {
+                    for (int row = linhas - 1; row >= 0; --row) {
+                        if (grid[row][col] == 0) {
+                            grid[row][col] = 1; 
+                            break;
+                        }
+                    }
                 }
             }
         }
