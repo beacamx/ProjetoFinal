@@ -6,23 +6,27 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <memory>
-#include <array>
+#include <vector>
+#include <cstdlib>
 
 class Interface_Lig4 : public Interface_Jogo {
     public:
         Interface_Lig4() : Interface_Jogo("Lig4") {
             this->largura_quadrado = 78;
         }
-        ~Interface_Lig4() { cleanup(); }
+
+        ~Interface_Lig4() {}
 
         void logic() override;
         int Start_Game_Interface(int num_linhas, int num_colunas) override; 
-        void set_Sprites() override;
-        void set_Image() override;
+        void Set_Sprites() override;
+        void Set_Image() override;
+        void Set_Textura_Peca1() override;
+        void Set_Textura_Peca2() override;
         void Set_Music() override;
 
     private:
-        void cleanup();
+        void Limpeza();
 };
 
 #endif

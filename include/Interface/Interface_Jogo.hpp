@@ -5,7 +5,7 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
 #include <memory>
-#include <array>
+#include <vector>
 #include <cstdlib>
 
 using namespace std;
@@ -15,18 +15,21 @@ class Interface_Jogo {
         Interface_Jogo(const std::string& nome_do_jogo);
         virtual ~Interface_Jogo() = default;
 
-        void events();
-        void run();
-        void draw();
+        void Eventos_Jogo();
+        void Run_Interface_Jogo();
+        void Atualizar_Janela_Jogo();
 
-        virtual void set_Sprites() = 0;
-        virtual void set_Image() = 0;
+        virtual void Set_Sprites() = 0;
+        virtual void Set_Music() = 0;
+        virtual void Set_Image() = 0;
+        virtual void Set_Textura_Peca1() = 0;
+        virtual void Set_Textura_Peca2() = 0;
         virtual void logic() = 0;
         virtual int Start_Game_Interface(int linhas, int colunas) = 0;
+
         void Set_Janela();
         void Define_Dimensoes_Janela();
         void Centralizar_Janela();
-        virtual void Set_Music() = 0;
 
     protected:
         int linhas, colunas, largura_quadrado, num_quadrados;
@@ -36,13 +39,13 @@ class Interface_Jogo {
         sf::Music som_jogo;
 
         unique_ptr<sf::RenderWindow> janela;
-        sf::Texture texture;
-        sf::Texture pieceTexture1;
-        sf::Texture pieceTexture2;
+        sf::Texture textura;
+        sf::Texture textura_peca1;
+        sf::Texture textura_peca2;
         vector<sf::Sprite> sprites;
-        vector<std::vector<int>> grid;
+        vector<vector<int>> tabuleiro;
 
-        shared_ptr<sf::Event> event; 
+        shared_ptr<sf::Event> evento; 
         int x, y, direcionador_x, direcionador_y;
 };
 

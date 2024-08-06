@@ -7,10 +7,10 @@ void Interface_Reversi::logic() {
     
 }
 
-void Interface_Reversi::cleanup() {
+void Interface_Reversi::Limpeza() {
     janela.reset();
     sprites.clear();
-    grid.clear();
+    tabuleiro.clear();
 }
 
 void Interface_Reversi::Set_Music() {
@@ -30,49 +30,64 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
     this->linhas = num_linhas;
     this->colunas = num_colunas;
 
-    cout << "Criando Interface_Lig4..." << endl;
+    cout << "Criando Interface_Reversi..." << endl;
 
     Define_Dimensoes_Janela();
     Set_Janela();
     Centralizar_Janela();
-
-    grid.resize(linhas, std::vector<int>(colunas, 0));
-
-    set_Sprites();
-    set_Image();
-    run();
+    Set_Sprites();
+    Set_Image();
+    Set_Textura_Peca1();
+    Set_Textura_Peca2();
+    Run_Interface_Jogo();
 
     return 0;
 }
 
-void Interface_Reversi::set_Image(){
+void Interface_Reversi::Set_Image(){
+    //  num_quadrados = quantidade de sprites (cada sprite representa uma posicao do tabuleiro)
     if(num_quadrados == 64) {
-        if (!texture.loadFromFile("./assets/Reversi/Reversi_8x8.png")) {
+        if (!textura.loadFromFile("./assets/Reversi/Reversi_8x8.png")) {
             cerr << "Erro ao carregar textura 8x8" << endl;
             exit(1);
         }
     }
 }
 
-void Interface_Reversi::set_Sprites() {
-    sprites.resize(linhas * colunas);
-    grid.resize(linhas, std::vector<int>(colunas, 0));
+void Interface_Reversi::Set_Textura_Peca1(){
+    if (!textura_peca1.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
+        cerr << "Erro ao carregar a textura da peça 1" << endl;
+        exit(1);
+    }
+}
+
+void Interface_Reversi::Set_Textura_Peca2(){
+    if (!textura_peca2.loadFromFile("./assets/Lig4/Peca_amarela.png")) {
+        cerr << "Erro ao carregar a textura da peça 2" << endl;
+        exit(1);
+    }
+}
+
+void Interface_Reversi::Set_Sprites() {
+    sprites.resize(linhas * colunas); // Redimensiona o vetor de sprites para ter um sprite para cada posição no tabuleiro.
+    tabuleiro.resize(linhas, vector<int>(colunas, 0)); // Redimensiona a matriz grid para representar o estado do tabuleiro, inicializando todas as posições com 0 (indicando que estão vazias).
+        
     for(int i = 0; i < linhas; ++i) {
         for(int j = 0; j < colunas; ++j) {
-            int index = i * colunas + j; 
-            int tam_sprites = sprites.size();
+            int indice = i * colunas + j; 
+            int tamanho_vetor_sprites = sprites.size();
 
-            if (index >= tam_sprites) {
-                std::cerr << "Índice fora dos limites: " << index << std::endl;
+            cout << "i: " << i << ", j: " << j << ", indice: " << indice << endl;
+
+            if (indice >= tamanho_vetor_sprites) {
+                cerr << "Índice fora dos limites: " << indice << endl;
                 continue;
             }
 
-            sf::Sprite& sprite = sprites[index];
-            sprite.setTexture(texture);
-            sprite.setTextureRect(sf::IntRect(j * largura_quadrado, i * largura_quadrado, largura_quadrado, largura_quadrado)); // Definir a área da textura
-            sprite.setPosition(j * largura_quadrado, i * largura_quadrado); 
-
-            grid[i][j] = index + 1; 
+            sf::Sprite& sprite = sprites[indice];
+            sprite.setTexture(textura);
+            sprite.setTextureRect(sf::IntRect(0, 0, largura_quadrado, largura_quadrado)); // Definir a área da textura
+            sprite.setPosition(j * largura_quadrado, i * largura_quadrado); // Definir a posição do sprite
         }
     }
 }
