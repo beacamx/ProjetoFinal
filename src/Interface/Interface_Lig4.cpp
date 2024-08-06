@@ -29,10 +29,6 @@ void Interface_Lig4::Limpeza() {
     tabuleiro.clear();
 }
 
-/* 
-carrega a imagem de fundo do tabuleiro com base no número de quadrados (num_quadrados), 
-que é determinado pelo número de linhas e colunas do tabuleiro.
-*/
 void Interface_Lig4::Set_Textura_Sem_Peca(){
     if (!textura.loadFromFile("./assets/Lig4/Sem_peca.png")) {
         cerr << "Erro ao carregar textura 7x6" << endl;

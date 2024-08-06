@@ -92,7 +92,6 @@ void Interface_Jogo::Set_Janela() {
 void Interface_Jogo::Define_Dimensoes_Janela() {
     this->largura_janela = colunas * largura_quadrado;
     this->altura_janela = linhas * largura_quadrado;
-    this->num_quadrados = linhas * colunas;
 }
 
 void Interface_Jogo::Centralizar_Janela() {

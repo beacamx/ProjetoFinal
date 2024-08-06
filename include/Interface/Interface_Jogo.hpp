@@ -32,7 +32,7 @@ class Interface_Jogo {
         void Centralizar_Janela();
 
     protected:
-        int linhas, colunas, largura_quadrado, num_quadrados;
+        int linhas, colunas, largura_quadrado;
         int largura_janela, altura_janela;
         string nome_do_jogo;
 
