@@ -33,23 +33,10 @@ void Interface_Lig4::Limpeza() {
 carrega a imagem de fundo do tabuleiro com base no número de quadrados (num_quadrados), 
 que é determinado pelo número de linhas e colunas do tabuleiro.
 */
-void Interface_Lig4::Set_Image(){
-    //  num_quadrados = quantidade de sprites (cada sprite representa uma posicao do tabuleiro)
-    if(num_quadrados == 42) {
-        if (!textura.loadFromFile("./assets/Lig4/Lig4_7x6.png")) {
-            cerr << "Erro ao carregar textura 7x6" << endl;
-            exit(1);
-        }
-    } else if(num_quadrados == 56){
-        if (!textura.loadFromFile("./assets/Lig4/Lig4_8x7.png")) {
-            cerr << "Erro ao carregar textura 8x7" << endl;
-            exit(1);
-        }
-    } else if(num_quadrados == 72) {
-        if (!textura.loadFromFile("./assets/Lig4/Lig4_9x8.png")) {
-            cerr << "Erro ao carregar textura 9x8" << endl;
-            exit(1);
-        }
+void Interface_Lig4::Set_Textura_Sem_Peca(){
+    if (!textura.loadFromFile("./assets/Lig4/Sem_peca.png")) {
+        cerr << "Erro ao carregar textura 7x6" << endl;
+        exit(1);
     }
 }
 
@@ -118,7 +105,7 @@ int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
     tabuleiro.resize(linhas, std::vector<int>(colunas, 0));
 
     Set_Sprites();
-    Set_Image();
+    Set_Textura_Sem_Peca();
     Set_Textura_Peca1();
     Set_Textura_Peca2();
     Run_Interface_Jogo();

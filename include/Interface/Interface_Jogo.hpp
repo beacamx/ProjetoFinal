@@ -21,7 +21,7 @@ class Interface_Jogo {
 
         virtual void Set_Sprites() = 0;
         virtual void Set_Music() = 0;
-        virtual void Set_Image() = 0;
+        virtual void Set_Textura_Sem_Peca() = 0;
         virtual void Set_Textura_Peca1() = 0;
         virtual void Set_Textura_Peca2() = 0;
         virtual void logic() = 0;

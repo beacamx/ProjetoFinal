@@ -36,7 +36,7 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
     Set_Janela();
     Centralizar_Janela();
     Set_Sprites();
-    Set_Image();
+    Set_Textura_Sem_Peca();
     Set_Textura_Peca1();
     Set_Textura_Peca2();
     Run_Interface_Jogo();
@@ -44,13 +44,10 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
     return 0;
 }
 
-void Interface_Reversi::Set_Image(){
-    //  num_quadrados = quantidade de sprites (cada sprite representa uma posicao do tabuleiro)
-    if(num_quadrados == 64) {
-        if (!textura.loadFromFile("./assets/Reversi/Reversi_8x8.png")) {
-            cerr << "Erro ao carregar textura 8x8" << endl;
-            exit(1);
-        }
+void Interface_Reversi::Set_Textura_Sem_Peca(){
+    if (!textura.loadFromFile("./assets/Reversi/Sem_Peca.png")) {
+        cerr << "Erro ao carregar textura 8x8" << endl;
+        exit(1);
     }
 }
 

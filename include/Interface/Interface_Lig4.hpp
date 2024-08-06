@@ -20,7 +20,7 @@ class Interface_Lig4 : public Interface_Jogo {
         void logic() override;
         int Start_Game_Interface(int num_linhas, int num_colunas) override; 
         void Set_Sprites() override;
-        void Set_Image() override;
+        void Set_Textura_Sem_Peca() override;
         void Set_Textura_Peca1() override;
         void Set_Textura_Peca2() override;
         void Set_Music() override;
