@@ -20,6 +20,7 @@ void Interface_Reversi::Set_Music() {
     }
 
     som_jogo.setVolume(2);
+    som_jogo.setLoop(true);
     som_jogo.play();
 }
 

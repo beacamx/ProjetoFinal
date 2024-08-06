@@ -47,7 +47,7 @@ void Interface_Jogo::events() {
                 this->y = posicao.y / largura_quadrado;
 
                 if (x >= 0 && x < colunas && y >= 0 && y < linhas) { // para testar se cada sprite está sendo lido corretamente
-                    cout << "Você clicou no número: " << grid[y][x] << endl;
+                    cout << "Você clicou no número: " << grid[x][y] << endl;
                 }
             }
         }
