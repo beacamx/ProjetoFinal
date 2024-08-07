@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "Jogo.hpp"
+#ifndef CADASTRO_HPP
+#define CADASTRO_HPP
 class cadastro{
   public:
   jogador * find(std::string)
@@ -9,3 +11,4 @@ class cadastro{
   private:
   vector<jogador*> jogadores;
 }
+#endif
