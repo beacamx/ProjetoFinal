@@ -31,10 +31,11 @@ void cadastro::remover(jogador * target){
   for (auto _aux : jogadores){
     if (_aux == target){
       jogadores.erase(jogadores.begin() + counter);
+      return;
     } 
     counter++;
   }
-  throw exception("player_not_found");
+  throw std::run_time_error("player_not_found");
 }
 void cadastro::load(){
   std::fstream archive(default_name, std::ios::in);
@@ -44,16 +45,16 @@ void cadastro::load(){
   archive.seekg(0, archive.end);
   int final_position = archive.tellg();
   archive.seekg(0, archive.beg);
-  char * test_controll = new char[20];
+  char test_controll[20] = {};
   archive.read(test_controll, string_controll.length());
-  input_controll(test_controll);
+  std::string input_controll(test_controll);
   if ( ! (input_controll == string_controll) ){
-    throw exception("data_corrupted")
+    throw std::run_time_error("data_corrupted")
   }
   unsigned int n_registers;
   archive.read(&n_registers, sizeof(unsigned int));
   while (n_registers){
-    char * _input_name = new char[20];
+    char _input_name[20] = {};
     unsigned int n_of_wins;
     unsigned int n_of_loses;
     archive.read(_input_name, 20);
@@ -62,16 +63,39 @@ void cadastro::load(){
     cadastrar(new jogador(_input_name, n_of_wins, n_of_loses));
     n_registers--;
   }
-  if (archive != final_position){
-    /*arquico corrompido*/
-    bool decision = continuar();
+  if (archive.tellg() != final_position){
+    /*arquivo corrompido*/
+    bool decision = decisao();
     if (decision){
       return;
     } else {
-      throw exception("shutdown");
+      throw std::run_time_error("shutdown");
     }
   }
+  archive.close();
 }
 void cadastro::save(){
-  
+  std::fstream archive(default_name, std::ios::out | std::ios::trunc);
+  if (!archive){
+    //arquivo não pode ser salvo, deseja sair?
+    bool decision = decisao();
+    if (decision){
+      return;
+    } else {
+      std::run_time_error("fail");
+    }
+  }
+  archive.write(string_controll.c_str(), string_controll.length());
+  unsigned int n_players = jogadores.size();
+  archive.write(&n_players, sizeof(unsigned int));
+  for (auto _aux : jogadores){
+    char p_name[20] = {};
+    _aux->get_name().copy(p_name, _aux->get_name().size(), 0);
+    unsigned int input_wins = _aux->get_wins();
+    unsigned int input_loses = _aux->get_loses();
+    archive.write(p_name, 20);
+    archive.write((char *) &input_wins, sizeof(unsigned int));
+    archive.write((char *) &input_loses, sizeof(unsigned int));
+  }
+  archive.close();
 }
