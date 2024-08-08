@@ -1,15 +1,4 @@
 #include "../include/Cadastro_Jogadores.hpp"
-/*bool decisao(){
-    std::cout << "decisao() 1 = true 0 = false" << std::endl;
-    int esse;
-    std::cin >> esse;
-    if (esse){
-        return true;
-    } else {
-        return false;
-    }
-} \\\\\\\\\\\\\\\ função decisao usada para teste
-*/
 cadastro::cadastro(){
   load();
 }
@@ -26,13 +15,7 @@ jogador * cadastro::find(std::string _name){ //encontra jogador por nome
 }
 void cadastro::cadastrar(jogador * target){ //insere *jogador no vetor<*jogador>
   if (auto _aux = find(target->get_name())){
-    bool decision = decisao();
-    if(decision){
-      _aux = target;
-      return;
-    } else {
-      return;
-    }
+      throw std::runtime_error("override_player");
   }
   jogadores.push_back(target);
 }
@@ -45,12 +28,7 @@ void cadastro::remover(jogador * target){ //remove *jogador no vetor<*jogador>
     } 
     counter++;
   }
-  bool decision = decisao();
-  if (decision){
-    return;
-  } else {
     throw std::runtime_error("player_not_found");
-  }
 }
 void cadastro::load(){//carrega do arquivo padrao
   std::fstream archive(default_name, std::ios::in);
