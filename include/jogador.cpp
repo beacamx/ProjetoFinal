@@ -19,3 +19,8 @@ private:
     unsigned int n_of_loses_lig4;
     unsigned int n_of_loses_Reversi;
 };
+class player_compare{
+    bool operator() (const jogador * p1, const jogador * p2){
+        return p1->get_name() < p2->get_name();
+    }
+};
