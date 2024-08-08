@@ -17,7 +17,7 @@ void cadastro::cadastrar(jogador * target){ //insere *jogador no vetor<*jogador>
   if (auto _aux = find(target->get_name())){
       throw std::runtime_error("override_player");
   }
-  jogadores.push_back(target);
+  jogadores.insert(target);
 }
 void cadastro::remover(jogador * target){ //remove *jogador no vetor<*jogador>
   unsigned int counter = 0;
