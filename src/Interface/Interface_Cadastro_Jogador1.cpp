@@ -162,7 +162,6 @@ void Interface_Cadastro_Jogador1::Loop_Events(){
                         define_jogo->Run_Menu();
                     } catch(const runtime_error& e){ 
                         cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
-                        throw;
                     }
                 } else {
 
