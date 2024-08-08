@@ -10,9 +10,9 @@ class cadastro{
   jogador * find(std::string);
   void cadastrar(jogador*);
   void remover(jogador*);
+  private:
   void save();
   void load();
-  private:
   vector<jogador*> jogadores;
 }
 #endif
