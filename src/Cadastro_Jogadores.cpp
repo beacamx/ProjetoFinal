@@ -115,8 +115,10 @@ void cadastro::save(){//salva no arquivo padrao
     unsigned int input_loses_lig4 = _aux->get_loses_lig4();
     unsigned int input_loses_Reversi = _aux->get_loses_Reversi();
     archive.write(p_name, 20);
-    archive.write((char *) &input_wins, sizeof(unsigned int));
-    archive.write((char *) &input_loses, sizeof(unsigned int));
+    archive.write((char*) &input_wins_lig4, sizeof(unsigned int));
+    archive.write((char*) &input_wins_Reversi, sizeof(unsigned int));
+    archive.write((char*) &input_loses_lig4, sizeof(unsigned int));
+    archive.write((char*) &input_loses_Reversi, sizeof(unsigned int));
   }
   archive.close();
 }
