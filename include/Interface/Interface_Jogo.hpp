@@ -24,8 +24,10 @@ class Interface_Jogo {
         virtual void Set_Textura_Sem_Peca() = 0;
         virtual void Set_Textura_Peca1() = 0;
         virtual void Set_Textura_Peca2() = 0;
-        virtual void logic() = 0;
+        virtual void Logica() = 0;
         virtual int Start_Game_Interface(int linhas, int colunas) = 0;
+
+        void Trocar_Jogador();
 
         void Set_Janela();
         void Define_Dimensoes_Janela();

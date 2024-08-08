@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Interface_Lig4::logic() {
+void Interface_Lig4::Logica() {
     sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
     this->x = posicao.x / largura_quadrado;
     this->y = posicao.y / largura_quadrado;
@@ -22,12 +22,6 @@ void Interface_Lig4::logic() {
     }
 }
 
-
-void Interface_Lig4::Limpeza() {
-    janela.reset();
-    sprites.clear();
-    tabuleiro.clear();
-}
 
 void Interface_Lig4::Set_Textura_Sem_Peca(){
     if (!textura.loadFromFile("./assets/Lig4/Sem_peca.png")) {

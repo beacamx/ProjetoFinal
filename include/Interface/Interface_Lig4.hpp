@@ -17,16 +17,13 @@ class Interface_Lig4 : public Interface_Jogo {
 
         ~Interface_Lig4() {}
 
-        void logic() override;
+        void Logica() override;
         int Start_Game_Interface(int num_linhas, int num_colunas) override; 
         void Set_Sprites() override;
         void Set_Textura_Sem_Peca() override;
         void Set_Textura_Peca1() override;
         void Set_Textura_Peca2() override;
         void Set_Music() override;
-
-    private:
-        void Limpeza();
 };
 
 #endif

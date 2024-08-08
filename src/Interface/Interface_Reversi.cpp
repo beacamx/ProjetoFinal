@@ -3,14 +3,8 @@
 
 using namespace std;
 
-void Interface_Reversi::logic() {
+void Interface_Reversi::Logica() {
     
-}
-
-void Interface_Reversi::Limpeza() {
-    janela.reset();
-    sprites.clear();
-    tabuleiro.clear();
 }
 
 void Interface_Reversi::Set_Music() {
