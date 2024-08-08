@@ -155,14 +155,20 @@ void Interface_Cadastro_Jogador1::Loop_Events(){
                 } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
                     janela->close();
                     string nome_jogador = caixa_de_texto1.Get_Text();
-                    // chama a funçao de verificar se nome_jogador está na lista de usuários cadastrados
-                    // exemplo jogador1.find(nome_jogador);
-                    // if (se não estiver na lista) -> define_jogo (as duas linhas abaixo), se estiver imprime mensagem de erro
+                    try {
+                        registro_geral.cadastrar(new jogador(nome_jogador));
+
                         define_jogo = make_unique<Interface_Define_Jogo>();
                         define_jogo->Run_Menu();
+                    } catch(const runtime_error& e){ 
+                        cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
+                        throw;
+                    }
                 } else {
-                    cerr << "Erro ao definir jogador" << endl;
+
                 }
+            } else {
+                    cerr << "Erro ao definir jogador" << endl;
             }
         }
 

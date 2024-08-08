@@ -28,7 +28,7 @@ class Interface_Cadastro_Jogador1: public Interface_Menu {
     private:
         Caixa_de_texto caixa_de_texto1;
         Caixa_de_texto caixa_de_texto2;
-        cadastro jogador1;
+        cadastro registro_geral;
         float altura_texto;
 };
 
