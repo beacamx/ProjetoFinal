@@ -2,20 +2,6 @@
 #include <vector>
 #include <fstream>
 #include <stdexcept>
-/*class jogador
-{
-public:
-    jogador(std::string name) : jogador(name, 0, 0) {}
-    jogador(std::string name, unsigned int wins, unsigned int loses) : _name(name), n_of_wins(wins), n_of_loses(loses) {}
-    std::string get_name() { return _name; };
-    unsigned int get_wins() { return n_of_wins; };
-    unsigned int get_loses() { return n_of_loses; };
-
-private:
-    std::string _name;
-    unsigned int n_of_wins;
-    unsigned int n_of_loses;
-};*/
 #ifndef CADASTRO_HPP
 #define CADASTRO_HPP
 class cadastro{
