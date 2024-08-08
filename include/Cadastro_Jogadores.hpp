@@ -10,15 +10,14 @@ class cadastro{
   public:
   cadastro();
   ~cadastro();
-
   jogador * find(std::string);
   void cadastrar(jogador*);
   void remover(jogador*);  
+  void save();
+  void load();
   private:
   char default_name[40] = "Lig4&Reversi_data.storage";
   char string_controll[70] = "Lig4&Reversi_string_controll PDSII 2024/1.v1";
-  void save();
-  void load();
-  std::vector<jogador*> jogadores;
+  std::set<jogador*, compare_player> jogadores;
 };
 #endif
