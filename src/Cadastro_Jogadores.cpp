@@ -1,4 +1,4 @@
-#include "Cadastro_Jogadores.hpp"
+#include "../include/Cadastro_Jogadores.hpp"
 cadastro::cadastro(){
   load();
 }
