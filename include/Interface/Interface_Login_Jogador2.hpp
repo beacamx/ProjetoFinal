@@ -7,6 +7,7 @@
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Jogo.hpp"
 #include "Caixa_de_texto.hpp"
+#include "Cadastro_Jogadores.hpp"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ class Interface_Login_Jogador2: public Interface_Menu {
         void Definicoes_Espacamento_Janela() override;
     private:
         Caixa_de_texto caixa_de_texto1;
+        cadastro jogador2;
         float altura_texto;
 };
 

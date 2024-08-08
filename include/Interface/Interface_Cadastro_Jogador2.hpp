@@ -7,6 +7,7 @@
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Jogo.hpp"
 #include "Caixa_de_texto.hpp"
+#include "Cadastro_Jogadores.hpp"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ class Interface_Cadastro_Jogador2: public Interface_Menu {
     private:
         Caixa_de_texto caixa_de_texto1;
         Caixa_de_texto caixa_de_texto2;
+        cadastro jogador2;
         float altura_texto;
 };
 

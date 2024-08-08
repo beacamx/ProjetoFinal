@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <stdexcept>
+
 #ifndef CADASTRO_HPP
 #define CADASTRO_HPP
 

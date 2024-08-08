@@ -123,12 +123,13 @@ void Interface_Login_Jogador2::Loop_Events(){
                 }
             } else if (posicao == 1) {
                 theselect = true;
-                /*chama funcao para verificar se o jogador existe
-                se nao existir, mostra um aviso
-                se existir, define o jogador que vai jogar*/
                 janela->close();
-                define_jogo = make_unique<Interface_Define_Jogo>();
-                define_jogo->Run_Menu();
+                string nome_jogador = caixa_de_texto1.Get_Text();
+                // chama a funçao de verificar se nome_jogador está na lista de usuários cadastrados
+                // exemplo jogador2.find(nome_jogador);
+                // if (se estiver na lista) -> define_jogo (as duas linhas abaixo), se não estiver imprime mensagem de erro
+                    define_jogo = make_unique<Interface_Define_Jogo>();
+                    define_jogo->Run_Menu();
             } 
         }
 

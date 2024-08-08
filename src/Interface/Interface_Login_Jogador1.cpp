@@ -130,8 +130,12 @@ void Interface_Login_Jogador1::Loop_Events(){
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
                 } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
                     janela->close();
-                    define_jogo = make_unique<Interface_Define_Jogo>();
-                    define_jogo->Run_Menu();
+                    string nome_jogador = caixa_de_texto1.Get_Text();
+                    // chama a funçao de verificar se nome_jogador está na lista de usuários cadastrados
+                    // exemplo jogador1.find(nome_jogador);
+                    // if (se estiver na lista) -> define_jogo (as duas linhas abaixo), se não estiver imprime mensagem de erro
+                        define_jogo = make_unique<Interface_Define_Jogo>();
+                        define_jogo->Run_Menu();
                 } else {
                     cerr << "Erro ao definir jogador" << endl;
                 }

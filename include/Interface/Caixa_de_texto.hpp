@@ -27,7 +27,7 @@ class Caixa_de_texto {
 
     private:
         sf::Text caixa_de_texto;
-        ostringstream texto_login;
+        ostringstream texto_de_entrada;
         bool esta_selecionado = false;
         bool caixa_selecionada = false;
         bool tem_limite = false;

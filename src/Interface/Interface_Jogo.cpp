@@ -66,7 +66,7 @@ void Interface_Jogo::Eventos_Jogo() {
                 this->x = posicao.x / largura_quadrado;
                 this->y = posicao.y / largura_quadrado;
 
-                this->logic();
+                this->Logica();
             }
         }
 

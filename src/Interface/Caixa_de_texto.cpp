@@ -15,24 +15,24 @@ Caixa_de_texto::Caixa_de_texto(int tamanho_caixa, sf::Color cor_caixa, bool sel)
 
 void Caixa_de_texto::Input_Logic (int charTyped) {
     if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && charTyped != ESCAPE_KEY) {
-        texto_login << static_cast<char>(charTyped);
+        texto_de_entrada << static_cast<char>(charTyped);
     } else if (charTyped == DELETE_KEY) {
-        if (texto_login.str().length() > 0) {
+        if (texto_de_entrada.str().length() > 0) {
             Delete_Last_Char();
         }
     }
-    caixa_de_texto.setString(texto_login.str() + "_");
+    caixa_de_texto.setString(texto_de_entrada.str() + "_");
 }
 
 void Caixa_de_texto::Delete_Last_Char() {
-    string aux =  texto_login.str();
+    string aux =  texto_de_entrada.str();
     string new_aux = "";
     int tamanho_aux = aux.length();
     for (int i = 0; i < tamanho_aux - 1; i++) 
         new_aux += aux[i];
-    texto_login.str("");
-    texto_login << new_aux;
-    caixa_de_texto.setString(texto_login.str());
+    texto_de_entrada.str("");
+    texto_de_entrada << new_aux;
+    caixa_de_texto.setString(texto_de_entrada.str());
 }
 
 void Caixa_de_texto::Set_Font(sf::Font &font) {
@@ -56,7 +56,7 @@ void Caixa_de_texto::Set_Selected(bool sel) {
     esta_selecionado = sel;
 
     if (!sel) {
-        string aux =  texto_login.str();
+        string aux =  texto_de_entrada.str();
         string new_aux = "";
         int tamanho_aux = aux.length();
         for (int i = 0; i < tamanho_aux; i++) 
@@ -67,7 +67,7 @@ void Caixa_de_texto::Set_Selected(bool sel) {
 }
 
 string Caixa_de_texto::Get_Text() {
-    return texto_login.str();
+    return texto_de_entrada.str();
 }
 
 void Caixa_de_texto::Draw_To(sf::RenderWindow &janela) {
@@ -75,7 +75,7 @@ void Caixa_de_texto::Draw_To(sf::RenderWindow &janela) {
 }
 
 void Caixa_de_texto::Typed_On(sf::Event input) {
-    int tamanho_texto_login = texto_login.str().length();
+    int tamanho_texto_login = texto_de_entrada.str().length();
     if (esta_selecionado) {
         int Char_Typed = input.text.unicode;
         if (Char_Typed < 128) {
