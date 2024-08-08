@@ -1,4 +1,15 @@
 #include "../include/Cadastro_Jogadores.hpp"
+/*bool decisao(){
+    std::cout << "decisao() 1 = true 0 = false" << std::endl;
+    int esse;
+    std::cin >> esse;
+    if (esse){
+        return true;
+    } else {
+        return false;
+    }
+} \\\\\\\\\\\\\\\ função decisao usada para teste
+*/
 cadastro::cadastro(){
   load();
 }
@@ -13,7 +24,7 @@ jogador * cadastro::find(std::string _name){ //encontra jogador por nome
   }
   return NULL;
 }
-void cadastro::cadastrar(jogador * target){ //insere *jogador no vetor
+void cadastro::cadastrar(jogador * target){ //insere *jogador no vetor<*jogador>
   if (auto _aux = find(target->get_name())){
     bool decision = decisao();
     if(decision){
@@ -25,7 +36,7 @@ void cadastro::cadastrar(jogador * target){ //insere *jogador no vetor
   }
   jogadores.push_back(target);
 }
-void cadastro::remover(jogador * target){
+void cadastro::remover(jogador * target){ //remove *jogador no vetor<*jogador>
   unsigned int counter = 0;
   for (auto _aux : jogadores){
     if (_aux == target){
@@ -38,25 +49,25 @@ void cadastro::remover(jogador * target){
   if (decision){
     return;
   } else {
-    throw std::run_time_error("player_not_found");
+    throw std::runtime_error("player_not_found");
   }
 }
-void cadastro::load(){
+void cadastro::load(){//carrega do arquivo padrao
   std::fstream archive(default_name, std::ios::in);
   if (!archive){
+    archive.close();
     return;
   }
   archive.seekg(0, archive.end);
   int final_position = archive.tellg();
   archive.seekg(0, archive.beg);
-  char test_controll[20] = {};
-  archive.read(test_controll, string_controll.length());
-  std::string input_controll(test_controll);
-  if ( ! (input_controll == string_controll) ){
-    throw std::run_time_error("data_corruption")
+  char test_controll[70] = {};
+  archive.read(test_controll, std::string(string_controll).length());
+  if ( ! (std::string(test_controll) == std::string(string_controll)) ){
+    throw std::runtime_error("data_corruption");
   }
   unsigned int n_registers;
-  archive.read(&n_registers, sizeof(unsigned int));
+  archive.read((char *)&n_registers, sizeof(unsigned int));
   while (n_registers){
     char _input_name[20] = {};
     unsigned int n_of_wins;
@@ -73,23 +84,23 @@ void cadastro::load(){
     if (decision){
       return;
     } else {
-      throw std::run_time_error("data_corruption");
+      throw std::runtime_error("data_corruption");
     }
   }
   archive.close();
 }
-void cadastro::save(){
-  std::fstream archive(default_name, std::ios::out | std::ios::trunc);
+void cadastro::save(){//salva no arquivo padrao
+  std::fstream archive(default_name, std::ios::out | std::ios::trunc | std::ios::binary);
   if (!archive){
     //arquivo não pode ser salvo, deseja sair?
     bool decision = decisao();
     if (decision){
       return;
     } else {
-      std::run_time_error("fail");//catch na main -> retorna ao looping de jogo
+      std::runtime_error("fail");//catch na main -> retorna ao looping de jogo
     }
   }
-  archive.write(string_controll.c_str(), string_controll.length());
+  archive.write(string_controll, std::string(string_controll).length());
   unsigned int n_players = jogadores.size();
   archive.write((char*) &n_players, sizeof(unsigned int));
   for (auto _aux : jogadores){
