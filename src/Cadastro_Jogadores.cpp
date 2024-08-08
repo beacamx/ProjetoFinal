@@ -70,12 +70,16 @@ void cadastro::load(){//carrega do arquivo padrao
   archive.read((char *)&n_registers, sizeof(unsigned int));
   while (n_registers){
     char _input_name[20] = {};
-    unsigned int n_of_wins;
-    unsigned int n_of_loses;
+    unsigned int n_of_wins_lig4;
+    unsigned int n_of_wins_Reversi;
+    unsigned int n_of_loses_lig4;
+    unsigned int n_of_loses_Reversi;
     archive.read(_input_name, 20);
-    archive.read((char*) &n_of_wins, sizeof(unsigned int));
-    archive.read((char*) &n_of_loses, sizeof(unsigned int));
-    cadastrar(new jogador(_input_name, n_of_wins, n_of_loses));
+    archive.read((char*) &n_of_wins_lig4, sizeof(unsigned int));
+    archive.read((char*) &n_of_wins_Reversi, sizeof(unsigned int));
+    archive.read((char*) &n_of_loses_lig4, sizeof(unsigned int));
+    archive.read((char*) &n_of_loses_Reversi, sizeof(unsigned int));
+    cadastrar(new jogador(_input_name, n_of_wins_lig4, n_of_wins_Reversi, n_of_loses_lig4, n_of_loses_Reversi));
     n_registers--;
   }
   if (archive.tellg() != final_position){
@@ -106,8 +110,10 @@ void cadastro::save(){//salva no arquivo padrao
   for (auto _aux : jogadores){
     char p_name[20] = {};
     _aux->get_name().copy(p_name, _aux->get_name().size(), 0);
-    unsigned int input_wins = _aux->get_wins();
-    unsigned int input_loses = _aux->get_loses();
+    unsigned int input_wins_lig4 = _aux->get_wins_lig4();
+    unsigned int input_wins_Reversi = _aux->get_wins_Reversi();
+    unsigned int input_loses_lig4 = _aux->get_loses_lig4();
+    unsigned int input_loses_Reversi = _aux->get_loses_Reversi();
     archive.write(p_name, 20);
     archive.write((char *) &input_wins, sizeof(unsigned int));
     archive.write((char *) &input_loses, sizeof(unsigned int));
