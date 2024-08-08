@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <stdexcept>
 #include "Jogo.hpp"
 #ifndef CADASTRO_HPP
 #define CADASTRO_HPP
