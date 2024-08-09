@@ -1,0 +1,29 @@
+Fala, meu povo!
+Vou fazer esse git com sugestões de uso do TAD de cadastro.
+O TAD consiste, na inicialização, da criação de um std::set<*jogador> preenchido a partir da leitura de um arquivo binário.
+A integridade do arquivo é verificada a partir de uma string de controle, e da conferência do numero de leituras realizadas ao final
+do looping de entrada.
+Para utilizar o cadastro, basta declarar um objeto estático dentro de try{}, e formular os tratamentos
+de exceções, todos com runtime_error, que são:
+data_corruption -> indica que o arquivo com o registro dos jogadores está indisponível.
+override_player -> indica que um cadastro sendo requerido com o método .cadastrar() já existe.
+player_not_found -> indica que a remoção de um cadastro pelo método .remover() não pôde encontrar seu registro.
+fail_out -> indica que o arquivo com os dados correntes do jogo não poderá ser salvo.
+Utilizando um cadastro chamado "registro" como exemplo, os métodos podem ser utilizados da seguinte forma:
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+cadastro registro;
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+para cadastrar um joador:
+registro.cadastrar(new jogador("Fulano de tal", "fulanick_name"));
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+para escolher um jogador do cadastro com base em seu nome:
+registro.find("Ciclano de tal");
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+para remover um jogador:
+registro.remover(registro.find("Fulano de tal"));
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+para obter uma lista ordenada dos jogadores:
+std::vector<*jogador> jogadores_ordenados = registro.player_list();
+*****************************************************************************************************
+Uma vez com os jogadores já em mãos, os métodos para obter seu dados são auto-explicativos;
+para computadr vitórias e derrotas : ponteiro->win() \ ponteiro->lose()
