@@ -15,7 +15,7 @@ public:
     void win_lig4(){ n_of_wins_lig4++; };
     void win_Reversi(){ n_of_wins_Reversi++; };
     void lose_lig4(){ n_of_loses_lig4++; };
-    void lose_Reversi(){ n_od_loses_Reversi++; };
+    void lose_Reversi(){ n_of_loses_Reversi++; };
 private:
     std::string _name;
     std::string _nick;
