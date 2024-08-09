@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <vector>
 #include <fstream>
 #include <stdexcept>
 #include "jogador.cpp"
@@ -12,7 +13,8 @@ class cadastro{
   ~cadastro();
   jogador * find(std::string);
   void cadastrar(jogador*);
-  void remover(jogador*);  
+  void remover(jogador*);
+  std::vector<jogador*> player_list();   
   void save();
   void load();
   private:
