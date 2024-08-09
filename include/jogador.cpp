@@ -3,8 +3,8 @@
 class jogador
 {
 public:
-    jogador(std::string name) : jogador(name, 0, 0, 0, 0) {}
-    jogador(std::string name, unsigned int wins_lig4, unsigned int wins_Reversi, unsigned int loses_lig4, unsigned int loses_Reversi) : _name(name), n_of_wins_lig4(wins_lig4), n_of_wins_Reversi(wins_Reversi), n_of_loses_lig4(loses_lig4), n_of_loses_Reversi(loses_Reversi) {}
+    jogador(std::string name, std::string nick) : jogador(name, nick, 0, 0, 0, 0) {}
+    jogador(std::string name, std::string nick, unsigned int wins_lig4, unsigned int wins_Reversi, unsigned int loses_lig4, unsigned int loses_Reversi) : _name(name), _nick(nick), n_of_wins_lig4(wins_lig4), n_of_wins_Reversi(wins_Reversi), n_of_loses_lig4(loses_lig4), n_of_loses_Reversi(loses_Reversi) {}
     std::string get_name() { return _name; };
     unsigned int get_wins() { return n_of_wins_lig4 + n_of_wins_Reversi; };
     unsigned int get_loses() { return n_of_loses_lig4 + n_of_loses_Reversi; };
@@ -18,6 +18,7 @@ public:
     void lose_Reversi(){ n_od_loses_Reversi++; };
 private:
     std::string _name;
+    std::string _nick;
     unsigned int n_of_wins_lig4;
     unsigned int n_of_wins_Reversi;
     unsigned int n_of_loses_lig4;
