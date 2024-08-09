@@ -96,6 +96,8 @@ void Interface_Login_Jogador1::Set_Values(){
 void Interface_Login_Jogador1::Loop_Events(){
     sf::Event evento;
     int tam_vetor_texto = texto.size();
+    
+    registro_geral.load();
 
     while(janela->pollEvent(evento)) {
         if (evento.type == sf::Event::Closed) {

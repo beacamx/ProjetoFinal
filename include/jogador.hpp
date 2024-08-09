@@ -1,3 +1,6 @@
+#ifndef JOGADOR_HPP
+#define JOGADOR_HPP
+
 #include <iostream>
 
 class jogador
@@ -24,8 +27,11 @@ private:
     unsigned int n_of_loses_lig4;
     unsigned int n_of_loses_Reversi;
 };
+
 struct player_compare{
     bool operator() (jogador * p1, jogador * p2) const{
         return p1->get_name() < p2->get_name();
     }
 };
+
+#endif

@@ -109,6 +109,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
     int tam_vetor_texto = texto.size();
 
     try {
+        registro_geral.load();
         while(janela->pollEvent(evento)) {
             if (evento.type == sf::Event::Closed) {
                 janela->close();
@@ -162,8 +163,10 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
                         janela->close();
                         string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
+                        string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
                         try {
-                            registro_geral.cadastrar(new jogador(nome_jogador));
+                            registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador));
+                            registro_geral.save();
 
                             define_jogo = make_unique<Interface_Define_Jogo>();
                             define_jogo->Run_Menu();
