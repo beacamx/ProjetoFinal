@@ -39,23 +39,35 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
 }
 
 void Interface_Reversi::Set_Textura_Sem_Peca(){
-    if (!textura.loadFromFile("./assets/Reversi/Sem_Peca.png")) {
-        cerr << "Erro ao carregar textura 8x8" << endl;
-        exit(1);
+    try {
+        if (!textura.loadFromFile("./assets/Reversi/Sem_Peca.png")) {
+            cerr << "Erro ao carregar textura 8x8" << endl;
+            exit(1);
+        }
+    } catch (const exception& e) {
+        cerr << "Erro ao definir a imagem de quando não há peça: " << e.what() << endl;
     }
 }
 
 void Interface_Reversi::Set_Textura_Peca1(){
-    if (!textura_peca1.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
-        cerr << "Erro ao carregar a textura da peça 1" << endl;
-        exit(1);
+    try {
+        if (!textura_peca1.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
+            cerr << "Erro ao carregar a textura da peça 1" << endl;
+            exit(1);
+        }
+    } catch (const exception& e) {
+        cerr << "Erro ao definir a imagem da peça 1: " << e.what() << endl;
     }
 }
 
 void Interface_Reversi::Set_Textura_Peca2(){
-    if (!textura_peca2.loadFromFile("./assets/Lig4/Peca_amarela.png")) {
-        cerr << "Erro ao carregar a textura da peça 2" << endl;
-        exit(1);
+    try {
+        if (!textura_peca2.loadFromFile("./assets/Lig4/Peca_amarela.png")) {
+            cerr << "Erro ao carregar a textura da peça 2" << endl;
+            exit(1);
+        }
+    } catch (const exception& e) {
+        cerr << "Erro ao definir a imagem da peça 2: " << e.what() << endl;
     }
 }
 

@@ -46,10 +46,14 @@ void Interface_Login_Jogador1::Definir_Textos() {
 }
 
 void Interface_Login_Jogador1::Set_Image() {
-    if (!image->loadFromFile("./assets/Menu/Login.png")) 
-        cerr << "Erro ao carregar imagem de fundo" << endl;
+    try {
+        if (!image->loadFromFile("./assets/Menu/Login.png")) 
+            cerr << "Erro ao carregar imagem de fundo" << endl;
 
-    background->setTexture(*image);
+        background->setTexture(*image);
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir a imagem de fundo: " << e.what() << endl;
+    }
 } 
 
 void Interface_Login_Jogador1::Definicoes_Espacamento_Janela() {

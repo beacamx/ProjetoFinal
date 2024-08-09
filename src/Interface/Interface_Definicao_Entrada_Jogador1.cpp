@@ -9,9 +9,13 @@ void Interface_Definicao_Entrada_Jogador1::Set_Opcoes() {
 }
 
 void Interface_Definicao_Entrada_Jogador1::Set_Image() {
-    if (!image->loadFromFile("./assets/Menu/Definicao_entrada_jogador1.png")) 
-        cerr << "Erro ao carregar imagem de fundo" << endl;
-    background->setTexture(*image);
+    try {
+        if (!image->loadFromFile("./assets/Menu/Definicao_entrada_jogador1.png")) 
+            cerr << "Erro ao carregar imagem de fundo" << endl;
+        background->setTexture(*image);
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir a imagem de fundo: " << e.what() << endl;
+    }
 }
 
 void Interface_Definicao_Entrada_Jogador1::Definicoes_Espacamento_Janela() {

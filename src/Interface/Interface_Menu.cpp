@@ -129,15 +129,19 @@ void Interface_Menu::Draw_All() {
         }
 
         this->janela->display();
-    } catch (const std::exception& e) {
+    } catch (const exception& e) {
         cerr << "Erro ao desenhar todos os elementos: " << e.what() << endl;
     }
 }
 
 void Interface_Menu::Define_Aviso() {
-    aviso.setFont(*fonte);
-    aviso.setCharacterSize(18);
-    aviso.setFillColor(sf::Color::Red);
+    try {
+        aviso.setFont(*fonte);
+        aviso.setCharacterSize(18);
+        aviso.setFillColor(sf::Color::Red);
+    } catch (const exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
 }
 
 void Interface_Menu::Run_Menu() {

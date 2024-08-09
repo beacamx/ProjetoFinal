@@ -18,14 +18,10 @@ void Interface_Tela_Inicial::Set_Opcoes() {
 }
 
 void Interface_Tela_Inicial::Definicoes_Espacamento_Janela() {
-    try {
-        this->espaco_vertical = 61.0f;
-        this->largura_janela = 624.0f;
-        this->altura_titulo = 271.0f; 
-        this->altura_inferior_titulo = this->altura_titulo + 20.0f;
-    } catch (const std::exception& e) {
-        cerr << "Erro ao definir espaçamento da janela: " << e.what() << endl;
-    }
+    this->espaco_vertical = 61.0f;
+    this->largura_janela = 624.0f;
+    this->altura_titulo = 271.0f; 
+    this->altura_inferior_titulo = this->altura_titulo + 20.0f;
 }
 
 void Interface_Tela_Inicial::Set_Image() {

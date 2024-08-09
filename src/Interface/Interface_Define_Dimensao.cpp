@@ -13,9 +13,13 @@ void Interface_Define_Dimensao::Set_Opcoes() {
 }
 
 void Interface_Define_Dimensao::Set_Image() {
-    if (!image->loadFromFile("./assets/Menu/Selecao_Dimensao.png")) 
-        cerr << "Erro ao carregar imagem de fundo" << endl;
-    background->setTexture(*image);
+    try {
+        if (!image->loadFromFile("./assets/Menu/Selecao_Dimensao.png")) 
+            cerr << "Erro ao carregar imagem de fundo" << endl;
+        background->setTexture(*image);
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir a imagem de fundo: " << e.what() << endl;
+    }
 }
 
 void Interface_Define_Dimensao::Definicoes_Espacamento_Janela() {
