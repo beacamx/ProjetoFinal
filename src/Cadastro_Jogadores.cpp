@@ -68,16 +68,18 @@ void cadastro::load()
   while (n_registers)
   {
     char _input_name[20] = {};
+    char _input_nick[20] = {};
     unsigned int n_of_wins_lig4;
     unsigned int n_of_wins_Reversi;
     unsigned int n_of_loses_lig4;
     unsigned int n_of_loses_Reversi;
     archive.read(_input_name, 20);
+    archive.read(_input_nick, 20);
     archive.read((char *)&n_of_wins_lig4, sizeof(unsigned int));
     archive.read((char *)&n_of_wins_Reversi, sizeof(unsigned int));
     archive.read((char *)&n_of_loses_lig4, sizeof(unsigned int));
     archive.read((char *)&n_of_loses_Reversi, sizeof(unsigned int));
-    cadastrar(new jogador(_input_name, n_of_wins_lig4, n_of_wins_Reversi, n_of_loses_lig4, n_of_loses_Reversi));
+    cadastrar(new jogador(_input_name, _input_nick, n_of_wins_lig4, n_of_wins_Reversi, n_of_loses_lig4, n_of_loses_Reversi));
     n_registers--;
   }
   if (archive.tellg() != final_position)
@@ -102,11 +104,14 @@ void cadastro::save()
   {
     char p_name[20] = {};
     _aux->get_name().copy(p_name, _aux->get_name().size(), 0);
+    char p_nick[20] = {};
+    _aux->get_name().copy(p_nick, _aux->get_name().size(), 0);
     unsigned int input_wins_lig4 = _aux->get_wins_lig4();
     unsigned int input_wins_Reversi = _aux->get_wins_Reversi();
     unsigned int input_loses_lig4 = _aux->get_loses_lig4();
     unsigned int input_loses_Reversi = _aux->get_loses_Reversi();
     archive.write(p_name, 20);
+    archive.write(p_nick, 20);
     archive.write((char *)&input_wins_lig4, sizeof(unsigned int));
     archive.write((char *)&input_wins_Reversi, sizeof(unsigned int));
     archive.write((char *)&input_loses_lig4, sizeof(unsigned int));
