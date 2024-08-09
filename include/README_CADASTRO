@@ -16,8 +16,11 @@ cadastro registro;
 para cadastrar um joador:
 registro.cadastrar(new jogador("Fulano de tal", "fulanick_name"));
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-para escolher um jogador do cadastro com base em seu nome:
+para escolher um jogador do cadastro, recebendo como retorno seu ponteiro, com base em seu nome:
 registro.find("Ciclano de tal");
+
+caso o método não encontre o cadastro, retorna NULL, pois, apesar das contraindicações, nesse caso facilita a manipulação
+por ser sempre 0. (diferente de nullptr)
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 para remover um jogador:
 registro.remover(registro.find("Fulano de tal"));
@@ -26,4 +29,5 @@ para obter uma lista ordenada dos jogadores:
 std::vector<*jogador> jogadores_ordenados = registro.player_list();
 *****************************************************************************************************
 Uma vez com os jogadores já em mãos, os métodos para obter seu dados são auto-explicativos;
-para computadr vitórias e derrotas : ponteiro->win() \ ponteiro->lose()
+para computadr vitórias e derrotas : ponteiro->win_lig4() \ ponteiro->win_Reversi() & ponteiro->lose_lig4() ponteiro->lose_Reversi();
+Obs: os métodos save() e load() foram colocados públicos para permitir mais usos, já que depende apenas do estado de std::set<jogador*> jogadores.
