@@ -29,7 +29,7 @@ void Interface_Tela_Inicial::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Centralizar_Janela();
-    Set_Font();
+    Definir_Fonte();
     Set_Image();
 
     posicao = 0;

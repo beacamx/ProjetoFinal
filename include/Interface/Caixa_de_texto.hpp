@@ -16,25 +16,25 @@ class Caixa_de_texto {
         Caixa_de_texto();
         Caixa_de_texto(int tamanho_caixa, sf::Color cor_caixa, bool sel);
 
-        void Set_Font(sf::Font &font);
-        void Set_Position(sf::Vector2f position);
-        void Set_Limit(bool Tof, int lim);
-        bool caixa_esta_selecionado() const;
-        void Set_Selected(bool sel);
-        string Get_Text();
+        void Definir_Fonte(sf::Font &font);
+        void Definir_Posição(sf::Vector2f position);
+        void Definir_Limite(bool com_limite, int lim);
+        // bool Caixa_Esta_Selecionada() const;
+        void Definir_Selecao(bool sel);
+        string Obter_Texto_Entrada();
         void Draw_To(sf::RenderWindow &janela);
-        void Typed_On(sf::Event input);
+        void Processar_Entrada(sf::Event input);
 
     private:
         sf::Text caixa_de_texto;
         ostringstream texto_de_entrada;
-        bool esta_selecionado = false;
-        bool caixa_selecionada = false;
+        bool selecionado = false;
+        // bool caixa_selecionada = false;
         bool tem_limite = false;
         int limite;
 
-        void Input_Logic (int charTyped);
-        void Delete_Last_Char();
+        void Logica_Entrada (int charTyped);
+        void Excluir_Ultimo_Caractere();
 };
 
 #endif

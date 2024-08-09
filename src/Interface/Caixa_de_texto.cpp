@@ -5,7 +5,7 @@ Caixa_de_texto::Caixa_de_texto() {}
 Caixa_de_texto::Caixa_de_texto(int tamanho_caixa, sf::Color cor_caixa, bool sel) {
     caixa_de_texto.setCharacterSize(tamanho_caixa);
     caixa_de_texto.setFillColor(cor_caixa);
-    esta_selecionado = sel;
+    selecionado = sel;
     if (sel) {
         caixa_de_texto.setString("_");
     } else {
@@ -13,81 +13,103 @@ Caixa_de_texto::Caixa_de_texto(int tamanho_caixa, sf::Color cor_caixa, bool sel)
     }
 }
 
-void Caixa_de_texto::Input_Logic (int charTyped) {
-    if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && charTyped != ESCAPE_KEY) {
-        texto_de_entrada << static_cast<char>(charTyped);
-    } else if (charTyped == DELETE_KEY) {
-        if (texto_de_entrada.str().length() > 0) {
-            Delete_Last_Char();
+void Caixa_de_texto::Logica_Entrada (int charTyped) {
+    try {
+        if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && charTyped != ESCAPE_KEY) {
+            texto_de_entrada << static_cast<char>(charTyped);
+        } else if (charTyped == DELETE_KEY) {
+            if (texto_de_entrada.str().length() > 0) {
+                Excluir_Ultimo_Caractere();
+            }
         }
+        caixa_de_texto.setString(texto_de_entrada.str() + "_");
+    } catch (const exception& e) {
+        cerr << "Erro na lógica de entrada da caixa de texto: " << e.what() << endl;
     }
-    caixa_de_texto.setString(texto_de_entrada.str() + "_");
 }
 
-void Caixa_de_texto::Delete_Last_Char() {
-    string aux =  texto_de_entrada.str();
-    string new_aux = "";
-    int tamanho_aux = aux.length();
-    for (int i = 0; i < tamanho_aux - 1; i++) 
-        new_aux += aux[i];
-    texto_de_entrada.str("");
-    texto_de_entrada << new_aux;
-    caixa_de_texto.setString(texto_de_entrada.str());
+void Caixa_de_texto::Excluir_Ultimo_Caractere() {
+    try {
+        string aux =  texto_de_entrada.str();
+        if(!aux.empty()) {
+            string new_aux = "";
+            int tamanho_aux = aux.length();
+            for (int i = 0; i < tamanho_aux - 1; i++) 
+                new_aux += aux[i];
+            texto_de_entrada.str("");
+            texto_de_entrada << new_aux;
+            caixa_de_texto.setString(texto_de_entrada.str());
+        }
+    } catch (const std::exception& e) {
+        cerr << "Erro ao deletar o último caractere: " << e.what() << endl;
+    }
 }
 
-void Caixa_de_texto::Set_Font(sf::Font &font) {
+void Caixa_de_texto::Definir_Fonte(sf::Font &font) {
     caixa_de_texto.setFont(font);
 }
 
-void Caixa_de_texto::Set_Position(sf::Vector2f position) {
+void Caixa_de_texto::Definir_Posição(sf::Vector2f position) {
     caixa_de_texto.setPosition(position);
 }
 
-void Caixa_de_texto::Set_Limit(bool Tof, int lim) {
-    tem_limite = Tof;
+void Caixa_de_texto::Definir_Limite(bool com_limite, int lim) {
+    tem_limite = com_limite;
     limite = lim - 1;
 }
 
-bool Caixa_de_texto::caixa_esta_selecionado() const { 
+/*bool Caixa_de_texto::Caixa_Esta_Selecionada() const { 
     return caixa_selecionada; 
-}
+}*/
 
-void Caixa_de_texto::Set_Selected(bool sel) {
-    esta_selecionado = sel;
+void Caixa_de_texto::Definir_Selecao(bool sel) {
+    selecionado = sel;
 
-    if (!sel) {
-        string aux =  texto_de_entrada.str();
-        string new_aux = "";
-        int tamanho_aux = aux.length();
-        for (int i = 0; i < tamanho_aux; i++) 
-            new_aux += aux[i];
+    try {
+        if (!sel) {
+            string aux =  texto_de_entrada.str();
+            string new_aux = "";
+            int tamanho_aux = aux.length();
+            for (int i = 0; i < tamanho_aux; i++) 
+                new_aux += aux[i];
 
-        caixa_de_texto.setString(new_aux);
+            caixa_de_texto.setString(new_aux);
+        }
+    } catch (const exception& e) {
+        cerr << "Erro ao atualizar a string da caixa de texto: " << e.what() << endl;
     }
 }
 
-string Caixa_de_texto::Get_Text() {
+string Caixa_de_texto::Obter_Texto_Entrada() {
     return texto_de_entrada.str();
 }
 
 void Caixa_de_texto::Draw_To(sf::RenderWindow &janela) {
-    janela.draw(caixa_de_texto);
+    try {
+        janela.draw(caixa_de_texto);
+    } catch (const exception& e) {
+        cerr << "Erro ao desenhar a caixa de texto: " << e.what() << endl;
+    }
 }
 
-void Caixa_de_texto::Typed_On(sf::Event input) {
-    int tamanho_texto_login = texto_de_entrada.str().length();
-    if (esta_selecionado) {
-        int Char_Typed = input.text.unicode;
-        if (Char_Typed < 128) {
-            if (tem_limite) {
-                if (tamanho_texto_login <= limite) {
-                    Input_Logic(Char_Typed);
-                } else if (tamanho_texto_login > limite && Char_Typed == DELETE_KEY) {
-                    Delete_Last_Char();
+void Caixa_de_texto::Processar_Entrada(sf::Event input) {
+    try {
+        int tamanho_texto_login = texto_de_entrada.str().length();
+        if (selecionado) {
+            int Char_Typed = input.text.unicode;
+            if (Char_Typed < 128) {
+                if (tem_limite) {
+                    if (tamanho_texto_login <= limite) {
+                        Logica_Entrada(Char_Typed);
+                    } else if (tamanho_texto_login > limite && Char_Typed == DELETE_KEY) {
+                        Excluir_Ultimo_Caractere();
+                    }
+                } else {
+                    Logica_Entrada(Char_Typed);
                 }
-            } else {
-                Input_Logic(Char_Typed);
             }
         }
+    } catch (const  exception& e) {
+        cerr << "Erro ao processar entrada de texto: " << e.what() << endl;
     }
 }

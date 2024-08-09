@@ -25,7 +25,7 @@ void Interface_Definicao_Entrada_Jogador1::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Centralizar_Janela();
-    Set_Font();
+    Definir_Fonte();
     Set_Image();
 
     posicao = 0;

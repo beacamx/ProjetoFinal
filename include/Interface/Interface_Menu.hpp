@@ -16,7 +16,7 @@ class Interface_Menu {
 
         unique_ptr<sf::RenderWindow> janela;
         unique_ptr<sf::RectangleShape> winclose;
-        unique_ptr<sf::Font> font;
+        unique_ptr<sf::Font> fonte;
         unique_ptr<sf::Texture> image;
         unique_ptr<sf::Sprite> background;
 
@@ -52,7 +52,7 @@ class Interface_Menu {
         void Run_Menu();
         void Set_Janela();
         void Centralizar_Janela();
-        void Set_Font();
+        void Definir_Fonte();
         void Set_Contorno_Inicial();
         void Set_Contorno_Avancar(int posicao);
         void Set_Contorno_Voltar(int posicao);

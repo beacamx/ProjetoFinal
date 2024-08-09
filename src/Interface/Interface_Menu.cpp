@@ -5,7 +5,7 @@ Interface_Menu::Interface_Menu()
       espaco_vertical(0.0f), largura_janela(624.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
     this->janela = make_unique<sf::RenderWindow>();
     this->winclose = make_unique<sf::RectangleShape>();
-    this->font = make_unique<sf::Font>();
+    this->fonte = make_unique<sf::Font>();
     this->image = make_unique<sf::Texture>();
     this->background = make_unique<sf::Sprite>();
 }
@@ -34,9 +34,9 @@ void Interface_Menu::Set_Janela() {
     janela->create(sf::VideoMode(624,546), "", sf::Style::Titlebar | sf::Style::Close);
 }
 
-void Interface_Menu::Set_Font() {
+void Interface_Menu::Definir_Fonte() {
     tamanho_fonte.clear();
-    if (!font->loadFromFile("./assets/fontes/pixelmix.ttf")) 
+    if (!fonte->loadFromFile("./assets/fontes/pixelmix.ttf")) 
         cerr << "Erro ao carregar fonte" << endl;
 }
 
@@ -67,7 +67,7 @@ void Interface_Menu::Set_Textos() {
     texto.resize(opcoes_de_escolha.size());
 
     for(size_t i{}; i < texto.size(); ++i) {
-        texto[i].setFont(*font);
+        texto[i].setFont(*fonte);
         texto[i].setString(opcoes_de_escolha[i]);
         texto[i].setCharacterSize(tamanho_fonte[i]);
         texto[i].setOutlineColor(sf::Color::Black);

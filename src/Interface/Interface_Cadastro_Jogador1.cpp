@@ -5,7 +5,13 @@ using namespace std;
 
 Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1()
     : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
-    Set_Values();
+    try {
+        Set_Values();
+    } catch (const runtime_error& e) {
+        cerr << "Erro na inicialização da interface: " << e.what() << endl;
+    } catch (const exception& e) {
+        cerr << "Erro inesperado: " << e.what() << endl;
+    }
 }
 
 Interface_Cadastro_Jogador1::~Interface_Cadastro_Jogador1(){}
@@ -32,7 +38,7 @@ void Interface_Cadastro_Jogador1::Set_Textos() {
     texto.resize(opcoes_de_escolha.size());
 
     for(size_t i{}; i < texto.size(); ++i) {
-        texto[i].setFont(*font);
+        texto[i].setFont(*fonte);
         texto[i].setString(opcoes_de_escolha[i]);
         texto[i].setCharacterSize(tamanho_fonte[i]);
         texto[i].setOutlineColor(sf::Color::Black);
@@ -63,131 +69,153 @@ void Interface_Cadastro_Jogador1::Definicoes_Espacamento_Janela() {
 }
 
 void Interface_Cadastro_Jogador1::Set_Values(){
-    Set_Efeito_Sonoro_Selecao_Botao();
-    Set_Font();
-    Set_Janela();
-    Centralizar_Janela();
-    Set_Image();
-    Set_Opcoes();
+    try {
+        Set_Efeito_Sonoro_Selecao_Botao();
+        Definir_Fonte();
+        Set_Janela();
+        Centralizar_Janela();
+        Set_Image();
+        Set_Opcoes();
 
-    posicao = 0;
-    pressed = theselect = false;
-    
-    Definicoes_Espacamento_Janela();
+        posicao = 0;
+        pressed = theselect = false;
 
-    coords.clear();
+        Definicoes_Espacamento_Janela();
 
-    Set_Textos();
-    Set_Contorno_Inicial();
+        coords.clear();
 
-    float largura_caixa = 120.0f;
-    float espaco_adicional_entre_caixa_apelido = 7.0f;
+        Set_Textos();
+        Set_Contorno_Inicial();
 
-    float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
-    float posicao_y_caixa_texto1 = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
-    float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 79.0f;
+        float largura_caixa = 120.0f;
+        float espaco_adicional_entre_caixa_apelido = 7.0f;
 
-    caixa_de_texto1.Set_Font(*font);
-    caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto1});
-    caixa_de_texto1.Set_Limit(true, 10);
+        float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
+        float posicao_y_caixa_texto1 = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+        float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 79.0f;
 
-    caixa_de_texto2.Set_Font(*font);
-    caixa_de_texto2.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto2});
-    caixa_de_texto2.Set_Limit(true, 10);
+        caixa_de_texto1.Definir_Fonte(*fonte);
+        caixa_de_texto1.Definir_Posição({posicao_x_caixa_texto, posicao_y_caixa_texto1});
+        caixa_de_texto1.Definir_Limite(true, 10);
 
-    janela->setKeyRepeatEnabled(true);
+        caixa_de_texto2.Definir_Fonte(*fonte);
+        caixa_de_texto2.Definir_Posição({posicao_x_caixa_texto, posicao_y_caixa_texto2});
+        caixa_de_texto2.Definir_Limite(true, 10);
+
+        janela->setKeyRepeatEnabled(true);
+    } catch (const runtime_error& e) {
+        cerr << "Erro ao configurar valores da interface: " << e.what() << endl;
+    } catch (const exception& e) {
+        cerr << "Erro inesperado ao configurar valores: " << e.what() << endl;
+    }
 }
 
-void Interface_Cadastro_Jogador1::Loop_Events(){
+void Interface_Cadastro_Jogador1::Loop_Events() {
     sf::Event evento;
     int tam_vetor_texto = texto.size();
 
-    while(janela->pollEvent(evento)) {
-        if (evento.type == sf::Event::Closed) {
-            janela->close();
-        }
-
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            som_selecao.play();
-            if(posicao < tam_vetor_texto - 1){
-                ++posicao;
-                pressed = true;
-                Set_Contorno_Avancar(posicao);
-                pressed = false;
-                theselect = false;
+    try {
+        while(janela->pollEvent(evento)) {
+            if (evento.type == sf::Event::Closed) {
+                janela->close();
             }
-        }
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            som_selecao.play();
-            if(posicao > 0){
-                --posicao;
-                pressed = true;
-                Set_Contorno_Voltar(posicao);
-                pressed = false;
-                theselect = false;
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
+                som_selecao.play();
+                if(posicao < tam_vetor_texto - 1) {
+                    ++posicao;
+                    pressed = true;
+                    Set_Contorno_Avancar(posicao);
+                    pressed = false;
+                    theselect = false;
+                }
             }
-        }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-            if (posicao == 0) {
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-                    caixa_de_texto1.Set_Selected(true);
-                    caixa_de_texto2.Set_Selected(false);
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-                    caixa_de_texto1.Set_Selected(false);
-                    caixa_de_texto2.Set_Selected(false);
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed) {
+                som_selecao.play();
+                if(posicao > 0) {
+                    --posicao;
+                    pressed = true;
+                    Set_Contorno_Voltar(posicao);
+                    pressed = false;
+                    theselect = false;
                 }
-            } else if (posicao == 1) {
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-                    caixa_de_texto1.Set_Selected(false);
-                    caixa_de_texto2.Set_Selected(true);
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-                    caixa_de_texto1.Set_Selected(false);
-                    caixa_de_texto2.Set_Selected(false);
-                }
-            } else if (posicao == 2) {
-                theselect = true;
-                Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
-                if (troca_Definicao_Entrada_Jogador.numero_jogador == 1) {
-                    janela->close();
-                    troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
-                } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
-                    janela->close();
-                    string nome_jogador = caixa_de_texto1.Get_Text();
-                    try {
-                        registro_geral.cadastrar(new jogador(nome_jogador));
+            }
 
-                        define_jogo = make_unique<Interface_Define_Jogo>();
-                        define_jogo->Run_Menu();
-                    } catch(const runtime_error& e){ 
-                        cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
+                if (posicao == 0) {
+                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                        caixa_de_texto1.Definir_Selecao(true);
+                        caixa_de_texto2.Definir_Selecao(false);
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                        caixa_de_texto1.Definir_Selecao(false);
+                        caixa_de_texto2.Definir_Selecao(false);
                     }
-                } else {
+                } else if (posicao == 1) {
+                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                        caixa_de_texto1.Definir_Selecao(false);
+                        caixa_de_texto2.Definir_Selecao(true);
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                        caixa_de_texto1.Definir_Selecao(false);
+                        caixa_de_texto2.Definir_Selecao(false);
+                    }
+                } else if (posicao == 2) {
+                    theselect = true;
+                    Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
+                    if (troca_Definicao_Entrada_Jogador.numero_jogador == 1) {
+                        janela->close();
+                        troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
+                    } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
+                        janela->close();
+                        string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
+                        try {
+                            registro_geral.cadastrar(new jogador(nome_jogador));
 
+                            define_jogo = make_unique<Interface_Define_Jogo>();
+                            define_jogo->Run_Menu();
+                        } catch (const runtime_error& e) {
+                            cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
+                        }
+                    } else {
+                        cerr << "Erro ao definir jogador" << endl;
+                    }
                 }
-            } else {
-                    cerr << "Erro ao definir jogador" << endl;
+            }
+
+            if (evento.type == sf::Event::TextEntered) {
+                try {
+                    caixa_de_texto1.Processar_Entrada(evento);
+                    caixa_de_texto2.Processar_Entrada(evento);
+                } catch (const exception& e) {
+                    cerr << "Erro ao processar entrada de texto: " << e.what() << endl;
+                }
             }
         }
-
-        if (evento.type == sf::Event::TextEntered) {
-            caixa_de_texto1.Typed_On(evento);
-            caixa_de_texto2.Typed_On(evento);
-        }
+    } catch (const exception& e) {
+        cerr << "Erro durante o loop de eventos: " << e.what() << endl;
+    }  catch (...) {
+        cerr << "Erro desconhecido no loop de eventos" << endl;
+        throw;
     }
 }
 
 void Interface_Cadastro_Jogador1::Draw_All() {
-    this->janela->clear();
-    this->janela->draw(*background);
-    int tamanho_texto = texto.size();
-    if(tamanho_texto) {
-        for (const auto& text : texto) {
-            janela->draw(text);
+    try {
+        this->janela->clear();
+        this->janela->draw(*background);
+
+        int tamanho_texto = texto.size();
+        if (tamanho_texto) {
+            for (const auto& text : texto) {
+                janela->draw(text);
+            }
         }
+        caixa_de_texto1.Draw_To(*janela);
+        caixa_de_texto2.Draw_To(*janela);
+        this->janela->display();
+    } catch (const std::exception& e) {
+        cerr << "Erro ao desenhar os elementos na janela: " << e.what() << endl;
+    } catch (...) {
+        cerr << "Erro desconhecido ao desenhar os elementos na janela" << endl;
     }
-    caixa_de_texto1.Draw_To(*janela);
-    caixa_de_texto2.Draw_To(*janela);
-    this->janela->display();
 }

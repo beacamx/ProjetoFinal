@@ -25,7 +25,7 @@ void Interface_Login_Jogador1::Set_Textos() {
     texto.resize(opcoes_de_escolha.size());
 
     for(size_t i{}; i < texto.size(); ++i) {
-        texto[i].setFont(*font);
+        texto[i].setFont(*fonte);
         texto[i].setString(opcoes_de_escolha[i]);
         texto[i].setCharacterSize(tamanho_fonte[i]);
         texto[i].setOutlineColor(sf::Color::Black);
@@ -55,7 +55,7 @@ void Interface_Login_Jogador1::Definicoes_Espacamento_Janela() {
 
 void Interface_Login_Jogador1::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
-    Set_Font();
+    Definir_Fonte();
     Set_Janela();
     Centralizar_Janela();
     Set_Image();
@@ -77,9 +77,9 @@ void Interface_Login_Jogador1::Set_Values(){
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
     float posicao_y_caixa_texto = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
 
-    caixa_de_texto1.Set_Font(*font);
-    caixa_de_texto1.Set_Position({posicao_x_caixa_texto, posicao_y_caixa_texto});
-    caixa_de_texto1.Set_Limit(true, 10);
+    caixa_de_texto1.Definir_Fonte(*fonte);
+    caixa_de_texto1.Definir_Posição({posicao_x_caixa_texto, posicao_y_caixa_texto});
+    caixa_de_texto1.Definir_Limite(true, 10);
 
     janela->setKeyRepeatEnabled(true);
 }
@@ -118,9 +118,9 @@ void Interface_Login_Jogador1::Loop_Events(){
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
             if (posicao == 0) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-                    caixa_de_texto1.Set_Selected(true);
+                    caixa_de_texto1.Definir_Selecao(true);
                 } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-                    caixa_de_texto1.Set_Selected(false);
+                    caixa_de_texto1.Definir_Selecao(false);
                 }
             } else if (posicao == 1) {
                 theselect = true;
@@ -130,7 +130,7 @@ void Interface_Login_Jogador1::Loop_Events(){
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
                 } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
                     janela->close();
-                    string nome_jogador = caixa_de_texto1.Get_Text();
+                    string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     // chama a funçao de verificar se nome_jogador está na lista de usuários cadastrados
                     // exemplo jogador1.find(nome_jogador);
                     // if (se estiver na lista) -> define_jogo (as duas linhas abaixo), se não estiver imprime mensagem de erro
@@ -143,7 +143,7 @@ void Interface_Login_Jogador1::Loop_Events(){
         }
 
         if (evento.type == sf::Event::TextEntered) {
-            caixa_de_texto1.Typed_On(evento);
+            caixa_de_texto1.Processar_Entrada(evento);
         }
     }
 }
