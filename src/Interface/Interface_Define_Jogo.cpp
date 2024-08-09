@@ -3,7 +3,12 @@
 using namespace std;
 
 Interface_Define_Jogo::Interface_Define_Jogo(){
-    Set_Values();
+    try {
+        Set_Values();
+    } catch (const std::exception& e) {
+        cerr << "Erro na inicialização da interface de definição do jogo: " << e.what() << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 Interface_Define_Jogo::~Interface_Define_Jogo(){}
@@ -38,8 +43,8 @@ void Interface_Define_Jogo::Set_Values(){
 
     Definicoes_Espacamento_Janela();
     Set_Opcoes();
-    Set_Textos();
-    Set_Contorno_Inicial();
+    Definir_Textos();
+    Definir_Contorno_Inicial_Texto();
 }
 
 void Interface_Define_Jogo::Loop_Events(){
@@ -54,7 +59,7 @@ void Interface_Define_Jogo::Loop_Events(){
                 som_selecao.play();
                 ++posicao;
                 pressed = true;
-                Set_Contorno_Avancar(posicao);
+                Definir_Contorno_Texto_Avancar(posicao);
                 pressed = false;
                 theselect = false;
             }
@@ -65,7 +70,7 @@ void Interface_Define_Jogo::Loop_Events(){
                 som_selecao.play();
                 --posicao;
                 pressed = true;
-                Set_Contorno_Voltar(posicao);
+                Definir_Contorno_Texto_Voltar(posicao);
                 pressed = false;
                 theselect = false;
             }

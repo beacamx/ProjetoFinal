@@ -113,3 +113,9 @@ void Caixa_de_texto::Processar_Entrada(sf::Event input) {
         cerr << "Erro ao processar entrada de texto: " << e.what() << endl;
     }
 }
+
+void Caixa_de_texto::Definir_Configuracoes_Caixa_de_Texto(sf::Font &font, sf::Vector2f position, bool com_limite, int lim) {
+    Definir_Fonte(font);
+    Definir_Posição(position);
+    Definir_Limite(com_limite, lim);
+}

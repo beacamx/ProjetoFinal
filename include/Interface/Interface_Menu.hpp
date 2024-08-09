@@ -26,6 +26,8 @@ class Interface_Menu {
         sf::SoundBuffer buffer_selecao;
         sf::Sound som_selecao;
 
+        sf::Text aviso;
+
         vector<const char*> opcoes_de_escolha;
         vector<sf::Vector2f> coords;
         vector<sf::Text> texto;
@@ -36,8 +38,9 @@ class Interface_Menu {
         virtual void Draw_All();
         virtual void Set_Opcoes() = 0;
         virtual void Definicoes_Espacamento_Janela() = 0;
+        
         virtual void Set_Image() = 0;
-        virtual void Set_Textos();
+        virtual void Definir_Textos();
         virtual void Set_Efeito_Sonoro_Selecao_Botao();
 
         float espaco_vertical;
@@ -53,9 +56,10 @@ class Interface_Menu {
         void Set_Janela();
         void Centralizar_Janela();
         void Definir_Fonte();
-        void Set_Contorno_Inicial();
-        void Set_Contorno_Avancar(int posicao);
-        void Set_Contorno_Voltar(int posicao);
+        virtual void Define_Aviso();
+        void Definir_Contorno_Inicial_Texto();
+        void Definir_Contorno_Texto_Avancar(int posicao);
+        void Definir_Contorno_Texto_Voltar(int posicao);
 };
 
 #endif

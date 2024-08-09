@@ -7,10 +7,9 @@ Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1()
     : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
     try {
         Set_Values();
-    } catch (const runtime_error& e) {
-        cerr << "Erro na inicialização da interface: " << e.what() << endl;
-    } catch (const exception& e) {
-        cerr << "Erro inesperado: " << e.what() << endl;
+    } catch (const std::exception& e) {
+        cerr << "Erro na inicialização da interface de cadastro do jogador 1: " << e.what() << endl;
+        exit(EXIT_FAILURE);
     }
 }
 
@@ -20,7 +19,7 @@ void Interface_Cadastro_Jogador1::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Digitar nome", "Play"};
 }
 
-void Interface_Cadastro_Jogador1::Set_Textos() {
+void Interface_Cadastro_Jogador1::Definir_Textos() {
     tamanho_fonte = {19, 19, 17};
     int indice = 0;
 
@@ -84,8 +83,8 @@ void Interface_Cadastro_Jogador1::Set_Values(){
 
         coords.clear();
 
-        Set_Textos();
-        Set_Contorno_Inicial();
+        Definir_Textos();
+        Definir_Contorno_Inicial_Texto();
 
         float largura_caixa = 120.0f;
         float espaco_adicional_entre_caixa_apelido = 7.0f;
@@ -94,13 +93,8 @@ void Interface_Cadastro_Jogador1::Set_Values(){
         float posicao_y_caixa_texto1 = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
         float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 79.0f;
 
-        caixa_de_texto1.Definir_Fonte(*fonte);
-        caixa_de_texto1.Definir_Posição({posicao_x_caixa_texto, posicao_y_caixa_texto1});
-        caixa_de_texto1.Definir_Limite(true, 10);
-
-        caixa_de_texto2.Definir_Fonte(*fonte);
-        caixa_de_texto2.Definir_Posição({posicao_x_caixa_texto, posicao_y_caixa_texto2});
-        caixa_de_texto2.Definir_Limite(true, 10);
+        caixa_de_texto1.Definir_Configuracoes_Caixa_de_Texto(*fonte, {posicao_x_caixa_texto, posicao_y_caixa_texto1}, true, 10);
+        caixa_de_texto2.Definir_Configuracoes_Caixa_de_Texto(*fonte, {posicao_x_caixa_texto, posicao_y_caixa_texto2}, true, 10);
 
         janela->setKeyRepeatEnabled(true);
     } catch (const runtime_error& e) {
@@ -125,7 +119,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                 if(posicao < tam_vetor_texto - 1) {
                     ++posicao;
                     pressed = true;
-                    Set_Contorno_Avancar(posicao);
+                    Definir_Contorno_Texto_Avancar(posicao);
                     pressed = false;
                     theselect = false;
                 }
@@ -136,7 +130,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                 if(posicao > 0) {
                     --posicao;
                     pressed = true;
-                    Set_Contorno_Voltar(posicao);
+                    Definir_Contorno_Texto_Voltar(posicao);
                     pressed = false;
                     theselect = false;
                 }
@@ -175,6 +169,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                             define_jogo->Run_Menu();
                         } catch (const runtime_error& e) {
                             cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
+                            Define_Aviso();
                         }
                     } else {
                         cerr << "Erro ao definir jogador" << endl;
@@ -197,6 +192,11 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
         cerr << "Erro desconhecido no loop de eventos" << endl;
         throw;
     }
+}
+
+void Interface_Cadastro_Jogador1::Define_Aviso() {
+    aviso.setString("Aviso: Apelido já existente!");
+    aviso.setPosition(100, 100);
 }
 
 void Interface_Cadastro_Jogador1::Draw_All() {

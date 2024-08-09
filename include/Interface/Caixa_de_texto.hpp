@@ -24,6 +24,7 @@ class Caixa_de_texto {
         string Obter_Texto_Entrada();
         void Draw_To(sf::RenderWindow &janela);
         void Processar_Entrada(sf::Event input);
+        void Definir_Configuracoes_Caixa_de_Texto(sf::Font &font, sf::Vector2f position, bool com_limite, int lim);
 
     private:
         sf::Text caixa_de_texto;

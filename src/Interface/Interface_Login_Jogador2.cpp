@@ -4,8 +4,15 @@ using namespace std;
 
 Interface_Login_Jogador2::Interface_Login_Jogador2()
     : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
+    try {
         Set_Values();
+    } catch (const std::exception& e) {
+        cerr << "Erro na inicialização da interface de login do jogador 2: " << e.what() << endl;
+        exit(EXIT_FAILURE);
     }
+}
+
+
 
 Interface_Login_Jogador2::~Interface_Login_Jogador2(){}
 
@@ -13,7 +20,7 @@ void Interface_Login_Jogador2::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Play"};
 }
 
-void Interface_Login_Jogador2::Set_Textos() {
+void Interface_Login_Jogador2::Definir_Textos() {
     tamanho_fonte = {19, 17};
 
     for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
@@ -67,8 +74,8 @@ void Interface_Login_Jogador2::Set_Values(){
 
     coords.clear();
 
-    Set_Textos();
-    Set_Contorno_Inicial();
+    Definir_Textos();
+    Definir_Contorno_Inicial_Texto();
 
     float largura_caixa = 120.0f;
     float espaco_adicional_entre_caixa_apelido = 7.0f;
@@ -97,7 +104,7 @@ void Interface_Login_Jogador2::Loop_Events(){
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
-                Set_Contorno_Avancar(posicao);
+                Definir_Contorno_Texto_Avancar(posicao);
                 pressed = false;
                 theselect = false;
             }
@@ -108,7 +115,7 @@ void Interface_Login_Jogador2::Loop_Events(){
             if(posicao > 0){
                 --posicao;
                 pressed = true;
-                Set_Contorno_Voltar(posicao);
+                Definir_Contorno_Texto_Voltar(posicao);
                 pressed = false;
                 theselect = false;
             }
@@ -139,15 +146,27 @@ void Interface_Login_Jogador2::Loop_Events(){
     }
 }
 
+void Interface_Login_Jogador2::Define_Aviso() {
+    aviso.setString("Aviso: Apelido incorreto");
+    aviso.setPosition(100, 100);
+}
+
 void Interface_Login_Jogador2::Draw_All() {
-    this->janela->clear();
-    this->janela->draw(*background);
-    int tamanho_texto = texto.size();
-    if(tamanho_texto) {
-        for (const auto& text : texto) {
-            janela->draw(text);
+    try {
+        this->janela->clear();
+        this->janela->draw(*background);
+
+        int tamanho_texto = texto.size();
+        if (tamanho_texto) {
+            for (const auto& text : texto) {
+                janela->draw(text);
+            }
         }
+        caixa_de_texto1.Draw_To(*janela);
+        this->janela->display();
+    } catch (const std::exception& e) {
+        cerr << "Erro ao desenhar os elementos na janela: " << e.what() << endl;
+    } catch (...) {
+        cerr << "Erro desconhecido ao desenhar os elementos na janela" << endl;
     }
-    caixa_de_texto1.Draw_To(*janela);
-    this->janela->display();
 }

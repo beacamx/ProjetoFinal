@@ -34,8 +34,8 @@ void Interface_Definicao_Entrada_Jogador1::Set_Values(){
     
     Definicoes_Espacamento_Janela();
     Set_Opcoes();
-    Set_Textos();
-    Set_Contorno_Inicial();
+    Definir_Textos();
+    Definir_Contorno_Inicial_Texto();
 }
 
 void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
@@ -52,7 +52,7 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
-                Set_Contorno_Avancar(posicao);
+                Definir_Contorno_Texto_Avancar(posicao);
                 pressed = false;
                 theselect = false;
             }
@@ -63,7 +63,7 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
             if(posicao > 0){
                 --posicao;
                 pressed = true;
-                Set_Contorno_Voltar(posicao);
+                Definir_Contorno_Texto_Voltar(posicao);
                 pressed = false;
                 theselect = false;
             }
