@@ -12,6 +12,10 @@ public:
     unsigned int get_wins_Reversi() { return n_of_wins_Reversi;};
     unsigned int get_loses_lig4() { return n_of_loses_lig4;};
     unsigned int get_loses_Reversi() { return n_of_loses_Reversi;};
+    void win_lig4(){ n_of_wins_lig4++; };
+    void win_Reversi(){ n_of_wins_Reversi++; };
+    void lose_lig4(){ n_of_loses_lig4++; };
+    void lose_Reversi(){ n_od_loses_Reversi++; };
 private:
     std::string _name;
     unsigned int n_of_wins_lig4;
