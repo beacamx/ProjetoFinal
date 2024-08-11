@@ -4,24 +4,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
-
+#include "Cadastro_Jogadores.hpp"
 using namespace std;
-
-class Jogador {
-    public:
-    Jogador(const string& nome, char peca) : nome(nome), peca(peca) {}
-    string getNome() const { return nome; }
-    char getPeca() const { return peca; }
-    
-    private:
-    /*
-    proposta de dados rankeáveis
-    unsigned int _loses, _wins;
-    */
-    string nome;
-    char peca;
-};
-
 class Jogo {
     public:
     // Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas); inicializador utilizado sem parâmetros na main
@@ -40,10 +24,6 @@ class Jogo {
     virtual vector<pair<int, int>> calcularPosicoesPossiveis() = 0;
     
     protected:
-    /*
-    proposta de implementação de 
-    vector jogadores<jogador*>;
-    */
     Jogador* jogadorA;
     Jogador* jogadorB;
     Jogador* jogadorAtual;
