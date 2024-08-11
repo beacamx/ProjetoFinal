@@ -69,8 +69,6 @@ void Interface_Login_Jogador2::Set_Values(){
     Set_Image();
     Set_Opcoes();
 
-    registro_geral.load();
-
     posicao = 0;
     pressed = seleção_ativa = false;
     

@@ -75,6 +75,7 @@ void Interface_Cadastro_Jogador1::Set_Values(){
         Centralizar_Janela();
         Set_Image();
         Set_Opcoes();
+
         registro_geral.load();
 
         posicao = 0;

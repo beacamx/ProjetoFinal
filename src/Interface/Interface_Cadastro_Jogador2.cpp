@@ -76,7 +76,6 @@ void Interface_Cadastro_Jogador2::Definicoes_Espacamento_Janela() {
 
 void Interface_Cadastro_Jogador2::Set_Values(){
     try {
-        registro_geral.load();
         Set_Efeito_Sonoro_Selecao_Botao();
         Definir_Fonte();
         Set_Janela();
