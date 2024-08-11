@@ -2,13 +2,27 @@ TARGET=exec
 CXX=g++
 DEBUG=-g
 WARN=-Wall
-SFML=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface
-LDFLAGS = $(SFML)
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
 
+ifeq ($(OS), Windows_NT)
+    SFML=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+    RM=del /Q
+    MKDIR=mkdir
+    RUN=.\$(TARGET).exe
+    EXT=.exe
+else
+    SFML=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+    RM=rm -f
+    MKDIR=mkdir -p
+    RUN=./$(TARGET)
+    EXT=
+endif
+
+
+LDFLAGS = $(SFML)
 OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o \
 	$(OBJDIR)/Interface_Define_Jogo.o $(OBJDIR)/Interface_Menu.o \
@@ -19,13 +33,13 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o \
 	$(OBJDIR)/Cadastro_Jogadores.o
 
-all: $(OBJDIR) $(TARGET)
+all: $(OBJDIR) $(TARGET)$(EXT)
 
-$(TARGET): $(OBJS)
-	$(CXX) -o $(TARGET) $(OBJS) $(LDFLAGS)
+$(TARGET)$(EXT): $(OBJS)
+	$(CXX) -o $(TARGET)$(EXT) $(OBJS) $(LDFLAGS)
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	$(MKDIR) $(OBJDIR)
 
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/main.cpp -o $(OBJDIR)/main.o
@@ -79,9 +93,7 @@ $(OBJDIR)/Interface_Menu.o: $(SRCDIR)/Interface/Interface_Menu.cpp $(INCDIR)/Int
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Menu.cpp -o $(OBJDIR)/Interface_Menu.o
 
 clean:
-	@rm -f $(OBJDIR)/*.o $(TARGET)
+	$(RM) $(OBJDIR)/*.o $(TARGET)$(EXT)
 
-run: $(TARGET)
-	@./$(TARGET)
-
-.PHONY: all test clean
+run: all
+	$(RUN)
