@@ -31,7 +31,7 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o $(OBJDIR)/Interface_Definicao_Entrada_Jogador2.o \
 	$(OBJDIR)/Interface_Cadastro_Jogador1.o $(OBJDIR)/Interface_Cadastro_Jogador2.o \
 	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o \
-	$(OBJDIR)/Cadastro_Jogadores.o
+	$(OBJDIR)/Jogador.o $(OBJDIR)/Cadastro_Jogadores.o 
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 
@@ -43,6 +43,9 @@ $(OBJDIR):
 
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/jogador.o: $(SRCDIR)/jogador.cpp $(INCDIR)/jogador.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/jogador.cpp -o $(OBJDIR)/jogador.o	
 
 $(OBJDIR)/Cadastro_Jogadores.o: $(SRCDIR)/Cadastro_Jogadores.cpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Cadastro_Jogadores.cpp -o $(OBJDIR)/Cadastro_Jogadores.o	
