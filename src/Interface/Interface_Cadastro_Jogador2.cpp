@@ -165,11 +165,16 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
                     try {
-                        registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador));
-                        registro_geral.save();
-
-                        define_jogo = make_unique<Interface_Define_Jogo>();
-                        define_jogo->Run_Menu();
+                        if(registro_geral.find(nome_jogador) != NULL) { 
+                            registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador));
+                            registro_geral.save();
+                            define_jogo = make_unique<Interface_Define_Jogo>();
+                            janela->close();
+                            define_jogo->Run_Menu();
+                        } else {
+                            cerr << "Jogador já existente";
+                            theselect = false;
+                        }
                     } catch (const runtime_error& e) {
                         cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
                         Define_Aviso();

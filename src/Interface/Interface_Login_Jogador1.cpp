@@ -140,16 +140,17 @@ void Interface_Login_Jogador1::Loop_Events(){
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
                 } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
-                    janela->close();
                     string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     try {
                         registro_geral.find(nome_jogador);
 
                         define_jogo = make_unique<Interface_Define_Jogo>();
-                            define_jogo->Run_Menu();
+                        janela->close();
+                        define_jogo->Run_Menu();
                     } catch (const runtime_error& e) {
                         cerr << "Erro ao logar o jogador: " << e.what() << endl;
                         Define_Aviso();
+                        theselect = false;
                     }
                 } else {
                     cerr << "Erro ao definir jogador" << endl;

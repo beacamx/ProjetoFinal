@@ -134,16 +134,17 @@ void Interface_Login_Jogador2::Loop_Events(){
                 }
             } else if (posicao == 1) {
                 theselect = true;
-                janela->close();
                 string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                 try {
                     registro_geral.find(nome_jogador);
 
                     define_jogo = make_unique<Interface_Define_Jogo>();
+                    janela->close();
                     define_jogo->Run_Menu();
                 } catch (const runtime_error& e) {
                     cerr << "Erro ao logar o jogador: " << e.what() << endl;
                     Define_Aviso();
+                    theselect = false;
                 }
             } 
         }
