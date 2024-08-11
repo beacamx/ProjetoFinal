@@ -3,7 +3,8 @@ CXX=g++
 DEBUG=-g
 WARN=-Wall
 SFML=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-CXXFLAGS=$(DEBUG) $(WARN) $(SFML) -Iinclude -Iinclude/Interface
+CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface
+LDFLAGS = $(SFML)
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
@@ -21,7 +22,7 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 all: $(OBJDIR) $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
+	$(CXX) -o $(TARGET) $(OBJS) $(LDFLAGS)
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -32,16 +33,16 @@ $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 $(OBJDIR)/Cadastro_Jogadores.o: $(SRCDIR)/Cadastro_Jogadores.cpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Cadastro_Jogadores.cpp -o $(OBJDIR)/Cadastro_Jogadores.o	
 
-$(OBJDIR)/Interface_Login_Jogador1.o: $(SRCDIR)/Interface/Interface_Login_Jogador1.cpp $(INCDIR)/Interface/Interface_Login_Jogador1.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp $(INCDIR)/Interface/Troca_Definicao_Entrada_Jogador.hpp
+$(OBJDIR)/Interface_Login_Jogador1.o: $(SRCDIR)/Interface/Interface_Login_Jogador1.cpp $(INCDIR)/Interface/Interface_Login_Jogador1.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp $(INCDIR)/Interface/Troca_Definicao_Entrada_Jogador.hpp $(INCDIR)/Cadastro_Jogadores.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Login_Jogador1.cpp -o $(OBJDIR)/Interface_Login_Jogador1.o
 
-$(OBJDIR)/Interface_Login_Jogador2.o: $(SRCDIR)/Interface/Interface_Login_Jogador2.cpp $(INCDIR)/Interface/Interface_Login_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp 
+$(OBJDIR)/Interface_Login_Jogador2.o: $(SRCDIR)/Interface/Interface_Login_Jogador2.cpp $(INCDIR)/Interface/Interface_Login_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp $(INCDIR)/Cadastro_Jogadores.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Login_Jogador2.cpp -o $(OBJDIR)/Interface_Login_Jogador2.o	
 
-$(OBJDIR)/Interface_Cadastro_Jogador1.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador1.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador1.hpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp
+$(OBJDIR)/Interface_Cadastro_Jogador1.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador1.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador1.hpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp $(INCDIR)/Cadastro_Jogadores.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Cadastro_Jogador1.cpp -o $(OBJDIR)/Interface_Cadastro_Jogador1.o
 
-$(OBJDIR)/Interface_Cadastro_Jogador2.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador2.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp
+$(OBJDIR)/Interface_Cadastro_Jogador2.o: $(SRCDIR)/Interface/Interface_Cadastro_Jogador2.cpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Caixa_de_texto.hpp $(INCDIR)/Cadastro_Jogadores.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Cadastro_Jogador2.cpp -o $(OBJDIR)/Interface_Cadastro_Jogador2.o
 
 $(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o: $(SRCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.cpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Login_Jogador1.hpp $(INCDIR)/Interface/Interface_Cadastro_Jogador1.hpp
