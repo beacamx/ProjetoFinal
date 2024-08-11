@@ -159,19 +159,25 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
                     try {
-                        if(registro_geral.find(nome_jogador) == NULL) { 
+                        if(registro_geral.find(nome_jogador) == NULL && apelido_jogador.length() > 0) { 
                             registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
                             registro_geral.save();
                             define_jogo = make_unique<Interface_Define_Jogo>();
                             janela->close();
                             define_jogo->Run_Menu();
+                        } else if (registro_geral.find(nome_jogador) == NULL && apelido_jogador.length() == 0){
+                            cerr << "Aviso: Digite seu nome";
+                            aviso.setString("Aviso: Digite seu nome");
+                            Define_Aviso();
+                            seleção_ativa = false;
                         } else {
-                            cerr << "Jogador já existente";
+                            cerr << "Aviso: Jogador já existente";
+                            aviso.setString("Aviso: Jogador já existente");
+                            Define_Aviso();
                             seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {
                         cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
-                        Define_Aviso();
                     }
                 }
             }
@@ -184,11 +190,27 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
     } catch (const std::exception& e) {
         cerr << "Erro ao processar eventos: " << e.what() << endl;
     }
+
+    if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+        mostrar_aviso = false;
+    }
 }
 
 void Interface_Cadastro_Jogador2::Define_Aviso() {
-    aviso.setString("Aviso: Apelido já existente!");
-    aviso.setPosition(100, 100);
+    try {
+        aviso.setFont(*fonte); 
+        aviso.setCharacterSize(15);
+        aviso.setFillColor(sf::Color::Red);
+        
+        sf::FloatRect bounds_play = texto[2].getGlobalBounds();
+        float pos_y_play = bounds_play.top + bounds_play.height;
+
+        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
+        clock_aviso.restart();
+        mostrar_aviso = true;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
 }
 
 void Interface_Cadastro_Jogador2::Draw_All() {
@@ -202,6 +224,11 @@ void Interface_Cadastro_Jogador2::Draw_All() {
                 janela->draw(text);
             }
         }
+        
+        if (mostrar_aviso) {
+            janela->draw(aviso);
+        }
+
         caixa_de_texto1.Draw_To(*janela);
         caixa_de_texto2.Draw_To(*janela);
         this->janela->display();

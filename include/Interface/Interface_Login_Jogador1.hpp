@@ -28,7 +28,6 @@ class Interface_Login_Jogador1: public Interface_Menu {
         void Definicoes_Espacamento_Janela() override;
     private:
         Caixa_de_texto caixa_de_texto1;
-        cadastro registro_geral;
         float altura_texto;
 };
 

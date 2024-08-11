@@ -11,6 +11,7 @@ public:
     jogador(std::string name, std::string nick, unsigned int wins_lig4, unsigned int wins_Reversi, unsigned int loses_lig4, unsigned int loses_Reversi);
 
     std::string get_name();
+    std::string get_nick();
     unsigned int get_wins();
     unsigned int get_loses();
     unsigned int get_wins_lig4();

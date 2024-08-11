@@ -14,6 +14,7 @@ class cadastro{
   jogador * find(std::string);
   void cadastrar(jogador*);
   void remover(jogador*);
+  void imprime_lista();
   std::vector<jogador*> player_list();   
   void save();
   void load();

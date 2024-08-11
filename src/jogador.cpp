@@ -10,6 +10,10 @@ std::string jogador::get_name() {
     return _name; 
 }
 
+std::string jogador::get_nick() { 
+    return _nick; 
+}
+
 unsigned int jogador::get_wins() { 
     return n_of_wins_lig4 + n_of_wins_Reversi; 
 }

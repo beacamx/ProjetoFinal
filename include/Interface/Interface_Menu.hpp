@@ -7,6 +7,8 @@
 #include <vector>
 #include <cstdlib>
 
+#include "Cadastro_Jogadores.hpp"
+
 using namespace std;
 
 class Interface_Menu {
@@ -51,6 +53,8 @@ class Interface_Menu {
         float largura_janela;
         float altura_titulo; 
         float altura_inferior_titulo; 
+
+        cadastro registro_geral;
 
     public:
         Interface_Menu();

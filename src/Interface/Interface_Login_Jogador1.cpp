@@ -6,7 +6,6 @@ using namespace std;
 Interface_Login_Jogador1::Interface_Login_Jogador1()
     : caixa_de_texto1(15, sf::Color::White, false) { 
     Set_Values();
-    registro_geral.save();
 }
 
 Interface_Login_Jogador1::~Interface_Login_Jogador1(){}
@@ -136,7 +135,7 @@ void Interface_Login_Jogador1::Loop_Events(){
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
                 } else {
-                    cerr << "Erro ao logar o jogador: Jogador não existente" << endl;
+                    cerr << "Aviso: Jogador não existente, digite novamente" << endl;
                     Define_Aviso();
                     seleção_ativa = false;
                 }

@@ -15,10 +15,11 @@ void Interface_Lig4::Logica() {
 
     if (col >= 0 && col < colunas) {
         for (int row = linhas - 1; row >= 0; --row) {
-            if (tabuleiro[row][col] == 0 && jogador_atual == 1) {
+            if (tabuleiro[row][col] == 0) {
                 tabuleiro[row][col] = 1; 
                 break;
             }
+            // jogador_atual = 1
             // chama a funcao de testar vitoria
         }
     }

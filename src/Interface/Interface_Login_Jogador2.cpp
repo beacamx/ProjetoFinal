@@ -138,7 +138,7 @@ void Interface_Login_Jogador2::Loop_Events(){
                     janela->close();
                     define_jogo->Run_Menu();
                 } else {
-                    cerr << "Erro ao logar o jogador: " << endl;
+                    cerr << "Aviso: Jogador não existente, digite novamente" << endl;
                     Define_Aviso();
                     seleção_ativa = false;
                 }
@@ -149,11 +149,28 @@ void Interface_Login_Jogador2::Loop_Events(){
             caixa_de_texto1.Processar_Entrada(evento);
         }
     }
+
+    if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+        mostrar_aviso = false;
+    }
 }
 
 void Interface_Login_Jogador2::Define_Aviso() {
-    aviso.setString("Aviso: Apelido incorreto");
-    aviso.setPosition(100, 100);
+    try {
+        aviso.setFont(*fonte); 
+        aviso.setCharacterSize(15);
+        aviso.setFillColor(sf::Color::Red);
+        
+        sf::FloatRect bounds_play = texto[1].getGlobalBounds();
+        float pos_y_play = bounds_play.top + bounds_play.height;
+
+        aviso.setString("Aviso: Jogador não existente, digite novamente");
+        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
+        clock_aviso.restart();
+        mostrar_aviso = true;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
 }
 
 void Interface_Login_Jogador2::Draw_All() {
@@ -167,6 +184,11 @@ void Interface_Login_Jogador2::Draw_All() {
                 janela->draw(text);
             }
         }
+
+        if (mostrar_aviso) {
+            janela->draw(aviso);
+        }
+
         caixa_de_texto1.Draw_To(*janela);
         this->janela->display();
     } catch (const std::exception& e) {
