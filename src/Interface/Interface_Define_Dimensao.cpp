@@ -44,6 +44,7 @@ void Interface_Define_Dimensao::Set_Values(){
     Set_Opcoes();
     Definir_Textos();
     Definir_Contorno_Inicial_Texto();
+    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Define_Dimensao::Loop_Events(){

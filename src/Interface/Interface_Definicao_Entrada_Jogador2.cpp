@@ -40,6 +40,7 @@ void Interface_Definicao_Entrada_Jogador2::Set_Values(){
     Set_Opcoes();
     Definir_Textos();
     Definir_Contorno_Inicial_Texto();
+    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Definicao_Entrada_Jogador2::Loop_Events(){

@@ -49,6 +49,7 @@ void Interface_Define_Jogo::Set_Values(){
     Set_Opcoes();
     Definir_Textos();
     Definir_Contorno_Inicial_Texto();
+    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Define_Jogo::Loop_Events(){

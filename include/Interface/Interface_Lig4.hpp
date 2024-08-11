@@ -15,7 +15,7 @@ class Interface_Lig4 : public Interface_Jogo {
             this->largura_quadrado = 78;
         }
 
-        ~Interface_Lig4() {}
+        ~Interface_Lig4();
 
         void Logica() override;
         int Start_Game_Interface(int num_linhas, int num_colunas) override; 

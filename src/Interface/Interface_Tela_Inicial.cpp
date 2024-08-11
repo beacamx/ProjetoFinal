@@ -42,6 +42,7 @@ void Interface_Tela_Inicial::Set_Values(){
         Centralizar_Janela();
         Definir_Fonte();
         Set_Image();
+        janela->setVerticalSyncEnabled(true);
 
         posicao = 0;
         pressed = seleção_ativa = false;   
@@ -102,7 +103,7 @@ void Interface_Tela_Inicial::Loop_Events(){
             }
         }
     } catch (const std::exception& e) {
-        cerr << "Erro no loop de eventos: " << e.what() << endl;
+        cerr << "Erro no loop de eventos da Tela Inicial: " << e.what() << endl;
     }
 }
 

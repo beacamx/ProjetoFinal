@@ -44,7 +44,7 @@ void Interface_Definicao_Entrada_Jogador1::Set_Values(){
 
 void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
     sf::Event evento;
-
+    
     int tam_vetor_texto = texto.size();
     while(janela->pollEvent(evento)) {
         if ((evento.type == sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) {

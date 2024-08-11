@@ -31,7 +31,7 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o $(OBJDIR)/Interface_Definicao_Entrada_Jogador2.o \
 	$(OBJDIR)/Interface_Cadastro_Jogador1.o $(OBJDIR)/Interface_Cadastro_Jogador2.o \
 	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o \
-	$(OBJDIR)/Jogador.o $(OBJDIR)/Cadastro_Jogadores.o 
+	$(OBJDIR)/jogador.o $(OBJDIR)/Cadastro_Jogadores.o 
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 

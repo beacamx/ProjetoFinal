@@ -14,7 +14,7 @@ class Interface_Reversi : public Interface_Jogo {
         Interface_Reversi() : Interface_Jogo("Reversi") {
             this->largura_quadrado = 74;
         }
-        ~Interface_Reversi() {}
+        ~Interface_Reversi();
 
         void Logica() override; 
         int Start_Game_Interface(int num_linhas, int num_colunas) override; 

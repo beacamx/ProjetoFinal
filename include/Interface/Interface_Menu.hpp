@@ -14,6 +14,9 @@ class Interface_Menu {
         int posicao, num_botoes, num_janela;
         bool pressed, seleção_ativa;
 
+        sf::Clock clock_aviso;
+        bool mostrar_aviso = false;
+
         unique_ptr<sf::RenderWindow> janela;
         unique_ptr<sf::RectangleShape> winclose;
         unique_ptr<sf::Font> fonte;

@@ -11,7 +11,6 @@ class Troca_Definicao_Entrada_Jogador {
         void Troca_Definicao_Jogador ();
         Troca_Definicao_Entrada_Jogador ();
         ~Troca_Definicao_Entrada_Jogador ();
-        int numero_jogador;
         unique_ptr<Interface_Definicao_Entrada_Jogador2> jogador2;
 
 };

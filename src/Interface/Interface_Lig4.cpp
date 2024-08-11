@@ -1,16 +1,18 @@
 #include "Interface_Lig4.hpp"
 #include "Interface_Jogo.hpp"
-#include "Lig4.hpp"
 
 using namespace std;
+
+Interface_Lig4::~Interface_Lig4() {
+    som_jogo.stop();
+}
 
 void Interface_Lig4::Logica() {
     sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
     this->x = posicao.x / largura_quadrado;
     this->y = posicao.y / largura_quadrado;
     int col = posicao.x / largura_quadrado;
-                
-    // Calcula a coluna clicada e, a partir da parte inferior da coluna, encontra a primeira casa vazia e a preenche com o valor 1
+
     if (col >= 0 && col < colunas) {
         for (int row = linhas - 1; row >= 0; --row) {
             if (tabuleiro[row][col] == 0 && jogador_atual == 1) {

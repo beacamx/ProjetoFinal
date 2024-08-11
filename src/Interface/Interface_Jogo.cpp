@@ -5,6 +5,7 @@ using namespace std;
 Interface_Jogo::Interface_Jogo(const string& nome_do_jogo)
     : nome_do_jogo(nome_do_jogo), janela(make_unique<sf::RenderWindow>()) {
     evento = make_shared<sf::Event>();
+    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Jogo::Atualizar_Janela_Jogo() {
@@ -87,6 +88,7 @@ void Interface_Jogo::Set_Janela() {
         exit(1);
     }
     janela->setFramerateLimit(60);
+    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Jogo::Define_Dimensoes_Janela() {

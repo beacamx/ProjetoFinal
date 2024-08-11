@@ -3,19 +3,17 @@
 Interface_Menu::Interface_Menu() 
     : posicao(0), num_botoes(0), num_janela(0), pressed(false), seleção_ativa(false),
       espaco_vertical(0.0f), largura_janela(624.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
-    try {
-        this->janela = make_unique<sf::RenderWindow>();
-        this->winclose = make_unique<sf::RectangleShape>();
-        this->fonte = make_unique<sf::Font>();
-        this->image = make_unique<sf::Texture>();
-        this->background = make_unique<sf::Sprite>();
-    } catch (const std::exception& e) {
-        cerr << "Erro na inicialização de Interface_Menu: " << e.what() << endl;
-        exit(EXIT_FAILURE);
-    }
+    this->janela = make_unique<sf::RenderWindow>();
+    this->winclose = make_unique<sf::RectangleShape>();
+    this->fonte = make_unique<sf::Font>();
+    this->image = make_unique<sf::Texture>();
+    this->background = make_unique<sf::Sprite>();
+    janela->setVerticalSyncEnabled(true);
 }
 
-Interface_Menu::~Interface_Menu() {}
+Interface_Menu::~Interface_Menu() {
+    som_selecao.stop(); 
+}
 
 void Interface_Menu::Set_Efeito_Sonoro_Selecao_Botao() {
     try {
@@ -145,12 +143,8 @@ void Interface_Menu::Define_Aviso() {
 }
 
 void Interface_Menu::Run_Menu() {
-    try {
         while (janela->isOpen()) {
             this->Loop_Events();
             Draw_All();
         }
-    } catch (const std::exception& e) {
-        cerr << "Erro ao executar o menu: " << e.what() << endl;
-    }
 }

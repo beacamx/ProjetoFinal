@@ -4,7 +4,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include "Cadastro_Jogadores.hpp"
 using namespace std;
 class Jogo {
     public:

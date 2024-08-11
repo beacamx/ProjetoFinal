@@ -4,12 +4,7 @@ using namespace std;
 
 Interface_Cadastro_Jogador2::Interface_Cadastro_Jogador2()
     : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
-    try {
-        Set_Values();
-    } catch (const std::exception& e) {
-        cerr << "Erro na inicialização da interface de cadastro do jogador 2: " << e.what() << endl;
-        exit(EXIT_FAILURE);
-    }
+    Set_Values();
 }
 
 Interface_Cadastro_Jogador2::~Interface_Cadastro_Jogador2(){}
@@ -104,6 +99,7 @@ void Interface_Cadastro_Jogador2::Set_Values(){
         caixa_de_texto2.Definir_Configuracoes_Caixa_de_Texto(*fonte, {posicao_x_caixa_texto, posicao_y_caixa_texto2}, true, 10);
 
         janela->setKeyRepeatEnabled(true);
+        janela->setVerticalSyncEnabled(true);
     } catch (const std::exception& e) {
         cerr << "Erro ao definir valores: " << e.what() << endl;
     }
@@ -160,12 +156,11 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     }
                 } else if (posicao == 2) {
                     seleção_ativa = true;
-                    janela->close();
                     string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
                     try {
-                        if(registro_geral.find(nome_jogador) != NULL) { 
-                            registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador));
+                        if(registro_geral.find(nome_jogador) == NULL) { 
+                            registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
                             registro_geral.save();
                             define_jogo = make_unique<Interface_Define_Jogo>();
                             janela->close();

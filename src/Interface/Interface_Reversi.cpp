@@ -1,7 +1,10 @@
 #include "Interface/Interface_Reversi.hpp"
-#include "Reversi.hpp"
 
 using namespace std;
+
+Interface_Reversi::~Interface_Reversi() {
+    som_jogo.stop();
+}
 
 void Interface_Reversi::Logica() {
     

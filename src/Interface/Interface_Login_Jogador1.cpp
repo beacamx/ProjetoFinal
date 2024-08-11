@@ -4,13 +4,9 @@
 using namespace std;
 
 Interface_Login_Jogador1::Interface_Login_Jogador1()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
-    try {
-        Set_Values();
-    } catch (const std::exception& e) {
-        cerr << "Erro na inicialização da interface de login do jogador 1: " << e.what() << endl;
-        exit(EXIT_FAILURE);
-    }
+    : caixa_de_texto1(15, sf::Color::White, false) { 
+    Set_Values();
+    registro_geral.save();
 }
 
 Interface_Login_Jogador1::~Interface_Login_Jogador1(){}
@@ -70,8 +66,6 @@ void Interface_Login_Jogador1::Set_Values(){
     Set_Image();
     Set_Opcoes();
 
-    registro_geral.load();
-
     posicao = 0;
     pressed = seleção_ativa = false;
     
@@ -93,6 +87,7 @@ void Interface_Login_Jogador1::Set_Values(){
     caixa_de_texto1.Definir_Limite(true, 10);
 
     janela->setKeyRepeatEnabled(true);
+    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Login_Jogador1::Loop_Events(){
@@ -135,25 +130,15 @@ void Interface_Login_Jogador1::Loop_Events(){
                 }
             } else if (posicao == 1) {
                 seleção_ativa = true;
-                Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
-                if (troca_Definicao_Entrada_Jogador.numero_jogador == 1) {
+                string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
+                if(registro_geral.find(nome_jogador) != NULL) {
+                    Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
-                } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
-                    string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                    try {
-                        registro_geral.find(nome_jogador);
-
-                        define_jogo = make_unique<Interface_Define_Jogo>();
-                        janela->close();
-                        define_jogo->Run_Menu();
-                    } catch (const runtime_error& e) {
-                        cerr << "Erro ao logar o jogador: " << e.what() << endl;
-                        Define_Aviso();
-                        seleção_ativa = false;
-                    }
                 } else {
-                    cerr << "Erro ao definir jogador" << endl;
+                    cerr << "Erro ao logar o jogador: Jogador não existente" << endl;
+                    Define_Aviso();
+                    seleção_ativa = false;
                 }
             } 
         }
@@ -162,11 +147,28 @@ void Interface_Login_Jogador1::Loop_Events(){
             caixa_de_texto1.Processar_Entrada(evento);
         }
     }
+
+    if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+        mostrar_aviso = false;
+    }
 }
 
 void Interface_Login_Jogador1::Define_Aviso() {
-    aviso.setString("Aviso: Apelido incorreto");
-    aviso.setPosition(100, 100);
+    try {
+        aviso.setFont(*fonte); 
+        aviso.setCharacterSize(15);
+        aviso.setFillColor(sf::Color::Red);
+        
+        sf::FloatRect bounds_play = texto[1].getGlobalBounds();
+        float pos_y_play = bounds_play.top + bounds_play.height;
+
+        aviso.setString("Aviso: Apelido incorreto");
+        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
+        clock_aviso.restart();
+        mostrar_aviso = true;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
 }
 
 void Interface_Login_Jogador1::Draw_All() {
@@ -181,6 +183,11 @@ void Interface_Login_Jogador1::Draw_All() {
             }
         }
         caixa_de_texto1.Draw_To(*janela);
+
+        if (mostrar_aviso) {
+            janela->draw(aviso);
+        }
+
         this->janela->display();
     } catch (const std::exception& e) {
         cerr << "Erro ao desenhar os elementos na janela: " << e.what() << endl;

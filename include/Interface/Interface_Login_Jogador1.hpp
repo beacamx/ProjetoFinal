@@ -21,7 +21,6 @@ class Interface_Login_Jogador1: public Interface_Menu {
         void Set_Image() override;  
         void Definir_Textos() override;
         void Define_Aviso() override;
-        unique_ptr<Interface_Define_Jogo> define_jogo;
     public:
         Interface_Login_Jogador1();
         ~Interface_Login_Jogador1() override;

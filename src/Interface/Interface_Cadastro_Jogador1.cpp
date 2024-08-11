@@ -4,13 +4,9 @@
 using namespace std;
 
 Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
-    try {
-        Set_Values();
-    } catch (const std::exception& e) {
-        cerr << "Erro na inicialização da interface de cadastro do jogador 1: " << e.what() << endl;
-        exit(EXIT_FAILURE);
-    }
+    : caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
+    Set_Values();
+    registro_geral.save();
 }
 
 Interface_Cadastro_Jogador1::~Interface_Cadastro_Jogador1(){}
@@ -76,8 +72,6 @@ void Interface_Cadastro_Jogador1::Set_Values(){
         Set_Image();
         Set_Opcoes();
 
-        registro_geral.load();
-
         posicao = 0;
         pressed = seleção_ativa = false;
 
@@ -99,6 +93,7 @@ void Interface_Cadastro_Jogador1::Set_Values(){
         caixa_de_texto2.Definir_Configuracoes_Caixa_de_Texto(*fonte, {posicao_x_caixa_texto, posicao_y_caixa_texto2}, true, 10);
 
         janela->setKeyRepeatEnabled(true);
+        janela->setVerticalSyncEnabled(true);
     } catch (const runtime_error& e) {
         cerr << "Erro ao configurar valores da interface: " << e.what() << endl;
     } catch (const exception& e) {
@@ -158,31 +153,23 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                 } else if (posicao == 2) {
                     seleção_ativa = true;
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
-                    if (troca_Definicao_Entrada_Jogador.numero_jogador == 1) {
-                        janela->close();
-                        troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
-                    } else if (troca_Definicao_Entrada_Jogador.numero_jogador == 2) {
-                        string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                        string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
-                        
-                        try {
-                            if(registro_geral.find(nome_jogador) != NULL) { 
-                                registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador));
-                                registro_geral.save();
-                                define_jogo = make_unique<Interface_Define_Jogo>();
-                                janela->close();
-                                define_jogo->Run_Menu();
-                            } else {
-                                cerr << "Jogador já existente";
-                                seleção_ativa = false;
-                            }
-                        } catch (const runtime_error& e) {
-                            cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
-                            Define_Aviso();
+                    string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
+                    string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
+                    try {
+                        auto jogador_existente = registro_geral.find(nome_jogador);
+                        if(jogador_existente == nullptr) { 
+                            registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
+                            registro_geral.save();
+                            janela->close();
+                            troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
+                        } else {
+                            cerr << "Jogador já existente";
+                            seleção_ativa = false;
                         }
-                    } else {
-                        cerr << "Erro ao definir jogador" << endl;
-                    }
+                    } catch (const runtime_error& e) {
+                        cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
+                        Define_Aviso();
+                    }        
                 }
             }
 
@@ -221,7 +208,7 @@ void Interface_Cadastro_Jogador1::Draw_All() {
         }
         caixa_de_texto1.Draw_To(*janela);
         caixa_de_texto2.Draw_To(*janela);
-        this->janela->display();
+        janela->display();
     } catch (const std::exception& e) {
         cerr << "Erro ao desenhar os elementos na janela: " << e.what() << endl;
     } catch (...) {
