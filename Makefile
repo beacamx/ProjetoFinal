@@ -18,9 +18,10 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o \
 	$(OBJDIR)/Cadastro_Jogadores.o
 
-all: $(OBJDIR) $(OBJS)
+all: $(OBJDIR) $(TARGET)
+
+$(TARGET): $(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS)
-	@./$(TARGET)
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -78,5 +79,8 @@ $(OBJDIR)/Interface_Menu.o: $(SRCDIR)/Interface/Interface_Menu.cpp $(INCDIR)/Int
 
 clean:
 	@rm -f $(OBJDIR)/*.o $(TARGET)
+
+run: $(TARGET)
+	@./$(TARGET)
 
 .PHONY: all test clean

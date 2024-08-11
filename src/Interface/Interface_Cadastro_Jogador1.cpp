@@ -75,6 +75,7 @@ void Interface_Cadastro_Jogador1::Set_Values(){
         Centralizar_Janela();
         Set_Image();
         Set_Opcoes();
+        registro_geral.load();
 
         posicao = 0;
         pressed = theselect = false;
@@ -109,7 +110,6 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
     int tam_vetor_texto = texto.size();
 
     try {
-        registro_geral.load();
         while(janela->pollEvent(evento)) {
             if (evento.type == sf::Event::Closed) {
                 janela->close();

@@ -8,6 +8,7 @@
 #include "Interface_Define_Jogo.hpp"
 #include "Caixa_de_texto.hpp"
 #include "Cadastro_Jogadores.hpp"
+#include "jogador.hpp"
 
 using namespace std;
 

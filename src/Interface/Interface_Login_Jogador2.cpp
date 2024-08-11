@@ -69,6 +69,8 @@ void Interface_Login_Jogador2::Set_Values(){
     Set_Image();
     Set_Opcoes();
 
+    registro_geral.load();
+
     posicao = 0;
     pressed = theselect = false;
     
@@ -95,8 +97,6 @@ void Interface_Login_Jogador2::Set_Values(){
 void Interface_Login_Jogador2::Loop_Events(){
     sf::Event evento;
     int tam_vetor_texto = texto.size();
-
-    registro_geral.load();
 
     while(janela->pollEvent(evento)) {
         if (evento.type == sf::Event::Closed) {
@@ -136,11 +136,15 @@ void Interface_Login_Jogador2::Loop_Events(){
                 theselect = true;
                 janela->close();
                 string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                // chama a funçao de verificar se nome_jogador está na lista de usuários cadastrados
-                // exemplo jogador2.find(nome_jogador);
-                // if (se estiver na lista) -> define_jogo (as duas linhas abaixo), se não estiver imprime mensagem de erro
+                try {
+                    registro_geral.find(nome_jogador);
+
                     define_jogo = make_unique<Interface_Define_Jogo>();
                     define_jogo->Run_Menu();
+                } catch (const runtime_error& e) {
+                    cerr << "Erro ao logar o jogador: " << e.what() << endl;
+                    Define_Aviso();
+                }
             } 
         }
 
