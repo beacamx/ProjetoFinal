@@ -73,7 +73,7 @@ void Interface_Login_Jogador1::Set_Values(){
     registro_geral.load();
 
     posicao = 0;
-    pressed = theselect = false;
+    pressed = seleção_ativa = false;
     
     Definicoes_Espacamento_Janela();
 
@@ -111,7 +111,7 @@ void Interface_Login_Jogador1::Loop_Events(){
                 pressed = true;
                 Definir_Contorno_Texto_Avancar(posicao);
                 pressed = false;
-                theselect = false;
+                seleção_ativa = false;
             }
         }
 
@@ -122,11 +122,11 @@ void Interface_Login_Jogador1::Loop_Events(){
                 pressed = true;
                 Definir_Contorno_Texto_Voltar(posicao);
                 pressed = false;
-                theselect = false;
+                seleção_ativa = false;
             }
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !seleção_ativa) {
             if (posicao == 0) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
                     caixa_de_texto1.Definir_Selecao(true);
@@ -134,7 +134,7 @@ void Interface_Login_Jogador1::Loop_Events(){
                     caixa_de_texto1.Definir_Selecao(false);
                 }
             } else if (posicao == 1) {
-                theselect = true;
+                seleção_ativa = true;
                 Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                 if (troca_Definicao_Entrada_Jogador.numero_jogador == 1) {
                     janela->close();
@@ -150,7 +150,7 @@ void Interface_Login_Jogador1::Loop_Events(){
                     } catch (const runtime_error& e) {
                         cerr << "Erro ao logar o jogador: " << e.what() << endl;
                         Define_Aviso();
-                        theselect = false;
+                        seleção_ativa = false;
                     }
                 } else {
                     cerr << "Erro ao definir jogador" << endl;

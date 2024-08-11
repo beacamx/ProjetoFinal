@@ -12,7 +12,7 @@ using namespace std;
 class Interface_Menu {
     protected:
         int posicao, num_botoes, num_janela;
-        bool pressed, theselect;
+        bool pressed, seleção_ativa;
 
         unique_ptr<sf::RenderWindow> janela;
         unique_ptr<sf::RectangleShape> winclose;

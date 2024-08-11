@@ -33,7 +33,7 @@ void Interface_Definicao_Entrada_Jogador2::Set_Values(){
     Set_Image();
 
     posicao = 0;
-    pressed = theselect = false;
+    pressed = seleção_ativa = false;
     coords.clear();
     
     Definicoes_Espacamento_Janela();
@@ -58,7 +58,7 @@ void Interface_Definicao_Entrada_Jogador2::Loop_Events(){
                 pressed = true;
                 Definir_Contorno_Texto_Avancar(posicao);
                 pressed = false;
-                theselect = false;
+                seleção_ativa = false;
             }
         }
 
@@ -69,12 +69,12 @@ void Interface_Definicao_Entrada_Jogador2::Loop_Events(){
                 pressed = true;
                 Definir_Contorno_Texto_Voltar(posicao);
                 pressed = false;
-                theselect = false;
+                seleção_ativa = false;
             }
         }
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
-            theselect = true;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !seleção_ativa) {
+            seleção_ativa = true;
             if (posicao == 0) {
                 janela->close();
                 login = make_unique<Interface_Login_Jogador2>();

@@ -85,7 +85,7 @@ void Interface_Cadastro_Jogador2::Set_Values(){
         Set_Opcoes();
 
         posicao = 0;
-        pressed = theselect = false;
+        pressed = seleção_ativa = false;
     
         Definicoes_Espacamento_Janela();
 
@@ -127,7 +127,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     pressed = true;
                     Definir_Contorno_Texto_Avancar(posicao);
                     pressed = false;
-                    theselect = false;
+                    seleção_ativa = false;
                 }
             }
 
@@ -138,11 +138,11 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     pressed = true;
                     Definir_Contorno_Texto_Voltar(posicao);
                     pressed = false;
-                    theselect = false;
+                    seleção_ativa = false;
                 }
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !theselect) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !seleção_ativa) {
                 if (posicao == 0) {
                     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
                         caixa_de_texto1.Definir_Selecao(true);
@@ -160,7 +160,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                         caixa_de_texto2.Definir_Selecao(false);
                     }
                 } else if (posicao == 2) {
-                    theselect = true;
+                    seleção_ativa = true;
                     janela->close();
                     string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
@@ -173,7 +173,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                             define_jogo->Run_Menu();
                         } else {
                             cerr << "Jogador já existente";
-                            theselect = false;
+                            seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {
                         cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;

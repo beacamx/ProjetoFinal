@@ -1,7 +1,7 @@
 #include "Interface_Menu.hpp"
 
 Interface_Menu::Interface_Menu() 
-    : posicao(0), num_botoes(0), num_janela(0), pressed(false), theselect(false),
+    : posicao(0), num_botoes(0), num_janela(0), pressed(false), seleção_ativa(false),
       espaco_vertical(0.0f), largura_janela(624.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
     try {
         this->janela = make_unique<sf::RenderWindow>();
