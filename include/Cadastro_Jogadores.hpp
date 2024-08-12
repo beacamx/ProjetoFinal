@@ -11,7 +11,8 @@ class cadastro{
   public:
   cadastro();
   ~cadastro();
-  jogador * find(std::string);
+  jogador * find_by_name(std::string);
+  jogador * find_by_nick(std::string);
   void cadastrar(jogador*);
   void remover(jogador*);
   void imprime_lista();
