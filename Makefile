@@ -2,27 +2,29 @@ TARGET=exec
 CXX=g++
 DEBUG=-g
 WARN=-Wall
-CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface
+SFML_DIR=libs/SFML-2.6.1
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
+CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -I$(SFML_DIR)/include
+LDFLAGS=-L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
-ifeq ($(OS), Windows_NT)
-    SFML=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-    RM=del /Q
-    MKDIR=mkdir
-    RUN=.\$(TARGET).exe
-    EXT=.exe
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+    OS = linux
+    RM = rm -f
+    MKDIR = mkdir -p
+    RUN = ./$(TARGET)
+    EXT =
 else
-    SFML=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
-    RM=rm -f
-    MKDIR=mkdir -p
-    RUN=./$(TARGET)
-    EXT=
+    OS = windows
+    SFML = -L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+    RM = del /Q
+    MKDIR = mkdir
+    RUN = .\$(TARGET).exe
+    EXT = .exe
 endif
 
-
-LDFLAGS = $(SFML)
 OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Reversi.o $(OBJDIR)/Interface_Jogo.o \
 	$(OBJDIR)/Interface_Define_Jogo.o $(OBJDIR)/Interface_Menu.o \

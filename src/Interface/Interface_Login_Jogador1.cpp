@@ -130,7 +130,7 @@ void Interface_Login_Jogador1::Loop_Events(){
             } else if (posicao == 1) {
                 seleção_ativa = true;
                 string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                if(registro_geral.find(nome_jogador) != NULL) {
+                if(registro_geral.find_by_name(nome_jogador) != NULL) {
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
