@@ -7,12 +7,21 @@ cadastro::~cadastro()
 {
   save();
 }
-jogador *cadastro::find(std::string _name)
+jogador *cadastro::find_by_name(std::string _name)
 { // encontra jogador por nome
   for (auto _aux : jogadores)
   {
     if (_aux->get_name() == _name)
     {
+      return _aux;
+    }
+  }
+  return NULL;
+}
+jogador * cadastro::find_by_nick(std::string _nick){
+  for (_aux : jogadores)
+  {
+    if (_aux->get_nick() == _nick){
       return _aux;
     }
   }
