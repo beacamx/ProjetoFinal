@@ -19,7 +19,7 @@ jogador *cadastro::find_by_name(std::string _name)
   return NULL;
 }
 jogador * cadastro::find_by_nick(std::string _nick){
-  for (_aux : jogadores)
+  for (auto _aux : jogadores)
   {
     if (_aux->get_nick() == _nick){
       return _aux;
@@ -29,7 +29,7 @@ jogador * cadastro::find_by_nick(std::string _nick){
 }
 void cadastro::cadastrar(jogador *target)
 { // insere *jogador no vetor<*jogador>
-  if (auto _aux = find(target->get_name()))
+  if (auto _aux = find_by_name(target->get_name()))
   {
     throw std::runtime_error("override_player");
   }
@@ -38,7 +38,7 @@ void cadastro::cadastrar(jogador *target)
 
 void cadastro::remover(jogador *target)
 { // remove *jogador na lista. Caso não encontre, lança runtime exception
-  std::set<jogador*, player_compare>::iterator posi = jogadores.find(find(target->get_name()));
+  std::set<jogador*, player_compare>::iterator posi = jogadores.find(find_by_name(target->get_name()));
   if (posi != jogadores.end())
   {
     jogadores.erase(posi);

@@ -156,12 +156,12 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     string nome_jogador = caixa_de_texto2.Obter_Texto_Entrada();
                     string apelido_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     try {
-                        if(registro_geral.find(apelido_jogador) == NULL && nome_jogador.length() > 0 && apelido_jogador.length() > 0) { 
+                        if(registro_geral.find_by_nick(apelido_jogador) == NULL && nome_jogador.length() > 0 && apelido_jogador.length() > 0) { 
                             registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
                             registro_geral.save();
                             janela->close();
                             troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
-                        } else if (registro_geral.find(apelido_jogador) == NULL && nome_jogador.length() == 0 && apelido_jogador.length() > 0){
+                        } else if (registro_geral.find_by_nick(apelido_jogador) == NULL && nome_jogador.length() == 0 && apelido_jogador.length() > 0){
                             cerr << "Aviso: Digite seu nome";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
