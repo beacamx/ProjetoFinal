@@ -3,11 +3,12 @@ CXX=g++
 DEBUG=-g
 WARN=-Wall
 SFML_DIR=libs/SFML-2.6.1
+SFML_LIB_DIR=libs/SFML-2.6.1/lib
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
 CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -I$(SFML_DIR)/include
-LDFLAGS=-L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+LDFLAGS=-L$(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
@@ -18,7 +19,6 @@ ifeq ($(UNAME_S), Linux)
     EXT =
 else
     OS = windows
-    SFML = -L$(SFML_DIR)/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
     RM = del /Q
     MKDIR = mkdir
     RUN = .\$(TARGET).exe
