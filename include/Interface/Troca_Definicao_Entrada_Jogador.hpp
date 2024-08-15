@@ -1,6 +1,7 @@
 #ifndef TROCA_DEFINICAO_ENTRADA_JOGADOR_HPP
 #define TROCA_DEFINICAO_ENTRADA_JOGADOR_HPP
 
+#include <SFML/Graphics.hpp>
 #include <memory>
 #include "Interface_Definicao_Entrada_Jogador2.hpp"
 

@@ -2,13 +2,17 @@ TARGET=exec
 CXX=g++
 DEBUG=-g
 WARN=-Wall
-SFML_DIR=libs/SFML-2.6.1
-SFML_LIB_DIR=libs/SFML-2.6.1/lib
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
-CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -I$(SFML_DIR)/include
-LDFLAGS=-L$(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+SFML_DIR=include/libs/SFML-2.6.1/build
+SFML_LIB_DIR=$(SFML_DIR)/lib
+FREE_TYPE_DIR=libs/SFML-2.6.1/extlibs/headers/freetype2
+OGG_DIR=libs/SFML-2.6.1/extlibs/headers/ogg
+VORBIS_DIR=libs/SFML-2.6.1/extlibs/headers/vorbis
+STB_IMAGE_DIR=libs/SFML-2.6.1/extlibs/headers/stb_image
+CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -I$(SFML_DIR)/include -I$(FREE_TYPE_DIR) -I$(OGG_DIR) -I$(VORBIS_DIR) -I$(STB_IMAGE_DIR)
+LDFLAGS=-L$(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lfreetype -logg -lvorbis -lvorbisfile
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S), Linux)
