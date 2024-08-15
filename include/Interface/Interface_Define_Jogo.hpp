@@ -1,6 +1,7 @@
 #ifndef INTERFACE_DEFINE_JOGO_HPP
 #define INTERFACE_DEFINE_JOGO_HPP
 
+#include <SFML/Graphics.hpp>
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Dimensao.hpp"
 #include "Interface_Jogo.hpp"
