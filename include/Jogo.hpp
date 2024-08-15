@@ -1,16 +1,16 @@
 #ifndef JOGO_HPP
 #define JOGO_HPP
-
+#include "Jogador.hpp"
 #include <vector>
 #include <iostream>
 #include <string>
 using namespace std;
 class Jogo {
     public:
-    // Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas); inicializador utilizado sem parâmetros na main
+    Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas);
     virtual ~Jogo();
 
-    int iniciarJogo(); //a main usa como retorno inteiro, salvo engano, é obrigatório em c++
+    void iniciarJogo();
     void imprimirTabuleiro() const;
     void receberJogada();
     void testarJogada(int linha, int coluna);
@@ -28,7 +28,7 @@ class Jogo {
     Jogador* jogadorAtual;
     int numLinhas;
     int numColunas;
-    vector<vector<char>> tabuleiro;
+    vector<vector<int>> tabuleiro;
     bool jogoAtivo;
 };
 

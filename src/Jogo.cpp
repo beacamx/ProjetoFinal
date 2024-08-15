@@ -6,7 +6,9 @@ using namespace std;
 Jogo::Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
         : jogadorA(jogador1), jogadorB(jogador2), jogadorAtual(jogador1), numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
         // Inicializar o tabuleiro conforme o tamanho passado
-        tabuleiro.resize(numLinhas, vector<char>(numColunas, 'O')); // Inicializa com peças vazias 'O'
+        tabuleiro.resize(numLinhas, vector<int>(numColunas, 0)); // Inicializa com peças vazias 0
+        jogadorA->setPeca(1);
+        jogadorB->setPeca(2);
     }
 
 Jogo::~Jogo() {
@@ -27,7 +29,7 @@ void Jogo::iniciarJogo() {
 void Jogo::imprimirTabuleiro() const {
     for (int i = 0; i < numLinhas; ++i) {
         for (int j = 0; j < numColunas; ++j) {
-            cout << tabuleiro[i][j] << " ";
+            cout << tabuleiro[i][j] << 0;
         }
         cout << endl;
     }
@@ -35,7 +37,7 @@ void Jogo::imprimirTabuleiro() const {
 
 void Jogo::receberJogada() {
     imprimirTabuleiro();
-    cout << "Posições possíveis para " << jogadorAtual->getNome() << ":" << endl;
+    cout << "Posições possíveis para " << jogadorAtual->get_name() << ":" << endl;
     vector<pair<int, int>> posicoesPossiveis = calcularPosicoesPossiveis();
     for (const auto& pos : posicoesPossiveis) {
         cout << "(" << pos.first << ", " << pos.second << ") ";
@@ -63,7 +65,7 @@ void Jogo::testarJogada(int linha, int coluna) {
 
 void Jogo::trocarJogador() {
     jogadorAtual = (jogadorAtual == jogadorA) ? jogadorB : jogadorA;
-    cout << "Vez do jogador " << jogadorAtual->getNome() << endl;
+    cout << "Vez do jogador " << jogadorAtual->get_name() << endl;
 }
 
 void Jogo::encerrarJogo() {

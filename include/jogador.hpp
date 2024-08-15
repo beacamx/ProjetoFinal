@@ -4,14 +4,16 @@
 #include <iostream>
 #include <string>
 
-class jogador
+class Jogador
 {
 public:
-    jogador(std::string name, std::string nick);
-    jogador(std::string name, std::string nick, unsigned int wins_lig4, unsigned int wins_Reversi, unsigned int loses_lig4, unsigned int loses_Reversi);
+    Jogador(std::string name, std::string nick);
+    Jogador(std::string name, std::string nick, unsigned int wins_lig4, unsigned int wins_Reversi, unsigned int loses_lig4, unsigned int loses_Reversi);
 
     std::string get_name();
     std::string get_nick();
+    int getPeca();
+    void setPeca(int p);
     unsigned int get_wins();
     unsigned int get_loses();
     unsigned int get_wins_lig4();
@@ -27,6 +29,7 @@ public:
 private:
     std::string _name;
     std::string _nick;
+    int peca;
     unsigned int n_of_wins_lig4;
     unsigned int n_of_wins_Reversi;
     unsigned int n_of_loses_lig4;
@@ -34,7 +37,7 @@ private:
 };
 
 struct player_compare {
-    bool operator() (jogador * p1, jogador * p2) const;
+    bool operator() (Jogador * p1, Jogador * p2) const;
 };
 
-#endif
+#endif JOGADOR_HPP
