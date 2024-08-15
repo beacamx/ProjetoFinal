@@ -1,4 +1,4 @@
-#include "../include/jogador.hpp"
+#include "../include/Jogador.hpp"
 
 Jogador::Jogador(std::string name, std::string nick) 
     : Jogador(name, nick, 0, 0, 0, 0) {}
@@ -14,12 +14,12 @@ std::string Jogador::get_nick() {
     return _nick; 
 }
 
-int getPeca() {
-    return this->peca;
+int Jogador::getPeca() {
+    return Jogador::peca;
 }
 
-void setPeca(int p) {
-    this->peca = p;
+void Jogador::setPeca(int p) {
+    Jogador::peca = p;
 }
 
 unsigned int Jogador::get_wins() { 

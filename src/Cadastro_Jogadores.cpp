@@ -7,7 +7,7 @@ cadastro::~cadastro()
 {
   save();
 }
-jogador *cadastro::find_by_name(std::string _name)
+Jogador *cadastro::find_by_name(std::string _name)
 { // encontra jogador por nome
   for (auto _aux : jogadores)
   {
@@ -18,7 +18,7 @@ jogador *cadastro::find_by_name(std::string _name)
   }
   return NULL;
 }
-jogador * cadastro::find_by_nick(std::string _nick){
+Jogador * cadastro::find_by_nick(std::string _nick){
   for (auto _aux : jogadores)
   {
     if (_aux->get_nick() == _nick){
@@ -27,7 +27,7 @@ jogador * cadastro::find_by_nick(std::string _nick){
   }
   return NULL;
 }
-void cadastro::cadastrar(jogador *target)
+void cadastro::cadastrar(Jogador *target)
 { // insere *jogador no vetor<*jogador>
   if (auto _aux = find_by_name(target->get_name()))
   {
@@ -36,9 +36,9 @@ void cadastro::cadastrar(jogador *target)
   jogadores.insert(target);
 }
 
-void cadastro::remover(jogador *target)
+void cadastro::remover(Jogador *target)
 { // remove *jogador na lista. Caso não encontre, lança runtime exception
-  std::set<jogador*, player_compare>::iterator posi = jogadores.find(find_by_name(target->get_name()));
+  std::set<Jogador*, player_compare>::iterator posi = jogadores.find(find_by_name(target->get_name()));
   if (posi != jogadores.end())
   {
     jogadores.erase(posi);
@@ -48,8 +48,8 @@ void cadastro::remover(jogador *target)
     throw std::runtime_error("player_not_found");
   }
 }
-std::vector<jogador*> cadastro::player_list(){
-  std::vector<jogador*> build;
+std::vector<Jogador*> cadastro::player_list(){
+  std::vector<Jogador*> build;
   for (auto _aux : jogadores){
     build.push_back(_aux);
   }
@@ -88,7 +88,7 @@ void cadastro::load()
     archive.read((char *)&n_of_wins_Reversi, sizeof(unsigned int));
     archive.read((char *)&n_of_loses_lig4, sizeof(unsigned int));
     archive.read((char *)&n_of_loses_Reversi, sizeof(unsigned int));
-    cadastrar(new jogador(_input_name, _input_nick, n_of_wins_lig4, n_of_wins_Reversi, n_of_loses_lig4, n_of_loses_Reversi));
+    cadastrar(new Jogador(_input_name, _input_nick, n_of_wins_lig4, n_of_wins_Reversi, n_of_loses_lig4, n_of_loses_Reversi));
     n_registers--;
   }
   if (archive.tellg() != final_position)

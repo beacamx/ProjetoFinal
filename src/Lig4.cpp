@@ -33,7 +33,7 @@ void Lig4::fazerJogada(int linha, int coluna) {
     tabuleiro[linha][coluna] = jogadorAtual->getPeca();
     imprimirTabuleiro();
     if (testarVitoria()) {
-        cout << "O Jogador" << jogadorAtual->getNome() << "vence!" << endl;
+        cout << "O Jogador" << jogadorAtual->get_name() << "vence!" << endl;
     } else {
         trocarJogador();
     }

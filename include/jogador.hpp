@@ -29,15 +29,15 @@ public:
 private:
     std::string _name;
     std::string _nick;
-    int peca;
     unsigned int n_of_wins_lig4;
     unsigned int n_of_wins_Reversi;
     unsigned int n_of_loses_lig4;
     unsigned int n_of_loses_Reversi;
+    int peca;
 };
 
 struct player_compare {
-    bool operator() (Jogador * p1, Jogador * p2) const;
+    bool operator() (Jogador* p1, Jogador* p2) const;
 };
 
 #endif JOGADOR_HPP
