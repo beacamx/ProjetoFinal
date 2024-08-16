@@ -5,8 +5,7 @@ using namespace std;
 
 Jogo::Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
         : jogadorA(jogador1), jogadorB(jogador2), jogadorAtual(jogador1), numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
-        // Inicializar o tabuleiro conforme o tamanho passado
-        tabuleiro.resize(numLinhas, vector<int>(numColunas, 0)); // Inicializa com peças vazias 0
+        tabuleiro.resize(numLinhas, vector<int>(numColunas));
         jogadorA->setPeca(1);
         jogadorB->setPeca(2);
     }
@@ -18,6 +17,7 @@ Jogo::~Jogo() {
 
 void Jogo::iniciarJogo() {
     jogadorAtual = jogadorA;
+    jogadorAdversario = jogadorB;
     while (jogoAtivo) {
         receberJogada();
         if (!jogoAtivo) break;
@@ -38,7 +38,7 @@ void Jogo::imprimirTabuleiro() const {
 void Jogo::receberJogada() {
     imprimirTabuleiro();
     cout << "Posições possíveis para " << jogadorAtual->get_name() << ":" << endl;
-    vector<pair<int, int>> posicoesPossiveis = calcularPosicoesPossiveis();
+    auto posicoesPossiveis = calcularPosicoesPossiveis();
     for (const auto& pos : posicoesPossiveis) {
         cout << "(" << pos.first << ", " << pos.second << ") ";
     }
@@ -52,7 +52,11 @@ void Jogo::receberJogada() {
 }
 
 void Jogo::testarJogada(int linha, int coluna) {
-    vector<pair<int, int>> posicoesPossiveis = calcularPosicoesPossiveis();
+    auto posicoesPossiveis = calcularPosicoesPossiveis();
+    if (calcularPosicoesPossiveis().empty()) {
+        encerrarJogada();
+    return;
+    }
     for (const auto& pos : posicoesPossiveis) {
         if (pos.first == linha && pos.second == coluna) {
             fazerJogada(linha, coluna);
@@ -63,8 +67,12 @@ void Jogo::testarJogada(int linha, int coluna) {
     receberJogada();
 }
 
+void Jogo::encerrarJogada() {
+    testarVitoria();
+}
+
 void Jogo::trocarJogador() {
-    jogadorAtual = (jogadorAtual == jogadorA) ? jogadorB : jogadorA;
+    swap(jogadorAtual, jogadorAdversario);
     cout << "Vez do jogador " << jogadorAtual->get_name() << endl;
 }
 

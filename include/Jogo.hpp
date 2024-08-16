@@ -3,7 +3,7 @@
 #include "Jogador.hpp"
 #include <vector>
 #include <iostream>
-#include <string>
+#include <utility>
 using namespace std;
 class Jogo {
     public:
@@ -14,6 +14,7 @@ class Jogo {
     void imprimirTabuleiro() const;
     void receberJogada();
     void testarJogada(int linha, int coluna);
+    void encerrarJogada();
     void trocarJogador();
     void encerrarJogo();
     
@@ -26,6 +27,7 @@ class Jogo {
     Jogador* jogadorA;
     Jogador* jogadorB;
     Jogador* jogadorAtual;
+    Jogador* jogadorAdversario;
     int numLinhas;
     int numColunas;
     vector<vector<int>> tabuleiro;

@@ -15,7 +15,34 @@ void Reversi::inicializarTabuleiro() {
 
 vector<pair<int, int>> Reversi::calcularPosicoesPossiveis() {
     vector<pair<int, int>> posicoesPossiveis;
-    // Implementar função para calcular posições possíveis no Reversi
+    int pecaAdversaria = (jogadorAtual == jogadorA) ? 2 : 1;
+    int pecaAtual = (jogadorAtual == jogadorA) ? 1 : 2;
+
+    for (int i = 0; i < 8; ++i) {
+        for (int j = 0; j < 8; ++j) {
+            if (tabuleiro[i][j] != 0) continue; //checa se a posição está vazia
+
+            for (int dx = -1; dx <= 1; ++dx) {
+                for (int dy = -1; dy <= 1; ++dy) {
+                    if (dx == 0 && dy == 0) continue;
+                    int x = i + dx, y = j + dy;
+                    bool encontrouAdversario = false;
+
+                    while (x >= 0 && x < 8 && y >= 0 && y < 8 && tabuleiro[x][y] == pecaAdversaria) {
+                        x += dx;
+                        y += dy;
+                        encontrouAdversario = true;
+                    }
+
+                    if (encontrouAdversario && x >= 0 && x < 8 && y >= 0 && y < 8 && tabuleiro[x][y] == pecaAtual) {
+                        posicoesPossiveis.push_back({i, j});
+                        break;  // Não precisa checar outras direções para esta célula
+                    }
+                }
+            }
+        }
+    }
+
     return posicoesPossiveis;
 }
 
@@ -39,7 +66,7 @@ bool Reversi::testarVitoria() {
         if (pecasA == pecasB) {
             cout << "Empate!" << endl;
         } else {
-            cout << (pecasA > pecasB ? jogadorA->getNome() : jogadorB->getNome()) << " venceu!" << endl;
+            cout << (pecasA > pecasB ? jogadorA->get_name() : jogadorB->get_name()) << " venceu!" << endl;
         }
         jogoAtivo = false;
         return true;
