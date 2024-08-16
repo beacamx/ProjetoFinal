@@ -32,15 +32,12 @@ vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
 void Lig4::fazerJogada(int linha, int coluna) {
     tabuleiro[linha][coluna] = jogadorAtual->getPeca();
     imprimirTabuleiro();
-    if (testarVitoria()) {
-        cout << "O Jogador" << jogadorAtual->get_name() << "vence!" << endl;
-    } else {
-        trocarJogador();
-    }
+    encerrarJogada();
 }
 
 
-bool Lig4::testarVitoria() {
+void Lig4::testarVitoria() {
+   bool condicaoVitoria = false;
 
     for(int i = 0; i < numLinhas; i++) {
         for (int j = 0; j <= numColunas - 4; ++j) {
@@ -48,7 +45,7 @@ bool Lig4::testarVitoria() {
                 tabuleiro[i][j + 1] == jogadorAtual->getPeca() &&
                 tabuleiro[i][j + 3] == jogadorAtual->getPeca() &&
                 tabuleiro[i][j + 3] == jogadorAtual->getPeca()) {
-                 return true;
+                 condicaoVitoria = true;
                 }       
            }
         }
@@ -59,7 +56,7 @@ bool Lig4::testarVitoria() {
                tabuleiro[i + 1][j] == jogadorAtual->getPeca() &&
                tabuleiro[i + 2][j] == jogadorAtual->getPeca() &&
                tabuleiro[i + 3][j] == jogadorAtual->getPeca()) {
-                return true;
+                condicaoVitoria = true;
                }           
            }
         }
@@ -70,7 +67,7 @@ bool Lig4::testarVitoria() {
                 tabuleiro[i + 1][j + 1] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 2][j + 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 3][j + 3] == jogadorAtual->getPeca()) {
-                return true;
+                condicaoVitoria = true;
                 }
            }
         }
@@ -81,12 +78,13 @@ bool Lig4::testarVitoria() {
                 tabuleiro[i + 1][j - 1] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 3][j - 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 3][j - 3] == jogadorAtual->getPeca()) {
-                    return true;
+                    condicaoVitoria = true;
              }
 
          }           
     }
-
-    return false;
-
+    if (condicaoVitoria == true) {
+        cout << jogadorAtual->get_name() << " venceu!" << endl;
+        jogoAtivo = false;
+    }
 }

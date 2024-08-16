@@ -19,7 +19,7 @@ class Jogo {
     void encerrarJogo();
     
     virtual void fazerJogada(int linha, int coluna) = 0;
-    virtual bool testarVitoria() = 0;
+    virtual void testarVitoria() = 0;
     virtual void inicializarTabuleiro() = 0;
     virtual vector<pair<int, int>> calcularPosicoesPossiveis() = 0;
     

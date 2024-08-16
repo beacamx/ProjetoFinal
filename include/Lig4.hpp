@@ -12,7 +12,7 @@ public:
 
     void inicializarTabuleiro() override; // ja tem
     void fazerJogada(int linha, int coluna) override; // dentro da logic
-    bool testarVitoria() override;
+    void testarVitoria() override;
     // funcao verificar se o tabuleiro esta cheio (se tem zero em alguma casa)
 
 protected:
