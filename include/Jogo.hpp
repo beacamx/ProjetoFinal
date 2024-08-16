@@ -1,6 +1,6 @@
 #ifndef JOGO_HPP
 #define JOGO_HPP
-#include "Jogador.hpp"
+#include "jogador.hpp"
 #include <vector>
 #include <iostream>
 #include <utility>
