@@ -14,7 +14,7 @@ Interface_Tela_Inicial::Interface_Tela_Inicial(){
 Interface_Tela_Inicial::~Interface_Tela_Inicial(){}
 
 void Interface_Tela_Inicial::Set_Opcoes() {
-    opcoes_de_escolha = {"Jogar", "Dados", "Manual"};
+    opcoes_de_escolha = {"Jogar", "Dados"};
 }
 
 void Interface_Tela_Inicial::Definicoes_Espacamento_Janela() {
@@ -67,7 +67,7 @@ void Interface_Tela_Inicial::Loop_Events(){
             }
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-                if(posicao < 2){
+                if(posicao < 1){
                     som_selecao.play();
                     ++posicao;
                     pressed = true;
