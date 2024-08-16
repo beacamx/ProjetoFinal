@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "../../../lib/libsfml-system.pdb"
+  "../../../lib/libsfml-system.so"
+  "../../../lib/libsfml-system.so.2.6"
+  "../../../lib/libsfml-system.so.2.6.1"
+  "CMakeFiles/sfml-system.dir/Clock.o"
+  "CMakeFiles/sfml-system.dir/Clock.o.d"
+  "CMakeFiles/sfml-system.dir/Err.o"
+  "CMakeFiles/sfml-system.dir/Err.o.d"
+  "CMakeFiles/sfml-system.dir/FileInputStream.o"
+  "CMakeFiles/sfml-system.dir/FileInputStream.o.d"
+  "CMakeFiles/sfml-system.dir/Lock.o"
+  "CMakeFiles/sfml-system.dir/Lock.o.d"
+  "CMakeFiles/sfml-system.dir/MemoryInputStream.o"
+  "CMakeFiles/sfml-system.dir/MemoryInputStream.o.d"
+  "CMakeFiles/sfml-system.dir/Mutex.o"
+  "CMakeFiles/sfml-system.dir/Mutex.o.d"
+  "CMakeFiles/sfml-system.dir/Sleep.o"
+  "CMakeFiles/sfml-system.dir/Sleep.o.d"
+  "CMakeFiles/sfml-system.dir/String.o"
+  "CMakeFiles/sfml-system.dir/String.o.d"
+  "CMakeFiles/sfml-system.dir/Thread.o"
+  "CMakeFiles/sfml-system.dir/Thread.o.d"
+  "CMakeFiles/sfml-system.dir/ThreadLocal.o"
+  "CMakeFiles/sfml-system.dir/ThreadLocal.o.d"
+  "CMakeFiles/sfml-system.dir/Time.o"
+  "CMakeFiles/sfml-system.dir/Time.o.d"
+  "CMakeFiles/sfml-system.dir/Unix/ClockImpl.o"
+  "CMakeFiles/sfml-system.dir/Unix/ClockImpl.o.d"
+  "CMakeFiles/sfml-system.dir/Unix/MutexImpl.o"
+  "CMakeFiles/sfml-system.dir/Unix/MutexImpl.o.d"
+  "CMakeFiles/sfml-system.dir/Unix/SleepImpl.o"
+  "CMakeFiles/sfml-system.dir/Unix/SleepImpl.o.d"
+  "CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o"
+  "CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o.d"
+  "CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o"
+  "CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o.d"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/sfml-system.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

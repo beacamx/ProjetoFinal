@@ -1,0 +1,3 @@
+/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
+/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/_deps/sfml-subbuild/CMakeFiles/edit_cache.dir
+/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/_deps/sfml-subbuild/CMakeFiles/rebuild_cache.dir
