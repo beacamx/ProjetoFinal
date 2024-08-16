@@ -82,7 +82,7 @@ void Interface_Login_Jogador1::Set_Values(){
     float posicao_y_caixa_texto = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
 
     caixa_de_texto1.Definir_Fonte(*fonte);
-    caixa_de_texto1.Definir_Posição({posicao_x_caixa_texto, posicao_y_caixa_texto});
+    caixa_de_texto1.Definir_Posicao({posicao_x_caixa_texto, posicao_y_caixa_texto});
     caixa_de_texto1.Definir_Limite(true, 10);
 
     janela->setKeyRepeatEnabled(true);

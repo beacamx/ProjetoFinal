@@ -157,7 +157,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     string apelido_jogador = caixa_de_texto1.Obter_Texto_Entrada();
                     try {
                         if(registro_geral.find_by_nick(apelido_jogador) == NULL && nome_jogador.length() > 0 && apelido_jogador.length() > 0) { 
-                            registro_geral.cadastrar(new jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
+                            registro_geral.cadastrar(new Jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
                             registro_geral.save();
                             janela->close();
                             troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
@@ -187,7 +187,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                             seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {
-                        cerr << "Erro ao cadastrar o jogador: " << e.what() << endl;
+                        cerr << "Erro ao cadastrar o Jogador: " << e.what() << endl;
                     }        
                 }
             }

@@ -17,7 +17,7 @@ class Caixa_de_texto {
         Caixa_de_texto(int tamanho_caixa, sf::Color cor_caixa, bool sel);
 
         void Definir_Fonte(sf::Font &font);
-        void Definir_Posição(sf::Vector2f position);
+        void Definir_Posicao(sf::Vector2f position);
         void Definir_Limite(bool com_limite, int lim);
         // bool Caixa_Esta_Selecionada() const;
         void Definir_Selecao(bool sel);

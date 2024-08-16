@@ -5,13 +5,14 @@ WARN=-Wall
 OBJDIR=obj
 SRCDIR=src
 INCDIR=include
-SFML_DIR=include/libs/SFML-2.6.1/build
-SFML_LIB_DIR=$(SFML_DIR)/lib
+SFML_DIR_BUILD=include/libs/SFML-2.6.1/build
+SFML_INCLUDE_DIR=include/libs/SFML-2.6.1/include/SFML
+SFML_LIB_DIR=$(SFML_DIR_BUILD)/lib
 FREE_TYPE_DIR=libs/SFML-2.6.1/extlibs/headers/freetype2
 OGG_DIR=libs/SFML-2.6.1/extlibs/headers/ogg
 VORBIS_DIR=libs/SFML-2.6.1/extlibs/headers/vorbis
 STB_IMAGE_DIR=libs/SFML-2.6.1/extlibs/headers/stb_image
-CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -I$(SFML_DIR)/include -I$(FREE_TYPE_DIR) -I$(OGG_DIR) -I$(VORBIS_DIR) -I$(STB_IMAGE_DIR)
+CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -I$(SFML_INCLUDE_DIR) -I$(FREE_TYPE_DIR) -I$(OGG_DIR) -I$(VORBIS_DIR) -I$(STB_IMAGE_DIR)
 LDFLAGS=-L$(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lfreetype -logg -lvorbis -lvorbisfile
 
 UNAME_S := $(shell uname -s)

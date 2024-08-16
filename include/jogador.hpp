@@ -40,4 +40,4 @@ struct player_compare {
     bool operator() (Jogador* p1, Jogador* p2) const;
 };
 
-#endif JOGADOR_HPP
+#endif
