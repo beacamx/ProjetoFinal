@@ -96,10 +96,9 @@ void Interface_Tela_Inicial::Loop_Events(){
                     jogador1 = make_unique<Interface_Definicao_Entrada_Jogador1>();
                     jogador1->Run_Menu();
                 } else if(posicao == 1) {
+                    cout << "Em construçao... Vou fazer no sábado" << endl;
                     janela->close();
-                } else if(posicao == 2) {
-                    janela->close();
-                }
+                } 
             }
         }
     } catch (const std::exception& e) {
