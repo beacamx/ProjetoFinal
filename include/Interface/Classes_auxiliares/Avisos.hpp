@@ -3,6 +3,10 @@
 
 #include <SFML/System.hpp>
 #include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+
+using namespace std;
 
 class Avisos {
     private:
@@ -10,6 +14,8 @@ class Avisos {
         bool mostrar_aviso = false;
 
     public:
+        Textos();
+        ~Textos();
         void Set_Aviso();
 
 };
