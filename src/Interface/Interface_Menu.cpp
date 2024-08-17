@@ -1,14 +1,10 @@
 #include "Interface_Menu.hpp"
 
 Interface_Menu::Interface_Menu() 
-    : posicao(0), num_botoes(0), num_janela(0), pressed(false), seleção_ativa(false),
-      espaco_vertical(0.0f), largura_janela(624.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
-    this->janela = make_unique<sf::RenderWindow>();
-    this->winclose = make_unique<sf::RectangleShape>();
+    : Interface_Base(624, 546), posicao(0), num_botoes(0), num_janela(0), pressed(false), seleção_ativa(false),
+      espaco_vertical(0.0f), espaco_vertical_botao_play(0.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
     this->image = make_unique<sf::Texture>();
     this->background = make_unique<sf::Sprite>();
-    janela->setVerticalSyncEnabled(true);
-    registro_geral.save();
 }
 
 Interface_Menu::~Interface_Menu() {
@@ -27,18 +23,6 @@ void Interface_Menu::Set_Efeito_Sonoro_Selecao_Botao() {
     }
 }
 
-void Interface_Menu::Centralizar_Janela() {
-    try {
-        sf::Vector2i janela_centralizada(
-            (sf::VideoMode::getDesktopMode().width - 624) / 2, 
-            (sf::VideoMode::getDesktopMode().height - 546 )/ 2
-        );
-        janela->setPosition(janela_centralizada);
-    } catch (const std::exception& e) {
-        cerr << "Erro ao centralizar a janela: " << e.what() << endl;
-    }
-}
-
 void Interface_Menu::Set_Janela() {
     try {
         janela->create(sf::VideoMode(624,546), "", sf::Style::Titlebar | sf::Style::Close);
@@ -47,7 +31,7 @@ void Interface_Menu::Set_Janela() {
     }
 }
 
-void Interface_Menu::Draw_All() {
+void Interface_Menu::Atualizar_Janela() {
     try {
         this->janela->clear();
         this->janela->draw(*background);
@@ -74,9 +58,9 @@ void Interface_Menu::Define_Aviso() {
     }
 }
 
-void Interface_Menu::Run_Menu() {
-        while (janela->isOpen()) {
-            this->Loop_Events();
-            Draw_All();
-        }
+void Interface_Menu::Run() {
+    while (janela->isOpen()) {
+        this->Loop_Events();
+        Atualizar_Janela();
+    }
 }

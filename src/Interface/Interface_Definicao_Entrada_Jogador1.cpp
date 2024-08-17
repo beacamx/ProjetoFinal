@@ -28,7 +28,6 @@ void Interface_Definicao_Entrada_Jogador1::Definicoes_Espacamento_Janela() {
 void Interface_Definicao_Entrada_Jogador1::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
-    Centralizar_Janela();
     Set_Image();
     Definicoes_Espacamento_Janela();
     Set_Opcoes();
@@ -38,7 +37,6 @@ void Interface_Definicao_Entrada_Jogador1::Set_Values(){
     tamanho_fonte = {18, 18};
     textos.Set_Fonte(tamanho_fonte);
     textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
-
     textos.Set_Contorno_Inicial_Texto();
 }
 
@@ -78,11 +76,11 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
             if (posicao == 0) {
                 janela->close();
                 login = make_unique<Interface_Login_Jogador1>();
-                login->Run_Menu();
+                login->Run();
             } else if (posicao == 1) {
                 janela->close();
                 cadastro = make_unique<Interface_Cadastro_Jogador1>();
-                cadastro->Run_Menu();          
+                cadastro->Run();          
             }
         }
     }

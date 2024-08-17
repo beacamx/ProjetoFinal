@@ -18,7 +18,7 @@ class Interface_Define_Jogo: public Interface_Menu {
  
     public:
         Interface_Define_Jogo();
-        ~Interface_Define_Jogo() override;
+        ~Interface_Define_Jogo(){};
 
         void Set_Image() override;  
         void Set_Opcoes() override;

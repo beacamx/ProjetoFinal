@@ -32,7 +32,6 @@ class Caixa_de_texto {
         sf::Text caixa_de_texto;
         ostringstream texto_de_entrada;
         bool selecionado = false;
-        // bool caixa_selecionada = false;
         bool tem_limite = false;
         int limite;
 

@@ -20,7 +20,7 @@ class Interface_Definicao_Entrada_Jogador2: public Interface_Menu {
         unique_ptr<Interface_Cadastro_Jogador2> cadastro;
  
     public:
-        Interface_Definicao_Entrada_Jogador2() { Set_Values(); }
+        Interface_Definicao_Entrada_Jogador2() : Interface_Menu() { Set_Values(); }
         ~Interface_Definicao_Entrada_Jogador2();
 
         void Set_Image() override;

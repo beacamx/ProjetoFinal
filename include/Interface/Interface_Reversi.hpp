@@ -2,12 +2,15 @@
 #define INTERFACE_REVERSI_HPP
 
 #include "Interface_Jogo.hpp"
+//#include "Reversi.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <memory>
 #include <vector>
 #include <cstdlib>
+
+using namespace std;
 
 class Interface_Reversi : public Interface_Jogo {
     public:
@@ -23,6 +26,9 @@ class Interface_Reversi : public Interface_Jogo {
         void Set_Textura_Peca2() override;
         void Set_Textura_Sem_Peca() override;
         void Set_Music() override;
-};
+        //void Inicializar_Reversi();
 
+    //private:
+        //unique_ptr<Reversi> reversi;
+};
 #endif

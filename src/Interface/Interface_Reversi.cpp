@@ -7,7 +7,7 @@ Interface_Reversi::~Interface_Reversi() {
 }
 
 void Interface_Reversi::Logica() {
-    
+    // reversi.fazerJogada();
 }
 
 void Interface_Reversi::Set_Music() {
@@ -98,3 +98,6 @@ void Interface_Reversi::Set_Sprites() {
     }
 }
 
+void Inicializar_Reversi() {
+    //reversi = make_unique<Reversi>(nome_jogador1, nome_jogador2);
+}

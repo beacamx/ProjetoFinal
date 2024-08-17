@@ -35,7 +35,7 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Cadastro_Jogador1.o $(OBJDIR)/Interface_Cadastro_Jogador2.o \
 	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o \
 	$(OBJDIR)/jogador.o $(OBJDIR)/Cadastro_Jogadores.o \
-	$(OBJDIR)/Textos.o
+	$(OBJDIR)/Textos.o $(OBJDIR)/Interface_Base.o
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 
@@ -47,6 +47,9 @@ $(OBJDIR):
 
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Base.cpp -o $(OBJDIR)/Interface_Base.o
 
 $(OBJDIR)/Textos.o: $(SRCDIR)/Interface/Classes_auxiliares/Textos.cpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Classes_auxiliares/Textos.cpp -o $(OBJDIR)/Textos.o
@@ -99,7 +102,7 @@ $(OBJDIR)/Interface_Define_Dimensao.o: $(SRCDIR)/Interface/Interface_Define_Dime
 $(OBJDIR)/Interface_Jogo.o: $(SRCDIR)/Interface/Interface_Jogo.cpp $(INCDIR)/Interface/Interface_Jogo.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Jogo.cpp -o $(OBJDIR)/Interface_Jogo.o
 
-$(OBJDIR)/Interface_Menu.o: $(SRCDIR)/Interface/Interface_Menu.cpp $(INCDIR)/Interface/Interface_Menu.hpp  $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
+$(OBJDIR)/Interface_Menu.o: $(SRCDIR)/Interface/Interface_Menu.cpp $(INCDIR)/Interface/Interface_Menu.hpp  $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp $(INCDIR)/Interface/Interface_Base.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Menu.cpp -o $(OBJDIR)/Interface_Menu.o
 
 clean:

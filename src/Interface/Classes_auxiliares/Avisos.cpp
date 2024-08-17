@@ -1,3 +1,5 @@
+#include "Avisos.hpp"
+
 void Avisos::Set_Aviso() {
     try {
         const sf::Font& fonte = texto.Get_Fonte();

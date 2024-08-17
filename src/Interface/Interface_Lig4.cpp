@@ -93,7 +93,6 @@ int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
 
     Define_Dimensoes_Janela();
     Set_Janela();
-    Centralizar_Janela();
 
     tabuleiro.resize(linhas, std::vector<int>(colunas, 0));
 

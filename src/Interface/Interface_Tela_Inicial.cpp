@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Interface_Tela_Inicial::Interface_Tela_Inicial(){
+Interface_Tela_Inicial::Interface_Tela_Inicial() : Interface_Menu() {
     try {
         Set_Values();
     } catch (const std::exception& e) {
@@ -39,7 +39,6 @@ void Interface_Tela_Inicial::Set_Values(){
     try {
         Set_Efeito_Sonoro_Selecao_Botao();
         Set_Janela();
-        Centralizar_Janela();
         Set_Image();
         janela->setVerticalSyncEnabled(true);
         Definicoes_Espacamento_Janela();
@@ -94,7 +93,7 @@ void Interface_Tela_Inicial::Loop_Events(){
                 if(posicao == 0) {
                     janela->close();
                     jogador1 = make_unique<Interface_Definicao_Entrada_Jogador1>();
-                    jogador1->Run_Menu();
+                    jogador1->Run();
                 } else if(posicao == 1) {
                     cout << "Em construçao... Vou fazer no sábado" << endl;
                     janela->close();

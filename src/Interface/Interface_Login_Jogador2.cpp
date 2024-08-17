@@ -2,8 +2,7 @@
 
 using namespace std;
 
-Interface_Login_Jogador2::Interface_Login_Jogador2()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
+Interface_Login_Jogador2::Interface_Login_Jogador2() : Interface_Menu(), define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
     try {
         Set_Values();
     } catch (const std::exception& e) {
@@ -38,7 +37,6 @@ void Interface_Login_Jogador2::Definicoes_Espacamento_Janela() {
 void Interface_Login_Jogador2::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
-    Centralizar_Janela();
     Set_Image();
     Set_Opcoes();
     
@@ -108,11 +106,11 @@ void Interface_Login_Jogador2::Loop_Events(){
                 }
             } else if (posicao == 1) {
                 seleção_ativa = true;
-                string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                if(registro_geral.find_by_name(nome_jogador) != NULL) {
+                apelido_jogador2 = caixa_de_texto1.Obter_Texto_Entrada();
+                if(registro_geral.find_by_nick(apelido_jogador2) != NULL) {
                     define_jogo = make_unique<Interface_Define_Jogo>();
                     janela->close();
-                    define_jogo->Run_Menu();
+                    define_jogo->Run();
                 } else {
                     cerr << "Aviso: Jogador nao existente, digite novamente" << endl;
                     Define_Aviso();
@@ -151,7 +149,7 @@ void Interface_Login_Jogador2::Define_Aviso() {
     }
 }
 
-void Interface_Login_Jogador2::Draw_All() {
+void Interface_Login_Jogador2::Atualizar_Janela() {
     try {
         this->janela->clear();
         this->janela->draw(*background);

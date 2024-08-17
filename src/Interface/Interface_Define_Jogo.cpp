@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Interface_Define_Jogo::Interface_Define_Jogo(){
+Interface_Define_Jogo::Interface_Define_Jogo() : Interface_Menu() {
     try {
         Set_Values();
     } catch (const std::exception& e) {
@@ -10,8 +10,6 @@ Interface_Define_Jogo::Interface_Define_Jogo(){
         exit(EXIT_FAILURE);
     }
 }
-
-Interface_Define_Jogo::~Interface_Define_Jogo(){}
 
 void Interface_Define_Jogo::Set_Opcoes() {
     opcoes_de_escolha = {"Lig4", "Reversi"};
@@ -38,7 +36,6 @@ void Interface_Define_Jogo::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Set_Opcoes();
-    Centralizar_Janela();
     Set_Image();
     Definicoes_Espacamento_Janela();
 
@@ -90,11 +87,11 @@ void Interface_Define_Jogo::Loop_Events(){
             if(posicao == 0) {
                 janela->close();
                 dimensao = make_unique<Interface_Define_Dimensao>("Lig4");
-                dimensao->Run_Menu();
+                dimensao->Run();
             } else if(posicao == 1) {
                 janela->close();
                 dimensao = make_unique<Interface_Define_Dimensao>("Reversi");
-                dimensao->Run_Menu();
+                dimensao->Run();
             }
         }
     }

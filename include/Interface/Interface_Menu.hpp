@@ -9,11 +9,12 @@
 #include <cstdlib>
 
 #include "Cadastro_Jogadores.hpp"
+#include "Interface_Base.hpp"
 #include "Textos.hpp"
 
 using namespace std;
 
-class Interface_Menu {
+class Interface_Menu: public Interface_Base  {
     protected:
         int posicao, num_botoes, num_janela;
         bool pressed, seleção_ativa;
@@ -21,8 +22,6 @@ class Interface_Menu {
         sf::Clock clock_aviso;
         bool mostrar_aviso = false;
 
-        unique_ptr<sf::RenderWindow> janela;
-        unique_ptr<sf::RectangleShape> winclose;
         unique_ptr<sf::Texture> image;
         unique_ptr<sf::Sprite> background;
 
@@ -39,7 +38,7 @@ class Interface_Menu {
 
         virtual void Set_Values() = 0;
         virtual void Loop_Events() = 0;
-        virtual void Draw_All();
+        virtual void Atualizar_Janela() override;
         virtual void Set_Opcoes() = 0;
         virtual void Definicoes_Espacamento_Janela() = 0;
         
@@ -48,20 +47,22 @@ class Interface_Menu {
 
         float espaco_vertical;
         float espaco_vertical_botao_play;
-        float largura_janela;
         float altura_titulo; 
         float altura_inferior_titulo; 
 
         cadastro registro_geral;
         vector<size_t> tamanho_fonte;
         Textos textos;
+        
+        // temporario
+        string nome_jogador1, nome_jogador2;
+        string apelido_jogador1, apelido_jogador2;
 
     public:
         Interface_Menu();
         virtual ~Interface_Menu();
-        void Run_Menu();
+        void Run() override;
         void Set_Janela();
-        void Centralizar_Janela();
         virtual void Define_Aviso();
 };
 

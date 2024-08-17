@@ -19,11 +19,11 @@ class Audio {
         sf::Clock timer;
         const float tempo_limite = 1.0f;
     public:
-        Textos(){};
-        ~Textos(){};
+        Audio() {};
+        ~Audio() {};
         void Set_Efeito_Sonoro_Selecao_Botao();
         void Set_Efeito_Sonoro_Aviso();
-        void Set_Music(string nome_jogo);
+        void Set_Music(const string& nome_jogo);
         void Timer(float tempo_duracao);
 };
 

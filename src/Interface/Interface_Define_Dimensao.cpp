@@ -2,8 +2,6 @@
 
 using namespace std;
 
-Interface_Define_Dimensao::~Interface_Define_Dimensao(){}
-
 void Interface_Define_Dimensao::Set_Opcoes() {
     if (nome_jogo == "Lig4") {
         opcoes_de_escolha = {"6x7", "7x8", "8x9"};
@@ -33,7 +31,6 @@ void Interface_Define_Dimensao::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Set_Opcoes();
-    Centralizar_Janela();
     Set_Image();
     Definicoes_Espacamento_Janela();
 
@@ -44,8 +41,6 @@ void Interface_Define_Dimensao::Set_Values(){
     textos.Set_Fonte(tamanho_fonte);
     textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
     textos.Set_Contorno_Inicial_Texto();
-
-    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Define_Dimensao::Loop_Events(){

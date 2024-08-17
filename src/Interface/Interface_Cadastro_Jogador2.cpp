@@ -122,28 +122,29 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     }
                 } else if (posicao == 2) {
                     seleção_ativa = true;
-                    string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                    string apelido_jogador = caixa_de_texto2.Obter_Texto_Entrada();
+                    nome_jogador2 = caixa_de_texto1.Obter_Texto_Entrada();
+                    apelido_jogador2 = caixa_de_texto2.Obter_Texto_Entrada();
                     try {
-                        if(registro_geral.find_by_nick(apelido_jogador) == NULL && nome_jogador.length() > 0 && apelido_jogador.length() > 0) { 
-                            registro_geral.cadastrar(new Jogador(nome_jogador, apelido_jogador, 0, 0, 0, 0));
+                        if(registro_geral.find_by_nick(apelido_jogador2) == NULL && nome_jogador2.length() > 0 && apelido_jogador2.length() > 0) { 
+                            registro_geral.cadastrar(new Jogador(nome_jogador2, apelido_jogador2, 0, 0, 0, 0));
                             registro_geral.save();
+                            //reversi.inicializarTabuleiro(nome_jogador1, nome_jogador2);
                             define_jogo = make_unique<Interface_Define_Jogo>();
                             janela->close();
-                            define_jogo->Run_Menu();
-                        } else if (registro_geral.find_by_nick(apelido_jogador) == NULL && nome_jogador.length() == 0 && apelido_jogador.length() > 0){
+                            define_jogo->Run();
+                        } else if (registro_geral.find_by_nick(apelido_jogador2) == NULL && nome_jogador2.length() == 0 && apelido_jogador2.length() > 0){
                             cerr << "Aviso: Digite seu nome";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
                             Define_Aviso();
                             seleção_ativa = false;
-                        } else if(apelido_jogador.length() == 0 && nome_jogador.length() > 0) {
+                        } else if(apelido_jogador2.length() == 0 && nome_jogador2.length() > 0) {
                             cerr << "Aviso: Digite seu apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu apelido");
                             Define_Aviso();
                             seleção_ativa = false;
-                        } else if(apelido_jogador.length() == 0 && nome_jogador.length() == 0) {
+                        } else if(apelido_jogador2.length() == 0 && nome_jogador2.length() == 0) {
                             cerr << "Aviso: Digite seu nome e apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome e apelido");
@@ -195,7 +196,7 @@ void Interface_Cadastro_Jogador2::Define_Aviso() {
     }
 }
 
-void Interface_Cadastro_Jogador2::Draw_All() {
+void Interface_Cadastro_Jogador2::Atualizar_Janela() {
     try {
         this->janela->clear();
         this->janela->draw(*background);

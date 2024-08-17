@@ -20,8 +20,8 @@ class Interface_Define_Dimensao: public Interface_Menu {
         unique_ptr<Interface_Jogo> jogo;
  
     public:
-        Interface_Define_Dimensao(const std::string& jogo) : nome_jogo(jogo) { Set_Values(); }
-        ~Interface_Define_Dimensao();
+        Interface_Define_Dimensao(const std::string& jogo) : Interface_Menu(), nome_jogo(jogo) { Set_Values(); }
+        ~Interface_Define_Dimensao(){};
 
         void Set_Image() override;
         void Set_Opcoes() override;

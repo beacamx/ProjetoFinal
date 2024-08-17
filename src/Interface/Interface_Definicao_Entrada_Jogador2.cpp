@@ -28,7 +28,6 @@ void Interface_Definicao_Entrada_Jogador2::Definicoes_Espacamento_Janela() {
 void Interface_Definicao_Entrada_Jogador2::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
-    Centralizar_Janela();
     Set_Image();
     Definicoes_Espacamento_Janela();
 
@@ -80,11 +79,11 @@ void Interface_Definicao_Entrada_Jogador2::Loop_Events(){
             if (posicao == 0) {
                 janela->close();
                 login = make_unique<Interface_Login_Jogador2>();
-                login->Run_Menu();
+                login->Run();
             } else if (posicao == 1) {
                 janela->close();
                 cadastro = make_unique<Interface_Cadastro_Jogador2>();
-                cadastro->Run_Menu();
+                cadastro->Run();
             } 
         }
     }

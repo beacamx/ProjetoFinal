@@ -8,7 +8,6 @@
 
 #include "Interface_Menu.hpp"
 #include "Interface_Login_Jogador1.hpp"
-#include "Interface_Definicao_Entrada_Jogador2.hpp"
 #include "Interface_Cadastro_Jogador1.hpp"
 
 using namespace std;
@@ -21,8 +20,8 @@ class Interface_Definicao_Entrada_Jogador1: public Interface_Menu {
         unique_ptr<Interface_Cadastro_Jogador1> cadastro;
  
     public:
-        Interface_Definicao_Entrada_Jogador1() { Set_Values(); }
-        ~Interface_Definicao_Entrada_Jogador1();
+        Interface_Definicao_Entrada_Jogador1() : Interface_Menu() { Set_Values(); }
+        ~Interface_Definicao_Entrada_Jogador1() override;
 
         void Set_Image() override;
         void Set_Opcoes() override;

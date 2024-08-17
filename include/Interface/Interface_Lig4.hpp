@@ -11,10 +11,7 @@
 
 class Interface_Lig4 : public Interface_Jogo {
     public:
-        Interface_Lig4() : Interface_Jogo("Lig4") {
-            this->largura_quadrado = 78;
-        }
-
+        Interface_Lig4() : Interface_Jogo("Lig4") { this->largura_quadrado = 78;}
         ~Interface_Lig4();
 
         void Logica() override;

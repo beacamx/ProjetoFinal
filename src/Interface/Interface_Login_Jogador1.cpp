@@ -1,10 +1,9 @@
 #include "Interface_Login_Jogador1.hpp"
-#include "Troca_Definicao_Entrada_Jogador.hpp"
+#include "Classes_auxiliares/Troca_Definicao_Entrada_Jogador.hpp"
 
 using namespace std;
 
-Interface_Login_Jogador1::Interface_Login_Jogador1()
-    : caixa_de_texto1(15, sf::Color::White, false) { 
+Interface_Login_Jogador1::Interface_Login_Jogador1() : Interface_Menu(), caixa_de_texto1(15, sf::Color::White, false) { 
     try {
         Set_Values();
     } catch (const std::exception& e) {
@@ -41,7 +40,6 @@ void Interface_Login_Jogador1::Definicoes_Espacamento_Janela() {
 void Interface_Login_Jogador1::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
-    Centralizar_Janela();
     Set_Image();
     Set_Opcoes();
     Definicoes_Espacamento_Janela();
@@ -111,8 +109,8 @@ void Interface_Login_Jogador1::Loop_Events(){
                 }
             } else if (posicao == 1) {
                 seleção_ativa = true;
-                string nome_jogador = caixa_de_texto1.Obter_Texto_Entrada();
-                if(registro_geral.find_by_name(nome_jogador) != NULL) {
+                apelido_jogador1 = caixa_de_texto1.Obter_Texto_Entrada();
+                if(registro_geral.find_by_nick(apelido_jogador1) != NULL) {
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
@@ -154,7 +152,7 @@ void Interface_Login_Jogador1::Define_Aviso() {
     }
 }
 
-void Interface_Login_Jogador1::Draw_All() {
+void Interface_Login_Jogador1::Atualizar_Janela() {
     try {
         this->janela->clear();
         this->janela->draw(*background);

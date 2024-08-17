@@ -10,11 +10,22 @@ using namespace std;
 int main() {
     //testar tudo
     unique_ptr<Interface_Tela_Inicial> menu = make_unique<Interface_Tela_Inicial>();
-    menu->Run_Menu();
+    menu->Run();
+
+
 
     //testar Lig4 (só pra teste)
     //unique_ptr<Interface_Define_Dimensao> dimensao;
 
     //dimensao = make_unique<Interface_Define_Dimensao>("Lig4");
-    //dimensao->Run_Menu();
+    //dimensao->Run();
+
+
+
+    //testar Reversi (só pra teste)
+
+    //unique_ptr<Interface_Define_Dimensao> dimensao;
+
+    //dimensao = make_unique<Interface_Define_Dimensao>("Reversi");
+    //dimensao->Run();
 }

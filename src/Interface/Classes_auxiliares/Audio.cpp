@@ -1,3 +1,5 @@
+#include "Audio.hpp"
+
 void Audio::Set_Efeito_Sonoro_Selecao_Botao() {
     try {
         if (!buffer_selecao.loadFromFile("./assets/audio/c.wav")) {
