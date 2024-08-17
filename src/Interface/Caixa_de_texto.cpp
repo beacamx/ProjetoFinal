@@ -45,7 +45,7 @@ void Caixa_de_texto::Excluir_Ultimo_Caractere() {
     }
 }
 
-void Caixa_de_texto::Definir_Fonte(sf::Font &font) {
+void Caixa_de_texto::Definir_Fonte(const sf::Font &font) {
     caixa_de_texto.setFont(font);
 }
 
@@ -114,7 +114,7 @@ void Caixa_de_texto::Processar_Entrada(sf::Event input) {
     }
 }
 
-void Caixa_de_texto::Definir_Configuracoes_Caixa_de_Texto(sf::Font &font, sf::Vector2f position, bool com_limite, int lim) {
+void Caixa_de_texto::Definir_Configuracoes_Caixa_de_Texto(const sf::Font &font, sf::Vector2f position, bool com_limite, int lim) {
     Definir_Fonte(font);
     Definir_Posicao(position);
     Definir_Limite(com_limite, lim);

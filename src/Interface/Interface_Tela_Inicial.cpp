@@ -40,18 +40,19 @@ void Interface_Tela_Inicial::Set_Values(){
         Set_Efeito_Sonoro_Selecao_Botao();
         Set_Janela();
         Centralizar_Janela();
-        Definir_Fonte();
         Set_Image();
         janela->setVerticalSyncEnabled(true);
+        Definicoes_Espacamento_Janela();
+        Set_Opcoes();
+        coords.clear();
+        Definir_Contorno_Inicial_Texto();
+
+        tamanho_fonte = {18};
+        textos.Set_Fonte(tamanho_fonte);
+        textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
 
         posicao = 0;
         pressed = seleção_ativa = false;   
-        coords.clear();
-
-        Definicoes_Espacamento_Janela();
-        Set_Opcoes();
-        Definir_Textos();
-        Definir_Contorno_Inicial_Texto();
     } catch (const std::exception& e) {
         cerr << "Erro ao definir valores iniciais: " << e.what() << endl;
         throw;

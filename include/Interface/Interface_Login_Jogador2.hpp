@@ -19,7 +19,6 @@ class Interface_Login_Jogador2: public Interface_Menu {
         void Draw_All() override;
         void Set_Opcoes() override; 
         void Set_Image() override;  
-        void Definir_Textos() override;
         void Define_Aviso() override;
         unique_ptr<Interface_Define_Jogo> define_jogo;
     public:

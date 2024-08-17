@@ -29,23 +29,24 @@ void Interface_Definicao_Entrada_Jogador1::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Centralizar_Janela();
-    Definir_Fonte();
     Set_Image();
-
+    Definicoes_Espacamento_Janela();
+    Set_Opcoes();
     posicao = 0;
     pressed = seleção_ativa = false;
     coords.clear();
-    
-    Definicoes_Espacamento_Janela();
-    Set_Opcoes();
-    Definir_Textos();
+
+    tamanho_fonte = {18};
+    textos.Set_Fonte(tamanho_fonte);
+    textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
+
     Definir_Contorno_Inicial_Texto();
 }
 
 void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
     sf::Event evento;
+    int tam_vetor_texto = textos.Get_Tamanho_Vetor_Textos();
     
-    int tam_vetor_texto = texto.size();
     while(janela->pollEvent(evento)) {
         if ((evento.type == sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) {
             janela->close();

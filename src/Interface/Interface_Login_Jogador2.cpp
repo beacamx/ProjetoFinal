@@ -18,32 +18,6 @@ void Interface_Login_Jogador2::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Play"};
 }
 
-void Interface_Login_Jogador2::Definir_Textos() {
-    tamanho_fonte = {19, 17};
-
-    for (size_t i = 0; i < opcoes_de_escolha.size(); ++i) {
-        float pos_y = altura_texto + (i * espaco_vertical);
-        coords.push_back(sf::Vector2f(largura_janela / 2, pos_y));
-    }
-
-    texto.resize(opcoes_de_escolha.size());
-
-    for(size_t i{}; i < texto.size(); ++i) {
-        texto[i].setFont(*fonte);
-        texto[i].setString(opcoes_de_escolha[i]);
-        texto[i].setCharacterSize(tamanho_fonte[i]);
-        texto[i].setOutlineColor(sf::Color::Black);
-        texto[i].setPosition(coords[i]);
-
-        sf::FloatRect text_bounds = texto[i].getLocalBounds();
-        float largura_texto = text_bounds.width;
-        float altura_texto = text_bounds.height;
-
-        texto[i].setOrigin(largura_texto / 2.0f, altura_texto / 2.0f);
-        texto[i].setPosition(coords[i].x, coords[i].y);
-    }
-}
-
 void Interface_Login_Jogador2::Set_Image() {
     try {
         if (!image->loadFromFile("./assets/Menu/Login.png")) 
@@ -63,29 +37,33 @@ void Interface_Login_Jogador2::Definicoes_Espacamento_Janela() {
 
 void Interface_Login_Jogador2::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
-    Definir_Fonte();
     Set_Janela();
     Centralizar_Janela();
     Set_Image();
     Set_Opcoes();
-
+    
     posicao = 0;
     pressed = seleção_ativa = false;
     
     Definicoes_Espacamento_Janela();
 
+    tamanho_fonte = {19, 17};
+    textos.Set_Fonte(tamanho_fonte);
+    textos.Set_Textos_Com_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical, espaco_vertical_botao_play, altura_texto);
+
     coords.clear();
 
-    Definir_Textos();
     Definir_Contorno_Inicial_Texto();
 
     float largura_caixa = 120.0f;
     float espaco_adicional_entre_caixa_apelido = 7.0f;
 
+    const auto& textos_aux = textos.Get_Vetor_Textos();
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
-    float posicao_y_caixa_texto = coords[0].y + texto[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+    float posicao_y_caixa_texto = coords[0].y + textos_aux[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
 
-    caixa_de_texto1.Definir_Fonte(*fonte);
+    auto& fonte = textos.Get_Fonte();
+    caixa_de_texto1.Definir_Fonte(fonte);
     caixa_de_texto1.Definir_Posicao({posicao_x_caixa_texto, posicao_y_caixa_texto});
     caixa_de_texto1.Definir_Limite(true, 10);
 
@@ -94,7 +72,7 @@ void Interface_Login_Jogador2::Set_Values(){
 
 void Interface_Login_Jogador2::Loop_Events(){
     sf::Event evento;
-    int tam_vetor_texto = texto.size();
+    int tam_vetor_texto = textos.Get_Tamanho_Vetor_Textos();
 
     while(janela->pollEvent(evento)) {
         if (evento.type == sf::Event::Closed) {
@@ -157,11 +135,13 @@ void Interface_Login_Jogador2::Loop_Events(){
 
 void Interface_Login_Jogador2::Define_Aviso() {
     try {
-        aviso.setFont(*fonte); 
+        auto& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte);  
         aviso.setCharacterSize(15);
         aviso.setFillColor(sf::Color::Red);
         
-        sf::FloatRect bounds_play = texto[1].getGlobalBounds();
+        const auto& textos_aux = textos.Get_Vetor_Textos();
+        sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
         float pos_y_play = bounds_play.top + bounds_play.height;
 
         aviso.setString("Aviso: Jogador não existente, digite novamente");
@@ -178,11 +158,9 @@ void Interface_Login_Jogador2::Draw_All() {
         this->janela->clear();
         this->janela->draw(*background);
 
-        int tamanho_texto = texto.size();
+        size_t tamanho_texto = textos.Get_Tamanho_Vetor_Textos();
         if (tamanho_texto) {
-            for (const auto& text : texto) {
-                janela->draw(text);
-            }
+            textos.Draw_Vetor_Textos(*janela);
         }
 
         if (mostrar_aviso) {

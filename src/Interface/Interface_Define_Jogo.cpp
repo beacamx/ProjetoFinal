@@ -37,30 +37,34 @@ void Interface_Define_Jogo::Set_Image() {
 void Interface_Define_Jogo::Set_Values(){
     Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
+    Set_Opcoes();
     Centralizar_Janela();
-    Definir_Fonte();
     Set_Image();
+    Definicoes_Espacamento_Janela();
 
     posicao = 0;
     pressed = seleção_ativa = false;   
     coords.clear();
 
-    Definicoes_Espacamento_Janela();
-    Set_Opcoes();
-    Definir_Textos();
+    tamanho_fonte = {18};
+    textos.Set_Fonte(tamanho_fonte);
+    textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
+
     Definir_Contorno_Inicial_Texto();
     janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Define_Jogo::Loop_Events(){
     sf::Event evento;
+    int tam_vetor_texto = textos.Get_Tamanho_Vetor_Textos();
+
     while(janela->pollEvent(evento)) {
         if ((evento.type == sf::Event::Closed) || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))) {
             janela->close();
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            if(posicao < 1){
+            if(posicao < tam_vetor_texto - 1){
                 som_selecao.play();
                 ++posicao;
                 pressed = true;

@@ -16,7 +16,7 @@ class Caixa_de_texto {
         Caixa_de_texto();
         Caixa_de_texto(int tamanho_caixa, sf::Color cor_caixa, bool sel);
 
-        void Definir_Fonte(sf::Font &font);
+        void Definir_Fonte(const sf::Font &font);
         void Definir_Posicao(sf::Vector2f position);
         void Definir_Limite(bool com_limite, int lim);
         // bool Caixa_Esta_Selecionada() const;
@@ -24,7 +24,7 @@ class Caixa_de_texto {
         string Obter_Texto_Entrada();
         void Draw_To(sf::RenderWindow &janela);
         void Processar_Entrada(sf::Event input);
-        void Definir_Configuracoes_Caixa_de_Texto(sf::Font &font, sf::Vector2f position, bool com_limite, int lim);
+        void Definir_Configuracoes_Caixa_de_Texto(const sf::Font &font, sf::Vector2f position, bool com_limite, int lim);
 
     private:
         sf::Text caixa_de_texto;

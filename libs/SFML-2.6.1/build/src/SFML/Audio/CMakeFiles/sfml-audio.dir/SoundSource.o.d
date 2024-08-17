@@ -1,0 +1,11 @@
+src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.o: \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Audio/SoundSource.cpp \
+ /usr/include/stdc-predef.h \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/SoundSource.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Config.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/AlResource.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Vector3.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Vector3.inl \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Audio/ALCheck.hpp \
+ /usr/include/AL/al.h /usr/include/AL/alc.h
