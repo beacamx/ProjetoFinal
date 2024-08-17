@@ -8,7 +8,7 @@ Interface_Menu::Interface_Menu()
     this->image = make_unique<sf::Texture>();
     this->background = make_unique<sf::Sprite>();
     janela->setVerticalSyncEnabled(true);
-    registro_geral.load();
+    registro_geral.save();
 }
 
 Interface_Menu::~Interface_Menu() {

@@ -117,7 +117,7 @@ void Interface_Login_Jogador1::Loop_Events(){
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
                 } else {
-                    cerr << "Aviso: Jogador não existente, digite novamente" << endl;
+                    cerr << "Aviso: Jogador nao existente, digite novamente" << endl;
                     Define_Aviso();
                     seleção_ativa = false;
                 }
@@ -145,7 +145,7 @@ void Interface_Login_Jogador1::Define_Aviso() {
         sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
         float pos_y_play = bounds_play.top + bounds_play.height;
 
-        aviso.setString("Aviso: Apelido incorreto");
+        aviso.setString("Aviso: Jogador nao existente, digite novamente");
         aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
         clock_aviso.restart();
         mostrar_aviso = true;
