@@ -1,9 +1,9 @@
 src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.o: \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Window/VideoMode.cpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Window/VideoMode.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Window/VideoMode.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Window/Export.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Config.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Window/VideoMode.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Window/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Config.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -46,7 +46,7 @@ src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.o: \
  /usr/include/c++/11/bits/hash_bytes.h \
  /usr/include/c++/11/bits/range_access.h \
  /usr/include/c++/11/bits/vector.tcc \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Window/VideoModeImpl.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Window/VideoModeImpl.hpp \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h /usr/include/c++/11/cstdlib \

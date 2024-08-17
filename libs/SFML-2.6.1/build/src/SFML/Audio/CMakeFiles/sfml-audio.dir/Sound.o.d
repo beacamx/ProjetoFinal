@@ -1,15 +1,15 @@
 src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.o: \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Audio/Sound.cpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Audio/Sound.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/Sound.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/Export.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Config.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/SoundSource.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/AlResource.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Vector3.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Vector3.inl \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Time.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Audio/Sound.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Audio/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Config.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Audio/SoundSource.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Audio/AlResource.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Vector3.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Vector3.inl \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Time.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Export.hpp \
  /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -60,7 +60,7 @@ src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /usr/include/c++/11/bits/std_abs.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Audio/SoundBuffer.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Audio/SoundBuffer.hpp \
  /usr/include/c++/11/string /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/memoryfwd.h \
  /usr/include/c++/11/bits/char_traits.h \
@@ -152,5 +152,5 @@ src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.o: \
  /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h \
  /usr/include/c++/11/bits/erase_if.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Audio/ALCheck.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Audio/ALCheck.hpp \
  /usr/include/AL/al.h /usr/include/AL/alc.h

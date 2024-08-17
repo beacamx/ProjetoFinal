@@ -1,16 +1,16 @@
 src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.o: \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Window/GlContext.cpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Window/GlContext.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Window/GlContext.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Config.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Window/Context.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Window/Export.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Window/GlResource.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/NonCopyable.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Export.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Window/ContextSettings.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/ThreadLocal.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Window/GlContext.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Config.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Window/Context.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Window/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Window/GlResource.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/NonCopyable.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Window/ContextSettings.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/ThreadLocal.hpp \
  /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -61,10 +61,10 @@ src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /usr/include/c++/11/bits/std_abs.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.inl \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Mutex.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Lock.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Err.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/ThreadLocalPtr.inl \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Mutex.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Lock.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Err.hpp \
  /usr/include/c++/11/ostream /usr/include/c++/11/ios \
  /usr/include/c++/11/iosfwd /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
@@ -166,7 +166,7 @@ src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/extlibs/headers/glad/include/glad/gl.h \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/extlibs/headers/glad/include/glad/gl.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
  /usr/include/c++/11/bits/stl_algo.h \
@@ -198,8 +198,8 @@ src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.o: \
  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
  /usr/include/c++/11/cassert /usr/include/assert.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/Window/Unix/GlxContext.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/extlibs/headers/glad/include/glad/glx.h \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/Window/Unix/GlxContext.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/extlibs/headers/glad/include/glad/glx.h \
  /usr/include/X11/X.h /usr/include/X11/Xlib.h \
  /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
  /usr/include/X11/Xutil.h /usr/include/X11/keysym.h \

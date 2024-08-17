@@ -1,10 +1,10 @@
 src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o: \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/MemoryInputStream.cpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/MemoryInputStream.cpp \
  /usr/include/stdc-predef.h \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/MemoryInputStream.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/Config.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/InputStream.hpp \
- /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include/SFML/System/Export.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/MemoryInputStream.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/Config.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/InputStream.hpp \
+ /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include/SFML/System/Export.hpp \
  /usr/include/c++/11/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

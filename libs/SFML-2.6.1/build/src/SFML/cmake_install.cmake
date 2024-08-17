@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML
+# Install script for directory: /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,11 +44,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/System/cmake_install.cmake")
-  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Window/cmake_install.cmake")
-  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Network/cmake_install.cmake")
-  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Graphics/cmake_install.cmake")
-  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Audio/cmake_install.cmake")
+  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/System/cmake_install.cmake")
+  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Window/cmake_install.cmake")
+  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Network/cmake_install.cmake")
+  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Graphics/cmake_install.cmake")
+  include("/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Audio/cmake_install.cmake")
 
 endif()
 

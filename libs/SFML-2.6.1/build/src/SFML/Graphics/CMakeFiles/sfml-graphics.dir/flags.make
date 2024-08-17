@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DSFML_GRAPHICS_EXPORTS -DSTBI_FAILURE_USERMSG
 
-CXX_INCLUDES = -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src -isystem /usr/include/freetype2 -isystem /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/extlibs/headers/stb_image -isystem /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/extlibs/headers/glad/include
+CXX_INCLUDES = -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src -isystem /usr/include/freetype2 -isystem /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/extlibs/headers/stb_image -isystem /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/extlibs/headers/glad/include
 
 CXX_FLAGS = -O3 -DNDEBUG -fPIC -fvisibility=hidden
 

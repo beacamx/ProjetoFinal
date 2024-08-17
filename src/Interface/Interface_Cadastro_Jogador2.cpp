@@ -44,20 +44,20 @@ void Interface_Cadastro_Jogador2::Set_Values(){
         posicao = 0;
         pressed = seleção_ativa = false;
 
-        coords.clear();
-
+    
         tamanho_fonte = {19, 19, 17};
         textos.Set_Fonte(tamanho_fonte);
         textos.Set_Textos_Com_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical, espaco_vertical_botao_play, altura_texto);
+        textos.Set_Contorno_Inicial_Texto();
 
-        Definir_Contorno_Inicial_Texto();
 
         float largura_caixa = 120.0f;
         float espaco_adicional_entre_caixa_apelido = 7.0f;
 
+        coords_copia = textos.Get_Coords();
         const auto& textos_aux = textos.Get_Vetor_Textos();
         float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
-        float posicao_y_caixa_texto1 = coords[0].y + textos_aux[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+        float posicao_y_caixa_texto1 = coords_copia[0].y + textos_aux[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
         float posicao_y_caixa_texto2 = posicao_y_caixa_texto1 + 79.0f;
 
         auto& fonte = textos.Get_Fonte();
@@ -86,7 +86,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                 if(posicao < tam_vetor_texto - 1){
                     ++posicao;
                     pressed = true;
-                    Definir_Contorno_Texto_Avancar(posicao);
+                    textos.Set_Contorno_Texto_Avancar(posicao);
                     pressed = false;
                     seleção_ativa = false;
                 }
@@ -97,7 +97,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                 if(posicao > 0){
                     --posicao;
                     pressed = true;
-                    Definir_Contorno_Texto_Voltar(posicao);
+                    textos.Set_Contorno_Texto_Voltar(posicao);
                     pressed = false;
                     seleção_ativa = false;
                 }
@@ -178,8 +178,8 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
 
 void Interface_Cadastro_Jogador2::Define_Aviso() {
     try {
-        sf::Font fonte = textos.Get_Fonte();
-        aviso.setFont(fonte);  
+        const sf::Font& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte); 
         aviso.setCharacterSize(15);
         aviso.setFillColor(sf::Color::Red);
         
@@ -202,8 +202,9 @@ void Interface_Cadastro_Jogador2::Draw_All() {
 
         size_t tamanho_texto = textos.Get_Tamanho_Vetor_Textos();
 
-        if (tamanho_texto) {
-            textos.Draw_Vetor_Textos(*janela);
+        auto& textos_aux = textos.Get_Vetor_Textos();
+        for (const auto& text : textos_aux) {
+            janela->draw(text);
         }
         
         if (mostrar_aviso) {

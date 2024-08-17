@@ -1,9 +1,9 @@
-/usr/local/lib/pkgconfig/sfml-all.pc
-/usr/local/lib/pkgconfig/sfml-system.pc
-/usr/local/lib/pkgconfig/sfml-window.pc
-/usr/local/lib/pkgconfig/sfml-graphics.pc
-/usr/local/lib/pkgconfig/sfml-audio.pc
-/usr/local/lib/pkgconfig/sfml-network.pc
+/usr/local/pkgconfig/sfml-all.pc
+/usr/local/pkgconfig/sfml-system.pc
+/usr/local/pkgconfig/sfml-window.pc
+/usr/local/pkgconfig/sfml-graphics.pc
+/usr/local/pkgconfig/sfml-audio.pc
+/usr/local/pkgconfig/sfml-network.pc
 /usr/local/./include/SFML/Audio/AlResource.hpp
 /usr/local/./include/SFML/Audio/Export.hpp
 /usr/local/./include/SFML/Audio/InputSoundFile.hpp

@@ -5,7 +5,11 @@ using namespace std;
 
 Interface_Login_Jogador1::Interface_Login_Jogador1()
     : caixa_de_texto1(15, sf::Color::White, false) { 
-    Set_Values();
+    try {
+        Set_Values();
+    } catch (const std::exception& e) {
+        cerr << "Erro ao inicializar Interface_Login_Jogador1: " << e.what() << endl;
+    }
 }
 
 Interface_Login_Jogador1::~Interface_Login_Jogador1(){}
@@ -16,13 +20,15 @@ void Interface_Login_Jogador1::Set_Opcoes() {
 
 
 void Interface_Login_Jogador1::Set_Image() {
-    try {
-        if (!image->loadFromFile("./assets/Menu/Login.png")) 
-            cerr << "Erro ao carregar imagem de fundo" << endl;
-
+     try {
+        if (!image->loadFromFile("./assets/Menu/Login.png")) {
+            throw runtime_error("Erro ao carregar imagem de fundo. Verifique o caminho do arquivo.");
+        }
         background->setTexture(*image);
-    } catch (const std::exception& e) {
+    } catch (const std::runtime_error& e) {
         cerr << "Erro ao definir a imagem de fundo: " << e.what() << endl;
+    } catch (const std::exception& e) {
+        cerr << "Erro desconhecido ao definir a imagem de fundo: " << e.what() << endl;
     }
 } 
 
@@ -43,20 +49,18 @@ void Interface_Login_Jogador1::Set_Values(){
     tamanho_fonte = {19, 17};
     textos.Set_Fonte(tamanho_fonte);
     textos.Set_Textos_Com_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical, espaco_vertical_botao_play, altura_texto);
+    textos.Set_Contorno_Inicial_Texto();
 
     posicao = 0;
     pressed = seleção_ativa = false;
 
-    coords.clear();
-
-    Definir_Contorno_Inicial_Texto();
-
     float largura_caixa = 120.0f;
     float espaco_adicional_entre_caixa_apelido = 7.0f;
 
+    coords_copia = textos.Get_Coords();
     const auto& textos_aux = textos.Get_Vetor_Textos();
     float posicao_x_caixa_texto = (largura_janela - largura_caixa) / 2;
-    float posicao_y_caixa_texto = coords[0].y + textos_aux[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
+    float posicao_y_caixa_texto = coords_copia[0].y + textos_aux[0].getGlobalBounds().height + espaco_adicional_entre_caixa_apelido;
     
     auto& fonte = textos.Get_Fonte();
     caixa_de_texto1.Definir_Fonte(fonte);
@@ -81,7 +85,7 @@ void Interface_Login_Jogador1::Loop_Events(){
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
-                Definir_Contorno_Texto_Avancar(posicao);
+                textos.Set_Contorno_Texto_Avancar(posicao);
                 pressed = false;
                 seleção_ativa = false;
             }
@@ -92,7 +96,7 @@ void Interface_Login_Jogador1::Loop_Events(){
             if(posicao > 0){
                 --posicao;
                 pressed = true;
-                Definir_Contorno_Texto_Voltar(posicao);
+                textos.Set_Contorno_Texto_Voltar(posicao);
                 pressed = false;
                 seleção_ativa = false;
             }
@@ -132,7 +136,7 @@ void Interface_Login_Jogador1::Loop_Events(){
 
 void Interface_Login_Jogador1::Define_Aviso() {
     try {
-        auto& fonte = textos.Get_Fonte();
+        const sf::Font& fonte = textos.Get_Fonte();
         aviso.setFont(fonte); 
         aviso.setCharacterSize(15);
         aviso.setFillColor(sf::Color::Red);
@@ -155,9 +159,9 @@ void Interface_Login_Jogador1::Draw_All() {
         this->janela->clear();
         this->janela->draw(*background);
 
-        size_t tamanho_texto = textos.Get_Tamanho_Vetor_Textos();
-        if (tamanho_texto) {
-            textos.Draw_Vetor_Textos(*janela);
+        auto& textos_aux = textos.Get_Vetor_Textos();
+        for (const auto& text : textos_aux) {
+            janela->draw(text);
         }
         
         caixa_de_texto1.Draw_To(*janela);

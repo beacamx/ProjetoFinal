@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1
+CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build
+CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CPackSourceConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,14 +152,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Audio//CMakeFiles/progress.marks
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Audio//CMakeFiles/progress.marks
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/clean
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/clean
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +168,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
 .PHONY : src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
 
 # Convenience name for target.
@@ -192,322 +192,322 @@ sfml-audio: src/SFML/Audio/CMakeFiles/sfml-audio.dir/rule
 
 # fast build rule for target.
 sfml-audio/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/build
 .PHONY : sfml-audio/fast
 
 # target to build an object file
 ALCheck.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.o
 .PHONY : ALCheck.o
 
 # target to preprocess a source file
 ALCheck.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.i
 .PHONY : ALCheck.i
 
 # target to generate assembly for a file
 ALCheck.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/ALCheck.s
 .PHONY : ALCheck.s
 
 # target to build an object file
 AlResource.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.o
 .PHONY : AlResource.o
 
 # target to preprocess a source file
 AlResource.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.i
 .PHONY : AlResource.i
 
 # target to generate assembly for a file
 AlResource.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AlResource.s
 .PHONY : AlResource.s
 
 # target to build an object file
 AudioDevice.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.o
 .PHONY : AudioDevice.o
 
 # target to preprocess a source file
 AudioDevice.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.i
 .PHONY : AudioDevice.i
 
 # target to generate assembly for a file
 AudioDevice.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/AudioDevice.s
 .PHONY : AudioDevice.s
 
 # target to build an object file
 InputSoundFile.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.o
 .PHONY : InputSoundFile.o
 
 # target to preprocess a source file
 InputSoundFile.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.i
 .PHONY : InputSoundFile.i
 
 # target to generate assembly for a file
 InputSoundFile.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/InputSoundFile.s
 .PHONY : InputSoundFile.s
 
 # target to build an object file
 Listener.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.o
 .PHONY : Listener.o
 
 # target to preprocess a source file
 Listener.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.i
 .PHONY : Listener.i
 
 # target to generate assembly for a file
 Listener.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Listener.s
 .PHONY : Listener.s
 
 # target to build an object file
 Music.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.o
 .PHONY : Music.o
 
 # target to preprocess a source file
 Music.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.i
 .PHONY : Music.i
 
 # target to generate assembly for a file
 Music.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Music.s
 .PHONY : Music.s
 
 # target to build an object file
 OutputSoundFile.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.o
 .PHONY : OutputSoundFile.o
 
 # target to preprocess a source file
 OutputSoundFile.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.i
 .PHONY : OutputSoundFile.i
 
 # target to generate assembly for a file
 OutputSoundFile.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/OutputSoundFile.s
 .PHONY : OutputSoundFile.s
 
 # target to build an object file
 Sound.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.o
 .PHONY : Sound.o
 
 # target to preprocess a source file
 Sound.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.i
 .PHONY : Sound.i
 
 # target to generate assembly for a file
 Sound.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/Sound.s
 .PHONY : Sound.s
 
 # target to build an object file
 SoundBuffer.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.o
 .PHONY : SoundBuffer.o
 
 # target to preprocess a source file
 SoundBuffer.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.i
 .PHONY : SoundBuffer.i
 
 # target to generate assembly for a file
 SoundBuffer.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBuffer.s
 .PHONY : SoundBuffer.s
 
 # target to build an object file
 SoundBufferRecorder.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.o
 .PHONY : SoundBufferRecorder.o
 
 # target to preprocess a source file
 SoundBufferRecorder.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.i
 .PHONY : SoundBufferRecorder.i
 
 # target to generate assembly for a file
 SoundBufferRecorder.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundBufferRecorder.s
 .PHONY : SoundBufferRecorder.s
 
 # target to build an object file
 SoundFileFactory.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.o
 .PHONY : SoundFileFactory.o
 
 # target to preprocess a source file
 SoundFileFactory.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.i
 .PHONY : SoundFileFactory.i
 
 # target to generate assembly for a file
 SoundFileFactory.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileFactory.s
 .PHONY : SoundFileFactory.s
 
 # target to build an object file
 SoundFileReaderFlac.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.o
 .PHONY : SoundFileReaderFlac.o
 
 # target to preprocess a source file
 SoundFileReaderFlac.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.i
 .PHONY : SoundFileReaderFlac.i
 
 # target to generate assembly for a file
 SoundFileReaderFlac.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderFlac.s
 .PHONY : SoundFileReaderFlac.s
 
 # target to build an object file
 SoundFileReaderMp3.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.o
 .PHONY : SoundFileReaderMp3.o
 
 # target to preprocess a source file
 SoundFileReaderMp3.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.i
 .PHONY : SoundFileReaderMp3.i
 
 # target to generate assembly for a file
 SoundFileReaderMp3.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderMp3.s
 .PHONY : SoundFileReaderMp3.s
 
 # target to build an object file
 SoundFileReaderOgg.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.o
 .PHONY : SoundFileReaderOgg.o
 
 # target to preprocess a source file
 SoundFileReaderOgg.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.i
 .PHONY : SoundFileReaderOgg.i
 
 # target to generate assembly for a file
 SoundFileReaderOgg.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderOgg.s
 .PHONY : SoundFileReaderOgg.s
 
 # target to build an object file
 SoundFileReaderWav.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.o
 .PHONY : SoundFileReaderWav.o
 
 # target to preprocess a source file
 SoundFileReaderWav.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.i
 .PHONY : SoundFileReaderWav.i
 
 # target to generate assembly for a file
 SoundFileReaderWav.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileReaderWav.s
 .PHONY : SoundFileReaderWav.s
 
 # target to build an object file
 SoundFileWriterFlac.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.o
 .PHONY : SoundFileWriterFlac.o
 
 # target to preprocess a source file
 SoundFileWriterFlac.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.i
 .PHONY : SoundFileWriterFlac.i
 
 # target to generate assembly for a file
 SoundFileWriterFlac.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterFlac.s
 .PHONY : SoundFileWriterFlac.s
 
 # target to build an object file
 SoundFileWriterOgg.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.o
 .PHONY : SoundFileWriterOgg.o
 
 # target to preprocess a source file
 SoundFileWriterOgg.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.i
 .PHONY : SoundFileWriterOgg.i
 
 # target to generate assembly for a file
 SoundFileWriterOgg.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterOgg.s
 .PHONY : SoundFileWriterOgg.s
 
 # target to build an object file
 SoundFileWriterWav.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.o
 .PHONY : SoundFileWriterWav.o
 
 # target to preprocess a source file
 SoundFileWriterWav.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.i
 .PHONY : SoundFileWriterWav.i
 
 # target to generate assembly for a file
 SoundFileWriterWav.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundFileWriterWav.s
 .PHONY : SoundFileWriterWav.s
 
 # target to build an object file
 SoundRecorder.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.o
 .PHONY : SoundRecorder.o
 
 # target to preprocess a source file
 SoundRecorder.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.i
 .PHONY : SoundRecorder.i
 
 # target to generate assembly for a file
 SoundRecorder.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundRecorder.s
 .PHONY : SoundRecorder.s
 
 # target to build an object file
 SoundSource.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.o
 .PHONY : SoundSource.o
 
 # target to preprocess a source file
 SoundSource.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.i
 .PHONY : SoundSource.i
 
 # target to generate assembly for a file
 SoundSource.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundSource.s
 .PHONY : SoundSource.s
 
 # target to build an object file
 SoundStream.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.o
 .PHONY : SoundStream.o
 
 # target to preprocess a source file
 SoundStream.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.i
 .PHONY : SoundStream.i
 
 # target to generate assembly for a file
 SoundStream.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Audio/CMakeFiles/sfml-audio.dir/build.make src/SFML/Audio/CMakeFiles/sfml-audio.dir/SoundStream.s
 .PHONY : SoundStream.s
 
 # Help Target
@@ -599,6 +599,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -47,44 +47,15 @@ void Interface_Menu::Set_Janela() {
     }
 }
 
-void Interface_Menu::Definir_Contorno_Inicial_Texto() {
-    auto& textos_aux = textos.Get_Vetor_Textos();
-    try {
-        textos_aux[0].setOutlineThickness(0.6);
-        textos_aux[0].setOutlineColor(sf::Color(255,255,255));
-    } catch (const std::exception& e) {
-        cerr << "Erro ao definir contorno inicial: " << e.what() << endl;
-    }
-}
-
-void Interface_Menu::Definir_Contorno_Texto_Avancar(int posicao) {
-    auto& textos_aux = textos.Get_Vetor_Textos();
-    try {
-        textos_aux[posicao].setOutlineThickness(0.6);
-        textos_aux[posicao].setOutlineColor(sf::Color(255,255,255));
-        textos_aux[posicao - 1].setOutlineThickness(0);
-    } catch (const std::exception& e) {
-        cerr << "Erro ao avançar contorno: " << e.what() << endl;
-    }       
-}
-
-void Interface_Menu::Definir_Contorno_Texto_Voltar(int posicao) {
-    auto& textos_aux = textos.Get_Vetor_Textos();
-    try {
-        textos_aux[posicao].setOutlineThickness(0.6);
-        textos_aux[posicao].setOutlineColor(sf::Color(255,255,255));
-        textos_aux[posicao + 1].setOutlineThickness(0);
-    } catch (const std::exception& e) {
-        cerr << "Erro ao voltar contorno: " << e.what() << endl;
-    }      
-}
-
 void Interface_Menu::Draw_All() {
     try {
         this->janela->clear();
         this->janela->draw(*background);
 
-        textos.Draw_Vetor_Textos(*janela);
+        auto& textos_aux = textos.Get_Vetor_Textos();
+        for (const auto& text : textos_aux) {
+            janela->draw(text);
+        }
 
         this->janela->display();
     } catch (const exception& e) {

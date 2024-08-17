@@ -35,7 +35,7 @@ class Interface_Menu {
         sf::Text aviso;
 
         vector<const char*> opcoes_de_escolha;
-        vector<sf::Vector2f> coords;
+        vector<sf::Vector2f> coords_copia;
 
         virtual void Set_Values() = 0;
         virtual void Loop_Events() = 0;
@@ -63,9 +63,6 @@ class Interface_Menu {
         void Set_Janela();
         void Centralizar_Janela();
         virtual void Define_Aviso();
-        void Definir_Contorno_Inicial_Texto();
-        void Definir_Contorno_Texto_Avancar(int posicao);
-        void Definir_Contorno_Texto_Voltar(int posicao);
 };
 
 #endif

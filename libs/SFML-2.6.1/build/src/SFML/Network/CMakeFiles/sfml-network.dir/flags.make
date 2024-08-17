@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DSFML_NETWORK_EXPORTS
 
-CXX_INCLUDES = -I/usr/include/freetype2 -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src
+CXX_INCLUDES = -I/usr/include/freetype2 -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include -I/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src
 
 CXX_FLAGS = -O3 -DNDEBUG -fPIC -fvisibility=hidden
 

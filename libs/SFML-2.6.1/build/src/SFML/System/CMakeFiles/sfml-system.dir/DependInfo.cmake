@@ -8,28 +8,28 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Clock.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Clock.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Clock.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Err.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Err.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Err.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/FileInputStream.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Lock.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Lock.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Lock.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/MemoryInputStream.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Mutex.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Sleep.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/String.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/String.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/String.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Thread.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Thread.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Thread.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/ThreadLocal.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Time.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Time.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Time.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Unix/ClockImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Unix/MutexImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Unix/SleepImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Unix/ThreadImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o.d"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/src/SFML/System/Unix/ThreadLocalImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Clock.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Clock.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Clock.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Err.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Err.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Err.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/FileInputStream.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Lock.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Lock.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Lock.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/MemoryInputStream.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Mutex.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Sleep.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/String.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/String.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/String.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Thread.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Thread.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Thread.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/ThreadLocal.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Time.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Time.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Time.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Unix/ClockImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Unix/MutexImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Unix/SleepImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Unix/ThreadImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o.d"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/src/SFML/System/Unix/ThreadLocalImpl.cpp" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o" "gcc" "src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o.d"
   )
 
 # Pairs of files generated by the same build rule.
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-system.so" "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-system.so.2.6.1"
-  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-system.so.2.6" "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-system.so.2.6.1"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-system.so" "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-system.so.2.6.1"
+  "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-system.so.2.6" "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-system.so.2.6.1"
   )
 
 

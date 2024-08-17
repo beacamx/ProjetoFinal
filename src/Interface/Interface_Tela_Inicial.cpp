@@ -44,12 +44,11 @@ void Interface_Tela_Inicial::Set_Values(){
         janela->setVerticalSyncEnabled(true);
         Definicoes_Espacamento_Janela();
         Set_Opcoes();
-        coords.clear();
-        Definir_Contorno_Inicial_Texto();
 
-        tamanho_fonte = {18};
+        tamanho_fonte = {18, 18};
         textos.Set_Fonte(tamanho_fonte);
         textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
+        textos.Set_Contorno_Inicial_Texto();
 
         posicao = 0;
         pressed = seleção_ativa = false;   
@@ -72,7 +71,7 @@ void Interface_Tela_Inicial::Loop_Events(){
                     som_selecao.play();
                     ++posicao;
                     pressed = true;
-                    Definir_Contorno_Texto_Avancar(posicao);
+                    textos.Set_Contorno_Texto_Avancar(posicao);
                     pressed = false;
                     seleção_ativa = false;
                 }
@@ -83,7 +82,7 @@ void Interface_Tela_Inicial::Loop_Events(){
                     som_selecao.play();
                     --posicao;
                     pressed = true;
-                    Definir_Contorno_Texto_Voltar(posicao);
+                    textos.Set_Contorno_Texto_Voltar(posicao);
                     pressed = false;
                     seleção_ativa = false;
                 }

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1
+CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build
+CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CPackSourceConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,14 +152,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/System//CMakeFiles/progress.marks
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/System//CMakeFiles/progress.marks
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/clean
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/clean
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +168,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/SFML/System/CMakeFiles/sfml-system.dir/rule:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/CMakeFiles/sfml-system.dir/rule
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/System/CMakeFiles/sfml-system.dir/rule
 .PHONY : src/SFML/System/CMakeFiles/sfml-system.dir/rule
 
 # Convenience name for target.
@@ -192,247 +192,247 @@ sfml-system: src/SFML/System/CMakeFiles/sfml-system.dir/rule
 
 # fast build rule for target.
 sfml-system/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/build
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/build
 .PHONY : sfml-system/fast
 
 # target to build an object file
 Clock.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Clock.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Clock.o
 .PHONY : Clock.o
 
 # target to preprocess a source file
 Clock.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Clock.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Clock.i
 .PHONY : Clock.i
 
 # target to generate assembly for a file
 Clock.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Clock.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Clock.s
 .PHONY : Clock.s
 
 # target to build an object file
 Err.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Err.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Err.o
 .PHONY : Err.o
 
 # target to preprocess a source file
 Err.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Err.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Err.i
 .PHONY : Err.i
 
 # target to generate assembly for a file
 Err.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Err.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Err.s
 .PHONY : Err.s
 
 # target to build an object file
 FileInputStream.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.o
 .PHONY : FileInputStream.o
 
 # target to preprocess a source file
 FileInputStream.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.i
 .PHONY : FileInputStream.i
 
 # target to generate assembly for a file
 FileInputStream.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/FileInputStream.s
 .PHONY : FileInputStream.s
 
 # target to build an object file
 Lock.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Lock.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Lock.o
 .PHONY : Lock.o
 
 # target to preprocess a source file
 Lock.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Lock.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Lock.i
 .PHONY : Lock.i
 
 # target to generate assembly for a file
 Lock.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Lock.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Lock.s
 .PHONY : Lock.s
 
 # target to build an object file
 MemoryInputStream.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.o
 .PHONY : MemoryInputStream.o
 
 # target to preprocess a source file
 MemoryInputStream.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.i
 .PHONY : MemoryInputStream.i
 
 # target to generate assembly for a file
 MemoryInputStream.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/MemoryInputStream.s
 .PHONY : MemoryInputStream.s
 
 # target to build an object file
 Mutex.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.o
 .PHONY : Mutex.o
 
 # target to preprocess a source file
 Mutex.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.i
 .PHONY : Mutex.i
 
 # target to generate assembly for a file
 Mutex.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Mutex.s
 .PHONY : Mutex.s
 
 # target to build an object file
 Sleep.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.o
 .PHONY : Sleep.o
 
 # target to preprocess a source file
 Sleep.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.i
 .PHONY : Sleep.i
 
 # target to generate assembly for a file
 Sleep.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Sleep.s
 .PHONY : Sleep.s
 
 # target to build an object file
 String.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/String.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/String.o
 .PHONY : String.o
 
 # target to preprocess a source file
 String.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/String.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/String.i
 .PHONY : String.i
 
 # target to generate assembly for a file
 String.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/String.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/String.s
 .PHONY : String.s
 
 # target to build an object file
 Thread.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Thread.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Thread.o
 .PHONY : Thread.o
 
 # target to preprocess a source file
 Thread.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Thread.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Thread.i
 .PHONY : Thread.i
 
 # target to generate assembly for a file
 Thread.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Thread.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Thread.s
 .PHONY : Thread.s
 
 # target to build an object file
 ThreadLocal.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.o
 .PHONY : ThreadLocal.o
 
 # target to preprocess a source file
 ThreadLocal.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.i
 .PHONY : ThreadLocal.i
 
 # target to generate assembly for a file
 ThreadLocal.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/ThreadLocal.s
 .PHONY : ThreadLocal.s
 
 # target to build an object file
 Time.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Time.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Time.o
 .PHONY : Time.o
 
 # target to preprocess a source file
 Time.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Time.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Time.i
 .PHONY : Time.i
 
 # target to generate assembly for a file
 Time.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Time.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Time.s
 .PHONY : Time.s
 
 # target to build an object file
 Unix/ClockImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.o
 .PHONY : Unix/ClockImpl.o
 
 # target to preprocess a source file
 Unix/ClockImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.i
 .PHONY : Unix/ClockImpl.i
 
 # target to generate assembly for a file
 Unix/ClockImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ClockImpl.s
 .PHONY : Unix/ClockImpl.s
 
 # target to build an object file
 Unix/MutexImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.o
 .PHONY : Unix/MutexImpl.o
 
 # target to preprocess a source file
 Unix/MutexImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.i
 .PHONY : Unix/MutexImpl.i
 
 # target to generate assembly for a file
 Unix/MutexImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/MutexImpl.s
 .PHONY : Unix/MutexImpl.s
 
 # target to build an object file
 Unix/SleepImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.o
 .PHONY : Unix/SleepImpl.o
 
 # target to preprocess a source file
 Unix/SleepImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.i
 .PHONY : Unix/SleepImpl.i
 
 # target to generate assembly for a file
 Unix/SleepImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/SleepImpl.s
 .PHONY : Unix/SleepImpl.s
 
 # target to build an object file
 Unix/ThreadImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.o
 .PHONY : Unix/ThreadImpl.o
 
 # target to preprocess a source file
 Unix/ThreadImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.i
 .PHONY : Unix/ThreadImpl.i
 
 # target to generate assembly for a file
 Unix/ThreadImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadImpl.s
 .PHONY : Unix/ThreadImpl.s
 
 # target to build an object file
 Unix/ThreadLocalImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.o
 .PHONY : Unix/ThreadLocalImpl.o
 
 # target to preprocess a source file
 Unix/ThreadLocalImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.i
 .PHONY : Unix/ThreadLocalImpl.i
 
 # target to generate assembly for a file
 Unix/ThreadLocalImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/System/CMakeFiles/sfml-system.dir/build.make src/SFML/System/CMakeFiles/sfml-system.dir/Unix/ThreadLocalImpl.s
 .PHONY : Unix/ThreadLocalImpl.s
 
 # Help Target
@@ -509,6 +509,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

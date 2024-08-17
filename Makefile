@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 TARGET=exec
 CXX=g++
 DEBUG=-g
@@ -109,4 +107,3 @@ clean:
 
 run: all
 	$(RUN)
->>>>>>> Stashed changes

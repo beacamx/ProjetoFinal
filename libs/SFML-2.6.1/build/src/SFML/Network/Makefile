@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1
+CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build
+CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CPackSourceConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,14 +152,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Network//CMakeFiles/progress.marks
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Network//CMakeFiles/progress.marks
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/clean
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/clean
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +168,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/SFML/Network/CMakeFiles/sfml-network.dir/rule:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/CMakeFiles/sfml-network.dir/rule
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Network/CMakeFiles/sfml-network.dir/rule
 .PHONY : src/SFML/Network/CMakeFiles/sfml-network.dir/rule
 
 # Convenience name for target.
@@ -192,157 +192,157 @@ sfml-network: src/SFML/Network/CMakeFiles/sfml-network.dir/rule
 
 # fast build rule for target.
 sfml-network/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/build
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/build
 .PHONY : sfml-network/fast
 
 # target to build an object file
 Ftp.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.o
 .PHONY : Ftp.o
 
 # target to preprocess a source file
 Ftp.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.i
 .PHONY : Ftp.i
 
 # target to generate assembly for a file
 Ftp.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Ftp.s
 .PHONY : Ftp.s
 
 # target to build an object file
 Http.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Http.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Http.o
 .PHONY : Http.o
 
 # target to preprocess a source file
 Http.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Http.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Http.i
 .PHONY : Http.i
 
 # target to generate assembly for a file
 Http.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Http.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Http.s
 .PHONY : Http.s
 
 # target to build an object file
 IpAddress.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.o
 .PHONY : IpAddress.o
 
 # target to preprocess a source file
 IpAddress.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.i
 .PHONY : IpAddress.i
 
 # target to generate assembly for a file
 IpAddress.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/IpAddress.s
 .PHONY : IpAddress.s
 
 # target to build an object file
 Packet.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.o
 .PHONY : Packet.o
 
 # target to preprocess a source file
 Packet.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.i
 .PHONY : Packet.i
 
 # target to generate assembly for a file
 Packet.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Packet.s
 .PHONY : Packet.s
 
 # target to build an object file
 Socket.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.o
 .PHONY : Socket.o
 
 # target to preprocess a source file
 Socket.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.i
 .PHONY : Socket.i
 
 # target to generate assembly for a file
 Socket.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Socket.s
 .PHONY : Socket.s
 
 # target to build an object file
 SocketSelector.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.o
 .PHONY : SocketSelector.o
 
 # target to preprocess a source file
 SocketSelector.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.i
 .PHONY : SocketSelector.i
 
 # target to generate assembly for a file
 SocketSelector.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/SocketSelector.s
 .PHONY : SocketSelector.s
 
 # target to build an object file
 TcpListener.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.o
 .PHONY : TcpListener.o
 
 # target to preprocess a source file
 TcpListener.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.i
 .PHONY : TcpListener.i
 
 # target to generate assembly for a file
 TcpListener.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpListener.s
 .PHONY : TcpListener.s
 
 # target to build an object file
 TcpSocket.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.o
 .PHONY : TcpSocket.o
 
 # target to preprocess a source file
 TcpSocket.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.i
 .PHONY : TcpSocket.i
 
 # target to generate assembly for a file
 TcpSocket.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/TcpSocket.s
 .PHONY : TcpSocket.s
 
 # target to build an object file
 UdpSocket.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.o
 .PHONY : UdpSocket.o
 
 # target to preprocess a source file
 UdpSocket.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.i
 .PHONY : UdpSocket.i
 
 # target to generate assembly for a file
 UdpSocket.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/UdpSocket.s
 .PHONY : UdpSocket.s
 
 # target to build an object file
 Unix/SocketImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Unix/SocketImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Unix/SocketImpl.o
 .PHONY : Unix/SocketImpl.o
 
 # target to preprocess a source file
 Unix/SocketImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Unix/SocketImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Unix/SocketImpl.i
 .PHONY : Unix/SocketImpl.i
 
 # target to generate assembly for a file
 Unix/SocketImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Unix/SocketImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Network/CMakeFiles/sfml-network.dir/build.make src/SFML/Network/CMakeFiles/sfml-network.dir/Unix/SocketImpl.s
 .PHONY : Unix/SocketImpl.s
 
 # Help Target
@@ -401,6 +401,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

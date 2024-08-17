@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1
+CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build
+CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CPackSourceConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,14 +152,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Graphics//CMakeFiles/progress.marks
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Graphics//CMakeFiles/progress.marks
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/clean
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/clean
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +168,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
 .PHONY : src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
 
 # Convenience name for target.
@@ -192,457 +192,457 @@ sfml-graphics: src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/rule
 
 # fast build rule for target.
 sfml-graphics/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build
 .PHONY : sfml-graphics/fast
 
 # target to build an object file
 BlendMode.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.o
 .PHONY : BlendMode.o
 
 # target to preprocess a source file
 BlendMode.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.i
 .PHONY : BlendMode.i
 
 # target to generate assembly for a file
 BlendMode.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/BlendMode.s
 .PHONY : BlendMode.s
 
 # target to build an object file
 CircleShape.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.o
 .PHONY : CircleShape.o
 
 # target to preprocess a source file
 CircleShape.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.i
 .PHONY : CircleShape.i
 
 # target to generate assembly for a file
 CircleShape.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/CircleShape.s
 .PHONY : CircleShape.s
 
 # target to build an object file
 Color.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.o
 .PHONY : Color.o
 
 # target to preprocess a source file
 Color.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.i
 .PHONY : Color.i
 
 # target to generate assembly for a file
 Color.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Color.s
 .PHONY : Color.s
 
 # target to build an object file
 ConvexShape.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.o
 .PHONY : ConvexShape.o
 
 # target to preprocess a source file
 ConvexShape.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.i
 .PHONY : ConvexShape.i
 
 # target to generate assembly for a file
 ConvexShape.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ConvexShape.s
 .PHONY : ConvexShape.s
 
 # target to build an object file
 Font.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.o
 .PHONY : Font.o
 
 # target to preprocess a source file
 Font.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.i
 .PHONY : Font.i
 
 # target to generate assembly for a file
 Font.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Font.s
 .PHONY : Font.s
 
 # target to build an object file
 GLCheck.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.o
 .PHONY : GLCheck.o
 
 # target to preprocess a source file
 GLCheck.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.i
 .PHONY : GLCheck.i
 
 # target to generate assembly for a file
 GLCheck.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLCheck.s
 .PHONY : GLCheck.s
 
 # target to build an object file
 GLExtensions.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.o
 .PHONY : GLExtensions.o
 
 # target to preprocess a source file
 GLExtensions.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.i
 .PHONY : GLExtensions.i
 
 # target to generate assembly for a file
 GLExtensions.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/GLExtensions.s
 .PHONY : GLExtensions.s
 
 # target to build an object file
 Glsl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.o
 .PHONY : Glsl.o
 
 # target to preprocess a source file
 Glsl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.i
 .PHONY : Glsl.i
 
 # target to generate assembly for a file
 Glsl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Glsl.s
 .PHONY : Glsl.s
 
 # target to build an object file
 Image.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.o
 .PHONY : Image.o
 
 # target to preprocess a source file
 Image.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.i
 .PHONY : Image.i
 
 # target to generate assembly for a file
 Image.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Image.s
 .PHONY : Image.s
 
 # target to build an object file
 ImageLoader.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.o
 .PHONY : ImageLoader.o
 
 # target to preprocess a source file
 ImageLoader.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.i
 .PHONY : ImageLoader.i
 
 # target to generate assembly for a file
 ImageLoader.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/ImageLoader.s
 .PHONY : ImageLoader.s
 
 # target to build an object file
 RectangleShape.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.o
 .PHONY : RectangleShape.o
 
 # target to preprocess a source file
 RectangleShape.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.i
 .PHONY : RectangleShape.i
 
 # target to generate assembly for a file
 RectangleShape.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RectangleShape.s
 .PHONY : RectangleShape.s
 
 # target to build an object file
 RenderStates.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.o
 .PHONY : RenderStates.o
 
 # target to preprocess a source file
 RenderStates.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.i
 .PHONY : RenderStates.i
 
 # target to generate assembly for a file
 RenderStates.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderStates.s
 .PHONY : RenderStates.s
 
 # target to build an object file
 RenderTarget.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.o
 .PHONY : RenderTarget.o
 
 # target to preprocess a source file
 RenderTarget.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.i
 .PHONY : RenderTarget.i
 
 # target to generate assembly for a file
 RenderTarget.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTarget.s
 .PHONY : RenderTarget.s
 
 # target to build an object file
 RenderTexture.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.o
 .PHONY : RenderTexture.o
 
 # target to preprocess a source file
 RenderTexture.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.i
 .PHONY : RenderTexture.i
 
 # target to generate assembly for a file
 RenderTexture.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTexture.s
 .PHONY : RenderTexture.s
 
 # target to build an object file
 RenderTextureImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.o
 .PHONY : RenderTextureImpl.o
 
 # target to preprocess a source file
 RenderTextureImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.i
 .PHONY : RenderTextureImpl.i
 
 # target to generate assembly for a file
 RenderTextureImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImpl.s
 .PHONY : RenderTextureImpl.s
 
 # target to build an object file
 RenderTextureImplDefault.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.o
 .PHONY : RenderTextureImplDefault.o
 
 # target to preprocess a source file
 RenderTextureImplDefault.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.i
 .PHONY : RenderTextureImplDefault.i
 
 # target to generate assembly for a file
 RenderTextureImplDefault.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplDefault.s
 .PHONY : RenderTextureImplDefault.s
 
 # target to build an object file
 RenderTextureImplFBO.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.o
 .PHONY : RenderTextureImplFBO.o
 
 # target to preprocess a source file
 RenderTextureImplFBO.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.i
 .PHONY : RenderTextureImplFBO.i
 
 # target to generate assembly for a file
 RenderTextureImplFBO.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderTextureImplFBO.s
 .PHONY : RenderTextureImplFBO.s
 
 # target to build an object file
 RenderWindow.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.o
 .PHONY : RenderWindow.o
 
 # target to preprocess a source file
 RenderWindow.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.i
 .PHONY : RenderWindow.i
 
 # target to generate assembly for a file
 RenderWindow.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/RenderWindow.s
 .PHONY : RenderWindow.s
 
 # target to build an object file
 Shader.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.o
 .PHONY : Shader.o
 
 # target to preprocess a source file
 Shader.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.i
 .PHONY : Shader.i
 
 # target to generate assembly for a file
 Shader.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shader.s
 .PHONY : Shader.s
 
 # target to build an object file
 Shape.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.o
 .PHONY : Shape.o
 
 # target to preprocess a source file
 Shape.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.i
 .PHONY : Shape.i
 
 # target to generate assembly for a file
 Shape.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Shape.s
 .PHONY : Shape.s
 
 # target to build an object file
 Sprite.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.o
 .PHONY : Sprite.o
 
 # target to preprocess a source file
 Sprite.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.i
 .PHONY : Sprite.i
 
 # target to generate assembly for a file
 Sprite.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Sprite.s
 .PHONY : Sprite.s
 
 # target to build an object file
 Text.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.o
 .PHONY : Text.o
 
 # target to preprocess a source file
 Text.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.i
 .PHONY : Text.i
 
 # target to generate assembly for a file
 Text.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Text.s
 .PHONY : Text.s
 
 # target to build an object file
 Texture.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.o
 .PHONY : Texture.o
 
 # target to preprocess a source file
 Texture.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.i
 .PHONY : Texture.i
 
 # target to generate assembly for a file
 Texture.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Texture.s
 .PHONY : Texture.s
 
 # target to build an object file
 TextureSaver.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.o
 .PHONY : TextureSaver.o
 
 # target to preprocess a source file
 TextureSaver.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.i
 .PHONY : TextureSaver.i
 
 # target to generate assembly for a file
 TextureSaver.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/TextureSaver.s
 .PHONY : TextureSaver.s
 
 # target to build an object file
 Transform.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.o
 .PHONY : Transform.o
 
 # target to preprocess a source file
 Transform.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.i
 .PHONY : Transform.i
 
 # target to generate assembly for a file
 Transform.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transform.s
 .PHONY : Transform.s
 
 # target to build an object file
 Transformable.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.o
 .PHONY : Transformable.o
 
 # target to preprocess a source file
 Transformable.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.i
 .PHONY : Transformable.i
 
 # target to generate assembly for a file
 Transformable.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Transformable.s
 .PHONY : Transformable.s
 
 # target to build an object file
 Vertex.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.o
 .PHONY : Vertex.o
 
 # target to preprocess a source file
 Vertex.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.i
 .PHONY : Vertex.i
 
 # target to generate assembly for a file
 Vertex.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/Vertex.s
 .PHONY : Vertex.s
 
 # target to build an object file
 VertexArray.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.o
 .PHONY : VertexArray.o
 
 # target to preprocess a source file
 VertexArray.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.i
 .PHONY : VertexArray.i
 
 # target to generate assembly for a file
 VertexArray.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexArray.s
 .PHONY : VertexArray.s
 
 # target to build an object file
 VertexBuffer.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.o
 .PHONY : VertexBuffer.o
 
 # target to preprocess a source file
 VertexBuffer.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.i
 .PHONY : VertexBuffer.i
 
 # target to generate assembly for a file
 VertexBuffer.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/VertexBuffer.s
 .PHONY : VertexBuffer.s
 
 # target to build an object file
 View.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.o
 .PHONY : View.o
 
 # target to preprocess a source file
 View.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.i
 .PHONY : View.i
 
 # target to generate assembly for a file
 View.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/build.make src/SFML/Graphics/CMakeFiles/sfml-graphics.dir/View.s
 .PHONY : View.s
 
 # Help Target
@@ -761,6 +761,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

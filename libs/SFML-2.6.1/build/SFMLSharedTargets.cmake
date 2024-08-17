@@ -49,14 +49,14 @@ unset(_expectedTargets)
 add_library(sfml-system SHARED IMPORTED)
 
 set_target_properties(sfml-system PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include"
 )
 
 # Create imported target sfml-window
 add_library(sfml-window SHARED IMPORTED)
 
 set_target_properties(sfml-window PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include"
 )
 
 # Create imported target X11
@@ -87,14 +87,14 @@ set_target_properties(UDev PROPERTIES
 add_library(sfml-network SHARED IMPORTED)
 
 set_target_properties(sfml-network PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include"
 )
 
 # Create imported target sfml-graphics
 add_library(sfml-graphics SHARED IMPORTED)
 
 set_target_properties(sfml-graphics PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include"
 )
 
 # Create imported target Freetype
@@ -135,14 +135,14 @@ set_target_properties(FLAC PROPERTIES
 add_library(sfml-audio SHARED IMPORTED)
 
 set_target_properties(sfml-audio PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/include"
 )
 
 # Import target "sfml-system" for configuration "Release"
 set_property(TARGET sfml-system APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(sfml-system PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE ""
-  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-system.so.2.6.1"
+  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-system.so.2.6.1"
   IMPORTED_SONAME_RELEASE "libsfml-system.so.2.6"
   )
 
@@ -150,7 +150,7 @@ set_target_properties(sfml-system PROPERTIES
 set_property(TARGET sfml-window APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(sfml-window PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "sfml-system"
-  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-window.so.2.6.1"
+  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-window.so.2.6.1"
   IMPORTED_SONAME_RELEASE "libsfml-window.so.2.6"
   )
 
@@ -158,7 +158,7 @@ set_target_properties(sfml-window PROPERTIES
 set_property(TARGET sfml-network APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(sfml-network PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "sfml-system"
-  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-network.so.2.6.1"
+  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-network.so.2.6.1"
   IMPORTED_SONAME_RELEASE "libsfml-network.so.2.6"
   )
 
@@ -166,7 +166,7 @@ set_target_properties(sfml-network PROPERTIES
 set_property(TARGET sfml-graphics APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(sfml-graphics PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "sfml-window"
-  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-graphics.so.2.6.1"
+  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-graphics.so.2.6.1"
   IMPORTED_SONAME_RELEASE "libsfml-graphics.so.2.6"
   )
 
@@ -174,7 +174,7 @@ set_target_properties(sfml-graphics PROPERTIES
 set_property(TARGET sfml-audio APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(sfml-audio PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "sfml-system"
-  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/lib/libsfml-audio.so.2.6.1"
+  IMPORTED_LOCATION_RELEASE "/mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/lib/libsfml-audio.so.2.6.1"
   IMPORTED_SONAME_RELEASE "libsfml-audio.so.2.6"
   )
 

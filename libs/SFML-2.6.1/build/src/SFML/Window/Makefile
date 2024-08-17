@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1
+CMAKE_SOURCE_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build
+CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CPackSourceConfig.cmake
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -152,14 +152,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/src/SFML/Window//CMakeFiles/progress.marks
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build/CMakeFiles 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/src/SFML/Window//CMakeFiles/progress.marks
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/clean
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/clean
 .PHONY : clean
 
 # The main clean target
@@ -168,22 +168,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/preinstall
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/SFML/Window/CMakeFiles/sfml-window.dir/rule:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/CMakeFiles/sfml-window.dir/rule
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/SFML/Window/CMakeFiles/sfml-window.dir/rule
 .PHONY : src/SFML/Window/CMakeFiles/sfml-window.dir/rule
 
 # Convenience name for target.
@@ -192,457 +192,457 @@ sfml-window: src/SFML/Window/CMakeFiles/sfml-window.dir/rule
 
 # fast build rule for target.
 sfml-window/fast:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/build
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/build
 .PHONY : sfml-window/fast
 
 # target to build an object file
 Clipboard.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.o
 .PHONY : Clipboard.o
 
 # target to preprocess a source file
 Clipboard.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.i
 .PHONY : Clipboard.i
 
 # target to generate assembly for a file
 Clipboard.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Clipboard.s
 .PHONY : Clipboard.s
 
 # target to build an object file
 Context.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Context.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Context.o
 .PHONY : Context.o
 
 # target to preprocess a source file
 Context.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Context.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Context.i
 .PHONY : Context.i
 
 # target to generate assembly for a file
 Context.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Context.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Context.s
 .PHONY : Context.s
 
 # target to build an object file
 Cursor.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.o
 .PHONY : Cursor.o
 
 # target to preprocess a source file
 Cursor.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.i
 .PHONY : Cursor.i
 
 # target to generate assembly for a file
 Cursor.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Cursor.s
 .PHONY : Cursor.s
 
 # target to build an object file
 GlContext.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.o
 .PHONY : GlContext.o
 
 # target to preprocess a source file
 GlContext.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.i
 .PHONY : GlContext.i
 
 # target to generate assembly for a file
 GlContext.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlContext.s
 .PHONY : GlContext.s
 
 # target to build an object file
 GlResource.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.o
 .PHONY : GlResource.o
 
 # target to preprocess a source file
 GlResource.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.i
 .PHONY : GlResource.i
 
 # target to generate assembly for a file
 GlResource.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/GlResource.s
 .PHONY : GlResource.s
 
 # target to build an object file
 Joystick.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.o
 .PHONY : Joystick.o
 
 # target to preprocess a source file
 Joystick.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.i
 .PHONY : Joystick.i
 
 # target to generate assembly for a file
 Joystick.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Joystick.s
 .PHONY : Joystick.s
 
 # target to build an object file
 JoystickManager.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.o
 .PHONY : JoystickManager.o
 
 # target to preprocess a source file
 JoystickManager.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.i
 .PHONY : JoystickManager.i
 
 # target to generate assembly for a file
 JoystickManager.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/JoystickManager.s
 .PHONY : JoystickManager.s
 
 # target to build an object file
 Keyboard.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.o
 .PHONY : Keyboard.o
 
 # target to preprocess a source file
 Keyboard.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.i
 .PHONY : Keyboard.i
 
 # target to generate assembly for a file
 Keyboard.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Keyboard.s
 .PHONY : Keyboard.s
 
 # target to build an object file
 Mouse.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.o
 .PHONY : Mouse.o
 
 # target to preprocess a source file
 Mouse.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.i
 .PHONY : Mouse.i
 
 # target to generate assembly for a file
 Mouse.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Mouse.s
 .PHONY : Mouse.s
 
 # target to build an object file
 Sensor.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.o
 .PHONY : Sensor.o
 
 # target to preprocess a source file
 Sensor.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.i
 .PHONY : Sensor.i
 
 # target to generate assembly for a file
 Sensor.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Sensor.s
 .PHONY : Sensor.s
 
 # target to build an object file
 SensorManager.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.o
 .PHONY : SensorManager.o
 
 # target to preprocess a source file
 SensorManager.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.i
 .PHONY : SensorManager.i
 
 # target to generate assembly for a file
 SensorManager.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/SensorManager.s
 .PHONY : SensorManager.s
 
 # target to build an object file
 Touch.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.o
 .PHONY : Touch.o
 
 # target to preprocess a source file
 Touch.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.i
 .PHONY : Touch.i
 
 # target to generate assembly for a file
 Touch.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Touch.s
 .PHONY : Touch.s
 
 # target to build an object file
 Unix/ClipboardImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/ClipboardImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/ClipboardImpl.o
 .PHONY : Unix/ClipboardImpl.o
 
 # target to preprocess a source file
 Unix/ClipboardImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/ClipboardImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/ClipboardImpl.i
 .PHONY : Unix/ClipboardImpl.i
 
 # target to generate assembly for a file
 Unix/ClipboardImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/ClipboardImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/ClipboardImpl.s
 .PHONY : Unix/ClipboardImpl.s
 
 # target to build an object file
 Unix/CursorImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/CursorImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/CursorImpl.o
 .PHONY : Unix/CursorImpl.o
 
 # target to preprocess a source file
 Unix/CursorImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/CursorImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/CursorImpl.i
 .PHONY : Unix/CursorImpl.i
 
 # target to generate assembly for a file
 Unix/CursorImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/CursorImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/CursorImpl.s
 .PHONY : Unix/CursorImpl.s
 
 # target to build an object file
 Unix/Display.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/Display.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/Display.o
 .PHONY : Unix/Display.o
 
 # target to preprocess a source file
 Unix/Display.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/Display.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/Display.i
 .PHONY : Unix/Display.i
 
 # target to generate assembly for a file
 Unix/Display.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/Display.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/Display.s
 .PHONY : Unix/Display.s
 
 # target to build an object file
 Unix/GlxContext.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/GlxContext.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/GlxContext.o
 .PHONY : Unix/GlxContext.o
 
 # target to preprocess a source file
 Unix/GlxContext.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/GlxContext.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/GlxContext.i
 .PHONY : Unix/GlxContext.i
 
 # target to generate assembly for a file
 Unix/GlxContext.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/GlxContext.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/GlxContext.s
 .PHONY : Unix/GlxContext.s
 
 # target to build an object file
 Unix/InputImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/InputImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/InputImpl.o
 .PHONY : Unix/InputImpl.o
 
 # target to preprocess a source file
 Unix/InputImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/InputImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/InputImpl.i
 .PHONY : Unix/InputImpl.i
 
 # target to generate assembly for a file
 Unix/InputImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/InputImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/InputImpl.s
 .PHONY : Unix/InputImpl.s
 
 # target to build an object file
 Unix/JoystickImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/JoystickImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/JoystickImpl.o
 .PHONY : Unix/JoystickImpl.o
 
 # target to preprocess a source file
 Unix/JoystickImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/JoystickImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/JoystickImpl.i
 .PHONY : Unix/JoystickImpl.i
 
 # target to generate assembly for a file
 Unix/JoystickImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/JoystickImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/JoystickImpl.s
 .PHONY : Unix/JoystickImpl.s
 
 # target to build an object file
 Unix/KeySymToKeyMapping.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToKeyMapping.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToKeyMapping.o
 .PHONY : Unix/KeySymToKeyMapping.o
 
 # target to preprocess a source file
 Unix/KeySymToKeyMapping.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToKeyMapping.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToKeyMapping.i
 .PHONY : Unix/KeySymToKeyMapping.i
 
 # target to generate assembly for a file
 Unix/KeySymToKeyMapping.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToKeyMapping.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToKeyMapping.s
 .PHONY : Unix/KeySymToKeyMapping.s
 
 # target to build an object file
 Unix/KeySymToUnicodeMapping.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToUnicodeMapping.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToUnicodeMapping.o
 .PHONY : Unix/KeySymToUnicodeMapping.o
 
 # target to preprocess a source file
 Unix/KeySymToUnicodeMapping.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToUnicodeMapping.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToUnicodeMapping.i
 .PHONY : Unix/KeySymToUnicodeMapping.i
 
 # target to generate assembly for a file
 Unix/KeySymToUnicodeMapping.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToUnicodeMapping.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeySymToUnicodeMapping.s
 .PHONY : Unix/KeySymToUnicodeMapping.s
 
 # target to build an object file
 Unix/KeyboardImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeyboardImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeyboardImpl.o
 .PHONY : Unix/KeyboardImpl.o
 
 # target to preprocess a source file
 Unix/KeyboardImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeyboardImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeyboardImpl.i
 .PHONY : Unix/KeyboardImpl.i
 
 # target to generate assembly for a file
 Unix/KeyboardImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeyboardImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/KeyboardImpl.s
 .PHONY : Unix/KeyboardImpl.s
 
 # target to build an object file
 Unix/SensorImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/SensorImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/SensorImpl.o
 .PHONY : Unix/SensorImpl.o
 
 # target to preprocess a source file
 Unix/SensorImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/SensorImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/SensorImpl.i
 .PHONY : Unix/SensorImpl.i
 
 # target to generate assembly for a file
 Unix/SensorImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/SensorImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/SensorImpl.s
 .PHONY : Unix/SensorImpl.s
 
 # target to build an object file
 Unix/VideoModeImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VideoModeImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VideoModeImpl.o
 .PHONY : Unix/VideoModeImpl.o
 
 # target to preprocess a source file
 Unix/VideoModeImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VideoModeImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VideoModeImpl.i
 .PHONY : Unix/VideoModeImpl.i
 
 # target to generate assembly for a file
 Unix/VideoModeImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VideoModeImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VideoModeImpl.s
 .PHONY : Unix/VideoModeImpl.s
 
 # target to build an object file
 Unix/VulkanImplX11.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VulkanImplX11.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VulkanImplX11.o
 .PHONY : Unix/VulkanImplX11.o
 
 # target to preprocess a source file
 Unix/VulkanImplX11.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VulkanImplX11.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VulkanImplX11.i
 .PHONY : Unix/VulkanImplX11.i
 
 # target to generate assembly for a file
 Unix/VulkanImplX11.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VulkanImplX11.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/VulkanImplX11.s
 .PHONY : Unix/VulkanImplX11.s
 
 # target to build an object file
 Unix/WindowImplX11.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/WindowImplX11.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/WindowImplX11.o
 .PHONY : Unix/WindowImplX11.o
 
 # target to preprocess a source file
 Unix/WindowImplX11.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/WindowImplX11.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/WindowImplX11.i
 .PHONY : Unix/WindowImplX11.i
 
 # target to generate assembly for a file
 Unix/WindowImplX11.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/WindowImplX11.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Unix/WindowImplX11.s
 .PHONY : Unix/WindowImplX11.s
 
 # target to build an object file
 VideoMode.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.o
 .PHONY : VideoMode.o
 
 # target to preprocess a source file
 VideoMode.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.i
 .PHONY : VideoMode.i
 
 # target to generate assembly for a file
 VideoMode.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/VideoMode.s
 .PHONY : VideoMode.s
 
 # target to build an object file
 Vulkan.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.o
 .PHONY : Vulkan.o
 
 # target to preprocess a source file
 Vulkan.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.i
 .PHONY : Vulkan.i
 
 # target to generate assembly for a file
 Vulkan.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Vulkan.s
 .PHONY : Vulkan.s
 
 # target to build an object file
 Window.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Window.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Window.o
 .PHONY : Window.o
 
 # target to preprocess a source file
 Window.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Window.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Window.i
 .PHONY : Window.i
 
 # target to generate assembly for a file
 Window.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Window.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/Window.s
 .PHONY : Window.s
 
 # target to build an object file
 WindowBase.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.o
 .PHONY : WindowBase.o
 
 # target to preprocess a source file
 WindowBase.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.i
 .PHONY : WindowBase.i
 
 # target to generate assembly for a file
 WindowBase.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowBase.s
 .PHONY : WindowBase.s
 
 # target to build an object file
 WindowImpl.o:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.o
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.o
 .PHONY : WindowImpl.o
 
 # target to preprocess a source file
 WindowImpl.i:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.i
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.i
 .PHONY : WindowImpl.i
 
 # target to generate assembly for a file
 WindowImpl.s:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.s
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(MAKE) $(MAKESILENT) -f src/SFML/Window/CMakeFiles/sfml-window.dir/build.make src/SFML/Window/CMakeFiles/sfml-window.dir/WindowImpl.s
 .PHONY : WindowImpl.s
 
 # Help Target
@@ -761,6 +761,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/Users/biacg/OneDrive/Documentos/ProjetoFinal/libs/SFML-2.6.1/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
