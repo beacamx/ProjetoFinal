@@ -21,7 +21,7 @@ class Interface_Definicao_Entrada_Jogador1: public Interface_Menu {
  
     public:
         Interface_Definicao_Entrada_Jogador1() : Interface_Menu() { Set_Values(); }
-        ~Interface_Definicao_Entrada_Jogador1() override;
+        ~Interface_Definicao_Entrada_Jogador1(){};
 
         void Set_Image() override;
         void Set_Opcoes() override;

@@ -1,9 +1,5 @@
 #include "Interface_Definicao_Entrada_Jogador1.hpp"
 
-using namespace std;
-
-Interface_Definicao_Entrada_Jogador1::~Interface_Definicao_Entrada_Jogador1(){}
-
 void Interface_Definicao_Entrada_Jogador1::Set_Opcoes() {
     opcoes_de_escolha = {"Login", "Cadastro"};
 }

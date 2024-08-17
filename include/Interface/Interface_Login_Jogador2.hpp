@@ -23,7 +23,7 @@ class Interface_Login_Jogador2: public Interface_Menu {
         unique_ptr<Interface_Define_Jogo> define_jogo;
     public:
         Interface_Login_Jogador2();
-        ~Interface_Login_Jogador2() override;
+        ~Interface_Login_Jogador2(){};
 
         void Definicoes_Espacamento_Janela() override;
     private:

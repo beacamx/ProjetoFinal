@@ -22,7 +22,7 @@ class Interface_Cadastro_Jogador1: public Interface_Menu {
         void Define_Aviso() override;
     public:
         Interface_Cadastro_Jogador1();
-        ~Interface_Cadastro_Jogador1() override;
+        ~Interface_Cadastro_Jogador1(){};
 
         void Definicoes_Espacamento_Janela() override;
     private:

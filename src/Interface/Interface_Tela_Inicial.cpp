@@ -1,7 +1,5 @@
 #include "Interface_Tela_Inicial.hpp"
 
-using namespace std;
-
 Interface_Tela_Inicial::Interface_Tela_Inicial() : Interface_Menu() {
     try {
         Set_Values();
@@ -10,8 +8,6 @@ Interface_Tela_Inicial::Interface_Tela_Inicial() : Interface_Menu() {
         exit(EXIT_FAILURE);
     }
 }
-
-Interface_Tela_Inicial::~Interface_Tela_Inicial(){}
 
 void Interface_Tela_Inicial::Set_Opcoes() {
     opcoes_de_escolha = {"Jogar", "Dados"};

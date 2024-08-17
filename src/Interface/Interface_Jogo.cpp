@@ -1,7 +1,5 @@
 #include "Interface_Jogo.hpp"
 
-using namespace std;
-
 Interface_Jogo::Interface_Jogo(const string& nome_do_jogo)
     : nome_do_jogo(nome_do_jogo), janela(make_unique<sf::RenderWindow>()) {
     evento = make_shared<sf::Event>();

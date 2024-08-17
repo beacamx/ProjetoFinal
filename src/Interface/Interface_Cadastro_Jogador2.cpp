@@ -3,11 +3,9 @@
 using namespace std;
 
 Interface_Cadastro_Jogador2::Interface_Cadastro_Jogador2()
-    : define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
+    : Interface_Menu(), define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
     Set_Values();
 }
-
-Interface_Cadastro_Jogador2::~Interface_Cadastro_Jogador2(){}
 
 void Interface_Cadastro_Jogador2::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Digitar nome", "Play"};

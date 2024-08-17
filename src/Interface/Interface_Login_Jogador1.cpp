@@ -11,8 +11,6 @@ Interface_Login_Jogador1::Interface_Login_Jogador1() : Interface_Menu(), caixa_d
     }
 }
 
-Interface_Login_Jogador1::~Interface_Login_Jogador1(){}
-
 void Interface_Login_Jogador1::Set_Opcoes() {
     opcoes_de_escolha = {"Digitar apelido", "Play"};
 }

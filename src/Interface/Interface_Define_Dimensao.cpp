@@ -1,7 +1,5 @@
 #include "Interface_Define_Dimensao.hpp"
 
-using namespace std;
-
 void Interface_Define_Dimensao::Set_Opcoes() {
     if (nome_jogo == "Lig4") {
         opcoes_de_escolha = {"6x7", "7x8", "8x9"};

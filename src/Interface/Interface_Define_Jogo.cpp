@@ -1,7 +1,5 @@
 #include "Interface_Define_Jogo.hpp"
 
-using namespace std;
-
 Interface_Define_Jogo::Interface_Define_Jogo() : Interface_Menu() {
     try {
         Set_Values();

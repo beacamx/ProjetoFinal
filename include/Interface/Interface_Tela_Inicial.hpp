@@ -19,7 +19,7 @@ class Interface_Tela_Inicial: public Interface_Menu {
  
     public:
         Interface_Tela_Inicial();
-        ~Interface_Tela_Inicial();
+        ~Interface_Tela_Inicial(){};
 
         void Set_Image() override;
         void Set_Opcoes() override;
