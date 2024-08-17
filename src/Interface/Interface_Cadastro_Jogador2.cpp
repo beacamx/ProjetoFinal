@@ -32,7 +32,6 @@ void Interface_Cadastro_Jogador2::Definicoes_Espacamento_Janela() {
 
 void Interface_Cadastro_Jogador2::Set_Values(){
     try {
-        Set_Efeito_Sonoro_Selecao_Botao();
         Set_Janela();
         Centralizar_Janela();
         Set_Image();
@@ -80,7 +79,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
             }
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-                som_selecao.play();
+                audio.Play_Efeito_Sonoro_Selecao_Botao();
                 if(posicao < tam_vetor_texto - 1){
                     ++posicao;
                     pressed = true;
@@ -91,7 +90,7 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
             }
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-                som_selecao.play();
+                audio.Play_Efeito_Sonoro_Selecao_Botao();
                 if(posicao > 0){
                     --posicao;
                     pressed = true;
@@ -135,24 +134,28 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
                             Define_Aviso();
+                            audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if(apelido_jogador2.length() == 0 && nome_jogador2.length() > 0) {
                             cerr << "Aviso: Digite seu apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu apelido");
                             Define_Aviso();
+                            audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if(apelido_jogador2.length() == 0 && nome_jogador2.length() == 0) {
                             cerr << "Aviso: Digite seu nome e apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome e apelido");
                             Define_Aviso();
+                            audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else {
                             cerr << "Aviso: Jogador já existente";
                             cout << endl;
                             aviso.setString("Aviso: Jogador ja existente");
                             Define_Aviso();
+                            audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {

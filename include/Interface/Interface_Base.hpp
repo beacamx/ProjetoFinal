@@ -34,6 +34,7 @@ class Interface_Base {
             this->winclose = make_unique<sf::RectangleShape>();
             janela->setVerticalSyncEnabled(true);
             registro_geral.save();
+            audio.Set_Efeito_Sonoro_Aviso();
         };
         ~Interface_Base(){};
 

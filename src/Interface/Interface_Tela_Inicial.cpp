@@ -33,7 +33,6 @@ void Interface_Tela_Inicial::Set_Image() {
 
 void Interface_Tela_Inicial::Set_Values(){
     try {
-        Set_Efeito_Sonoro_Selecao_Botao();
         Set_Janela();
         Set_Image();
         janela->setVerticalSyncEnabled(true);
@@ -63,7 +62,7 @@ void Interface_Tela_Inicial::Loop_Events(){
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
                 if(posicao < 1){
-                    som_selecao.play();
+                    audio.Play_Efeito_Sonoro_Selecao_Botao();
                     ++posicao;
                     pressed = true;
                     textos.Set_Contorno_Texto_Avancar(posicao);
@@ -74,7 +73,7 @@ void Interface_Tela_Inicial::Loop_Events(){
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
                 if(posicao > 0){
-                    som_selecao.play();
+                    audio.Play_Efeito_Sonoro_Selecao_Botao();
                     --posicao;
                     pressed = true;
                     textos.Set_Contorno_Texto_Voltar(posicao);

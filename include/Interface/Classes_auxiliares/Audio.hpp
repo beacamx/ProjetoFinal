@@ -24,6 +24,13 @@ class Audio {
         void Set_Efeito_Sonoro_Selecao_Botao();
         void Set_Efeito_Sonoro_Aviso();
         void Set_Music(const string& nome_jogo);
+
+        void Play_Efeito_Sonoro_Selecao_Botao();
+        void Play_Efeito_Sonoro_Aviso();
+        void Play_Music();
+
+        void Stop_Music();
+        
         void Timer(float tempo_duracao);
 };
 

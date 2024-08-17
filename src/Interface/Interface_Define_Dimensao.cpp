@@ -26,7 +26,6 @@ void Interface_Define_Dimensao::Definicoes_Espacamento_Janela() {
 }
 
 void Interface_Define_Dimensao::Set_Values(){
-    Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Set_Opcoes();
     Set_Image();
@@ -51,7 +50,7 @@ void Interface_Define_Dimensao::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            som_selecao.play();
+            audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
@@ -62,7 +61,7 @@ void Interface_Define_Dimensao::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            som_selecao.play();
+            audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao > 0){
                 --posicao;
                 pressed = true;

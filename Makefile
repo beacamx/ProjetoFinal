@@ -35,7 +35,8 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Interface_Cadastro_Jogador1.o $(OBJDIR)/Interface_Cadastro_Jogador2.o \
 	$(OBJDIR)/Interface_Tela_Inicial.o $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o \
 	$(OBJDIR)/jogador.o $(OBJDIR)/Cadastro_Jogadores.o \
-	$(OBJDIR)/Textos.o $(OBJDIR)/Interface_Base.o
+	$(OBJDIR)/Textos.o $(OBJDIR)/Interface_Base.o \
+	$(OBJDIR)/Audio.o
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 
@@ -48,11 +49,14 @@ $(OBJDIR):
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/main.cpp -o $(OBJDIR)/main.o
 
-$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp
+$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp $(INCDIR)/Interface/Classes_auxiliares/Audio.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Base.cpp -o $(OBJDIR)/Interface_Base.o
 
 $(OBJDIR)/Textos.o: $(SRCDIR)/Interface/Classes_auxiliares/Textos.cpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Classes_auxiliares/Textos.cpp -o $(OBJDIR)/Textos.o
+
+$(OBJDIR)/Audio.o: $(SRCDIR)/Interface/Classes_auxiliares/Audio.cpp $(INCDIR)/Interface/Classes_auxiliares/Audio.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Classes_auxiliares/Audio.cpp -o $(OBJDIR)/Audio.o
 
 $(OBJDIR)/jogador.o: $(SRCDIR)/jogador.cpp $(INCDIR)/jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/jogador.cpp -o $(OBJDIR)/jogador.o	

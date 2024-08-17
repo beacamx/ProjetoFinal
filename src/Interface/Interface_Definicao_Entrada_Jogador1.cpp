@@ -22,7 +22,6 @@ void Interface_Definicao_Entrada_Jogador1::Definicoes_Espacamento_Janela() {
 }
 
 void Interface_Definicao_Entrada_Jogador1::Set_Values(){
-    Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Set_Image();
     Definicoes_Espacamento_Janela();
@@ -46,7 +45,7 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            som_selecao.play();
+            audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
@@ -57,7 +56,7 @@ void Interface_Definicao_Entrada_Jogador1::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            som_selecao.play();
+            audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao > 0){
                 --posicao;
                 pressed = true;

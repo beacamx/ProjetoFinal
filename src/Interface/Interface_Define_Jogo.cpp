@@ -31,7 +31,6 @@ void Interface_Define_Jogo::Set_Image() {
 }
 
 void Interface_Define_Jogo::Set_Values(){
-    Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Set_Opcoes();
     Set_Image();
@@ -59,7 +58,7 @@ void Interface_Define_Jogo::Loop_Events(){
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
             if(posicao < tam_vetor_texto - 1){
-                som_selecao.play();
+                audio.Play_Efeito_Sonoro_Selecao_Botao();
                 ++posicao;
                 pressed = true;
                 textos.Set_Contorno_Texto_Avancar(posicao);
@@ -70,7 +69,7 @@ void Interface_Define_Jogo::Loop_Events(){
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
             if(posicao > 0){
-                som_selecao.play();
+                audio.Play_Efeito_Sonoro_Selecao_Botao();
                 --posicao;
                 pressed = true;
                 textos.Set_Contorno_Texto_Voltar(posicao);

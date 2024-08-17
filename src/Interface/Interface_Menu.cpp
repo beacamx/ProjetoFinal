@@ -5,22 +5,7 @@ Interface_Menu::Interface_Menu()
       espaco_vertical(0.0f), espaco_vertical_botao_play(0.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
     this->image = make_unique<sf::Texture>();
     this->background = make_unique<sf::Sprite>();
-}
-
-Interface_Menu::~Interface_Menu() {
-    som_selecao.stop(); 
-}
-
-void Interface_Menu::Set_Efeito_Sonoro_Selecao_Botao() {
-    try {
-        if (!buffer_selecao.loadFromFile("./assets/audio/c.wav")) {
-            throw runtime_error("Erro ao carregar efeito sonoro");
-        }
-        som_selecao.setBuffer(buffer_selecao);
-        som_selecao.setVolume(50);
-    } catch (const std::exception& e) {
-        cerr << e.what() << endl;
-    }
+    audio.Set_Efeito_Sonoro_Selecao_Botao();
 }
 
 void Interface_Menu::Set_Janela() {

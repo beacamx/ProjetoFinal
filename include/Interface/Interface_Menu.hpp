@@ -28,9 +28,6 @@ class Interface_Menu: public Interface_Base  {
         sf::Vector2i posicao_mouse;
         sf::Vector2f mouse_coord;
 
-        sf::SoundBuffer buffer_selecao;
-        sf::Sound som_selecao;
-
         sf::Text aviso;
 
         vector<const char*> opcoes_de_escolha;
@@ -43,7 +40,6 @@ class Interface_Menu: public Interface_Base  {
         virtual void Definicoes_Espacamento_Janela() = 0;
         
         virtual void Set_Image() = 0;
-        virtual void Set_Efeito_Sonoro_Selecao_Botao();
 
         float espaco_vertical;
         float espaco_vertical_botao_play;
@@ -60,7 +56,7 @@ class Interface_Menu: public Interface_Base  {
 
     public:
         Interface_Menu();
-        virtual ~Interface_Menu();
+        ~Interface_Menu() {};
         void Run() override;
         void Set_Janela();
         virtual void Define_Aviso();

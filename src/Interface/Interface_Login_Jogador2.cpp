@@ -33,7 +33,6 @@ void Interface_Login_Jogador2::Definicoes_Espacamento_Janela() {
 }
 
 void Interface_Login_Jogador2::Set_Values(){
-    Set_Efeito_Sonoro_Selecao_Botao();
     Set_Janela();
     Set_Image();
     Set_Opcoes();
@@ -74,7 +73,7 @@ void Interface_Login_Jogador2::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            som_selecao.play();
+            audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
@@ -85,7 +84,7 @@ void Interface_Login_Jogador2::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            som_selecao.play();
+            audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao > 0){
                 --posicao;
                 pressed = true;
@@ -110,8 +109,9 @@ void Interface_Login_Jogador2::Loop_Events(){
                     janela->close();
                     define_jogo->Run();
                 } else {
-                    cerr << "Aviso: Jogador nao existente, digite novamente" << endl;
+                    cerr << "Aviso: Jogador nao existente" << endl;
                     Define_Aviso();
+                    audio.Play_Efeito_Sonoro_Aviso();
                     seleção_ativa = false;
                 }
             } 
@@ -138,7 +138,7 @@ void Interface_Login_Jogador2::Define_Aviso() {
         sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
         float pos_y_play = bounds_play.top + bounds_play.height;
 
-        aviso.setString("Aviso: Jogador nao existente, digite novamente");
+        aviso.setString("Aviso: Jogador nao existente");
         aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
         clock_aviso.restart();
         mostrar_aviso = true;
