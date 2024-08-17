@@ -6,7 +6,7 @@
 
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Jogo.hpp"
-#include "Caixa_de_texto.hpp"
+#include "Classes_auxiliares/Caixa_de_texto.hpp"
 #include "Cadastro_Jogadores.hpp"
 #include "jogador.hpp"
 
