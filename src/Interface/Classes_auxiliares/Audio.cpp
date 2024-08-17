@@ -5,10 +5,11 @@ void Audio::Set_Efeito_Sonoro_Selecao_Botao() {
         }
         som_selecao.setBuffer(buffer_selecao);
         som_selecao.setVolume(50);
+        som_aviso.play();
     } catch (const runtime_error& e) {
-        cerr << "Erro: " << e.what() << std::endl;
+        cerr << "Erro: " << e.what() << endl;
     } catch (const exception& e) {
-        cerr << "Exceção capturada: " << e.what() << std::endl;
+        cerr << "Exceção capturada: " << e.what() << endl;
     }
 }
 
@@ -19,10 +20,13 @@ void Audio::Set_Efeito_Sonoro_Aviso() [
         }
         som_aviso.setBuffer(buffer_avisos);
         som_aviso.setVolume(50);
+        som_aviso.play();
+        timer.restart();
+        Timer(1.0f);
     } catch (const runtime_error& e) {
         cerr << "Erro: " << e.what() << std::endl;
     } catch (const exception& e) {
-        cerr << "Exceção capturada: " << e.what() << std::endl;
+        cerr << "Exceção capturada: " << e.what() << endl;
     }
 ]
 
@@ -50,4 +54,18 @@ void Audio::Set_Music(string nome_jogo) {
     } catch (const exception& e) {
         std::cerr << "Exceção capturada: " << e.what() << std::endl;
     }
+}
+
+bool Audio::Timer() {
+    try {
+        sf::Time tempo_decorrido = timer.getElapsedTime();
+
+        while (timer.getElapsedTime().asSeconds() < tempo_duracao) {}
+        som_aviso.stop();
+    } catch (const std::exception& e) {
+        cerr << "Exceção capturada no Timer: " << e.what() << endl;
+    } catch (...) {
+        cerr << "Erro desconhecido no Timer." << endl;
+    }
+    return false;
 }

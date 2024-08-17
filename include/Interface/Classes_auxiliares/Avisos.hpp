@@ -6,16 +6,20 @@
 #include <stdexcept>
 #include <cstdlib>
 
+#include "Audio.hpp"
+
 using namespace std;
 
 class Avisos {
     private:
         sf::Clock clock_aviso;
         bool mostrar_aviso = false;
+        Audio audio;
+        Texto texto;
 
     public:
-        Textos();
-        ~Textos();
+        Textos(){};
+        ~Textos(){};
         void Set_Aviso();
 
 };
