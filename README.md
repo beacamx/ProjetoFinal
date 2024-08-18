@@ -1,5 +1,18 @@
 # ProjetoFinal
  
+### Professor: 
+* **Luiz Chaimowicz**
+
+---
+
+## Desenvolvedores:
+*  **Beatriz Camilly**
+*  **deborah Mirella**
+*  **Gabriela Soares**
+*  **Lauren Cota**
+*  **Bernardo Coelho**
+
+
 ## Visão Geral
 Este projeto, desenvolvido para a disciplina **PDS II - Projeto Final - 2024-1**, tem como objetivo criar um sistema de jogos de tabuleiro utilizando os princípios de programação orientada a objetos em C++. O sistema implementa dois jogos clássicos: **Reversi** e **Connect Four (Lig4)**.
 
@@ -12,22 +25,35 @@ Este projeto, desenvolvido para a disciplina **PDS II - Projeto Final - 2024-1**
 
 ### Descrição dos Jogos
 
+# colocar print tela inicial
+
 #### Reversi
 Reversi é um jogo de tabuleiro para dois jogadores, também conhecido como Othello. O jogo é jogado em um tabuleiro 8x8 com discos que são pretos de um lado e brancos do outro. O objetivo é ter a maioria dos discos com a sua cor virada para cima no final do jogo. Jogadores alternam turnos colocando um disco da sua cor em uma posição que enclausura um ou mais discos do oponente entre dois dos seus discos. Os discos do oponente então são virados para a cor do jogador atual.
+
+# print do jogo
+
 
 #### Connect Four (Lig4)
 Connect Four é um jogo de tabuleiro para dois jogadores onde o objetivo é ser o primeiro a formar uma linha horizontal, vertical ou diagonal de quatro peças consecutivas. O jogo é jogado em um tabuleiro vertical com 7 colunas e 6 linhas, onde os jogadores alternam turnos soltando peças em uma das colunas. A peça então cai até o espaço mais baixo disponível na coluna.
 
+# print do jogo
+
 ### Ferramentas e Tecnologias Utilizadas
 - **Linguagem de Programação:** C++
-- **Testes:** Biblioteca **doctest** para testes unitários e de integração
-- **Controle de Versão:** Git e GitHub para colaboração e versionamento
-- **Compilador:** 
-
-### Estrutura do Projeto
-
+- **Compilador:** g++ (GCC)
+- **Interface Gráfica:** Biblioteca SFML para renderização e manipulação gráfica dos jogos.
+- **Testes:** Biblioteca doctest para testes unitários e de integração.
+- **Controle de Versão:** Git e GitHub para colaboração e versionamento.
 
 
+## Compilação e Execução
+Este projeto foi desenvolvido e testado em um ambiente Linux, utilizando um compilador g++ e a biblioteca SFML para a interface gráfica. Para compilar e executar o sistema, siga as instruções abaixo:
 
+### Compilação
+No diretório raiz do projeto, execute:
 
-O sistema está documentado e a organização do código no repositório GitHub segue boas práticas para facilitar a colaboração e o desenvolvimento contínuo.
+```
+make run
+```
+
+## Tutorial Jogo
