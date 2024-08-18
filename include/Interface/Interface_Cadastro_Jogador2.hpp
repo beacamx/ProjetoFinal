@@ -19,6 +19,7 @@ class Interface_Cadastro_Jogador2: public Interface_Menu {
         void Atualizar_Janela() override;
         void Set_Opcoes() override; 
         void Set_Image() override;  
+        void Set_Aviso() override;
         unique_ptr<Interface_Define_Jogo> define_jogo;
     public:
         Interface_Cadastro_Jogador2();

@@ -83,6 +83,8 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     ++posicao;
                     pressed = true;
                     textos.Set_Contorno_Texto_Avancar(posicao);
+                    caixa_de_texto1.Definir_Selecao(false);
+                    caixa_de_texto2.Definir_Selecao(false);
                     pressed = false;
                     seleção_ativa = false;
                 }
@@ -94,6 +96,8 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     --posicao;
                     pressed = true;
                     textos.Set_Contorno_Texto_Voltar(posicao);
+                    caixa_de_texto1.Definir_Selecao(false);
+                    caixa_de_texto2.Definir_Selecao(false);
                     pressed = false;
                     seleção_ativa = false;
                 }
@@ -130,30 +134,29 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                         } else if (registro_geral.find_by_nick(apelido_jogador1) == NULL && nome_jogador1.length() == 0 && apelido_jogador1.length() > 0){
                             cerr << "Aviso: Digite seu nome";
                             cout << endl;
-                            mensagem_de_erro = "Aviso: Digite seu nome";
-                            avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
-                             
+                            aviso.setString("Aviso: Digite seu nome");
+                            Set_Aviso();
+                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if(apelido_jogador1.length() == 0 && nome_jogador1.length() > 0) {
                             cerr << "Aviso: Digite seu apelido";
                             cout << endl;
-                            mensagem_de_erro = "Aviso: Digite seu apelido";
-                            avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
-                             
+                            aviso.setString("Aviso: Digite seu apelido");
+                            Set_Aviso();
+                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if(apelido_jogador1.length() == 0 && nome_jogador1.length() == 0) {
                             cerr << "Aviso: Digite seu nome e apelido";
                             cout << endl;
-                            mensagem_de_erro = "Aviso: Digite seu nome e apelido";
-                            avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
-                             
+                            aviso.setString("Aviso: Digite seu nome e apelido");
+                            Set_Aviso();
                             seleção_ativa = false;
                         } else {
                             cerr << "Aviso: Jogador já existente";
                             cout << endl;
-                            mensagem_de_erro = "Aviso: Jogador já existente";
-                            avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
-                             
+                            aviso.setString("Aviso: Jogador ja existente");
+                            Set_Aviso();
+                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {
@@ -176,6 +179,29 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
     }  catch (...) {
         cerr << "Erro desconhecido no loop de eventos" << endl;
     }
+
+    if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+        mostrar_aviso = false;
+    }
+}
+
+void Interface_Cadastro_Jogador1::Set_Aviso() {
+    try {
+        const sf::Font& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte); 
+        aviso.setCharacterSize(15);
+        aviso.setFillColor(sf::Color::Red);
+        
+        const auto& textos_aux = textos.Get_Vetor_Textos();
+        sf::FloatRect bounds_play = textos_aux[2].getGlobalBounds();
+        float pos_y_play = bounds_play.top + bounds_play.height;
+
+        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
+        clock_aviso.restart();
+        mostrar_aviso = true;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
 }
 
 void Interface_Cadastro_Jogador1::Atualizar_Janela() {
@@ -190,8 +216,9 @@ void Interface_Cadastro_Jogador1::Atualizar_Janela() {
             janela->draw(text);
         }
 
-        sf::Text aviso = avisos.Get_Aviso();
-        janela->draw(aviso);
+        if (mostrar_aviso) {
+            janela->draw(aviso);
+        }
         
         caixa_de_texto1.Draw_To(*janela);
         caixa_de_texto2.Draw_To(*janela);

@@ -78,6 +78,8 @@ void Interface_Login_Jogador2::Loop_Events(){
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
+                caixa_de_texto1.Definir_Selecao(false);
+                caixa_de_texto2.Definir_Selecao(false);
                 textos.Set_Contorno_Texto_Avancar(posicao);
                 pressed = false;
                 seleção_ativa = false;
@@ -89,6 +91,8 @@ void Interface_Login_Jogador2::Loop_Events(){
             if(posicao > 0){
                 --posicao;
                 pressed = true;
+                caixa_de_texto1.Definir_Selecao(false);
+                caixa_de_texto2.Definir_Selecao(false);
                 textos.Set_Contorno_Texto_Voltar(posicao);
                 pressed = false;
                 seleção_ativa = false;
@@ -111,9 +115,8 @@ void Interface_Login_Jogador2::Loop_Events(){
                     define_jogo->Run();
                 } else {
                     cerr << "Aviso: Jogador nao existente" << endl;
-                    mensagem_de_erro = "Aviso: Jogador nao existente";
-                    avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
-                     
+                    Set_Aviso();
+                    //audio.Play_Efeito_Sonoro_Aviso();
                     seleção_ativa = false;
                 }
             } 
@@ -122,6 +125,30 @@ void Interface_Login_Jogador2::Loop_Events(){
         if (evento.type == sf::Event::TextEntered) {
             caixa_de_texto1.Processar_Entrada(evento);
         }
+
+        if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+        mostrar_aviso = false;
+    }
+    }
+}
+
+void Interface_Login_Jogador2::Set_Aviso() {
+    try {
+        const sf::Font& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte); 
+        aviso.setCharacterSize(15);
+        aviso.setFillColor(sf::Color::Red);
+        
+        const auto& textos_aux = textos.Get_Vetor_Textos();
+        sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
+        float pos_y_play = bounds_play.top + bounds_play.height;
+
+        aviso.setString("Aviso: Jogador nao existente");
+        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
+        clock_aviso.restart();
+        mostrar_aviso = true;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
     }
 }
 
@@ -135,8 +162,9 @@ void Interface_Login_Jogador2::Atualizar_Janela() {
             janela->draw(text);
         }
 
-        sf::Text aviso = avisos.Get_Aviso();
-        janela->draw(aviso);
+        if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+            mostrar_aviso = false;
+        }
         
 
         caixa_de_texto1.Draw_To(*janela);

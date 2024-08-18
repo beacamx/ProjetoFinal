@@ -32,6 +32,17 @@ void Interface_Menu::Atualizar_Janela() {
     }
 }
 
+void Interface_Menu::Set_Aviso() {
+    try {
+        const sf::Font& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte); 
+        aviso.setCharacterSize(18);
+        aviso.setFillColor(sf::Color::Red);
+    } catch (const exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
+}
+
 void Interface_Menu::Run() {
     while (janela->isOpen()) {
         this->Loop_Events();

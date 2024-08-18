@@ -50,6 +50,7 @@ class Interface_Menu: public Interface_Base  {
         ~Interface_Menu() {};
         void Run() override;
         void Set_Janela();
+        virtual void Set_Aviso() override;
 };
 
 #endif

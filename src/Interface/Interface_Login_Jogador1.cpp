@@ -72,38 +72,43 @@ void Interface_Login_Jogador1::Loop_Events(){
     int tam_vetor_texto = textos.Get_Tamanho_Vetor_Textos();
 
     while(janela->pollEvent(evento)) {
-        if (evento.type == sf::Event::Closed) {
-            janela->close();
-        }
-
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            // audio.Play_Efeito_Sonoro_Selecao_Botao();
-            if(posicao < tam_vetor_texto - 1){
-                ++posicao;
-                pressed = true;
-                textos.Set_Contorno_Texto_Avancar(posicao);
-                pressed = false;
-                seleção_ativa = false;
+        try {
+            if (evento.type == sf::Event::Closed) {
+                janela->close();
             }
-        }
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            // audio.Play_Efeito_Sonoro_Selecao_Botao();
-            if(posicao > 0){
-                --posicao;
-                pressed = true;
-                textos.Set_Contorno_Texto_Voltar(posicao);
-                pressed = false;
-                seleção_ativa = false;
-            }
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !seleção_ativa) {
-            if (posicao == 0) {
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-                    caixa_de_texto1.Definir_Selecao(true);
-                } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
+                //audio.Play_Efeito_Sonoro_Selecao_Botao();
+                if (posicao < tam_vetor_texto - 1) {
+                    ++posicao;
+                    pressed = true;
                     caixa_de_texto1.Definir_Selecao(false);
+                    caixa_de_texto2.Definir_Selecao(false);
+                    textos.Set_Contorno_Texto_Avancar(posicao);
+                    pressed = false;
+                    seleção_ativa = false;
+                }
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed) {
+                //audio.Play_Efeito_Sonoro_Selecao_Botao();
+                if (posicao > 0) {
+                    --posicao;
+                    pressed = true;
+                    caixa_de_texto1.Definir_Selecao(false);
+                    caixa_de_texto2.Definir_Selecao(false);
+                    textos.Set_Contorno_Texto_Voltar(posicao);
+                    pressed = false;
+                    seleção_ativa = false;
+                }
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && !seleção_ativa) {
+                if (posicao == 0) {
+                    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+                        caixa_de_texto1.Definir_Selecao(true);
+                    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+                        caixa_de_texto1.Definir_Selecao(false);
                 }
             } else if (posicao == 1) {
                 seleção_ativa = true;
@@ -114,17 +119,45 @@ void Interface_Login_Jogador1::Loop_Events(){
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
                 } else {
                     cerr << "Aviso: Jogador nao existente" << endl;
-                    mensagem_de_erro = "Aviso: Jogador nao existente";
-                    avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
-                     
+                    Set_Aviso();
+                    //audio.Play_Efeito_Sonoro_Aviso();
                     seleção_ativa = false;
                 }
             } 
         }
 
-        if (evento.type == sf::Event::TextEntered) {
-            caixa_de_texto1.Processar_Entrada(evento);
+            if (evento.type == sf::Event::TextEntered) {
+                caixa_de_texto1.Processar_Entrada(evento);
+            }
+        } catch (const std::exception& e) {
+            cerr << "Erro ao processar evento: " << e.what() << endl;
+        } catch (...) {
+            cerr << "Erro desconhecido ao processar evento." << endl;
         }
+    }
+
+    if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
+        mostrar_aviso = false;
+    }
+}
+
+void Interface_Login_Jogador1::Set_Aviso() {
+    try {
+        const sf::Font& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte); 
+        aviso.setCharacterSize(15);
+        aviso.setFillColor(sf::Color::Red);
+        
+        clock_aviso.restart();
+        const auto& textos_aux = textos.Get_Vetor_Textos();
+        sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
+        float pos_y_play = bounds_play.top + bounds_play.height;
+
+        aviso.setString("Aviso: Jogador nao existente");
+        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
+        mostrar_aviso = true;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
     }
 }
 
@@ -140,9 +173,9 @@ void Interface_Login_Jogador1::Atualizar_Janela() {
         
         caixa_de_texto1.Draw_To(*janela);
 
-        
-        sf::Text aviso = avisos.Get_Aviso();
-        janela->draw(aviso);
+        if (mostrar_aviso) {
+            janela->draw(aviso);
+        }
 
         this->janela->display();
     } catch (const std::exception& e) {

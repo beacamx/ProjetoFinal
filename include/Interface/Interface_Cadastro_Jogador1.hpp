@@ -19,6 +19,7 @@ class Interface_Cadastro_Jogador1: public Interface_Menu {
         void Atualizar_Janela() override;
         void Set_Opcoes() override; 
         void Set_Image() override;  
+        void Set_Aviso() override;
     public:
         Interface_Cadastro_Jogador1();
         ~Interface_Cadastro_Jogador1(){};
@@ -27,6 +28,7 @@ class Interface_Cadastro_Jogador1: public Interface_Menu {
     private:
         Caixa_de_texto caixa_de_texto1;
         Caixa_de_texto caixa_de_texto2;
+        unique_ptr<Interface_Define_Jogo> define_jogo;
         cadastro registro_geral;
         float altura_texto;
 };

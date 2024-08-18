@@ -6,10 +6,9 @@
 #include <memory>
 #include <string>
 
-//#include "Classes_auxiliares/Audio.hpp"
-#include "Classes_auxiliares/Avisos.hpp"
-#include "Cadastro_Jogadores.hpp"
 //#include "Audio.hpp"
+#include "Avisos.hpp"
+#include "Cadastro_Jogadores.hpp"
 
 using namespace std;
 
@@ -18,6 +17,10 @@ class Interface_Base {
         unique_ptr<sf::RenderWindow> janela;
         unique_ptr<sf::RectangleShape> winclose;
         sf::Texture textura;
+
+        sf::Clock clock_aviso;
+        bool mostrar_aviso = false;
+        sf::Text aviso;
 
         //Audio audio;
         Avisos avisos;
@@ -34,13 +37,12 @@ class Interface_Base {
             this->winclose = make_unique<sf::RectangleShape>();
             janela->setVerticalSyncEnabled(true);
             registro_geral.save();
-            avisos.Set_Aviso();
         };
         ~Interface_Base(){};
 
         virtual void Run() = 0;
         virtual void Atualizar_Janela() = 0;
-
+        virtual void Set_Aviso() = 0;
         void Centralizar_Janela();
 
 };
