@@ -114,7 +114,7 @@ void cadastro::save()
     char p_name[20] = {};
     _aux->get_name().copy(p_name, _aux->get_name().size(), 0);
     char p_nick[20] = {};
-    _aux->get_name().copy(p_nick, _aux->get_name().size(), 0);
+    _aux->get_nick().copy(p_nick, _aux->get_name().size(), 0);
     unsigned int input_wins_lig4 = _aux->get_wins_lig4();
     unsigned int input_wins_Reversi = _aux->get_wins_Reversi();
     unsigned int input_loses_lig4 = _aux->get_loses_lig4();
