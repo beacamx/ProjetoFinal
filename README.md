@@ -3,15 +3,16 @@
 ### Professor: 
 * **Luiz Chaimowicz**
 
----
+
 
 ## Desenvolvedores:
 *  **Beatriz Camilly**
-*  **deborah Mirella**
+*  **Deborah Mirella**
 *  **Gabriela Soares**
 *  **Lauren Cota**
 *  **Bernardo Coelho**
 
+---
 
 ## Visão Geral
 Este projeto, desenvolvido para a disciplina **PDS II - Projeto Final - 2024-1**, tem como objetivo criar um sistema de jogos de tabuleiro utilizando os princípios de programação orientada a objetos em C++. O sistema implementa dois jogos clássicos: **Reversi** e **Connect Four (Lig4)**.
@@ -45,6 +46,7 @@ Connect Four é um jogo de tabuleiro para dois jogadores onde o objetivo é ser 
 - **Testes:** Biblioteca doctest para testes unitários e de integração.
 - **Controle de Versão:** Git e GitHub para colaboração e versionamento.
 
+---
 
 ## Compilação e Execução
 Este projeto foi desenvolvido e testado em um ambiente Linux, utilizando um compilador g++ e a biblioteca SFML para a interface gráfica. Para compilar e executar o sistema, siga as instruções abaixo:
