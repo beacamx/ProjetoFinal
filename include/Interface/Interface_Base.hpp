@@ -2,6 +2,7 @@
 #define INTERFACE_BASE_HPP
 
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <iostream>
 #include <memory>
 #include <string>
@@ -36,7 +37,7 @@ class Interface_Base {
             this->janela = make_unique<sf::RenderWindow>();
             this->winclose = make_unique<sf::RectangleShape>();
             janela->setVerticalSyncEnabled(true);
-            registro_geral.save();
+            registro_geral.load();
         };
         ~Interface_Base(){};
 
