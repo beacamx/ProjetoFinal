@@ -79,7 +79,6 @@ void Interface_Login_Jogador2::Loop_Events(){
                 ++posicao;
                 pressed = true;
                 caixa_de_texto1.Definir_Selecao(false);
-                caixa_de_texto2.Definir_Selecao(false);
                 textos.Set_Contorno_Texto_Avancar(posicao);
                 pressed = false;
                 seleção_ativa = false;
@@ -92,7 +91,6 @@ void Interface_Login_Jogador2::Loop_Events(){
                 --posicao;
                 pressed = true;
                 caixa_de_texto1.Definir_Selecao(false);
-                caixa_de_texto2.Definir_Selecao(false);
                 textos.Set_Contorno_Texto_Voltar(posicao);
                 pressed = false;
                 seleção_ativa = false;
