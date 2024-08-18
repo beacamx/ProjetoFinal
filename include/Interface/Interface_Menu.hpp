@@ -19,16 +19,11 @@ class Interface_Menu: public Interface_Base  {
         int posicao, num_botoes, num_janela;
         bool pressed, seleção_ativa;
 
-        sf::Clock clock_aviso;
-        bool mostrar_aviso = false;
-
         unique_ptr<sf::Texture> image;
         unique_ptr<sf::Sprite> background;
 
         sf::Vector2i posicao_mouse;
         sf::Vector2f mouse_coord;
-
-        sf::Text aviso;
 
         vector<const char*> opcoes_de_escolha;
         vector<sf::Vector2f> coords_copia;
@@ -49,17 +44,12 @@ class Interface_Menu: public Interface_Base  {
         cadastro registro_geral;
         vector<size_t> tamanho_fonte;
         Textos textos;
-        
-        // temporario
-        string nome_jogador1, nome_jogador2;
-        string apelido_jogador1, apelido_jogador2;
 
     public:
         Interface_Menu();
         ~Interface_Menu() {};
         void Run() override;
         void Set_Janela();
-        virtual void Define_Aviso();
 };
 
 #endif

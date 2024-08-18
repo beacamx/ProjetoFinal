@@ -6,9 +6,10 @@
 #include <memory>
 #include <string>
 
-#include "Classes_auxiliares/Audio.hpp"
+//#include "Classes_auxiliares/Audio.hpp"
 #include "Classes_auxiliares/Avisos.hpp"
 #include "Cadastro_Jogadores.hpp"
+//#include "Audio.hpp"
 
 using namespace std;
 
@@ -18,13 +19,12 @@ class Interface_Base {
         unique_ptr<sf::RectangleShape> winclose;
         sf::Texture textura;
 
-        Audio audio;
+        //Audio audio;
         Avisos avisos;
+        cadastro registro_geral;
 
         int largura_janela, altura_janela; 
-
-        cadastro registro_geral;
-        
+        string mensagem_de_erro;
         string nome_jogador1, nome_jogador2;
         string apelido_jogador1, apelido_jogador2;
     public:
@@ -34,7 +34,7 @@ class Interface_Base {
             this->winclose = make_unique<sf::RectangleShape>();
             janela->setVerticalSyncEnabled(true);
             registro_geral.save();
-            audio.Set_Efeito_Sonoro_Aviso();
+            avisos.Set_Aviso();
         };
         ~Interface_Base(){};
 

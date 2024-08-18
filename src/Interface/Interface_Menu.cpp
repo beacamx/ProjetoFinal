@@ -5,7 +5,7 @@ Interface_Menu::Interface_Menu()
       espaco_vertical(0.0f), espaco_vertical_botao_play(0.0f), altura_titulo(0.0f), altura_inferior_titulo(0.0f) {
     this->image = make_unique<sf::Texture>();
     this->background = make_unique<sf::Sprite>();
-    audio.Set_Efeito_Sonoro_Selecao_Botao();
+    // audio.Set_Efeito_Sonoro_Selecao_Botao();
 }
 
 void Interface_Menu::Set_Janela() {
@@ -29,17 +29,6 @@ void Interface_Menu::Atualizar_Janela() {
         this->janela->display();
     } catch (const exception& e) {
         cerr << "Erro ao desenhar todos os elementos: " << e.what() << endl;
-    }
-}
-
-void Interface_Menu::Define_Aviso() {
-    try {
-        const sf::Font& fonte = textos.Get_Fonte();
-        aviso.setFont(fonte); 
-        aviso.setCharacterSize(18);
-        aviso.setFillColor(sf::Color::Red);
-    } catch (const exception& e) {
-        cerr << "Erro ao definir aviso: " << e.what() << endl;
     }
 }
 

@@ -19,9 +19,9 @@ class cadastro{
   std::vector<Jogador*> player_list();   
   void save();
   void load();
-  private:
-  char default_name[40] = "Lig4&Reversi_data.storage";
-  char string_controll[70] = "Lig4&Reversi_string_controll PDSII 2024/1.v1";
   std::set<Jogador*, player_compare> jogadores;
+  private:
+    char default_name[40] = "Lig4&Reversi_data.storage";
+    char string_controll[70] = "Lig4&Reversi_string_controll PDSII 2024/1.v1";
 };
 #endif

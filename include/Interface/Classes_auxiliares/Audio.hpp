@@ -12,26 +12,19 @@ using namespace std;
 class Audio {
     private:
         sf::SoundBuffer buffer_selecao;
-        sf::SoundBuffer buffer_avisos;
         sf::Sound som_selecao;
-        sf::Sound som_aviso;
         sf::Music som_jogo;
-        sf::Clock timer;
         const float tempo_limite = 1.0f;
     public:
         Audio() {};
         ~Audio() {};
         void Set_Efeito_Sonoro_Selecao_Botao();
-        void Set_Efeito_Sonoro_Aviso();
         void Set_Music(const string& nome_jogo);
 
         void Play_Efeito_Sonoro_Selecao_Botao();
-        void Play_Efeito_Sonoro_Aviso();
         void Play_Music();
 
         void Stop_Music();
-        
-        void Timer(float tempo_duracao);
 };
 
 #endif

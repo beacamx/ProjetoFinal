@@ -19,7 +19,6 @@ class Interface_Cadastro_Jogador1: public Interface_Menu {
         void Atualizar_Janela() override;
         void Set_Opcoes() override; 
         void Set_Image() override;  
-        void Define_Aviso() override;
     public:
         Interface_Cadastro_Jogador1();
         ~Interface_Cadastro_Jogador1(){};

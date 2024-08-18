@@ -4,6 +4,7 @@ using namespace std;
 
 Interface_Login_Jogador2::Interface_Login_Jogador2() : Interface_Menu(), define_jogo(nullptr), caixa_de_texto1(15, sf::Color::White, false) { 
     try {
+        cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
         Set_Values();
     } catch (const std::exception& e) {
         cerr << "Erro na inicialização da interface de login do Jogador 2: " << e.what() << endl;
@@ -73,7 +74,7 @@ void Interface_Login_Jogador2::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            audio.Play_Efeito_Sonoro_Selecao_Botao();
+            // audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
@@ -84,7 +85,7 @@ void Interface_Login_Jogador2::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            audio.Play_Efeito_Sonoro_Selecao_Botao();
+            // audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao > 0){
                 --posicao;
                 pressed = true;
@@ -110,8 +111,9 @@ void Interface_Login_Jogador2::Loop_Events(){
                     define_jogo->Run();
                 } else {
                     cerr << "Aviso: Jogador nao existente" << endl;
-                    Define_Aviso();
-                    audio.Play_Efeito_Sonoro_Aviso();
+                    mensagem_de_erro = "Aviso: Jogador nao existente";
+                    avisos.Get_Aviso_Com_Entrada(mensagem_de_erro, largura_janela, textos.Get_Vetor_Textos());
+                     
                     seleção_ativa = false;
                 }
             } 
@@ -120,30 +122,6 @@ void Interface_Login_Jogador2::Loop_Events(){
         if (evento.type == sf::Event::TextEntered) {
             caixa_de_texto1.Processar_Entrada(evento);
         }
-    }
-
-    if (mostrar_aviso && clock_aviso.getElapsedTime().asSeconds() > 2) {
-        mostrar_aviso = false;
-    }
-}
-
-void Interface_Login_Jogador2::Define_Aviso() {
-    try {
-        const sf::Font& fonte = textos.Get_Fonte();
-        aviso.setFont(fonte); 
-        aviso.setCharacterSize(15);
-        aviso.setFillColor(sf::Color::Red);
-        
-        const auto& textos_aux = textos.Get_Vetor_Textos();
-        sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
-        float pos_y_play = bounds_play.top + bounds_play.height;
-
-        aviso.setString("Aviso: Jogador nao existente");
-        aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
-        clock_aviso.restart();
-        mostrar_aviso = true;
-    } catch (const std::exception& e) {
-        cerr << "Erro ao definir aviso: " << e.what() << endl;
     }
 }
 
@@ -157,9 +135,9 @@ void Interface_Login_Jogador2::Atualizar_Janela() {
             janela->draw(text);
         }
 
-        if (mostrar_aviso) {
-            janela->draw(aviso);
-        }
+        sf::Text aviso = avisos.Get_Aviso();
+        janela->draw(aviso);
+        
 
         caixa_de_texto1.Draw_To(*janela);
         this->janela->display();
