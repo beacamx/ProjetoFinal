@@ -43,13 +43,14 @@ vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
     return posicoesPossiveis;
 }
 
-void Lig4::fazerJogada(int linha, int coluna) {
+vector<vector<int>> Lig4::fazerJogada(int linha, int coluna) {
     // Implementação da lógica de jogo para uma jogada em Lig4
     if (linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && tabuleiro[linha][coluna] == 0) {
         tabuleiro[linha][coluna] = jogadorAtual->getPeca();  // Marca a jogada com a peça do jogador atual
     } else {
         std::cout << "Jogada inválida, tente novamente." << std::endl;
     }
+    return tabuleiro;
 }
 
 

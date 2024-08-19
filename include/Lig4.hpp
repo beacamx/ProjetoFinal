@@ -15,11 +15,9 @@ public:
     Lig4(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador2, int linhas, int colunas);
 
     void inicializarTabuleiro() override; 
-    void fazerJogada(int linha, int coluna) override; 
+    vector<vector<int>> fazerJogada(int linha, int coluna) override; 
     void testarVitoria() override;
     int calcularLinhaDisponivel(int coluna);
-
-    // funcao verificar se o tabuleiro esta cheio (se tem zero em alguma casa)
 
 protected:
     vector<pair<int, int>> calcularPosicoesPossiveis() override;
