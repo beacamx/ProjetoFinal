@@ -20,8 +20,7 @@ class cadastro{
   void save();
   void load();
   std::set<Jogador*, player_compare> jogadores;
-  private:
-    char default_name[40] = "Lig4&Reversi_data.storage";
-    char string_controll[70] = "Lig4&Reversi_string_controll PDSII 2024/1.v1";
+  char default_name[40] = "Lig4&Reversi_data.storage";
+  char string_controll[70] = "Lig4&Reversi_string_controll PDSII 2024/1.v1";
 };
 #endif
