@@ -17,7 +17,7 @@ public:
     void inicializarTabuleiro() override;
     vector<pair<int, int>> calcularPosicoesPossiveis() override;
     vector<vector<int>> fazerJogada(int linha, int coluna) override;
-    void testarVitoria() override;
+    bool testarVitoria() override;
 
     bool testarCapturaPorDirecao(int linha, int coluna, int dx, int dy);
     bool testarCapturasTotais(int linha, int coluna);

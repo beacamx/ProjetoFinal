@@ -46,7 +46,7 @@ vector<vector<int>> Reversi::fazerJogada(int linha, int coluna) {
     return tabuleiro;
 }
 
-void Reversi::testarVitoria() {
+bool Reversi::testarVitoria() {
     bool condicaoVitoria = false;
     if (calcularPosicoesPossiveis().empty()) {
         swap(jogadorAtual, jogadorAdversario);
@@ -78,6 +78,7 @@ void Reversi::testarVitoria() {
             cout << "Empate!" << endl;
         }
         jogoAtivo=false;
+        return condicaoVitoria;
     }
 }
 

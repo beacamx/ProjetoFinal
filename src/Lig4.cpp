@@ -103,6 +103,8 @@ bool Lig4::testarVitoria() {
     }
     if (condicaoVitoria == true) {
         cout << jogadorAtual->get_name() << " venceu!" << endl;
+        jogadorAtual->win_lig4();
+        jogadorAdversario->lose_lig4();
         jogoAtivo = false;
     }
     return condicaoVitoria;
