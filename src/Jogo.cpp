@@ -30,7 +30,7 @@ Jogo::~Jogo() {
 
 void Jogo::iniciarJogo() {
     while (jogoAtivo) {
-        receberJogada();
+        auto tabuleiroAtual = receberJogada();  // Recebe o tabuleiro atualizado após cada jogada
         if (!jogoAtivo) break;
         trocarJogador();
     }
@@ -46,7 +46,7 @@ void Jogo::imprimirTabuleiro() const {
     }
 }
 
-void Jogo::receberJogada() {
+vector<vector<int>> Jogo::receberJogada() {
     imprimirTabuleiro();
     cout << "Posicoes possiveis para " << jogadorAtual->get_name() << ":" << endl;
     auto posicoesPossiveis = calcularPosicoesPossiveis();
@@ -60,6 +60,8 @@ void Jogo::receberJogada() {
     cin >> linha >> coluna;
 
     testarJogada(linha, coluna);
+
+    return tabuleiro; //Retorna o tabuleiro
 }
 
 void Jogo::testarJogada(int linha, int coluna) {
@@ -70,7 +72,7 @@ void Jogo::testarJogada(int linha, int coluna) {
     }
     for (const auto& pos : posicoesPossiveis) {
         if (pos.first == linha && pos.second == coluna) {
-            fazerJogada(linha, coluna);
+             tabuleiro = fazerJogada(linha, coluna);  // Chama o método que faz a jogada e retorna
             return;
         }
     }
