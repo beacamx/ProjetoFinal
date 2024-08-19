@@ -12,7 +12,7 @@ public:
 
     //Mudança no construtror
     Lig4(){};
-    Lig4(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas);
+    Lig4(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador2, int linhas, int colunas);
 
     void inicializarTabuleiro() override; 
     void fazerJogada(int linha, int coluna) override; 

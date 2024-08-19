@@ -3,8 +3,8 @@
 
 using namespace std;
 
-Reversi::Reversi(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
-    : Jogo(cadastro_jogadores, nomeJogador1, nomeJogador2, linhas, colunas) {
+Reversi::Reversi(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador2, int linhas, int colunas)
+    : Jogo(cadastro_jogadores, nickJogador1, nickJogador2, linhas, colunas) {
     inicializarTabuleiro();
 }
 

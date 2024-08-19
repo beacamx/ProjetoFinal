@@ -5,9 +5,9 @@ using namespace std;
 
 // Mudança nos parâmetros que o construtor recebe 
 
-Lig4::Lig4(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
-    : Jogo(cadastro_jogadores, nomeJogador1, nomeJogador2, linhas, colunas) {
-    cout << nomeJogador1 << endl << nomeJogador2 << endl << linhas << endl << colunas << endl;
+Lig4::Lig4(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador2, int linhas, int colunas)
+    : Jogo(cadastro_jogadores, nickJogador1, nickJogador2, linhas, colunas) {
+    cout << nickJogador1 << endl << nickJogador2 << endl << linhas << endl << colunas << endl;
     inicializarTabuleiro();
 }
 

@@ -13,7 +13,7 @@ class Jogo {
 
     public:
     Jogo();
-    Jogo(cadastro& cadastro_jogadores, std::string nomeJogador1, std::string nomeJogador2, int linhas, int colunas);
+    Jogo(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador2, int linhas, int colunas);
     virtual ~Jogo();
 
     void iniciarJogo();
