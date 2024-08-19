@@ -87,8 +87,9 @@ void Interface_Define_Tipo_Operacao_Dados::Loop_Events(){
                 //dimensao->Run();
             } else if(posicao == 1) {
                 janela->close();
-                //dimensao = make_unique<Interface_Define_Dimensao>("Reversi");
-                //dimensao->Run();
+                unique_ptr<Interface_Remove_Jogador> jogadores;
+                jogadores = make_unique<Interface_Remove_Jogador>();
+                jogadores->Run();
             }
         }
     }
