@@ -6,9 +6,14 @@ Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas)
     this->largura_quadrado = 78;
     this->linhas = num_linhas;
     this->colunas = num_colunas;
-    lig4 = Lig4(registro_geral, nome_jogador1, nome_jogador2, linhas, colunas);
-
-    Set_Values();
+    try {
+        cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
+        lig4 = Lig4(registro_geral_ref, nome_jogador1, nome_jogador2, linhas, colunas);
+        Set_Values();
+    } catch (const std::exception& e) {
+        cerr << "Erro ao criar Interface_Lig4: " << e.what() << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Interface_Lig4::Logica() {
@@ -27,23 +32,35 @@ void Interface_Lig4::Logica() {
 
 
 void Interface_Lig4::Set_Textura_Sem_Peca(){
-    if (!textura.loadFromFile("./assets/Lig4/Sem_peca.png")) {
-        cerr << "Erro ao carregar textura de uma casa sem peça" << endl;
-        exit(1);
+    try {
+        if (!textura_sem_peca.loadFromFile("./assets/Lig4/Sem_peca.png")) {
+            throw std::runtime_error("Erro ao carregar textura de uma casa sem peça");
+        }
+    } catch (const std::exception& e) {
+        cerr << e.what() << endl;
+        exit(EXIT_FAILURE);
     }
 }
 
 void Interface_Lig4::Set_Textura_Peca1(){
-    if (!textura_peca1.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
-        cerr << "Erro ao carregar a textura da peça 1" << endl;
-        exit(1);
+    try {
+        if (!textura_sem_peca.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
+            throw std::runtime_error("Erro ao carregar textura de uma casa sem peça");
+        }
+    } catch (const std::exception& e) {
+        cerr << e.what() << endl;
+        exit(EXIT_FAILURE);
     }
 }
 
 void Interface_Lig4::Set_Textura_Peca2(){
-    if (!textura_peca2.loadFromFile("./assets/Lig4/Peca_amarela.png")) {
-        cerr << "Erro ao carregar a textura da peça 2" << endl;
-        exit(1);
+    try {
+        if (!textura_peca2.loadFromFile("./assets/Lig4/Peca_amarela.png")) {
+            throw std::runtime_error("Erro ao carregar a textura da peça 2");
+        }
+    } catch (const std::exception& e) {
+        cerr << e.what() << endl;
+        exit(EXIT_FAILURE);
     }
 }
 
@@ -59,41 +76,47 @@ void Interface_Lig4::Set_Textura_Peca2(){
 }*/
 
 void Interface_Lig4::Set_Sprites() {
-    sprites.resize(linhas * colunas); // Redimensiona o vetor de sprites para ter um sprite para cada posição no tabuleiro.
-    tabuleiro.resize(linhas, vector<int>(colunas, 0)); // Redimensiona a matriz grid para representar o estado do tabuleiro, inicializando todas as posições com 0 (indicando que estão vazias).
-        
-    for(int i = 0; i < linhas; ++i) {
-        for(int j = 0; j < colunas; ++j) {
-            int indice = i * colunas + j; 
-            int tamanho_vetor_sprites = sprites.size();
+    try {
+        sprites.resize(linhas * colunas); // Redimensiona o vetor de sprites para ter um sprite para cada posição no tabuleiro.
+        tabuleiro.resize(linhas, vector<int>(colunas, 0)); // Redimensiona a matriz grid para representar o estado do tabuleiro, inicializando todas as posições com 0 (indicando que estão vazias).
+            
+        for(int i = 0; i < linhas; ++i) {
+            for(int j = 0; j < colunas; ++j) {
+                int indice = i * colunas + j; 
+                int tamanho_vetor_sprites = sprites.size();
 
-            cout << "i: " << i << ", j: " << j << ", indice: " << indice << endl;
+                cout << "i: " << i << ", j: " << j << ", indice: " << indice << endl;
 
-            if (indice >= tamanho_vetor_sprites) {
-                cerr << "Índice fora dos limites: " << indice << endl;
-                continue;
+                if (indice >= tamanho_vetor_sprites) {
+                    cerr << "Índice fora dos limites: " << indice << endl;
+                    continue;
+                }
+
+                sf::Sprite& sprite = sprites[indice];
+                sprite.setTexture(textura_sem_peca);
+                sprite.setTextureRect(sf::IntRect(0, 0, largura_quadrado, largura_quadrado)); // Definir a área da textura
+                sprite.setPosition(j * largura_quadrado, i * largura_quadrado); // Definir a posição do sprite
             }
-
-            sf::Sprite& sprite = sprites[indice];
-            sprite.setTexture(textura);
-            sprite.setTextureRect(sf::IntRect(0, 0, largura_quadrado, largura_quadrado)); // Definir a área da textura
-            sprite.setPosition(j * largura_quadrado, i * largura_quadrado); // Definir a posição do sprite
         }
+    } catch (const std::exception& e) {
+        cerr << "Erro ao configurar sprites: " << e.what() << endl;
+        exit(EXIT_FAILURE);
     }
 }
 
 int Interface_Lig4::Set_Values(){
     //Set_Music();
-    
-    cout << "Criando Interface_Lig4..." << endl;
+    try {
+        cout << "Criando Interface_Lig4..." << endl;
 
-    Define_Dimensoes_Janela();
-    Set_Janela();
-    //Lig4 lig4(registro_geral, nome_jogador1, nome_jogador2, linhas, colunas);
-    tabuleiro.resize(linhas, vector<int>(colunas, 0));
-
-    Set_Sprites();
-    Set_Textura_Sem_Peca();
-    Set_Textura_Peca1();
-    Set_Textura_Peca2();
+        Define_Dimensoes_Janela();
+        Set_Janela();
+        Set_Sprites();
+        Set_Textura_Sem_Peca();
+        Set_Textura_Peca1();
+        Set_Textura_Peca2();
+    } catch (const std::exception& e) {
+        cerr << "Erro ao configurar valores da Interface_Lig4: " << e.what() << endl;
+        exit(EXIT_FAILURE);
+    }
 }

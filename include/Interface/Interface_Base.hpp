@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <stdexcept>
 
 //#include "Audio.hpp"
 #include "Avisos.hpp"
@@ -26,26 +27,21 @@ class Interface_Base {
 
         //Audio audio;
         Avisos avisos;
-        cadastro registro_geral;
+        static cadastro registro_geral;
 
         int largura_janela, altura_janela; 
         string mensagem_de_erro;
         string nome_jogador1, nome_jogador2;
         string apelido_jogador1, apelido_jogador2;
+        static cadastro& Get_Registro_Geral();
     public:
-        Interface_Base(int largura, int altura) 
-            : largura_janela(largura), altura_janela(altura) {
-            this->janela = make_unique<sf::RenderWindow>();
-            this->winclose = make_unique<sf::RectangleShape>();
-            janela->setVerticalSyncEnabled(true);
-        };
+        Interface_Base(int largura, int altura);
         ~Interface_Base(){};
 
         virtual void Run() = 0;
         virtual void Atualizar_Janela() = 0;
         virtual void Set_Aviso() = 0;
         void Centralizar_Janela();
-
 };
 
 #endif

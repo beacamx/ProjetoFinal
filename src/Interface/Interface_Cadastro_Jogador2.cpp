@@ -61,15 +61,16 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                     seleção_ativa = true;
                     nome_jogador2 = caixa_de_texto1.Obter_Texto_Entrada();
                     apelido_jogador2 = caixa_de_texto2.Obter_Texto_Entrada();
+                    cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
                     try {
-                        if(registro_geral.find_by_nick(apelido_jogador2) == NULL && nome_jogador2.length() > 0 && apelido_jogador2.length() > 0) { 
-                            registro_geral.cadastrar(new Jogador(nome_jogador2, apelido_jogador2));
-                            cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
+                        if(registro_geral_ref.find_by_nick(apelido_jogador2) == NULL && nome_jogador2.length() > 0 && apelido_jogador2.length() > 0) { 
+                            registro_geral_ref.cadastrar(new Jogador(nome_jogador2, apelido_jogador2));
+                            cout << "Tamanho vetor de jogadores:" << registro_geral_ref.jogadores.size() << endl;
                             //reversi.inicializarTabuleiro(nome_jogador1, nome_jogador2);
                             define_jogo = make_unique<Interface_Define_Jogo>();
                             janela->close();
                             define_jogo->Run();
-                        } else if (registro_geral.find_by_nick(apelido_jogador2) == NULL && nome_jogador2.length() == 0 && apelido_jogador2.length() > 0){
+                        } else if (registro_geral_ref.find_by_nick(apelido_jogador2) == NULL && nome_jogador2.length() == 0 && apelido_jogador2.length() > 0){
                             cerr << "Aviso: Digite seu nome";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");

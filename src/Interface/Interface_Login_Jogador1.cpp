@@ -4,7 +4,6 @@
 Interface_Login_Jogador1::Interface_Login_Jogador1() : Interface_Login_Base() { 
     try {
         Set_Values();
-        cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
     } catch (const std::exception& e) {
         cerr << "Erro ao inicializar Interface_Login_Jogador1: " << e.what() << endl;
         exit(EXIT_FAILURE);
@@ -55,7 +54,8 @@ void Interface_Login_Jogador1::Loop_Events(){
             } else if (posicao == 1) {
                 seleção_ativa = true;
                 apelido_jogador1 = caixa_de_texto1.Obter_Texto_Entrada();
-                if(registro_geral.find_by_nick(apelido_jogador1)) {
+                cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
+                if(registro_geral_ref.find_by_nick(apelido_jogador1)) {
                     cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     janela->close();

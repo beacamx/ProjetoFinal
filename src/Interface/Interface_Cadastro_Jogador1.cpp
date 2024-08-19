@@ -6,7 +6,6 @@ using namespace std;
 Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1() : Interface_Cadastro_Base() {
     try {
         Set_Values();
-        cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
     } catch (const std::exception& e) {
         cerr << "Erro ao inicializar Interface_Cadastro_Jogador1: " << e.what() << endl;
         exit(EXIT_FAILURE);
@@ -71,13 +70,14 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     nome_jogador1 = caixa_de_texto2.Obter_Texto_Entrada();
                     apelido_jogador1 = caixa_de_texto1.Obter_Texto_Entrada();
+                    cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
                     try {
-                        if((!registro_geral.find_by_nick(apelido_jogador1)) && (nome_jogador1.length() > 0) && (apelido_jogador1.length() > 0)) { 
-                            registro_geral.cadastrar(new Jogador(nome_jogador1, apelido_jogador1));
-                            cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
+                        if((!(registro_geral_ref.find_by_nick(apelido_jogador1))) && (nome_jogador1.length() > 0) && (apelido_jogador1.length() > 0)) { 
+                            registro_geral_ref.cadastrar(new Jogador(nome_jogador1, apelido_jogador1));
+                            cout << "Tamanho vetor de jogadores:" << registro_geral_ref.jogadores.size() << endl;
                             janela->close();
                             troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
-                        } else if ((!registro_geral.find_by_nick(apelido_jogador1)) && (nome_jogador1.length() == 0)  && (apelido_jogador1.length() > 0)){
+                        } else if ((!registro_geral_ref.find_by_nick(apelido_jogador1)) && (nome_jogador1.length() == 0)  && (apelido_jogador1.length() > 0)){
                             cerr << "Aviso: Digite seu nome";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
