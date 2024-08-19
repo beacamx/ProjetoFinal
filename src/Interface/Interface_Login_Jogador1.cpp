@@ -111,7 +111,8 @@ void Interface_Login_Jogador1::Loop_Events(){
             } else if (posicao == 1) {
                 seleção_ativa = true;
                 apelido_jogador1 = caixa_de_texto1.Obter_Texto_Entrada();
-                if(registro_geral.find_by_nick(apelido_jogador1) != NULL) {
+                if(registro_geral.find_by_nick(apelido_jogador1)) {
+                    cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     janela->close();
                     troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();

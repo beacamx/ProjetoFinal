@@ -107,7 +107,8 @@ void Interface_Login_Jogador2::Loop_Events(){
             } else if (posicao == 1) {
                 seleção_ativa = true;
                 apelido_jogador2 = caixa_de_texto1.Obter_Texto_Entrada();
-                if(registro_geral.find_by_nick(apelido_jogador2) != NULL) {
+                if(registro_geral.find_by_nick(apelido_jogador2)) {
+                    cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
                     define_jogo = make_unique<Interface_Define_Jogo>();
                     janela->close();
                     define_jogo->Run();

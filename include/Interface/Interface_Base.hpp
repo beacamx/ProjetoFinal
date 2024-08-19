@@ -25,7 +25,7 @@ class Interface_Base {
 
         //Audio audio;
         Avisos avisos;
-        cadastro registro_geral;
+        static cadastro registro_geral;
 
         int largura_janela, altura_janela; 
         string mensagem_de_erro;
@@ -37,7 +37,6 @@ class Interface_Base {
             this->janela = make_unique<sf::RenderWindow>();
             this->winclose = make_unique<sf::RectangleShape>();
             janela->setVerticalSyncEnabled(true);
-            registro_geral.load();
         };
         ~Interface_Base(){};
 

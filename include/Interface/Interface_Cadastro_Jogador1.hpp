@@ -6,31 +6,21 @@
 
 #include "Interface_Menu.hpp"
 #include "Interface_Define_Jogo.hpp"
-#include "Classes_auxiliares/Caixa_de_texto.hpp"
+#include "Caixa_de_texto.hpp"
+#include "Interface_Cadastro_Base.hpp"
 #include "Cadastro_Jogadores.hpp"
+#include "Troca_Definicao_Entrada_Jogador.hpp"
 #include "jogador.hpp"
 
 using namespace std;
 
-class Interface_Cadastro_Jogador1: public Interface_Menu {
-    protected:
-        void Set_Values() override;
-        void Loop_Events() override;
-        void Atualizar_Janela() override;
-        void Set_Opcoes() override; 
-        void Set_Image() override;  
-        void Set_Aviso() override;
+class Interface_Cadastro_Jogador1: public Interface_Cadastro_Base {
     public:
         Interface_Cadastro_Jogador1();
         ~Interface_Cadastro_Jogador1(){};
 
-        void Definicoes_Espacamento_Janela() override;
-    private:
-        Caixa_de_texto caixa_de_texto1;
-        Caixa_de_texto caixa_de_texto2;
-        unique_ptr<Interface_Define_Jogo> define_jogo;
-        cadastro registro_geral;
-        float altura_texto;
+    protected:
+        virtual void Loop_Events() override;
 };
 
 #endif
