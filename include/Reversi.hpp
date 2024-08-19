@@ -14,7 +14,7 @@ public:
 
     ~Reversi() = default;
 
-    void inicializarTabuleiro() override;
+    vector<vector<int>> inicializarTabuleiro() override;
     vector<pair<int, int>> calcularPosicoesPossiveis() override;
     vector<vector<int>> fazerJogada(int linha, int coluna) override;
     bool testarVitoria() override;

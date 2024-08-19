@@ -27,7 +27,7 @@ class Jogo {
     
     virtual vector<vector<int>> fazerJogada(int linha, int coluna) = 0;  // Mudança para retornar o tabuleiro
     virtual bool testarVitoria() = 0;
-    virtual void inicializarTabuleiro() = 0;
+    virtual vector<vector<int>> inicializarTabuleiro() = 0;
     virtual vector<pair<int, int>> calcularPosicoesPossiveis() = 0;
     
     protected:
