@@ -1,7 +1,5 @@
 #include "Interface_Cadastro_Base.hpp"
 
-using namespace std;
-
 Interface_Cadastro_Base::Interface_Cadastro_Base()
     : Interface_Menu(), caixa_de_texto1(15, sf::Color::White, false), caixa_de_texto2(15, sf::Color::White, false) {
     Set_Values();
@@ -39,7 +37,6 @@ void Interface_Cadastro_Base::Set_Values(){
         caixa_de_texto2.Definir_Configuracoes_Caixa_de_Texto(fonte, {posicao_x_caixa_texto, posicao_y_caixa_texto2}, true, 10);
 
         janela->setKeyRepeatEnabled(true);
-        janela->setVerticalSyncEnabled(true);
     } catch (const runtime_error& e) {
         cerr << "Erro ao configurar valores da interface: " << e.what() << endl;
     } catch (const exception& e) {
