@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Jogo::Jogo(cadastro& cadastro_jogadores, std::string nomeJogador1, std::string nomeJogador2, int linhas, int colunas)
+Jogo::Jogo(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
     : numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
     // Busca os jogadores no cadastro
     jogadorA = cadastro_jogadores.find_by_name(nomeJogador1);
