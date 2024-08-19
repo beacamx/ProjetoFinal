@@ -14,7 +14,7 @@ public:
     Lig4(){};
     Lig4(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador2, int linhas, int colunas);
 
-    void inicializarTabuleiro() override; 
+    vector<vector<int>> inicializarTabuleiro() override; 
     vector<vector<int>> fazerJogada(int linha, int coluna) override; 
     bool testarVitoria() override;
     int calcularLinhaDisponivel(int coluna);

@@ -12,7 +12,7 @@ Lig4::Lig4(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador
 }
 
 
-void Lig4::inicializarTabuleiro() {
+vector<vector<int>> Lig4::inicializarTabuleiro() {
     for (int i = 0; i < numLinhas; i++) {
         for (int j = 0; j < numColunas; j++) {
             tabuleiro[i][j] = 0;
