@@ -11,7 +11,7 @@ Lig4::Lig4(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
 void Lig4::inicializarTabuleiro() {
     for (int i = 0; i < numLinhas; i++) {
         for (int j = 0; j < numColunas; j++) {
-            tabuleiro[i][j] = ' ';
+            tabuleiro[i][j] = 0;
         }
     }
 }
@@ -20,7 +20,7 @@ vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
     vector<pair<int, int>> posicoesPossiveis;
     for (int j = 0; j < numColunas; j++) {
         for (int i = numLinhas - 1; i >= 0; --i) {
-            if(tabuleiro[i][j] == ' ') {
+            if(tabuleiro[i][j] == 0) {
                 posicoesPossiveis.emplace_back(i, j);
                 break;
             }

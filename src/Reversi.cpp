@@ -16,6 +16,7 @@ void Reversi::inicializarTabuleiro() {
     }
     tabuleiro[3][3] = tabuleiro[4][4] = jogadorB->getPeca();
     tabuleiro[3][4] = tabuleiro[4][3] = jogadorA->getPeca();
+    //configuração inicial do Reversi: quatro peças, duas de cada jogador, no centro
 }
 
 vector<pair<int, int>> Reversi::calcularPosicoesPossiveis() {
@@ -28,7 +29,9 @@ vector<pair<int, int>> Reversi::calcularPosicoesPossiveis() {
         }
     }
     if(posicoesPossiveis.empty()) {
-        cout << "Não há jogadas possíveis! " << jogadorAtual->get_name() << " perde a vez." << endl;
+        cout << "Não ha jogadas possiveis! " << jogadorAtual->get_name() << " perde a vez." << endl;
+        //no Reversi uma jogada só é válida se resulta na captura de pelo menos uma peça do adversário.
+        //se não há captura possíveis, o jogador perde a vez.
     }
     return posicoesPossiveis;
 }
@@ -36,6 +39,8 @@ vector<pair<int, int>> Reversi::calcularPosicoesPossiveis() {
 void Reversi::fazerJogada(int linha, int coluna) {
     tabuleiro[linha][coluna] = jogadorAtual->getPeca();
     fazerCaptura(linha, coluna);
+    //como para uma jogada ser válida sempre deve resultar em captura de pelo menos uma posição, o método fazerCaptura
+    //sempre deve ser chamado em fazerJogada.
     imprimirTabuleiro();
     encerrarJogada();
 }
@@ -112,7 +117,7 @@ void Reversi::fazerCaptura(int linha, int coluna) {
     for (const auto& direcao : direcoes) {
         int dx = direcao[0], dy = direcao[1];
         vector<pair<int, int>> capturas;
-        //guarda as posições capturadas
+        //criação de vetor que guarda as posições capturadas
 
         int i = linha + dx, j = coluna + dy;
         while (i >= 0 && i < numLinhas && j >= 0 && j < numColunas && tabuleiro[i][j] == jogadorAdversario->getPeca()) {

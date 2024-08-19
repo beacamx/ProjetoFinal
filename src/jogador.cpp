@@ -15,11 +15,11 @@ std::string Jogador::get_nick() {
 }
 
 int Jogador::getPeca() {
-    return Jogador::peca;
+    return peca;
 }
 
 void Jogador::setPeca(int p) {
-    Jogador::peca = p;
+    peca = p;
 }
 
 unsigned int Jogador::get_wins() { 

@@ -37,14 +37,14 @@ void Jogo::imprimirTabuleiro() const {
 
 void Jogo::receberJogada() {
     imprimirTabuleiro();
-    cout << "Posições possíveis para " << jogadorAtual->get_name() << ":" << endl;
+    cout << "Posicoes possiveis para " << jogadorAtual->get_name() << ":" << endl;
     auto posicoesPossiveis = calcularPosicoesPossiveis();
     for (const auto& pos : posicoesPossiveis) {
         cout << "(" << pos.first << ", " << pos.second << ") ";
     }
     cout << endl;
 
-    cout << "Digite a linha e coluna desejada (ex: 1 2): ";
+    cout << "Digite a linha e coluna desejada no seguinte formato (linha coluna): ";
     int linha, coluna;
     cin >> linha >> coluna;
 
@@ -63,7 +63,7 @@ void Jogo::testarJogada(int linha, int coluna) {
             return;
         }
     }
-    cout << "Jogada inválida, tente novamente." << endl;
+    cout << "Jogada invalida, tente novamente." << endl;
     receberJogada();
 }
 
