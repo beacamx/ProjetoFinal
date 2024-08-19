@@ -16,7 +16,7 @@ using namespace std;
 class Interface_Jogo : public Interface_Base {
     public:
         Interface_Jogo(const string& nome_do_jogo);
-        ~Interface_Jogo();
+        ~Interface_Jogo(){};
 
         void Eventos_Jogo();
         virtual void Atualizar_Janela() override;

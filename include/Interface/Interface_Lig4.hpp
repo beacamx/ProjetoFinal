@@ -14,7 +14,7 @@ using namespace std;
 
 class Interface_Lig4 : public Interface_Jogo {
     public:
-        Interface_Lig4() : Interface_Jogo("Lig4"), lig4(registro_geral, nome_jogador1, nome_jogador2, linhas, colunas) { this->largura_quadrado = 78;}
+        Interface_Lig4() : Interface_Jogo("Lig4") { this->largura_quadrado = 78;}
         ~Interface_Lig4();
 
         void Logica() override;
@@ -24,8 +24,6 @@ class Interface_Lig4 : public Interface_Jogo {
         void Set_Textura_Peca1() override;
         void Set_Textura_Peca2() override;
         //void Set_Music() override;
-    private:
-        Lig4 lig4;
 };
 
 #endif
