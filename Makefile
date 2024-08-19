@@ -37,12 +37,8 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Jogador.o $(OBJDIR)/Cadastro_Jogadores.o \
 	$(OBJDIR)/Textos.o $(OBJDIR)/Interface_Base.o \
 	$(OBJDIR)/Avisos.o $(OBJDIR)/Interface_Cadastro_Base.o \
-<<<<<<< HEAD
-	$(OBJDIR)/Interface_Login_Base.o
-=======
 	$(OBJDIR)/Lig4.o $(OBJDIR)/Jogo.o \
-	$(OBJDIR)/Reversi.o
->>>>>>> Nova-Integração
+	$(OBJDIR)/Interface_Login_Base.o
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 
@@ -61,19 +57,16 @@ $(OBJDIR)/Jogador.o: $(SRCDIR)/Jogador.cpp $(INCDIR)/Jogador.hpp
 $(OBJDIR)/Lig4.o: $(SRCDIR)/Lig4.cpp $(INCDIR)/Lig4.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Lig4.cpp -o $(OBJDIR)/Lig4.o
 
-$(OBJDIR)/Reversi.o: $(SRCDIR)/Reversi.cpp $(INCDIR)/Reversi.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp
-	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Reversi.cpp -o $(OBJDIR)/Reversi.o
-
 $(OBJDIR)/Jogo.o: $(SRCDIR)/Jogo.cpp $(INCDIR)/Jogo.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp $(INCDIR)/Jogo.hpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Jogo.cpp -o $(OBJDIR)/Jogo.o	
 
 $(OBJDIR)/Interface_Cadastro_Base.o: $(SRCDIR)/Interface/Interface_Cadastro_Base.cpp $(INCDIR)/Interface/Interface_Cadastro_Base.hpp $(INCDIR)/Interface/Interface_Menu.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Cadastro_Base.cpp -o $(OBJDIR)/Interface_Cadastro_Base.o
 
-$(OBJDIR)/Interface_Login_Base.o: $(SRCDIR)/Interface/Interface_Login_Base.cpp $(INCDIR)/Interface/Interface_Login_Base.hpp $(INCDIR)/Interface/Interface_Menu.hpp
+$(OBJDIR)/Interface_Login_Base.o: $(SRCDIR)/Interface/Interface_Login_Base.cpp $(INCDIR)/Interface/Interface_Login_Base.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp 
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Login_Base.cpp -o $(OBJDIR)/Interface_Login_Base.o
 
-$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp $(INCDIR)/Interface/Classes_auxiliares/Avisos.hpp  
+$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp $(INCDIR)/Interface/Classes_auxiliares/Avisos.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp 
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Base.cpp -o $(OBJDIR)/Interface_Base.o
 
 $(OBJDIR)/Textos.o: $(SRCDIR)/Interface/Classes_auxiliares/Textos.cpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
@@ -118,7 +111,7 @@ $(OBJDIR)/Interface_Lig4.o: $(SRCDIR)/Interface/Interface_Lig4.cpp $(INCDIR)/Int
 $(OBJDIR)/Interface_Define_Jogo.o: $(SRCDIR)/Interface/Interface_Define_Jogo.cpp $(INCDIR)/Interface/Interface_Define_Jogo.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Define_Jogo.cpp -o $(OBJDIR)/Interface_Define_Jogo.o
 
-$(OBJDIR)/Interface_Reversi.o: $(SRCDIR)/Interface/Interface_Reversi.cpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Reversi.hpp
+$(OBJDIR)/Interface_Reversi.o: $(SRCDIR)/Interface/Interface_Reversi.cpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Interface_Jogo.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Reversi.cpp -o $(OBJDIR)/Interface_Reversi.o
 
 $(OBJDIR)/Interface_Define_Dimensao.o: $(SRCDIR)/Interface/Interface_Define_Dimensao.cpp $(INCDIR)/Interface/Interface_Define_Dimensao.hpp $(INCDIR)/Interface/Interface_Menu.hpp  $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp

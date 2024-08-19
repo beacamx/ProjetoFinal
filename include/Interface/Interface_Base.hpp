@@ -10,6 +10,7 @@
 //#include "Audio.hpp"
 #include "Avisos.hpp"
 #include "Cadastro_Jogadores.hpp"
+#include "Jogador.hpp"
 
 using namespace std;
 
@@ -25,7 +26,7 @@ class Interface_Base {
 
         //Audio audio;
         Avisos avisos;
-        static cadastro registro_geral;
+        cadastro registro_geral;
 
         int largura_janela, altura_janela; 
         string mensagem_de_erro;
