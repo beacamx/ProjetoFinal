@@ -9,13 +9,13 @@ Reversi::Reversi(cadastro& cadastro_jogadores, string nickJogador1, string nickJ
 }
 
 vector<vector<int>> Reversi::inicializarTabuleiro() {
-    for (int i = 0; i < numLinhas; ++i) {
-        for (int j = 0; j < numColunas; ++j) {
+    for (int i = 0; i < numLinhas; i++) {
+        for (int j = 0; j < numColunas; j++) {
             tabuleiro[i][j] = 0;
         }
     }
-    tabuleiro[numLinhas/2][(numColunas/2)+1] = tabuleiro[(numLinhas/2)+1][numColunas/2] = jogadorA->getPeca();
-    tabuleiro[numLinhas/2][numColunas/2] = tabuleiro[(numLinhas/2)+1][(numColunas/2)+1] = jogadorB->getPeca();
+    tabuleiro[3][3] = tabuleiro[4][4] = jogadorA->getPeca();
+    tabuleiro[4][3] = tabuleiro[3][4] = jogadorB->getPeca();
     return tabuleiro;
     //configuração inicial do Reversi: quatro peças, duas de cada jogador, no centro
 }

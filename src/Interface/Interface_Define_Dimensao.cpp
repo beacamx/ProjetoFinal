@@ -4,7 +4,7 @@ void Interface_Define_Dimensao::Set_Opcoes() {
     if (nome_jogo == "Lig4") {
         opcoes_de_escolha = {"6x7", "7x8", "8x9"};
     } else if (nome_jogo == "Reversi") {
-        opcoes_de_escolha = {"8x8", "9x9", "10x10"};
+        opcoes_de_escolha = {"6x6", "8x8", "10x10"};
     } else {
         cerr << "Nome de jogo desconhecido: " << nome_jogo << endl;
         throw std::invalid_argument("Nome de jogo inválido");
@@ -111,14 +111,14 @@ void Interface_Define_Dimensao::Loop_Events(){
                     unique_ptr<Interface_Reversi> jogo;
                     if (posicao == 0) {
                         janela->close();
-                        num_linhas = 8;
-                        num_colunas = 8;
+                        num_linhas = 6;
+                        num_colunas = 6;
                         jogo = make_unique<Interface_Reversi>(num_linhas, num_colunas);
                         jogo->Run();
                     } else if (posicao == 1) {
                         janela->close();
-                        num_linhas = 9;
-                        num_colunas = 9;
+                        num_linhas = 8;
+                        num_colunas = 8;
                         jogo = make_unique<Interface_Reversi>(num_linhas, num_colunas);
                         jogo->Run();
                     } else if (posicao == 2) {

@@ -45,7 +45,7 @@ void Jogo::iniciarJogo() {
 void Jogo::imprimirTabuleiro() const {
     for (int i = 0; i < numLinhas; ++i) {
         for (int j = 0; j < numColunas; ++j) {
-            cout << tabuleiro[i][j] << 0;
+            cout << tabuleiro[i][j];
         }
         cout << endl;
     }

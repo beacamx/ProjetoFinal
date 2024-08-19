@@ -30,22 +30,8 @@ void Interface_Reversi::Logica() {
 
     cout << "Coordenadas calculadas: Linha " << linha << ", Coluna " << coluna << endl;
 
-    vector<pair<int, int>> posicoes = reversi.calcularPosicoesPossiveis();
-    cout << "Posições possíveis: ";
-    for (const auto& pos : posicoes) {
-        cout << "{" << pos.first << ", " << pos.second << "} ";
-    }
-    cout << endl;
-// Verifica se a jogada é válida
-    vector<pair<int, int>> posicoesPossiveis = reversi.calcularPosicoesPossiveis();
-    if (std::find(posicoesPossiveis.begin(), posicoesPossiveis.end(), make_pair(linha, coluna)) != posicoesPossiveis.end()) {
-        // Executa a jogada no jogo
-        reversi.fazerJogada(linha, coluna);
-            // Atualiza a interface
-        Atualizar_Janela();
-    } else {
-        cout << "Jogada inválida. Tente novamente." << endl;
-    }
+
+    
 }
 
 
@@ -87,7 +73,7 @@ void Interface_Reversi::Set_Textura_Sem_Peca(){
 
 void Interface_Reversi::Set_Textura_Peca1(){
     try {
-        if (!textura_peca1.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
+        if (!textura_peca1.loadFromFile("./assets/Reversi/Peca_Preta.png")) {
             cerr << "Erro ao carregar a textura da peça 1" << endl;
             exit(1);
         }
@@ -98,7 +84,7 @@ void Interface_Reversi::Set_Textura_Peca1(){
 
 void Interface_Reversi::Set_Textura_Peca2(){
     try {
-        if (!textura_peca2.loadFromFile("./assets/Lig4/Peca_amarela.png")) {
+        if (!textura_peca2.loadFromFile("./assets/Reversi/Peca_Branca.png")) {
             cerr << "Erro ao carregar a textura da peça 2" << endl;
             exit(1);
         }
@@ -110,23 +96,35 @@ void Interface_Reversi::Set_Textura_Peca2(){
 void Interface_Reversi::Set_Sprites() {
     sprites.resize(linhas * colunas); // Redimensiona o vetor de sprites para ter um sprite para cada posição no tabuleiro.
     tabuleiro.resize(linhas, vector<int>(colunas, 0)); // Redimensiona a matriz grid para representar o estado do tabuleiro, inicializando todas as posições com 0 (indicando que estão vazias).
-        
+
+    tabuleiro = reversi.inicializarTabuleiro();
+    reversi.imprimirTabuleiro();
+
     for(int i = 0; i < linhas; ++i) {
         for(int j = 0; j < colunas; ++j) {
-            int indice = i * colunas + j; 
+            int valor_casa = tabuleiro[i][j];
+            int indice = i * colunas + j;
             int tamanho_vetor_sprites = sprites.size();
 
-            cout << "i: " << i << ", j: " << j << ", indice: " << indice << endl;
-
-            if (indice >= tamanho_vetor_sprites) {
+            if (indice < 0 || indice >= tamanho_vetor_sprites) {
                 cerr << "Índice fora dos limites: " << indice << endl;
                 continue;
             }
 
             sf::Sprite& sprite = sprites[indice];
-            sprite.setTexture(textura_sem_peca);
-            sprite.setTextureRect(sf::IntRect(0, 0, largura_quadrado, largura_quadrado)); // Definir a área da textura
-            sprite.setPosition(j * largura_quadrado, i * largura_quadrado); // Definir a posição do sprite
+
+            if(valor_casa == 0) {
+                sprite.setTexture(textura_sem_peca); 
+            } else if (valor_casa == 1) {
+                sprite.setTexture(textura_peca1); 
+            } else if (valor_casa == 2) {
+                sprite.setTexture(textura_peca2);
+            } else {
+                continue;
+            }
+
+            sprite.setTextureRect(sf::IntRect(0, 0, largura_quadrado, largura_quadrado));
+            sprite.setPosition(j * largura_quadrado, i * largura_quadrado);
         }
     }
 }
