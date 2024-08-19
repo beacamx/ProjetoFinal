@@ -155,6 +155,7 @@ void Interface_Remove_Jogador::Loop_Events(){
                 if(registro_geral_ref.find_by_nick(apelido)) {
                     Jogador* jogador_para_remover = registro_geral_ref.find_by_nick(apelido);
                     registro_geral_ref.remover(jogador_para_remover);
+
                     cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
                     janela->close();
                 } else {

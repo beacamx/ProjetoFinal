@@ -36,7 +36,7 @@ vector<pair<int, int>> Reversi::calcularPosicoesPossiveis() {
     return posicoesPossiveis;
 }
 
-void Reversi::fazerJogada(int linha, int coluna) {
+vector<vector<int>> Reversi::fazerJogada(int linha, int coluna) {
     tabuleiro[linha][coluna] = jogadorAtual->getPeca();
     fazerCaptura(linha, coluna);
     //como para uma jogada ser válida sempre deve resultar em captura de pelo menos uma posição, o método fazerCaptura
