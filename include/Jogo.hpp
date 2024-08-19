@@ -18,13 +18,13 @@ class Jogo {
 
     void iniciarJogo();
     void imprimirTabuleiro() const;
-    void receberJogada();
+    vector<vector<int>> receberJogada();  // Outra mudança
     void testarJogada(int linha, int coluna);
     void encerrarJogada();
     void trocarJogador();
     void encerrarJogo();
     
-    virtual void fazerJogada(int linha, int coluna) = 0;
+    virtual vector<vector<int>> fazerJogada(int linha, int coluna) = 0;  // Mudança para retornar o tabuleiro
     virtual void testarVitoria() = 0;
     virtual void inicializarTabuleiro() = 0;
     virtual vector<pair<int, int>> calcularPosicoesPossiveis() = 0;
