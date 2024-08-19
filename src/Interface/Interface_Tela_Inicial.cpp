@@ -35,7 +35,6 @@ void Interface_Tela_Inicial::Set_Values(){
     try {
         Set_Janela();
         Set_Image();
-        janela->setVerticalSyncEnabled(true);
         Definicoes_Espacamento_Janela();
         Set_Opcoes();
 
