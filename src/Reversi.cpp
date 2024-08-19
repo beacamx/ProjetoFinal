@@ -36,13 +36,14 @@ vector<pair<int, int>> Reversi::calcularPosicoesPossiveis() {
     return posicoesPossiveis;
 }
 
-void Reversi::fazerJogada(int linha, int coluna) {
+vector<vector<int>> Reversi::fazerJogada(int linha, int coluna) {
     tabuleiro[linha][coluna] = jogadorAtual->getPeca();
     fazerCaptura(linha, coluna);
     //como para uma jogada ser válida sempre deve resultar em captura de pelo menos uma posição, o método fazerCaptura
     //sempre deve ser chamado em fazerJogada.
     imprimirTabuleiro();
     encerrarJogada();
+    return tabuleiro;
 }
 
 void Reversi::testarVitoria() {
@@ -67,8 +68,12 @@ void Reversi::testarVitoria() {
         }
         if (pecasA > pecasB) {
             cout << jogadorA->get_name() << " venceu!" << endl;
+            jogadorA->win_Reversi();
+            jogadorB->lose_Reversi();
         } else if (pecasB > pecasA) {
             cout << jogadorB->get_name() << " venceu!" << endl;
+            jogadorB->win_Reversi();
+            jogadorA->lose_Reversi();
         } else {
             cout << "Empate!" << endl;
         }
