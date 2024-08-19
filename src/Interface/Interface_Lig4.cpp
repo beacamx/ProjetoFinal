@@ -9,7 +9,6 @@ Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas)
     this->colunas = num_colunas;
     string apelido1 = Interface_Base::Get_Apelido_Jogador1();
     string apelido2 = Interface_Base::Get_Apelido_Jogador2();
-    cout << apelido1 << endl << apelido2 << endl << linhas << endl << colunas << endl;
     try {
         cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
         lig4 = Lig4(registro_geral_ref, apelido1, apelido2, linhas, colunas);
@@ -25,13 +24,13 @@ void Interface_Lig4::Logica() {
     int col = posicao.x / largura_quadrado;
 
     // Enviar a jogada para a lógica do jogo
-    //int linha = lig4.calcularLinhaDisponivel(col); // Função que retorna a linha disponível na coluna selecionada
-    //if (linha != -1) { // Verifica se a jogada é válida
-    //    lig4.fazerJogada(linha, col);
-    //}
+    int linha = lig4.calcularLinhaDisponivel(col); // Função que retorna a linha disponível na coluna selecionada
+    if (linha != -1) { // Verifica se a jogada é válida
+        lig4.fazerJogada(linha, col);
+    }
 
     // Testa se houve vitória após a jogada
-    //lig4.testarVitoria();
+    lig4.testarVitoria();
 }
 
 
@@ -48,7 +47,7 @@ void Interface_Lig4::Set_Textura_Sem_Peca(){
 
 void Interface_Lig4::Set_Textura_Peca1(){
     try {
-        if (!textura_sem_peca.loadFromFile("./assets/Lig4/Peca_vermelha.png")) {
+        if (!textura_sem_peca.loadFromFile("./assets/Lig4/Sem_peca.png")) {
             throw std::runtime_error("Erro ao carregar textura de uma casa sem peça");
         }
     } catch (const std::exception& e) {
@@ -108,7 +107,7 @@ void Interface_Lig4::Set_Sprites() {
     }
 }
 
-int Interface_Lig4::Set_Values(){
+void Interface_Lig4::Set_Values(){
     //Set_Music();
     try {
         cout << "Criando Interface_Lig4..." << endl;

@@ -18,7 +18,7 @@ class Interface_Lig4 : public Interface_Jogo {
         ~Interface_Lig4(){};
 
         void Logica() override;
-        int Set_Values() override; 
+        void Set_Values() override; 
         void Set_Sprites() override;
         void Set_Textura_Sem_Peca() override;
         void Set_Textura_Peca1() override;

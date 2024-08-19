@@ -38,7 +38,7 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Textos.o $(OBJDIR)/Interface_Base.o \
 	$(OBJDIR)/Avisos.o $(OBJDIR)/Interface_Cadastro_Base.o \
 	$(OBJDIR)/Lig4.o $(OBJDIR)/Jogo.o \
-	$(OBJDIR)/Interface_Login_Base.o
+	$(OBJDIR)/Interface_Login_Base.o $(OBJDIR)/Reversi.o
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 
@@ -50,6 +50,9 @@ $(OBJDIR):
 
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/main.cpp -o $(OBJDIR)/main.o
+
+$(OBJDIR)/Reversi.o: $(SRCDIR)/Reversi.cpp $(INCDIR)/Reversi.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Reversi.cpp -o $(OBJDIR)/Reversi.o
 
 $(OBJDIR)/Jogador.o: $(SRCDIR)/Jogador.cpp $(INCDIR)/Jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Jogador.cpp -o $(OBJDIR)/Jogador.o	

@@ -2,15 +2,25 @@
 
 using namespace std;
 
-Interface_Reversi::Interface_Reversi(int num_linhas, int num_colunas) : Interface_Jogo("Reversi"){
+Interface_Reversi::Interface_Reversi(int num_linhas, int num_colunas) 
+    : Interface_Jogo("Reversi"){
     this->largura_quadrado = 74;
     this->linhas = num_linhas;
     this->colunas = num_colunas;
-    Set_Values();
+    string apelido1 = Interface_Base::Get_Apelido_Jogador1();
+    string apelido2 = Interface_Base::Get_Apelido_Jogador2();
+    try {
+        cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
+        reversi = Reversi(registro_geral_ref, apelido1, apelido2, linhas, colunas);
+        Set_Values();
+    } catch (const std::exception& e) {
+        cerr << "Erro ao criar Interface_Reversi: " << e.what() << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Interface_Reversi::Logica() {
-    // reversi.fazerJogada();
+    //reversi.fazerJogada();
 }
 
 /*void Interface_Reversi::Set_Music() {
@@ -24,7 +34,7 @@ void Interface_Reversi::Logica() {
     som_jogo.play();
 }*/
 
-int Interface_Reversi::Set_Values(){
+void Interface_Reversi::Set_Values(){
     //Set_Music();
 
     cout << "Criando Interface_Reversi..." << endl;
