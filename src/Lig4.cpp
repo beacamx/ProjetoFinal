@@ -3,10 +3,16 @@
 
 using namespace std;
 
-Lig4::Lig4(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
-    : Jogo(jogador1, jogador2, 6, 7) {
+// Mudança nos parâmetros que o construtor recebe 
+
+Lig4::Lig4(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
+    : Jogo(cadastro_jogadores, nomeJogador1, nomeJogador2, linhas, colunas) {
+    if (!jogadorA || !jogadorB) {
+        throw std::runtime_error("Um ou ambos os jogadores não foram encontrados no cadastro.");
+    }
     inicializarTabuleiro();
 }
+
 
 void Lig4::inicializarTabuleiro() {
     for (int i = 0; i < numLinhas; i++) {
@@ -15,6 +21,16 @@ void Lig4::inicializarTabuleiro() {
         }
     }
 }
+
+int Lig4::calcularLinhaDisponivel(int coluna) {
+    for (int i = numLinhas - 1; i >= 0; --i) {
+        if (tabuleiro[i][coluna] == 0) {
+            return i;
+        }
+    }
+    return -1; // Coluna cheia
+}
+
 
 vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
     vector<pair<int, int>> posicoesPossiveis;
@@ -30,9 +46,12 @@ vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
 }
 
 void Lig4::fazerJogada(int linha, int coluna) {
-    tabuleiro[linha][coluna] = jogadorAtual->getPeca();
-    imprimirTabuleiro();
-    encerrarJogada();
+    // Implementação da lógica de jogo para uma jogada em Lig4
+    if (linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && tabuleiro[linha][coluna] == 0) {
+        tabuleiro[linha][coluna] = jogadorAtual->getPeca();  // Marca a jogada com a peça do jogador atual
+    } else {
+        std::cout << "Jogada inválida, tente novamente." << std::endl;
+    }
 }
 
 

@@ -3,21 +3,29 @@
 
 using namespace std;
 
-Jogo::Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
-        : jogadorA(jogador1), jogadorB(jogador2), jogadorAtual(jogador1), numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
-        tabuleiro.resize(numLinhas, vector<int>(numColunas));
-        jogadorA->setPeca(1);
-        jogadorB->setPeca(2);
+Jogo::Jogo(cadastro& cadastro_jogadores, std::string nomeJogador1, std::string nomeJogador2, int linhas, int colunas)
+    : numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
+    // Busca os jogadores no cadastro
+    jogadorA = cadastro_jogadores.find_by_name(nomeJogador1);
+    jogadorB = cadastro_jogadores.find_by_name(nomeJogador2);
+
+    if (!jogadorA || !jogadorB) {
+        throw std::runtime_error("Um ou ambos os jogadores não foram encontrados no cadastro.");
     }
 
+    // Inicializa o tabuleiro
+    tabuleiro.resize(numLinhas, std::vector<int>(numColunas));
+    jogadorA->setPeca(1);
+    jogadorB->setPeca(2);
+    jogadorAtual = jogadorA;
+    jogadorAdversario = jogadorB;
+}
+
 Jogo::~Jogo() {
-    delete jogadorA;
-    delete jogadorB;
+    // Como o Jogo não é responsável pela alocação dos jogadores, não é necessário deletá-los
 }
 
 void Jogo::iniciarJogo() {
-    jogadorAtual = jogadorA;
-    jogadorAdversario = jogadorB;
     while (jogoAtivo) {
         receberJogada();
         if (!jogoAtivo) break;

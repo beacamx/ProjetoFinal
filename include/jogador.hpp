@@ -9,7 +9,6 @@ class Jogador
 public:
     Jogador(std::string name, std::string nick);
     Jogador(std::string name, std::string nick, unsigned int wins_lig4, unsigned int wins_Reversi, unsigned int loses_lig4, unsigned int loses_Reversi);
-
     std::string get_name();
     std::string get_nick();
     int getPeca();
