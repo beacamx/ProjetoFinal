@@ -2,7 +2,7 @@
 #define INTERFACE_REVERSI_HPP
 
 #include "Interface_Jogo.hpp"
-//#include "Reversi.hpp"
+#include "Reversi.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -14,7 +14,7 @@ using namespace std;
 
 class Interface_Reversi : public Interface_Jogo {
     public:
-        Interface_Reversi() : Interface_Jogo("Reversi") {
+        Interface_Reversi() : Interface_Jogo("Reversi"), reversi(registro_geral, nome_jogador1, nome_jogador2, linhas, colunas) {
             this->largura_quadrado = 74;
         }
         ~Interface_Reversi();
@@ -26,9 +26,8 @@ class Interface_Reversi : public Interface_Jogo {
         void Set_Textura_Peca2() override;
         void Set_Textura_Sem_Peca() override;
         //void Set_Music() override;
-        //void Inicializar_Reversi();
 
-    //private:
-        //unique_ptr<Reversi> reversi;
+    private:
+        Reversi reversi;
 };
 #endif
