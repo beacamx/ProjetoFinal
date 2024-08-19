@@ -1,13 +1,18 @@
 #ifndef JOGO_HPP
 #define JOGO_HPP
+
 #include "jogador.hpp"
+#include "Cadastro_Jogadores.hpp"
 #include <vector>
 #include <iostream>
 #include <utility>
+
 using namespace std;
+
 class Jogo {
+
     public:
-    Jogo(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas);
+    Jogo(cadastro& cadastro_jogadores, std::string nomeJogador1, std::string nomeJogador2, int linhas, int colunas);
     virtual ~Jogo();
 
     void iniciarJogo();

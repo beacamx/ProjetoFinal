@@ -3,14 +3,14 @@
 using namespace std;
 
 Interface_Reversi::~Interface_Reversi() {
-    som_jogo.stop();
+    //som_jogo.stop();
 }
 
 void Interface_Reversi::Logica() {
     // reversi.fazerJogada();
 }
 
-void Interface_Reversi::Set_Music() {
+/*void Interface_Reversi::Set_Music() {
     if (!som_jogo.openFromFile("./assets/audio/4.wav")) {
         cerr << "Erro ao carregar música" << std::endl;
         exit(1);
@@ -19,10 +19,10 @@ void Interface_Reversi::Set_Music() {
     som_jogo.setVolume(2);
     som_jogo.setLoop(true);
     som_jogo.play();
-}
+}*/
 
 int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
-    Set_Music();
+    //Set_Music();
 
     this->linhas = num_linhas;
     this->colunas = num_colunas;
@@ -36,7 +36,7 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
     Set_Textura_Sem_Peca();
     Set_Textura_Peca1();
     Set_Textura_Peca2();
-    Run_Interface_Jogo();
+    Run();
 
     return 0;
 }
