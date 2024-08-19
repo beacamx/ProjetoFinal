@@ -19,8 +19,6 @@ public:
     void testarVitoria() override;
     int calcularLinhaDisponivel(int coluna);
 
-    // funcao verificar se o tabuleiro esta cheio (se tem zero em alguma casa)
-
 protected:
     vector<pair<int, int>> calcularPosicoesPossiveis() override;
 

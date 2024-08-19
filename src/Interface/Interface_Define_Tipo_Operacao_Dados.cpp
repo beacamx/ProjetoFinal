@@ -10,7 +10,7 @@ Interface_Define_Tipo_Operacao_Dados::Interface_Define_Tipo_Operacao_Dados() : I
 }
 
 void Interface_Define_Tipo_Operacao_Dados::Set_Opcoes() {
-    opcoes_de_escolha = {"Lista de jogadores", "Remover jogador", "Estatísticas"};
+    opcoes_de_escolha = {"Lista de jogadores", "Remover jogador", "Estatisticas"};
 }
 
 void Interface_Define_Tipo_Operacao_Dados::Definicoes_Espacamento_Janela() {
@@ -87,8 +87,9 @@ void Interface_Define_Tipo_Operacao_Dados::Loop_Events(){
                 //dimensao->Run();
             } else if(posicao == 1) {
                 janela->close();
-                //dimensao = make_unique<Interface_Define_Dimensao>("Reversi");
-                //dimensao->Run();
+                unique_ptr<Interface_Remove_Jogador> jogadores;
+                jogadores = make_unique<Interface_Remove_Jogador>();
+                jogadores->Run();
             }
         }
     }
