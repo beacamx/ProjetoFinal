@@ -52,6 +52,7 @@ void Interface_Login_Jogador2::Loop_Events(){
             } else if (posicao == 1) {
                 seleção_ativa = true;
                 apelido_jogador2 = caixa_de_texto1.Obter_Texto_Entrada();
+                cout << endl << apelido_jogador2 << endl;
                 cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
                 if(registro_geral_ref.find_by_nick(apelido_jogador2)) {
                     cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;

@@ -70,6 +70,7 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     nome_jogador1 = caixa_de_texto2.Obter_Texto_Entrada();
                     apelido_jogador1 = caixa_de_texto1.Obter_Texto_Entrada();
+                    cout << endl << apelido_jogador1 << endl;
                     cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
                     try {
                         if((!(registro_geral_ref.find_by_nick(apelido_jogador1))) && (nome_jogador1.length() > 0) && (apelido_jogador1.length() > 0)) { 

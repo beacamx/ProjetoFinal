@@ -7,9 +7,7 @@ using namespace std;
 
 Lig4::Lig4(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
     : Jogo(cadastro_jogadores, nomeJogador1, nomeJogador2, linhas, colunas) {
-    if (!jogadorA || !jogadorB) {
-        throw std::runtime_error("Um ou ambos os jogadores não foram encontrados no cadastro.");
-    } //essa exceção já é checada no construtor de Jogo, não?
+    cout << nomeJogador1 << endl << nomeJogador2 << endl << linhas << endl << colunas << endl;
     inicializarTabuleiro();
 }
 

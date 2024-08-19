@@ -8,7 +8,7 @@ Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas)
     this->colunas = num_colunas;
     try {
         cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
-        lig4 = Lig4(registro_geral_ref, nome_jogador1, nome_jogador2, linhas, colunas);
+        lig4 = Lig4(registro_geral_ref, apelido_jogador1, apelido_jogador2, linhas, colunas);
         Set_Values();
     } catch (const std::exception& e) {
         cerr << "Erro ao criar Interface_Lig4: " << e.what() << endl;

@@ -6,8 +6,6 @@ void Avisos::Set_Aviso() {
         aviso.setFont(fonte); 
         aviso.setCharacterSize(15);
         aviso.setFillColor(sf::Color::Red);
-
-        cerr << "Fonte definida corretamente." << endl;
     } catch (const exception& e) {
         cerr << "Erro ao definir aviso: " << e.what() << endl;
     }

@@ -8,8 +8,9 @@ Jogo::Jogo() {}
 Jogo::Jogo(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
     : numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
     // Busca os jogadores no cadastro
-    jogadorA = cadastro_jogadores.find_by_name(nomeJogador1);
-    jogadorB = cadastro_jogadores.find_by_name(nomeJogador2);
+    cout << nomeJogador1 << endl << nomeJogador2 << endl << linhas << endl << colunas << endl;
+    jogadorA = cadastro_jogadores.find_by_nick(nomeJogador1);
+    jogadorB = cadastro_jogadores.find_by_nick(nomeJogador2);
 
     if (!jogadorA || !jogadorB) {
         throw std::runtime_error("Um ou ambos os jogadores não foram encontrados no cadastro.");
