@@ -40,7 +40,7 @@ int Interface_Reversi::Set_Values(){
 
 void Interface_Reversi::Set_Textura_Sem_Peca(){
     try {
-        if (!textura.loadFromFile("./assets/Reversi/Sem_Peca.png")) {
+        if (!textura_sem_peca.loadFromFile("./assets/Reversi/Sem_Peca.png")) {
             cerr << "Erro ao carregar textura 8x8" << endl;
             exit(1);
         }
@@ -88,7 +88,7 @@ void Interface_Reversi::Set_Sprites() {
             }
 
             sf::Sprite& sprite = sprites[indice];
-            sprite.setTexture(textura);
+            sprite.setTexture(textura_sem_peca);
             sprite.setTextureRect(sf::IntRect(0, 0, largura_quadrado, largura_quadrado)); // Definir a área da textura
             sprite.setPosition(j * largura_quadrado, i * largura_quadrado); // Definir a posição do sprite
         }
