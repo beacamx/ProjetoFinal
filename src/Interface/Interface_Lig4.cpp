@@ -22,7 +22,7 @@ Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas)
 void Interface_Lig4::Logica() {
     sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
     int col = posicao.x / largura_quadrado;
-    
+
     // Enviar a jogada para a lógica do jogo
     int linha = lig4.calcularLinhaDisponivel(col); // Função que retorna a linha disponível na coluna selecionada
     if (linha != -1) { // Verifica se a jogada é válida
@@ -31,9 +31,9 @@ void Interface_Lig4::Logica() {
 
     // Testa se houve vitória após a jogada
     lig4.testarVitoria();
-    if (lig4.getJogoAtivo()) {
-        lig4.trocarJogador();
-    }
+    //if (lig4.getJogoAtivo()) {
+    //    lig4.trocarJogador();
+    //}
 
 }
 

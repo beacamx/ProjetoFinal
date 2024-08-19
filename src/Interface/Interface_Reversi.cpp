@@ -1,4 +1,5 @@
 #include "Interface/Interface_Reversi.hpp"
+#include <algorithm>
 
 using namespace std;
 
@@ -20,8 +21,33 @@ Interface_Reversi::Interface_Reversi(int num_linhas, int num_colunas)
 }
 
 void Interface_Reversi::Logica() {
-    //reversi.fazerJogada();
+    // Calcula as posições possíveis para o jogador atual
+    auto pos = sf::Mouse::getPosition(*janela);
+    std::cout << "Posição do mouse: (" << pos.x << ", " << pos.y << ")" << std::endl;
+
+    int linha = pos.y / largura_quadrado;
+    int coluna = pos.x / largura_quadrado;
+
+    cout << "Coordenadas calculadas: Linha " << linha << ", Coluna " << coluna << endl;
+
+    vector<pair<int, int>> posicoes = reversi.calcularPosicoesPossiveis();
+    cout << "Posições possíveis: ";
+    for (const auto& pos : posicoes) {
+        cout << "{" << pos.first << ", " << pos.second << "} ";
+    }
+    cout << endl;
+// Verifica se a jogada é válida
+    vector<pair<int, int>> posicoesPossiveis = reversi.calcularPosicoesPossiveis();
+    if (std::find(posicoesPossiveis.begin(), posicoesPossiveis.end(), make_pair(linha, coluna)) != posicoesPossiveis.end()) {
+        // Executa a jogada no jogo
+        reversi.fazerJogada(linha, coluna);
+            // Atualiza a interface
+        Atualizar_Janela();
+    } else {
+        cout << "Jogada inválida. Tente novamente." << endl;
+    }
 }
+
 
 /*void Interface_Reversi::Set_Music() {
     if (!som_jogo.openFromFile("./assets/audio/4.wav")) {
