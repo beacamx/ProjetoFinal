@@ -41,7 +41,7 @@ class Interface_Jogo : public Interface_Base {
 
         //sf::Music som_jogo;
 
-        sf::Texture textura;
+        sf::Texture textura_sem_peca;
         sf::Texture textura_peca1;
         sf::Texture textura_peca2;
         vector<sf::Sprite> sprites;

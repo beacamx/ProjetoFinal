@@ -17,7 +17,6 @@ class Interface_Define_Dimensao: public Interface_Menu {
     protected:
         void Set_Values() override;
         void Loop_Events() override;
-        unique_ptr<Interface_Jogo> jogo;
  
     public:
         Interface_Define_Dimensao(const std::string& jogo) : Interface_Menu(), nome_jogo(jogo) { Set_Values(); }
