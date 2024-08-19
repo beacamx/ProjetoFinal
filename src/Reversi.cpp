@@ -43,6 +43,7 @@ vector<vector<int>> Reversi::fazerJogada(int linha, int coluna) {
     //sempre deve ser chamado em fazerJogada.
     imprimirTabuleiro();
     encerrarJogada();
+    return tabuleiro;
 }
 
 void Reversi::testarVitoria() {
@@ -67,8 +68,12 @@ void Reversi::testarVitoria() {
         }
         if (pecasA > pecasB) {
             cout << jogadorA->get_name() << " venceu!" << endl;
+            jogadorA->win_Reversi();
+            jogadorB->lose_Reversi();
         } else if (pecasB > pecasA) {
             cout << jogadorB->get_name() << " venceu!" << endl;
+            jogadorB->win_Reversi();
+            jogadorA->lose_Reversi();
         } else {
             cout << "Empate!" << endl;
         }

@@ -28,6 +28,11 @@ Jogo::~Jogo() {
     // Como o Jogo não é responsável pela alocação dos jogadores, não é necessário deletá-los
 }
 
+//Implementação do método jogoAtivo
+bool Jogo::isJogoAtivo() const {
+    return jogoAtivo;
+}
+
 void Jogo::iniciarJogo() {
     while (jogoAtivo) {
         auto tabuleiroAtual = receberJogada();  // Recebe o tabuleiro atualizado após cada jogada

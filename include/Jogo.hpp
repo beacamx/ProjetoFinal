@@ -23,6 +23,7 @@ class Jogo {
     void encerrarJogada();
     void trocarJogador();
     void encerrarJogo();
+    bool isJogoAtivo() const;  // Verifica se o jogo está ativo
     
     virtual vector<vector<int>> fazerJogada(int linha, int coluna) = 0;  // Mudança para retornar o tabuleiro
     virtual void testarVitoria() = 0;
