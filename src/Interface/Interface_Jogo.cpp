@@ -1,12 +1,23 @@
 #include "Interface_Jogo.hpp"
 
 Interface_Jogo::Interface_Jogo(const string& nome_do_jogo)
-    : nome_do_jogo(nome_do_jogo), janela(make_unique<sf::RenderWindow>()) {
+    : Interface_Base(largura_quadrado * colunas, largura_quadrado * linhas), nome_do_jogo(nome_do_jogo) {
     evento = make_shared<sf::Event>();
     janela->setVerticalSyncEnabled(true);
 }
 
-void Interface_Jogo::Atualizar_Janela_Jogo() {
+void Interface_Jogo::Set_Aviso() {
+    try {
+        const sf::Font& fonte = textos.Get_Fonte();
+        aviso.setFont(fonte); 
+        aviso.setCharacterSize(18);
+        aviso.setFillColor(sf::Color::Red);
+    } catch (const exception& e) {
+        cerr << "Erro ao definir aviso: " << e.what() << endl;
+    }
+}
+
+void Interface_Jogo::Atualizar_Janela() {
     janela->clear(sf::Color::Black); // Limpa a janela com a cor preta
     
     for(const auto& sprite : sprites) {
@@ -94,18 +105,10 @@ void Interface_Jogo::Define_Dimensoes_Janela() {
     this->altura_janela = linhas * largura_quadrado;
 }
 
-void Interface_Jogo::Centralizar_Janela() {
-    sf::Vector2i janela_centralizada(
-        (sf::VideoMode::getDesktopMode().width - this->largura_janela) / 2, 
-        (sf::VideoMode::getDesktopMode().height - this->altura_janela) / 2
-    );
-    janela->setPosition(janela_centralizada);
-}
-
-void Interface_Jogo::Run_Interface_Jogo(){
+void Interface_Jogo::Run(){
     cout << "Iniciando a execução do jogo..." << endl;
     while (janela->isOpen()) {
         this->Eventos_Jogo();
-        this->Atualizar_Janela_Jogo();
+        this->Atualizar_Janela();
     }
 }

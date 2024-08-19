@@ -21,6 +21,16 @@ void Lig4::inicializarTabuleiro() {
     }
 }
 
+int Lig4::calcularLinhaDisponivel(int coluna) {
+    for (int i = numLinhas - 1; i >= 0; --i) {
+        if (tabuleiro[i][coluna] == 0) {
+            return i;
+        }
+    }
+    return -1; // Coluna cheia
+}
+
+
 vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
     vector<pair<int, int>> posicoesPossiveis;
     for (int j = 0; j < numColunas; j++) {

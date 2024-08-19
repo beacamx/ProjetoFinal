@@ -8,40 +8,39 @@
 #include <vector>
 #include <cstdlib>
 
+#include "Interface_Base.hpp"
+#include "Textos.hpp"
+
 using namespace std;
 
-class Interface_Jogo {
+class Interface_Jogo : public Interface_Base {
     public:
-        Interface_Jogo(const std::string& nome_do_jogo);
-        virtual ~Interface_Jogo() = default;
+        Interface_Jogo(const string& nome_do_jogo);
+        ~Interface_Jogo();
 
         void Eventos_Jogo();
-        void Run_Interface_Jogo();
-        void Atualizar_Janela_Jogo();
-
+        virtual void Atualizar_Janela() override;
         virtual void Set_Sprites() = 0;
-        virtual void Set_Music() = 0;
+        //virtual void Set_Music() = 0;
+        virtual void Set_Aviso() override;
+        virtual void Run() override;
         virtual void Set_Textura_Sem_Peca() = 0;
         virtual void Set_Textura_Peca1() = 0;
         virtual void Set_Textura_Peca2() = 0;
         virtual void Logica() = 0;
         virtual int Start_Game_Interface(int linhas, int colunas) = 0;
 
-        void Trocar_Jogador();
-
         void Set_Janela();
         void Define_Dimensoes_Janela();
-        void Centralizar_Janela();
 
     protected:
         int linhas, colunas, largura_quadrado;
-        int largura_janela, altura_janela;
-        int jogador_atual;
+        vector<size_t> tamanho_fonte;
+        Textos textos;
         string nome_do_jogo;
 
-        sf::Music som_jogo;
+        //sf::Music som_jogo;
 
-        unique_ptr<sf::RenderWindow> janela;
         sf::Texture textura;
         sf::Texture textura_peca1;
         sf::Texture textura_peca2;

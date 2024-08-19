@@ -1,28 +1,21 @@
 #include "Interface_Lig4.hpp"
-#include "Interface_Jogo.hpp"
-
-using namespace std;
 
 Interface_Lig4::~Interface_Lig4() {
-    som_jogo.stop();
+    //som_jogo.stop();
 }
 
 void Interface_Lig4::Logica() {
     sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
-    this->x = posicao.x / largura_quadrado;
-    this->y = posicao.y / largura_quadrado;
     int col = posicao.x / largura_quadrado;
 
-    if (col >= 0 && col < colunas) {
-        for (int row = linhas - 1; row >= 0; --row) {
-            if (tabuleiro[row][col] == 0) {
-                tabuleiro[row][col] = 1; 
-                break;
-            }
-            // jogador_atual = 1
-            // chama a funcao de testar vitoria
-        }
+    // Enviar a jogada para a lógica do jogo
+    int linha = lig4.calcularLinhaDisponivel(col); // Função que retorna a linha disponível na coluna selecionada
+    if (linha != -1) { // Verifica se a jogada é válida
+        lig4.fazerJogada(linha, col);
     }
+
+    // Testa se houve vitória após a jogada
+    lig4.testarVitoria();
 }
 
 
@@ -47,7 +40,7 @@ void Interface_Lig4::Set_Textura_Peca2(){
     }
 }
 
-void Interface_Lig4::Set_Music() {
+/*void Interface_Lig4::Set_Music() {
     if (!som_jogo.openFromFile("./assets/audio/3.wav")) {
         cerr << "Erro ao carregar música" << std::endl;
         exit(1);
@@ -56,7 +49,7 @@ void Interface_Lig4::Set_Music() {
     som_jogo.setVolume(2);
     som_jogo.setLoop(true);
     som_jogo.play();
-}
+}*/
 
 void Interface_Lig4::Set_Sprites() {
     sprites.resize(linhas * colunas); // Redimensiona o vetor de sprites para ter um sprite para cada posição no tabuleiro.
@@ -83,7 +76,7 @@ void Interface_Lig4::Set_Sprites() {
 }
 
 int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
-    Set_Music();
+    //Set_Music();
     
     // Define o número de linhas e colunas do tabuleiro.
     this->linhas = num_linhas;
@@ -100,7 +93,7 @@ int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
     Set_Textura_Sem_Peca();
     Set_Textura_Peca1();
     Set_Textura_Peca2();
-    Run_Interface_Jogo();
+    Run();
 
     return 0;
 }

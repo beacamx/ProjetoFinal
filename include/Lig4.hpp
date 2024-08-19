@@ -16,6 +16,7 @@ public:
     void inicializarTabuleiro() override; 
     void fazerJogada(int linha, int coluna) override; 
     void testarVitoria() override;
+    int calcularLinhaDisponivel(int coluna);
 
     // funcao verificar se o tabuleiro esta cheio (se tem zero em alguma casa)
 

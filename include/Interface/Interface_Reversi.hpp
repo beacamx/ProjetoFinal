@@ -25,7 +25,7 @@ class Interface_Reversi : public Interface_Jogo {
         void Set_Textura_Peca1() override;
         void Set_Textura_Peca2() override;
         void Set_Textura_Sem_Peca() override;
-        void Set_Music() override;
+        //void Set_Music() override;
         //void Inicializar_Reversi();
 
     //private:
