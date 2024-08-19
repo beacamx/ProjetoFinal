@@ -12,6 +12,7 @@ using namespace std;
 class Jogo {
 
     public:
+    Jogo();
     Jogo(cadastro& cadastro_jogadores, std::string nomeJogador1, std::string nomeJogador2, int linhas, int colunas);
     virtual ~Jogo();
 
@@ -37,6 +38,7 @@ class Jogo {
     int numColunas;
     vector<vector<int>> tabuleiro;
     bool jogoAtivo;
+    cadastro registro_geral;
 };
 
 #endif /* JOGO_HPP */

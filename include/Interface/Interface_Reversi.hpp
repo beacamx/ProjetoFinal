@@ -14,13 +14,11 @@ using namespace std;
 
 class Interface_Reversi : public Interface_Jogo {
     public:
-        Interface_Reversi() : Interface_Jogo("Reversi"){
-            this->largura_quadrado = 74;
-        }
-        ~Interface_Reversi();
+        Interface_Reversi(int num_linhas, int num_colunas);
+        ~Interface_Reversi(){};
 
         void Logica() override; 
-        int Start_Game_Interface(int num_linhas, int num_colunas) override; 
+        int Set_Values() override; 
         void Set_Sprites() override;
         void Set_Textura_Peca1() override;
         void Set_Textura_Peca2() override;

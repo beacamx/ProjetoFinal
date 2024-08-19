@@ -79,40 +79,40 @@ void Interface_Define_Dimensao::Loop_Events(){
                     janela->close();
                     num_linhas = 6;
                     num_colunas = 7;
-                    jogo = make_unique<Interface_Lig4>();
-                    jogo->Start_Game_Interface(num_linhas, num_colunas);
+                    jogo = make_unique<Interface_Lig4>(num_linhas, num_colunas);
+                    jogo->Run();
                 } else if (posicao == 1) {
                     janela->close();
                     num_linhas = 7;
                     num_colunas = 8;
-                    jogo = make_unique<Interface_Lig4>();
-                    jogo->Start_Game_Interface(num_linhas, num_colunas);
+                    jogo = make_unique<Interface_Lig4>(num_linhas, num_colunas);
+                    jogo->Run();
                 } else if (posicao == 2) {
                     janela->close();
                     num_linhas = 8;
                     num_colunas = 9;
-                    jogo = make_unique<Interface_Lig4>();
-                    jogo->Start_Game_Interface(num_linhas, num_colunas);
+                    jogo = make_unique<Interface_Lig4>(num_linhas, num_colunas);
+                    jogo->Run();
                 }
             } else if (nome_jogo == "Reversi") {
                 if (posicao == 0) {
                     janela->close();
                     num_linhas = 8;
                     num_colunas = 8;
-                    jogo = make_unique<Interface_Reversi>();
-                    jogo->Start_Game_Interface(num_linhas, num_colunas);
+                    jogo = make_unique<Interface_Reversi>(num_linhas, num_colunas);
+                    jogo->Run();
                 } else if (posicao == 1) {
                     janela->close();
                     num_linhas = 9;
                     num_colunas = 9;
-                    jogo = make_unique<Interface_Reversi>();
-                    jogo->Start_Game_Interface(num_linhas, num_colunas);
+                    jogo = make_unique<Interface_Reversi>(num_linhas, num_colunas);
+                    jogo->Run();
                 } else if (posicao == 2) {
                     janela->close();
                     num_linhas = 10;
                     num_colunas = 10;
-                    jogo = make_unique<Interface_Reversi>();
-                    jogo->Start_Game_Interface(num_linhas, num_colunas);
+                    jogo = make_unique<Interface_Reversi>(num_linhas, num_colunas);
+                    jogo->Run();
                 }
             }
         }

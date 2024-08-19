@@ -2,8 +2,11 @@
 
 using namespace std;
 
-Interface_Reversi::~Interface_Reversi() {
-    //som_jogo.stop();
+Interface_Reversi::Interface_Reversi(int num_linhas, int num_colunas) : Interface_Jogo("Reversi"){
+    this->largura_quadrado = 74;
+    this->linhas = num_linhas;
+    this->colunas = num_colunas;
+    Set_Values();
 }
 
 void Interface_Reversi::Logica() {
@@ -21,11 +24,8 @@ void Interface_Reversi::Logica() {
     som_jogo.play();
 }*/
 
-int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
+int Interface_Reversi::Set_Values(){
     //Set_Music();
-
-    this->linhas = num_linhas;
-    this->colunas = num_colunas;
 
     cout << "Criando Interface_Reversi..." << endl;
 
@@ -36,9 +36,6 @@ int Interface_Reversi::Start_Game_Interface(int num_linhas, int num_colunas){
     Set_Textura_Sem_Peca();
     Set_Textura_Peca1();
     Set_Textura_Peca2();
-    Run();
-
-    return 0;
 }
 
 void Interface_Reversi::Set_Textura_Sem_Peca(){
@@ -96,8 +93,4 @@ void Interface_Reversi::Set_Sprites() {
             sprite.setPosition(j * largura_quadrado, i * largura_quadrado); // Definir a posição do sprite
         }
     }
-}
-
-void Inicializar_Reversi() {
-    //reversi = make_unique<Reversi>(nome_jogador1, nome_jogador2);
 }

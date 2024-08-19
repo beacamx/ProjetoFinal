@@ -1,7 +1,7 @@
 #include "Interface_Jogo.hpp"
 
 Interface_Jogo::Interface_Jogo(const string& nome_do_jogo)
-    : Interface_Base(500, 500), nome_do_jogo(nome_do_jogo) {
+    : Interface_Base(0, 0), nome_do_jogo(nome_do_jogo) {
     evento = make_shared<sf::Event>();
     janela->setVerticalSyncEnabled(true);
 }

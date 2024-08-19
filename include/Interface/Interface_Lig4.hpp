@@ -14,11 +14,11 @@ using namespace std;
 
 class Interface_Lig4 : public Interface_Jogo {
     public:
-        Interface_Lig4() : Interface_Jogo("Lig4") { this->largura_quadrado = 78;}
-        ~Interface_Lig4();
+        Interface_Lig4(int num_linhas, int num_colunas);
+        ~Interface_Lig4(){};
 
         void Logica() override;
-        int Start_Game_Interface(int num_linhas, int num_colunas) override; 
+        int Set_Values() override; 
         void Set_Sprites() override;
         void Set_Textura_Sem_Peca() override;
         void Set_Textura_Peca1() override;

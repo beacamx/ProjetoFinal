@@ -1,7 +1,12 @@
 #include "Interface_Lig4.hpp"
+#include "Lig4.hpp"
 
-Interface_Lig4::~Interface_Lig4() {
-    //som_jogo.stop();
+Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas) 
+    : Interface_Jogo("Lig4") { 
+    this->largura_quadrado = 78;
+    this->linhas = num_linhas;
+    this->colunas = num_colunas;
+    Set_Values();
 }
 
 void Interface_Lig4::Logica() {
@@ -75,25 +80,18 @@ void Interface_Lig4::Set_Sprites() {
     }
 }
 
-int Interface_Lig4::Start_Game_Interface(int num_linhas, int num_colunas){
+int Interface_Lig4::Set_Values(){
     //Set_Music();
     
-    // Define o número de linhas e colunas do tabuleiro.
-    this->linhas = num_linhas;
-    this->colunas = num_colunas;
-
     cout << "Criando Interface_Lig4..." << endl;
 
     Define_Dimensoes_Janela();
     Set_Janela();
-
-    tabuleiro.resize(linhas, std::vector<int>(colunas, 0));
+    //Lig4 lig4(registro_geral, nome_jogador1, nome_jogador2, linhas, colunas);
+    tabuleiro.resize(linhas, vector<int>(colunas, 0));
 
     Set_Sprites();
     Set_Textura_Sem_Peca();
     Set_Textura_Peca1();
     Set_Textura_Peca2();
-    Run();
-
-    return 0;
 }
