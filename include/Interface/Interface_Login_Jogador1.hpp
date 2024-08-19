@@ -9,7 +9,7 @@
 #include "Classes_auxiliares/Caixa_de_texto.hpp"
 #include "Cadastro_Jogadores.hpp"
 #include "Interface_Login_Base.hpp"
-#include "jogador.hpp"
+#include "Jogador.hpp"
 
 using namespace std;
 

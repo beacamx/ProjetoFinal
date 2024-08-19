@@ -1,7 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include <doctest/doctest.h>
 #include "../include/Cadastro_Jogadores.hpp"
-#include "../include/jogador.hpp"
+#include "../include/Jogador.hpp"
 
 TEST_CASE("Cadastro de Jogadores") {
     cadastro c;

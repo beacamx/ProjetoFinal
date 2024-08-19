@@ -3,7 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <stdexcept>
-#include "jogador.hpp"
+#include "Jogador.hpp"
 #ifndef CADASTRO_HPP
 #define CADASTRO_HPP
 

@@ -10,7 +10,7 @@
 #include "Interface_Cadastro_Base.hpp"
 #include "Cadastro_Jogadores.hpp"
 #include "Troca_Definicao_Entrada_Jogador.hpp"
-#include "jogador.hpp"
+#include "Jogador.hpp"
 
 using namespace std;
 
