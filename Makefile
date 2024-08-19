@@ -38,7 +38,8 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Textos.o $(OBJDIR)/Interface_Base.o \
 	$(OBJDIR)/Avisos.o $(OBJDIR)/Interface_Cadastro_Base.o \
 	$(OBJDIR)/Lig4.o $(OBJDIR)/Jogo.o \
-	$(OBJDIR)/Interface_Login_Base.o $(OBJDIR)/Reversi.o
+	$(OBJDIR)/Interface_Login_Base.o $(OBJDIR)/Reversi.o \
+	$(OBJDIR)/Interface_Define_Tipo_Operacao_Dados.o
 
 all: $(OBJDIR) $(TARGET)$(EXT)
 
@@ -53,6 +54,9 @@ $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 
 $(OBJDIR)/Reversi.o: $(SRCDIR)/Reversi.cpp $(INCDIR)/Reversi.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Reversi.cpp -o $(OBJDIR)/Reversi.o
+
+$(OBJDIR)/Interface_Define_Tipo_Operacao_Dados.o: $(SRCDIR)/Interface/Interface_Define_Tipo_Operacao_Dados.cpp $(INCDIR)/Interface/Interface_Define_Tipo_Operacao_Dados.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Interface/Interface_Menu.hpp
+	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Define_Tipo_Operacao_Dados.cpp -o $(OBJDIR)/Interface_Define_Tipo_Operacao_Dados.o
 
 $(OBJDIR)/Jogador.o: $(SRCDIR)/Jogador.cpp $(INCDIR)/Jogador.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Jogador.cpp -o $(OBJDIR)/Jogador.o	
