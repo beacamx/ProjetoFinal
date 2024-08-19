@@ -9,7 +9,7 @@ using namespace std;
 
 class Reversi : public Jogo {
 public:
-    Reversi(Jogador* jogador1, Jogador* jogador2);
+    Reversi(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas);
 
     void inicializarTabuleiro() override;
     vector<pair<int, int>> calcularPosicoesPossiveis() override;

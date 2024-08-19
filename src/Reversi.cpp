@@ -3,8 +3,8 @@
 
 using namespace std;
 
-Reversi::Reversi(Jogador* jogador1, Jogador* jogador2)
-    : Jogo(jogador1, jogador2, 8, 8) {
+Reversi::Reversi(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
+    : Jogo(cadastro_jogadores, nomeJogador1, nomeJogador2, linhas, colunas) {
     inicializarTabuleiro();
 }
 
@@ -14,8 +14,8 @@ void Reversi::inicializarTabuleiro() {
             tabuleiro[i][j] = 0;
         }
     }
-    tabuleiro[3][3] = tabuleiro[4][4] = jogadorB->getPeca();
-    tabuleiro[3][4] = tabuleiro[4][3] = jogadorA->getPeca();
+    tabuleiro[numLinhas/2][(numColunas/2)+1] = tabuleiro[(numLinhas/2)+1][numColunas/2] = jogadorA->getPeca();
+    tabuleiro[numLinhas/2][numColunas/2] = tabuleiro[(numLinhas/2)+1][(numColunas/2)+1] = jogadorB->getPeca();
     //configuração inicial do Reversi: quatro peças, duas de cada jogador, no centro
 }
 
