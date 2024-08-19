@@ -3,15 +3,20 @@
 
 using namespace std;
 
-Lig4::Lig4(Jogador* jogador1, Jogador* jogador2, int linhas, int colunas)
-    : Jogo(jogador1, jogador2, 6, 7) {
+// Construtor Lig4 que recebe uma referência para o cadastro de jogadores e os nomes dos jogadores
+
+Lig4::Lig4(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
+    : Jogo(cadastro_jogadores.find_by_name(nomeJogador1), cadastro_jogadores.find_by_name(nomeJogador2), linhas, colunas) {
+    if (!jogadorA || !jogadorB) {
+        throw std::runtime_error("Um ou ambos os jogadores não foram encontrados no cadastro.");
+    }
     inicializarTabuleiro();
 }
 
 void Lig4::inicializarTabuleiro() {
     for (int i = 0; i < numLinhas; i++) {
         for (int j = 0; j < numColunas; j++) {
-            tabuleiro[i][j] = ' ';
+            tabuleiro[i][j] = 0;
         }
     }
 }
@@ -30,9 +35,12 @@ vector<pair<int, int>> Lig4::calcularPosicoesPossiveis() {
 }
 
 void Lig4::fazerJogada(int linha, int coluna) {
-    tabuleiro[linha][coluna] = jogadorAtual->getPeca();
-    imprimirTabuleiro();
-    encerrarJogada();
+    // Implementação da lógica de jogo para uma jogada em Lig4
+    if (linha >= 0 && linha < numLinhas && coluna >= 0 && coluna < numColunas && tabuleiro[linha][coluna] == 0) {
+        tabuleiro[linha][coluna] = jogadorAtual->getPeca();  // Marca a jogada com a peça do jogador atual
+    } else {
+        std::cout << "Jogada inválida, tente novamente." << std::endl;
+    }
 }
 
 
