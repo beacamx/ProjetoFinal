@@ -90,8 +90,9 @@ void Interface_Tela_Inicial::Loop_Events(){
                     jogador1 = make_unique<Interface_Definicao_Entrada_Jogador1>();
                     jogador1->Run();
                 } else if(posicao == 1) {
-                    cout << "Em construçao... Vou fazer no sábado" << endl;
+                    dados = make_unique<Interface_Define_Tipo_Operacao_Dados>();
                     janela->close();
+                    dados->Run();
                 } 
             }
         }

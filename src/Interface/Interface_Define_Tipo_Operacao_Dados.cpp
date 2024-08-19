@@ -10,7 +10,7 @@ Interface_Define_Tipo_Operacao_Dados::Interface_Define_Tipo_Operacao_Dados() : I
 }
 
 void Interface_Define_Tipo_Operacao_Dados::Set_Opcoes() {
-    opcoes_de_escolha = {"Lista de jogadores", "Remover jogador", "Estatísticas"};
+    opcoes_de_escolha = {"Lista de jogadores", "Remover jogador", "Estatisticas"};
 }
 
 void Interface_Define_Tipo_Operacao_Dados::Definicoes_Espacamento_Janela() {

@@ -103,7 +103,7 @@ $(OBJDIR)/Interface_Definicao_Entrada_Jogador1.o: $(SRCDIR)/Interface/Interface_
 $(OBJDIR)/Interface_Definicao_Entrada_Jogador2.o: $(SRCDIR)/Interface/Interface_Definicao_Entrada_Jogador2.cpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador2.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Login_Jogador2.hpp $(INCDIR)/Interface/Interface_Cadastro_Jogador2.hpp  $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Definicao_Entrada_Jogador2.cpp -o $(OBJDIR)/Interface_Definicao_Entrada_Jogador2.o
 
-$(OBJDIR)/Interface_Tela_Inicial.o: $(SRCDIR)/Interface/Interface_Tela_Inicial.cpp $(INCDIR)/Interface/Interface_Tela_Inicial.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.hpp  $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
+$(OBJDIR)/Interface_Tela_Inicial.o: $(SRCDIR)/Interface/Interface_Tela_Inicial.cpp $(INCDIR)/Interface/Interface_Tela_Inicial.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador1.hpp  $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp $(INCDIR)/Interface/Interface_Define_Tipo_Operacao_Dados.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Tela_Inicial.cpp -o $(OBJDIR)/Interface_Tela_Inicial.o
 
 $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o: $(SRCDIR)/Interface/Classes_auxiliares/Troca_Definicao_Entrada_Jogador.cpp $(INCDIR)/Interface/Classes_auxiliares/Troca_Definicao_Entrada_Jogador.hpp $(INCDIR)/Interface/Interface_Definicao_Entrada_Jogador2.hpp

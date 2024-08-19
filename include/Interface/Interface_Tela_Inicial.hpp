@@ -8,6 +8,7 @@
 
 #include "Interface_Menu.hpp"
 #include "Interface_Definicao_Entrada_Jogador1.hpp"
+#include "Interface_Define_Tipo_Operacao_Dados.hpp"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ class Interface_Tela_Inicial: public Interface_Menu {
         void Set_Values() override;
         void Loop_Events() override;
         unique_ptr<Interface_Definicao_Entrada_Jogador1> jogador1;
+        unique_ptr<Interface_Define_Tipo_Operacao_Dados> dados;
  
     public:
         Interface_Tela_Inicial();
