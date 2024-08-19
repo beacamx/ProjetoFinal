@@ -6,6 +6,8 @@ Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas)
     this->largura_quadrado = 78;
     this->linhas = num_linhas;
     this->colunas = num_colunas;
+    lig4 = Lig4(registro_geral, nome_jogador1, nome_jogador2, linhas, colunas);
+
     Set_Values();
 }
 

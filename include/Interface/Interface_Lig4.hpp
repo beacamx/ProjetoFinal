@@ -24,6 +24,9 @@ class Interface_Lig4 : public Interface_Jogo {
         void Set_Textura_Peca1() override;
         void Set_Textura_Peca2() override;
         //void Set_Music() override;
+
+    private:
+        Lig4 lig4;
 };
 
 #endif

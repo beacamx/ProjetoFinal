@@ -11,7 +11,7 @@ class Lig4 : public Jogo {
 public:
 
     //Mudança no construtror
-    Lig4();
+    Lig4(){};
     Lig4(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas);
 
     void inicializarTabuleiro() override; 

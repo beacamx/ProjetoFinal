@@ -3,6 +3,8 @@
 
 using namespace std;
 
+Jogo::Jogo() {}
+
 Jogo::Jogo(cadastro& cadastro_jogadores, string nomeJogador1, string nomeJogador2, int linhas, int colunas)
     : numLinhas(linhas), numColunas(colunas), jogoAtivo(true) {
     // Busca os jogadores no cadastro
