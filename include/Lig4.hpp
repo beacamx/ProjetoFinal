@@ -16,7 +16,7 @@ public:
 
     void inicializarTabuleiro() override; 
     vector<vector<int>> fazerJogada(int linha, int coluna) override; 
-    void testarVitoria() override;
+    bool testarVitoria() override;
     int calcularLinhaDisponivel(int coluna);
 
 protected:

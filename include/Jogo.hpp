@@ -26,7 +26,7 @@ class Jogo {
     bool isJogoAtivo() const;  // Verifica se o jogo está ativo
     
     virtual vector<vector<int>> fazerJogada(int linha, int coluna) = 0;  // Mudança para retornar o tabuleiro
-    virtual void testarVitoria() = 0;
+    virtual bool testarVitoria() = 0;
     virtual void inicializarTabuleiro() = 0;
     virtual vector<pair<int, int>> calcularPosicoesPossiveis() = 0;
     

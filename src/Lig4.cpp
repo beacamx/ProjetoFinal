@@ -54,7 +54,7 @@ vector<vector<int>> Lig4::fazerJogada(int linha, int coluna) {
 }
 
 
-void Lig4::testarVitoria() {
+bool Lig4::testarVitoria() {
    bool condicaoVitoria = false;
 
     for(int i = 0; i < numLinhas; i++) {
@@ -105,4 +105,5 @@ void Lig4::testarVitoria() {
         cout << jogadorAtual->get_name() << " venceu!" << endl;
         jogoAtivo = false;
     }
+    return condicaoVitoria;
 }
