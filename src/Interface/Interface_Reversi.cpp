@@ -1,7 +1,4 @@
 #include "Interface/Interface_Reversi.hpp"
-#include <algorithm>
-
-using namespace std;
 
 Interface_Reversi::Interface_Reversi(int num_linhas, int num_colunas) 
     : Interface_Jogo("Reversi"){

@@ -43,8 +43,6 @@ void Interface_Define_Jogo::Set_Values(){
     textos.Set_Fonte(tamanho_fonte);
     textos.Set_Textos_Sem_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical);
     textos.Set_Contorno_Inicial_Texto();
-
-    janela->setVerticalSyncEnabled(true);
 }
 
 void Interface_Define_Jogo::Loop_Events(){

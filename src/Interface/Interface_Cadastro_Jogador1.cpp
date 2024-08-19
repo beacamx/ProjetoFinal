@@ -1,8 +1,6 @@
 #include "Interface_Cadastro_Jogador1.hpp"
 #include "Classes_auxiliares/Troca_Definicao_Entrada_Jogador.hpp"
 
-using namespace std;
-
 Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1() : Interface_Cadastro_Base() {
     try {
         Set_Values();
