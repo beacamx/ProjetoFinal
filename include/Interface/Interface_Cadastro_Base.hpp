@@ -5,16 +5,12 @@
 #include <iostream>
 
 #include "Interface_Menu.hpp"
-#include "Interface_Define_Jogo.hpp"
-#include "Classes_auxiliares/Caixa_de_texto.hpp"
-#include "Cadastro_Jogadores.hpp"
-#include "jogador.hpp"
+#include "Caixa_de_texto.hpp"
 
 using namespace std;
 
 class Interface_Cadastro_Base: public Interface_Menu {
     protected:
-        unique_ptr<Interface_Define_Jogo> define_jogo;
         Caixa_de_texto caixa_de_texto1;
         Caixa_de_texto caixa_de_texto2;
         float altura_texto;
@@ -29,6 +25,7 @@ class Interface_Cadastro_Base: public Interface_Menu {
 
     public:
         Interface_Cadastro_Base();
+        ~Interface_Cadastro_Base(){};
 };
 
 #endif

@@ -4,7 +4,13 @@
 using namespace std;
 
 Interface_Cadastro_Jogador1::Interface_Cadastro_Jogador1() : Interface_Cadastro_Base() {
-    Set_Values();
+    try {
+        Set_Values();
+        cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
+    } catch (const std::exception& e) {
+        cerr << "Erro ao inicializar Interface_Cadastro_Jogador1: " << e.what() << endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void Interface_Cadastro_Jogador1::Loop_Events() {
