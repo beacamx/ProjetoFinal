@@ -22,7 +22,7 @@ void Interface_Cadastro_Base::Set_Values(){
         tamanho_fonte = {19, 19, 17};
         textos.Set_Fonte(tamanho_fonte);
         textos.Set_Textos_Com_Entrada(opcoes_de_escolha, largura_janela, altura_inferior_titulo, espaco_vertical, 
-            espaco_vertical_botao_play, altura_texto);
+        espaco_vertical_botao_play, altura_texto);
         textos.Set_Contorno_Inicial_Texto();
 
         float largura_caixa = 120.0f;

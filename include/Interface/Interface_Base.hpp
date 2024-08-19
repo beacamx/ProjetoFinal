@@ -31,9 +31,16 @@ class Interface_Base {
 
         int largura_janela, altura_janela; 
         string mensagem_de_erro;
-        string nome_jogador1, nome_jogador2;
-        string apelido_jogador1, apelido_jogador2;
+        string nome_jogador1;
+        string nome_jogador2;
+        static string apelido_jogador1;
+        static string apelido_jogador2;
+
         static cadastro& Get_Registro_Geral();
+        static void Set_Apelido_Jogador1(const string& apelido);
+        static void Set_Apelido_Jogador2(const string& apelido);
+        static string Get_Apelido_Jogador1();
+        static string Get_Apelido_Jogador2();
     public:
         Interface_Base(int largura, int altura);
         ~Interface_Base(){};

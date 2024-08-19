@@ -105,7 +105,7 @@ $(OBJDIR)/Troca_Definicao_Entrada_Jogador.o: $(SRCDIR)/Interface/Classes_auxilia
 $(OBJDIR)/Caixa_de_texto.o: $(SRCDIR)/Interface/Classes_auxiliares/Caixa_de_texto.cpp $(INCDIR)/Interface/Classes_auxiliares/Caixa_de_texto.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Classes_auxiliares/Caixa_de_texto.cpp -o $(OBJDIR)/Caixa_de_texto.o
 
-$(OBJDIR)/Interface_Lig4.o: $(SRCDIR)/Interface/Interface_Lig4.cpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Lig4.hpp
+$(OBJDIR)/Interface_Lig4.o: $(SRCDIR)/Interface/Interface_Lig4.cpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Lig4.hpp $(INCDIR)/Interface/Interface_Base.hpp
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Lig4.cpp -o $(OBJDIR)/Interface_Lig4.o
 
 $(OBJDIR)/Interface_Define_Jogo.o: $(SRCDIR)/Interface/Interface_Define_Jogo.cpp $(INCDIR)/Interface/Interface_Define_Jogo.hpp $(INCDIR)/Interface/Interface_Jogo.hpp $(INCDIR)/Interface/Interface_Lig4.hpp $(INCDIR)/Interface/Interface_Reversi.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp

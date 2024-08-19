@@ -1,6 +1,24 @@
 #include "Interface_Base.hpp"
 
 cadastro Interface_Base::registro_geral;
+string Interface_Base::apelido_jogador1;
+string Interface_Base::apelido_jogador2;
+
+void Interface_Base::Set_Apelido_Jogador1(const string& apelido) {
+    apelido_jogador1 = apelido;
+}
+
+void Interface_Base::Set_Apelido_Jogador2(const string& apelido) {
+    apelido_jogador2 = apelido;
+}
+
+string Interface_Base::Get_Apelido_Jogador1() {
+    return apelido_jogador1;
+}
+
+string Interface_Base::Get_Apelido_Jogador2() {
+    return apelido_jogador2;
+}
 
 cadastro& Interface_Base::Get_Registro_Geral() { 
     try {

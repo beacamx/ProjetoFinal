@@ -69,30 +69,30 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                     seleção_ativa = true;
                     Troca_Definicao_Entrada_Jogador troca_Definicao_Entrada_Jogador;
                     nome_jogador1 = caixa_de_texto2.Obter_Texto_Entrada();
-                    apelido_jogador1 = caixa_de_texto1.Obter_Texto_Entrada();
-                    cout << endl << apelido_jogador1 << endl;
+                    string apelido = caixa_de_texto1.Obter_Texto_Entrada();
+                    Interface_Base::Set_Apelido_Jogador1(apelido);
                     cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
                     try {
-                        if((!(registro_geral_ref.find_by_nick(apelido_jogador1))) && (nome_jogador1.length() > 0) && (apelido_jogador1.length() > 0)) { 
-                            registro_geral_ref.cadastrar(new Jogador(nome_jogador1, apelido_jogador1));
+                        if((!(registro_geral_ref.find_by_nick(apelido))) && (nome_jogador1.length() > 0) && (apelido.length() > 0)) { 
+                            registro_geral_ref.cadastrar(new Jogador(nome_jogador1, apelido));
                             cout << "Tamanho vetor de jogadores:" << registro_geral_ref.jogadores.size() << endl;
                             janela->close();
                             troca_Definicao_Entrada_Jogador.Troca_Definicao_Jogador();
-                        } else if ((!registro_geral_ref.find_by_nick(apelido_jogador1)) && (nome_jogador1.length() == 0)  && (apelido_jogador1.length() > 0)){
+                        } else if ((!registro_geral_ref.find_by_nick(apelido)) && (nome_jogador1.length() == 0)  && (apelido.length() > 0)){
                             cerr << "Aviso: Digite seu nome";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
                             Set_Aviso();
                             //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
-                        } else if((apelido_jogador1.length() == 0) && (nome_jogador1.length() > 0)) {
+                        } else if((apelido.length() == 0) && (nome_jogador1.length() > 0)) {
                             cerr << "Aviso: Digite seu apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu apelido");
                             Set_Aviso();
                             //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
-                        } else if((apelido_jogador1.length() == 0) && (nome_jogador1.length() == 0)) {
+                        } else if((apelido.length() == 0) && (nome_jogador1.length() == 0)) {
                             cerr << "Aviso: Digite seu nome e apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome e apelido");

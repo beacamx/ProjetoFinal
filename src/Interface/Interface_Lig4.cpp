@@ -1,14 +1,18 @@
 #include "Interface_Lig4.hpp"
 #include "Lig4.hpp"
+#include "Interface_Base.hpp"
 
 Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas) 
     : Interface_Jogo("Lig4") { 
     this->largura_quadrado = 78;
     this->linhas = num_linhas;
     this->colunas = num_colunas;
+    string apelido1 = Interface_Base::Get_Apelido_Jogador1();
+    string apelido2 = Interface_Base::Get_Apelido_Jogador2();
+    cout << apelido1 << endl << apelido2 << endl << linhas << endl << colunas << endl;
     try {
         cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
-        lig4 = Lig4(registro_geral_ref, apelido_jogador1, apelido_jogador2, linhas, colunas);
+        lig4 = Lig4(registro_geral_ref, apelido1, apelido2, linhas, colunas);
         Set_Values();
     } catch (const std::exception& e) {
         cerr << "Erro ao criar Interface_Lig4: " << e.what() << endl;
