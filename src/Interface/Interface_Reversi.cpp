@@ -19,33 +19,43 @@ Interface_Reversi::Interface_Reversi(int num_linhas, int num_colunas)
 
 void Interface_Reversi::Logica() {
     // Calcula as posições possíveis para o jogador atual
-    auto pos = sf::Mouse::getPosition(*janela);
-    std::cout << "Posição do mouse: (" << pos.x << ", " << pos.y << ")" << std::endl;
+    vector<pair<int, int>> posicoes_possiveis = reversi.calcularPosicoesPossiveis();
+    cout << "Posicoes possiveis para " << ":" << endl;
 
+    for (const auto& pos : posicoes_possiveis) {
+        cout << "(" << pos.first << ", " << pos.second << ") ";
+    }
+    cout << endl;
+
+    if (posicoes_possiveis.empty()) {
+        reversi.encerrarJogada();
+        return;
+    }
+
+    auto pos = sf::Mouse::getPosition(*janela);
+    cout << "Posição do mouse: (" << pos.x << ", " << pos.y << ")" << std::endl;
+    
     int linha = pos.y / largura_quadrado;
     int coluna = pos.x / largura_quadrado;
 
-    cout << "Coordenadas calculadas: Linha " << linha << ", Coluna " << coluna << endl;
+    bool IsPossible = false;
 
-
-    
-}
-
-
-/*void Interface_Reversi::Set_Music() {
-    if (!som_jogo.openFromFile("./assets/audio/4.wav")) {
-        cerr << "Erro ao carregar música" << std::endl;
-        exit(1);
+    for (const auto& pos : posicoes_possiveis) {
+        if (pos.first == linha && pos.second == coluna) {
+            tabuleiro = reversi.fazerJogada(linha, coluna);
+            reversi.trocarJogador();
+            IsPossible = true;
+        }
     }
 
-    som_jogo.setVolume(2);
-    som_jogo.setLoop(true);
-    som_jogo.play();
-}*/
+    if (!IsPossible) {
+        Eventos_Jogo();
+    }
+    
+    cout << "Coordenadas calculadas: Linha " << linha << ", Coluna " << coluna << endl;
+}
 
 void Interface_Reversi::Set_Values(){
-    //Set_Music();
-
     cout << "Criando Interface_Reversi..." << endl;
 
     Define_Dimensoes_Janela();
@@ -95,7 +105,6 @@ void Interface_Reversi::Set_Sprites() {
     tabuleiro.resize(linhas, vector<int>(colunas, 0)); // Redimensiona a matriz grid para representar o estado do tabuleiro, inicializando todas as posições com 0 (indicando que estão vazias).
 
     tabuleiro = reversi.inicializarTabuleiro();
-    reversi.imprimirTabuleiro();
 
     for(int i = 0; i < linhas; ++i) {
         for(int j = 0; j < colunas; ++j) {

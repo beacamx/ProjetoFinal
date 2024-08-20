@@ -8,7 +8,6 @@
 #include <string>
 #include <stdexcept>
 
-//#include "Audio.hpp"
 #include "Avisos.hpp"
 #include "Cadastro_Jogadores.hpp"
 #include "Jogador.hpp"
@@ -25,7 +24,6 @@ class Interface_Base {
         bool mostrar_aviso = false;
         sf::Text aviso;
 
-        //Audio audio;
         Avisos avisos;
         static cadastro registro_geral;
 

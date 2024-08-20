@@ -24,7 +24,6 @@ void Interface_Jogo::Atualizar_Janela() {
             janela->draw(sprite); // Desenha o sprite na janela
         }
 
-        // Desenha os sprites das peças no tabuleiro, dependendo do valor da cas (1 ou 2)
         for(int i = 0; i < linhas; ++i) {
             for(int j = 0; j < colunas; ++j) {
                 int valor_casa = tabuleiro[i][j];

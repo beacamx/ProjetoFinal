@@ -21,7 +21,6 @@ class Interface_Jogo : public Interface_Base {
         void Eventos_Jogo();
         virtual void Atualizar_Janela() override;
         virtual void Set_Sprites() = 0;
-        //virtual void Set_Music() = 0;
         virtual void Set_Aviso() override;
         virtual void Run() override;
         virtual void Set_Textura_Sem_Peca() = 0;
@@ -38,8 +37,6 @@ class Interface_Jogo : public Interface_Base {
         vector<size_t> tamanho_fonte;
         Textos textos;
         string nome_do_jogo;
-
-        //sf::Music som_jogo;
 
         sf::Texture textura_sem_peca;
         sf::Texture textura_peca1;

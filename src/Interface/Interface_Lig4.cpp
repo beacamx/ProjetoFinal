@@ -20,19 +20,24 @@ Interface_Lig4::Interface_Lig4(int num_linhas, int num_colunas)
 }
 
 void Interface_Lig4::Logica() {
-    sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
+    try {
+        sf::Vector2i posicao = sf::Mouse::getPosition(*janela);
+        if(lig4.isJogoAtivo()) {
+            int col = posicao.x / largura_quadrado;
 
-    if(lig4.isJogoAtivo()) {
-        int col = posicao.x / largura_quadrado;
-
-    // Enviar a jogada para a lógica do jogo
-        int linha = lig4.calcularLinhaDisponivel(col); // Função que retorna a linha disponível na coluna selecionada
-        if (linha != -1) { // Verifica se a jogada é válida
-            tabuleiro = lig4.fazerJogada(linha, col);
-            if(!lig4.testarVitoria()) {
-                lig4.trocarJogador();
+        // Enviar a jogada para a lógica do jogo
+            int linha = lig4.calcularLinhaDisponivel(col); // Função que retorna a linha disponível na coluna selecionada
+            if (linha != -1) { // Verifica se a jogada é válida
+                tabuleiro = lig4.fazerJogada(linha, col);
+                if(!lig4.testarVitoria()) {
+                    lig4.trocarJogador();
+                }
             }
         }
+    } catch (const std::exception& e) {
+        std::cerr << "Erro na chamada da lógica do Lig4: " << e.what() << endl;
+    } catch (...) {
+        cerr << "Erro desconhecido ocorreu." << endl;
     }
 }
 
@@ -70,17 +75,6 @@ void Interface_Lig4::Set_Textura_Peca2(){
     }
 }
 
-/*void Interface_Lig4::Set_Music() {
-    if (!som_jogo.openFromFile("./assets/audio/3.wav")) {
-        cerr << "Erro ao carregar música" << std::endl;
-        exit(1);
-    }
-
-    som_jogo.setVolume(2);
-    som_jogo.setLoop(true);
-    som_jogo.play();
-}*/
-
 void Interface_Lig4::Set_Sprites() {
     try {
         sprites.resize(linhas * colunas); // Redimensiona o vetor de sprites para ter um sprite para cada posição no tabuleiro.
@@ -111,7 +105,6 @@ void Interface_Lig4::Set_Sprites() {
 }
 
 void Interface_Lig4::Set_Values(){
-    //Set_Music();
     try {
         cout << "Criando Interface_Lig4..." << endl;
 
