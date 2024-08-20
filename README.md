@@ -64,6 +64,14 @@ make run
 
 #### Como jogar
 
+O jogo Lig4 oferece três opções de tamanho de tabuleiro, permitindo uma experiência de jogo personalizada:
+
+   - **6 x 7**
+   - **7 x 8**
+   - **8 x 9**
+
+Durante o início do jogo, o jogador pode selecionar o tamanho do tabuleiro desejado antes de começar a partida.
+
 #### 1. Jogadas
 
 - **O jogo é jogado com o mouse.**
