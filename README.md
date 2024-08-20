@@ -88,6 +88,14 @@ Durante o início do jogo, o jogador pode selecionar o tamanho do tabuleiro dese
 
 ### Reversi
 
+O jogo Reversi oferece três opções de tamanho de tabuleiro, permitindo uma experiência de jogo personalizada:
+
+   - **6 x 6**
+   - **8 x 8**
+   - **10 x 10**
+
+Ao iniciar o jogo, você será solicitado a escolher o tamanho do tabuleiro desejado. Selecione o tamanho que melhor se adapta às suas preferências e desfrute de uma partida de Reversi personalizada.
+
 #### Como jogar
 
 #### 1. Jogadas:
