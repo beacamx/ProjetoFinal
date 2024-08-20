@@ -24,11 +24,7 @@ Lig4::Lig4(cadastro& cadastro_jogadores, string nickJogador1, string nickJogador
 
 vector<vector<int>> Lig4::inicializarTabuleiro() {
     try {
-        for (int i = 0; i < numLinhas; i++) {
-            for (int j = 0; j < numColunas; j++) {
-                tabuleiro[i][j] = 0;
-            }
-        }
+        tabuleiro.resize(numLinhas, vector<int>(numColunas, 0));
     } catch (const std::exception& e) {
         cerr << "Erro ao inicializar o tabuleiro: " << e.what() << endl;
         throw;
