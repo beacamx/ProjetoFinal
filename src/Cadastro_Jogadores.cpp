@@ -10,6 +10,9 @@ cadastro::cadastro()
 cadastro::~cadastro()
 {
   save();
+  for (auto _aux : jogadores){
+      delete _aux;
+  }
 }
 
 
