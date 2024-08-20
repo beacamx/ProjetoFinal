@@ -92,17 +92,19 @@ vector<vector<int>> Lig4::fazerJogada(int linha, int coluna) {
 bool Lig4::testarVitoria() {
    bool condicaoVitoria = false;
 
-    for(int i = 0; i < numLinhas; i++) {
+   // Verifica horizontalmente
+    for (int i = 0; i < numLinhas; i++) {
         for (int j = 0; j <= numColunas - 4; ++j) {
             if (tabuleiro[i][j] == jogadorAtual->getPeca() && 
                 tabuleiro[i][j + 1] == jogadorAtual->getPeca() &&
                 tabuleiro[i][j + 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i][j + 3] == jogadorAtual->getPeca()) {
-                 condicaoVitoria = true;
-                }       
-           }
+                condicaoVitoria = true;
+            }       
         }
-    
+    }
+
+    // Verifica verticalmente
     for (int j = 0; j < numColunas; ++j) {
         for (int i = 0; i <= numLinhas - 4; ++i) {
             if(tabuleiro[i][j] == jogadorAtual->getPeca() &&
@@ -110,10 +112,12 @@ bool Lig4::testarVitoria() {
                tabuleiro[i + 2][j] == jogadorAtual->getPeca() &&
                tabuleiro[i + 3][j] == jogadorAtual->getPeca()) {
                 condicaoVitoria = true;
-               }           
-           }
+            }           
         }
+    }
 
+
+    // Verifica diagonal (de cima-esquerda para baixo-direita)
     for (int i = 0; i <= numLinhas - 4; ++i) {
         for (int j = 0; j <= numColunas - 4; ++j) {
             if (tabuleiro[i][j] == jogadorAtual->getPeca() &&
@@ -121,21 +125,22 @@ bool Lig4::testarVitoria() {
                 tabuleiro[i + 2][j + 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 3][j + 3] == jogadorAtual->getPeca()) {
                 condicaoVitoria = true;
-                }
-           }
+            }
         }
+    }
 
+    // Verifica diagonal (de cima-direita para baixo-esquerda)
     for (int i = 0; i <= numLinhas - 4; ++i) {
         for (int j = 3; j < numColunas; ++j) {
             if (tabuleiro[i][j] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 1][j - 1] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 2][j - 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 3][j - 3] == jogadorAtual->getPeca()) {
-                    condicaoVitoria = true;
-             }
-
-         }           
+                condicaoVitoria = true;
+            }
+        }
     }
+    
     if (condicaoVitoria == true) {
         cout << jogadorAtual->get_name() << " venceu!" << endl;
         jogadorAtual->win_lig4();
