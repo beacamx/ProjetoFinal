@@ -46,6 +46,10 @@ Este projeto foi desenvolvido e testado em um ambiente Linux, utilizando um comp
 
 ### Compilação
 No diretório raiz do projeto, execute:
+```
+make
+```
+e depois:
 
 ```
 make run
