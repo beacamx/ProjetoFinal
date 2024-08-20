@@ -21,7 +21,6 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
             }
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed) {
-                // audio.Play_Efeito_Sonoro_Selecao_Botao();
                 if(posicao < tam_vetor_texto - 1) {
                     ++posicao;
                     pressed = true;
@@ -34,7 +33,6 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
             }
 
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed) {
-                // audio.Play_Efeito_Sonoro_Selecao_Botao();
                 if(posicao > 0) {
                     --posicao;
                     pressed = true;
@@ -81,14 +79,12 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if((apelido.length() == 0) && (nome_jogador1.length() > 0)) {
                             cerr << "Aviso: Digite seu apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu apelido");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if((apelido.length() == 0) && (nome_jogador1.length() == 0)) {
                             cerr << "Aviso: Digite seu nome e apelido";
@@ -101,7 +97,6 @@ void Interface_Cadastro_Jogador1::Loop_Events() {
                             cout << endl;
                             aviso.setString("Aviso: Jogador ja existente");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {
