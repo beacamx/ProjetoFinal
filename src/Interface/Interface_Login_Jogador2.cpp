@@ -54,15 +54,19 @@ void Interface_Login_Jogador2::Loop_Events(){
                 string apelido = caixa_de_texto1.Obter_Texto_Entrada();
                 Interface_Base::Set_Apelido_Jogador2(apelido);
                 cadastro& registro_geral_ref = Interface_Base::Get_Registro_Geral();
-                if(registro_geral_ref.find_by_nick(apelido_jogador2)) {
-                    cout << "Tamanho vetor de jogadores:" << registro_geral.jogadores.size() << endl;
+                if(apelido.length() == 0) {
+                    cerr << "Aviso: Digite um apelido" << endl;
+                    aviso.setString("Aviso: Digite um apelido");
+                    Set_Aviso();
+                    seleção_ativa = false;
+                } else if(registro_geral_ref.find_by_nick(apelido_jogador2)) {
                     define_jogo = make_unique<Interface_Define_Jogo>();
                     janela->close();
                     define_jogo->Run();
                 } else {
                     cerr << "Aviso: Jogador nao existente" << endl;
+                    aviso.setString("Aviso: Jogador nao existente");
                     Set_Aviso();
-                    //audio.Play_Efeito_Sonoro_Aviso();
                     seleção_ativa = false;
                 }
             } 

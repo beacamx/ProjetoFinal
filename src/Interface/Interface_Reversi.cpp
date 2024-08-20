@@ -33,8 +33,6 @@ void Interface_Reversi::Logica() {
     }
 
     auto pos = sf::Mouse::getPosition(*janela);
-    cout << "Posição do mouse: (" << pos.x << ", " << pos.y << ")" << std::endl;
-    
     int linha = pos.y / largura_quadrado;
     int coluna = pos.x / largura_quadrado;
 
@@ -51,8 +49,6 @@ void Interface_Reversi::Logica() {
     if (!IsPossible) {
         Eventos_Jogo();
     }
-    
-    cout << "Coordenadas calculadas: Linha " << linha << ", Coluna " << coluna << endl;
 }
 
 void Interface_Reversi::Set_Values(){

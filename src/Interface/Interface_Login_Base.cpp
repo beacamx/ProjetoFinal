@@ -98,8 +98,6 @@ void Interface_Login_Base::Set_Aviso() {
         const auto& textos_aux = textos.Get_Vetor_Textos();
         sf::FloatRect bounds_play = textos_aux[1].getGlobalBounds();
         float pos_y_play = bounds_play.top + bounds_play.height;
-
-        aviso.setString("Aviso: Jogador nao existente");
         aviso.setPosition(largura_janela / 2 - aviso.getGlobalBounds().width / 2, pos_y_play + 80);
         mostrar_aviso = true;
     } catch (const std::exception& e) {
