@@ -27,17 +27,19 @@ Este projeto, desenvolvido para a disciplina **PDS II - Projeto Final - 2024-1**
 ### Descrição dos Jogos
 
 # colocar print tela inicial
+![Tela Inicial](caminho/para/imagem.png)
 
 #### Reversi
 Reversi é um jogo de tabuleiro para dois jogadores, também conhecido como Othello. O jogo é jogado em um tabuleiro 8x8 com discos que são pretos de um lado e brancos do outro. O objetivo é ter a maioria dos discos com a sua cor virada para cima no final do jogo. Jogadores alternam turnos colocando um disco da sua cor em uma posição que enclausura um ou mais discos do oponente entre dois dos seus discos. Os discos do oponente então são virados para a cor do jogador atual.
 
 # print do jogo
-
+![Lig4l](caminho/para/imagem.png)
 
 #### Connect Four (Lig4)
 Connect Four é um jogo de tabuleiro para dois jogadores onde o objetivo é ser o primeiro a formar uma linha horizontal, vertical ou diagonal de quatro peças consecutivas. O jogo é jogado em um tabuleiro vertical com 7 colunas e 6 linhas, onde os jogadores alternam turnos soltando peças em uma das colunas. A peça então cai até o espaço mais baixo disponível na coluna.
 
 # print do jogo
+![Reversi](caminho/para/imagem.png)
 
 ### Ferramentas e Tecnologias Utilizadas
 - **Linguagem de Programação:** C++
