@@ -61,7 +61,7 @@ bool Lig4::testarVitoria() {
         for (int j = 0; j <= numColunas - 4; ++j) {
             if (tabuleiro[i][j] == jogadorAtual->getPeca() && 
                 tabuleiro[i][j + 1] == jogadorAtual->getPeca() &&
-                tabuleiro[i][j + 3] == jogadorAtual->getPeca() &&
+                tabuleiro[i][j + 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i][j + 3] == jogadorAtual->getPeca()) {
                  condicaoVitoria = true;
                 }       
@@ -94,7 +94,7 @@ bool Lig4::testarVitoria() {
         for (int j = 3; j < numColunas; ++j) {
             if (tabuleiro[i][j] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 1][j - 1] == jogadorAtual->getPeca() &&
-                tabuleiro[i + 3][j - 2] == jogadorAtual->getPeca() &&
+                tabuleiro[i + 2][j - 2] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 3][j - 3] == jogadorAtual->getPeca()) {
                     condicaoVitoria = true;
              }
