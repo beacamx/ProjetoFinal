@@ -75,28 +75,24 @@ void Interface_Cadastro_Jogador2::Loop_Events(){
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if(apelido.length() == 0 && nome_jogador2.length() > 0) {
                             cerr << "Aviso: Digite seu apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu apelido");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else if(apelido.length() == 0 && nome_jogador2.length() == 0) {
                             cerr << "Aviso: Digite seu nome e apelido";
                             cout << endl;
                             aviso.setString("Aviso: Digite seu nome e apelido");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         } else {
                             cerr << "Aviso: Jogador já existente";
                             cout << endl;
                             aviso.setString("Aviso: Jogador ja existente");
                             Set_Aviso();
-                            //audio.Play_Efeito_Sonoro_Aviso();
                             seleção_ativa = false;
                         }
                     } catch (const runtime_error& e) {

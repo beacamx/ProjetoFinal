@@ -56,7 +56,6 @@ void Interface_Define_Jogo::Loop_Events(){
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
             if(posicao < tam_vetor_texto - 1){
-                //audio.Play_Efeito_Sonoro_Selecao_Botao();
                 ++posicao;
                 pressed = true;
                 textos.Set_Contorno_Texto_Avancar(posicao);
@@ -67,7 +66,6 @@ void Interface_Define_Jogo::Loop_Events(){
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
             if(posicao > 0){
-                //audio.Play_Efeito_Sonoro_Selecao_Botao();
                 --posicao;
                 pressed = true;
                 textos.Set_Contorno_Texto_Voltar(posicao);

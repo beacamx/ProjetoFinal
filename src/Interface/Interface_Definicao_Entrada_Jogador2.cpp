@@ -46,7 +46,6 @@ void Interface_Definicao_Entrada_Jogador2::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !pressed){
-            //audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao < tam_vetor_texto - 1){
                 ++posicao;
                 pressed = true;
@@ -57,7 +56,6 @@ void Interface_Definicao_Entrada_Jogador2::Loop_Events(){
         }
 
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !pressed){
-            //audio.Play_Efeito_Sonoro_Selecao_Botao();
             if(posicao > 0){
                 --posicao;
                 pressed = true;

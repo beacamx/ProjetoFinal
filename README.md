@@ -59,3 +59,40 @@ make run
 ```
 
 ## Tutorial Jogo
+
+### Connect Four (Lig4)
+
+##### Como jogar
+
+##### 1. Jogadas
+
+- **O jogo é jogado com o mouse.**
+- **Ao iniciar a partida, você verá um tabuleiro na tela.**
+- **Para fazer uma jogada, clique com o botão esquerdo do mouse na coluna onde deseja        colocar sua peça.**
+- **A peça cairá na posição mais baixa disponível naquela coluna.**
+
+##### 2. Alternância de Turnos:
+
+- **Após cada jogada, o turno passa automaticamente para o próximo jogador.**
+- **Continue jogando até que um jogador consiga alinhar quatro peças ou o tabuleiro fique completamente cheio.**
+
+### Reversi
+
+##### Como jogar
+
+##### 1. Jogadas:
+
+- **O jogo é jogado com o mouse.**
+- **Para fazer uma jogada, clique com o botão esquerdo do mouse na casa onde deseja          posicionar sua peça.**
+- **Suas peças devem capturar as peças do adversário, virando-as para a sua cor.**
+
+##### 2. Alternância de Turnos:
+
+- **Após cada jogada, o turno passa automaticamente para o próximo jogador.**
+- **Continue jogando até que não haja mais movimentos possíveis.**
+
+
+
+
+
+
