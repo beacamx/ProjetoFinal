@@ -99,9 +99,3 @@ Ao iniciar o jogo, você será solicitado a escolher o tamanho do tabuleiro dese
 
 - **Após cada jogada, o turno passa automaticamente para o próximo jogador.**
 - **Continue jogando até que não haja mais movimentos possíveis.**
-
-
-
-
-
-

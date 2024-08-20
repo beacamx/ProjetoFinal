@@ -1,0 +1,15 @@
+# Project related configuration options
+PROJECT_NAME           = "PDSII - Projeto Final - 2024-1"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = src include
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+
+# Additional options you might want to enable
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_XML           = NO
+
+# Documentation layout options
+USE_MDFILE_AS_MAINPAGE = README.md
