@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../libs/doctest/doctest.h"
-#include "../include/jogador.hpp"
+#include "../include/Jogador.hpp"
 #include "../include/Cadastro_Jogadores.hpp"
 #include "../include/Jogo.hpp"
 

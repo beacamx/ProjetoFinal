@@ -10,7 +10,7 @@
 #include "Caixa_de_texto.hpp"
 #include "Cadastro_Jogadores.hpp"
 #include "Interface_Login_Base.hpp"
-#include "jogador.hpp"
+#include "Jogador.hpp"
 
 class Interface_Login_Jogador2: public Interface_Login_Base {
     public:

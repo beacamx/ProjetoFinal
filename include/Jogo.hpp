@@ -1,7 +1,7 @@
 #ifndef JOGO_HPP
 #define JOGO_HPP
 
-#include "jogador.hpp"
+#include "Jogador.hpp"
 #include "Cadastro_Jogadores.hpp"
 #include <vector>
 #include <iostream>

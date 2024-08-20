@@ -1,4 +1,4 @@
-#include "../include/jogador.hpp"
+#include "../include/Jogador.hpp"
 
 Jogador::Jogador(std::string name, std::string nick) 
     : Jogador(name, nick, 0, 0, 0, 0) {}

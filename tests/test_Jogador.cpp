@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../libs/doctest/doctest.h"
-#include "../include/jogador.hpp"
+#include "../include/Jogador.hpp"
 
 TEST_CASE("Testando o Construtor Jogador") {
     Jogador jogador1("Alice", "Alicinha");
