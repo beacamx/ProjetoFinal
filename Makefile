@@ -7,8 +7,9 @@ SRCDIR=src
 INCDIR=include
 SFML_DIR_BUILD=libs/SFML-2.6.1/build
 SFML_INCLUDE_DIR=libs/SFML-2.6.1/include/SFML
+SFML_INCLUDE_DIR1=libs/SFML-2.6.1/include
 SFML_LIB_DIR=$(SFML_DIR_BUILD)/lib
-CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -Iinclude/Interface/Classes_auxiliares -I$(SFML_INCLUDE_DIR)
+CXXFLAGS=$(DEBUG) $(WARN) -Iinclude -Iinclude/Interface -Iinclude/Interface/Classes_auxiliares -I$(SFML_INCLUDE_DIR1)
 LDFLAGS=-L$(SFML_LIB_DIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 UNAME_S := $(shell uname -s)
@@ -39,7 +40,9 @@ OBJS=$(OBJDIR)/main.o $(OBJDIR)/Interface_Lig4.o \
 	$(OBJDIR)/Avisos.o $(OBJDIR)/Interface_Cadastro_Base.o \
 	$(OBJDIR)/Lig4.o $(OBJDIR)/Jogo.o \
 	$(OBJDIR)/Interface_Login_Base.o $(OBJDIR)/Reversi.o \
-	$(OBJDIR)/Interface_Define_Tipo_Operacao_Dados.o $(OBJDIR)/Interface_Remove_Jogador.o 
+	$(OBJDIR)/Interface_Define_Tipo_Operacao_Dados.o $(OBJDIR)/Interface_Remove_Jogador.o
+
+export LD_LIBRARY_PATH := libs/SFML-2.6.1/build/lib:$(LD_LIBRARY_PATH)
 
 
 all: $(OBJDIR) $(TARGET)$(EXT)
@@ -77,7 +80,7 @@ $(OBJDIR)/Interface_Cadastro_Base.o: $(SRCDIR)/Interface/Interface_Cadastro_Base
 $(OBJDIR)/Interface_Login_Base.o: $(SRCDIR)/Interface/Interface_Login_Base.cpp $(INCDIR)/Interface/Interface_Login_Base.hpp $(INCDIR)/Interface/Interface_Menu.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp 
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Login_Base.cpp -o $(OBJDIR)/Interface_Login_Base.o
 
-$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp $(INCDIR)/Interface/Classes_auxiliares/Avisos.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp
+$(OBJDIR)/Interface_Base.o: $(SRCDIR)/Interface/Interface_Base.cpp $(INCDIR)/Interface/Interface_Base.hpp $(INCDIR)/Interface/Classes_auxiliares/Avisos.hpp $(INCDIR)/Cadastro_Jogadores.hpp $(INCDIR)/Jogador.hpp 
 	$(CXX) -c $(CXXFLAGS) $(SRCDIR)/Interface/Interface_Base.cpp -o $(OBJDIR)/Interface_Base.o
 
 $(OBJDIR)/Textos.o: $(SRCDIR)/Interface/Classes_auxiliares/Textos.cpp $(INCDIR)/Interface/Classes_auxiliares/Textos.hpp
