@@ -125,7 +125,7 @@ bool Lig4::testarVitoria() {
            }
         }
 
-    for (int i = 0; i < numLinhas - 4; ++i) {
+    for (int i = 0; i <= numLinhas - 4; ++i) {
         for (int j = 3; j < numColunas; ++j) {
             if (tabuleiro[i][j] == jogadorAtual->getPeca() &&
                 tabuleiro[i + 1][j - 1] == jogadorAtual->getPeca() &&
