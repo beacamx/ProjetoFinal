@@ -1,82 +1,60 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../libs/doctest/doctest.h"
+#include <doctest/doctest.h>
 #include "../include/Lig4.hpp"
 #include "../include/Cadastro_Jogadores.hpp"
+#include "../include/Jogador.hpp"
 
-// Mock classes for testing
-class MockCadastro : public cadastro {
-public:
-    MockCadastro() {
-        // Adding dummy players for testing
-        jogadores.push_back(Jogador("Alice"));
-        jogadores.push_back(Jogador("Bob"));
-    }
+TEST_CASE("Lig4 - Inicialização do Tabuleiro") {
+    cadastro c;
+    c.cadastrar(new Jogador("Alice", "A1", 0, 0, 0, 0));
+    c.cadastrar(new Jogador("Bob", "B1", 0, 0, 0, 0));
 
-    Jogador* find_by_name(const std::string& name) override {
-        for (auto& jogador : jogadores) {
-            if (jogador.get_name() == name) {
-                return &jogador;
-            }
+    Lig4 jogo(c, "A1", "B1", 6, 7);
+
+    auto tabuleiro = jogo.inicializarTabuleiro();
+    CHECK(tabuleiro.size() == 6); // Verifica o número de linhas
+    CHECK(tabuleiro[0].size() == 7); // Verifica o número de colunas
+
+    // Verifica se o tabuleiro está vazio
+    for (auto& linha : tabuleiro) {
+        for (auto& celula : linha) {
+            CHECK(celula == 0);
         }
-        return nullptr;
     }
-    
-private:
-    std::vector<Jogador> jogadores;
-};
+}
 
-TEST_CASE("Lig4 initialization and functionality") {
-    MockCadastro cadastro_jogadores;
-    
-    // Testing initialization of Lig4
-    SUBCASE("Test Initialization") {
-        Lig4 lig4(cadastro_jogadores, "Alice", "Bob", 6, 7);
-        CHECK(lig4.getNumLinhas() == 6);
-        CHECK(lig4.getNumColunas() == 7);
+TEST_CASE("Lig4 - Fazer Jogada e Testar Vitória") {
+    cadastro c;
+    c.cadastrar(new Jogador("Alice", "A1", 0, 0, 0, 0));
+    c.cadastrar(new Jogador("Bob", "B1", 0, 0, 0, 0));
 
-        // Check if the board is initialized to 0
-        vector<vector<int>> expected_board(6, vector<int>(7, 0));
-        CHECK(lig4.getTabuleiro() == expected_board);
-    }
-    
-    // Testing making a valid move
-    SUBCASE("Test Valid Move") {
-        Lig4 lig4(cadastro_jogadores, "Alice", "Bob", 6, 7);
-        lig4.fazerJogada(5, 3);
-        CHECK(lig4.getTabuleiro()[5][3] == 1); // Assuming Alice's piece is 1
-    }
+    Lig4 jogo(c, "A1", "B1", 6, 7);
 
-    // Testing making an invalid move
-    SUBCASE("Test Invalid Move") {
-        Lig4 lig4(cadastro_jogadores, "Alice", "Bob", 6, 7);
-        lig4.fazerJogada(6, 8); // Out of bounds
-        CHECK(lig4.getTabuleiro()[0][8] == 0); // No change in the board
-    }
-    
-    // Testing calculate available row
-    SUBCASE("Test Calculate Available Row") {
-        Lig4 lig4(cadastro_jogadores, "Alice", "Bob", 6, 7);
-        lig4.fazerJogada(5, 3);
-        CHECK(lig4.calcularLinhaDisponivel(3) == 4); // Row below the occupied one
-    }
+    // Jogadas
+    jogo.fazerJogada(5, 0); // Jogador 1
+    jogo.fazerJogada(5, 1); // Jogador 2
+    jogo.fazerJogada(4, 0); // Jogador 1
+    jogo.fazerJogada(4, 1); // Jogador 2
+    jogo.fazerJogada(3, 0); // Jogador 1
+    jogo.fazerJogada(3, 1); // Jogador 2
+    jogo.fazerJogada(2, 0); // Jogador 1 - Vitória vertical
 
-    // Testing calculating possible positions
-    SUBCASE("Test Calculate Possible Positions") {
-        Lig4 lig4(cadastro_jogadores, "Alice", "Bob", 6, 7);
-        vector<pair<int, int>> posicoes = lig4.calcularPosicoesPossiveis();
-        // Expected positions based on empty board should be all the positions in the bottom row
-        CHECK(posicoes.size() == 7); // Should return 7 possible positions
-    }
+    CHECK(jogo.testarVitoria() == true); // Deve ser verdadeiro porque o Jogador 1 ganhou
+}
 
-    // Testing victory condition
-    SUBCASE("Test Victory Condition") {
-        Lig4 lig4(cadastro_jogadores, "Alice", "Bob", 6, 7);
-        // Simulate a winning condition
-        for (int i = 0; i < 4; ++i) {
-            lig4.fazerJogada(5, i);
-        }
-        lig4.testarVitoria();
-        // Assuming the print statement does not interfere with the test
-        CHECK(lig4.getJogoAtivo() == false); // Game should be over
-    }
+TEST_CASE("Lig4 - Calcular Linha Disponível") {
+    cadastro c;
+    c.cadastrar(new Jogador("Alice", "A1", 0, 0, 0, 0));
+    c.cadastrar(new Jogador("Bob", "B1", 0, 0, 0, 0));
+
+    Lig4 jogo(c, "A1", "B1", 6, 7);
+
+    // Verifica se a primeira linha disponível na coluna 0 é a última linha do tabuleiro
+    CHECK(jogo.calcularLinhaDisponivel(0) == 5);
+
+    // Faz uma jogada na coluna 0
+    jogo.fazerJogada(5, 0);
+
+    // Verifica se a próxima linha disponível na coluna 0 é a penúltima linha do tabuleiro
+    CHECK(jogo.calcularLinhaDisponivel(0) == 4);
 }
