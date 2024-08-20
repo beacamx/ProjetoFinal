@@ -60,16 +60,21 @@ make run
 
 ## Tutorial Jogo
 
-#### Connect Four (Lig4)
-Objetivo do Jogo: Ser o primeiro a formar uma linha de quatro peças consecutivas, seja na horizontal, vertical ou diagonal.
+### Connect Four (Lig4)
 
 ##### Como jogar
 
-1. Inicie o jogo e escolha um jogador para começar.
-2. O jogador seleciona uma coluna para soltar sua peça.
-3. O jogo verifica se houve uma vitória ou empate após a jogada.
-4. Caso não tenha havido uma vitória, o turno passa para o próximo jogador.
-5. O jogo continua até que um dos jogadores vença ou o tabuleiro fique cheio.
+1. Jogadas
+   
+  O jogo é jogado com o mouse.
+  Ao iniciar a partida, você verá um tabuleiro na tela.
+  Para fazer uma jogada, clique com o botão esquerdo do mouse na coluna onde deseja         colocar sua peça.
+  A peça cairá na posição mais baixa disponível naquela coluna.
+
+2. Alternância de Turnos:
+
+  Após cada jogada, o turno passa automaticamente para o próximo jogador.
+  Continue jogando até que um jogador consiga alinhar quatro peças ou o tabuleiro fique     completamente cheio.
 
 #### Reversi
 
@@ -77,11 +82,18 @@ Objetivo do Jogo: Possuir mais peças da sua cor do que o oponente ao final da p
 
 ##### Como jogar
 
-1. Coloque uma peça no tabuleiro de modo que capture peças do oponente.
-2. As peças capturadas mudam de cor e pertencem ao jogador que fez a jogada.
-3. O turno passa para o próximo jogador.
-4. O jogo continua até que ambos os jogadores não tenham mais jogadas possíveis.
-5. O jogador com o maior número de peças de sua cor no tabuleiro vence.
+1. Jogadas:
+
+ O jogo é jogado com o mouse.
+ Para fazer uma jogada, clique com o botão esquerdo do mouse na casa onde deseja          posicionar sua peça.
+ Suas peças devem capturar as peças do adversário, virando-as para a sua cor.
+
+2. Alternância de Turnos:
+
+  Após cada jogada, o turno passa automaticamente para o próximo jogador.
+  Continue jogando até que não haja mais movimentos possíveis.
+
+
 
 
 
